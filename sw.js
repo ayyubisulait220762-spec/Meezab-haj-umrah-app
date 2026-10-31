@@ -1,3 +1,4 @@
-const C='meezab-v2',A=['./','index.html','manifest.webmanifest','icon-192.png','icon-512.png','kaaba.jpg','madeenah.jpg','makkah.jpg'];
-self.addEventListener('install',e=>e.waitUntil(caches.open(C).then(c=>c.addAll(A))));
-self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;e.respondWith(fetch(e.request).then(r=>{if(new URL(e.request.url).origin===location.origin){const k=r.clone();caches.open(C).then(c=>c.put(e.request,k))}return r}).catch(()=>caches.match(e.request)))});
+const C='meezab-v3',A=['./','index.html','manifest.webmanifest','icon-192.png','icon-512.png','kaaba.jpg','madeenah.jpg','makkah.jpg','poster-burhan.jpg','poster-mubashshira.jpg','poster-faisal.jpg'];
+self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(C).then(c=>c.addAll(A)).catch(()=>{}))});
+self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C).map(x=>caches.delete(x)))).then(()=>self.clients.claim())));
+self.addEventListener('fetch',e=>{const r=e.request;if(r.method!=='GET'||r.headers.has('range')||/\.mp4(\?|$)/.test(r.url)||new URL(r.url).origin!==location.origin)return;e.respondWith(fetch(r).then(res=>{if(res.status===200){const k=res.clone();caches.open(C).then(c=>c.put(r,k))}return res}).catch(()=>caches.match(r).then(m=>m||caches.match('index.html'))))});
