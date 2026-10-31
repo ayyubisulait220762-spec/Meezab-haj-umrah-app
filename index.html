@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0B0A08">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>Meezab E Rahemat – App Prototype</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Noto+Sans:wght@400;600&family=Noto+Sans+Devanagari:wght@400;600&family=Noto+Sans+Gujarati:wght@400;600&family=Noto+Nastaliq+Urdu:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B0A08;--card:#14110b;--ln:#6b5520;--gold:#E3C262;--tx:#F2E9D0;--mu:#B9AE92;--gr:#1E6B3A;--gg:linear-gradient(135deg,#F6E3A1,#D4AF37 45%,#9C7424);color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:#050403}
+body{display:flex;justify-content:center;align-items:center;color:var(--tx);font-family:'Noto Sans','Noto Sans Devanagari','Noto Sans Gujarati',sans-serif;-webkit-tap-highlight-color:transparent}
+[lang=ur] body{font-family:'Noto Nastaliq Urdu',serif;line-height:1.9}
+#app{position:relative;width:100%;max-width:420px;height:100%;max-height:880px;background:var(--bg);overflow:hidden}
+@media(min-width:500px){#app{border-radius:36px;border:1px solid var(--ln);box-shadow:0 0 80px #d4af3722}}
+button{font:inherit;color:inherit;cursor:pointer;transition:transform .15s}
+button:active{transform:scale(.96)}
+.h{font-family:'Cormorant Garamond',serif;font-weight:700;color:var(--gold);margin:0}
+.mu{color:var(--mu);font-size:13px}
+.scr{position:absolute;inset:0 0 64px;overflow-y:auto;padding:18px 16px 24px;display:flex;flex-direction:column;gap:14px;opacity:0;transform:translateX(36px);pointer-events:none;transition:opacity .45s,transform .55s cubic-bezier(.2,.8,.2,1)}
+[dir=rtl] .scr{transform:translateX(-36px)}
+.scr.on{opacity:1;transform:none;pointer-events:auto}
+.scr.on .r{animation:up .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0)*80ms)}
+@keyframes up{from{opacity:0;transform:translateY(22px)}}
+.scr>*{flex-shrink:0}
+.row{display:flex;align-items:center;gap:10px}
+.logo{width:46px;height:46px;flex:none;border-radius:50%;border:2px solid #D4AF37;display:grid;place-items:center;font-size:18px;color:#14110A;background:var(--gg)}
+.chip{min-height:44px;padding:0 12px;border-radius:22px;border:1px solid var(--ln);background:none;color:var(--gold);font-size:14px}
+.g{background:var(--gg);color:#14110A;border-color:transparent}
+.card{border:1px solid var(--ln);border-radius:20px;background:var(--card);padding:14px}
+.btn{min-height:50px;border-radius:15px;border:0;font-weight:600;font-size:15px;width:100%;position:relative;overflow:hidden}
+.btn.g::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,#fff8 50%,transparent 65%);transform:translateX(-120%);animation:sh 3.2s infinite}
+@keyframes sh{40%,100%{transform:translateX(120%)}}
+.hero{padding:0;overflow:hidden;text-align:center;position:relative}
+.glow{animation:br 4s ease-in-out infinite}
+@keyframes br{50%{opacity:.55}}
+.tw{animation:tw 3s infinite}
+@keyframes tw{50%{opacity:.2}}
+.big{font-size:54px;line-height:1}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.q{min-height:60px;text-align:start;font-weight:600;font-size:14px;display:flex;align-items:center;gap:8px}
+.q i{color:var(--gold);font-style:normal}
+.gr{background:var(--gr);border-radius:16px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center}
+.tag{border:1px solid var(--ln);border-radius:16px;padding:6px 10px;font-size:12px}
+.dot{width:14px;height:14px;border-radius:50%;flex:none;margin-top:5px;background:var(--gg)}
+.lb{display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--mu)}
+.in{min-height:50px;border-radius:13px;border:1px solid var(--ln);background:var(--card);color:var(--tx);padding:0 14px;font:inherit;font-size:16px;width:100%}
+.in:focus{outline:2px solid var(--gold)}
+textarea.in{padding:12px 14px;min-height:96px}
+.nav{position:absolute;inset:auto 0 0;height:64px;display:flex;background:#0f0d09ee;border-top:1px solid #3b2f12;backdrop-filter:blur(12px)}
+.nav button{flex:1;background:none;border:0;font-size:12px;color:var(--mu);position:relative}
+.nav button.on{color:var(--gold);font-weight:600}
+.nav button.on::before{content:"";position:absolute;top:0;left:30%;right:30%;height:2px;background:var(--gg)}
+.st{font-size:34px;background:none;border:0;color:#4a3d18;min-width:44px;min-height:44px}
+.st.on{color:#D4AF37}
+#spl{position:absolute;inset:0;z-index:9;background:radial-gradient(circle at 50% 42%,#4a3810,#0B0A08 65%);display:grid;place-items:center;text-align:center;transition:opacity .7s,visibility .7s}
+#spl.x{opacity:0;visibility:hidden}
+#spl .logo{width:112px;height:112px;font-size:44px;animation:pop 1.2s cubic-bezier(.2,.8,.2,1) both,pulse 2.4s 1.2s infinite}
+@keyframes pop{from{transform:scale(.3) rotate(-90deg);opacity:0}}
+@keyframes pulse{50%{box-shadow:0 0 50px #d4af3788}}
+.ok path{stroke-dasharray:60;stroke-dashoffset:60;animation:dr .8s .2s forwards}
+@keyframes dr{to{stroke-dashoffset:0}}
+.lk{display:grid;place-items:center;text-decoration:none}.o{border:1px solid #D4AF37;background:none;color:var(--gold)}.cs{flex-direction:row;gap:10px;align-items:flex-start}.cs input{width:24px;height:24px;flex:none;accent-color:#D4AF37}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+[dir=rtl] .bk{transform:scaleX(-1)}
+</style>
+</head>
+<body>
+<div id="app">
+<div id="spl"><div><div class="logo h" style="margin:auto;color:#14110A">MR</div><p class="h" style="font-size:30px;margin-top:18px;letter-spacing:2px">MEEZAB E RAHEMAT</p><p class="mu" data-t="tag">Haj · Umrah · Ziyarat Tours</p></div></div>
+
+<section class="scr on" id="home">
+<div class="row r" style="--i:0"><div class="logo h">MR</div><div><p class="h" style="font-size:22px">MEEZAB E RAHEMAT</p><div class="mu" data-t="tag">Haj · Umrah · Ziyarat Tours</div></div></div>
+<div class="row r" style="--i:1;gap:6px"><button class="chip lc g" data-l="en">English</button><button class="chip lc" data-l="ur">اردو</button><button class="chip lc" data-l="hi">हिन्दी</button><button class="chip lc" data-l="gu">ગુજરાતી</button></div>
+<div class="card hero r" style="--i:2"><svg viewBox="0 0 360 210" width="100%" role="img" aria-label="Illustration of the Kaaba and Makkah skyline at night"><defs><radialGradient id="a" cx="50%" cy="50%" r="55%"><stop offset="0" stop-color="#6a5112"/><stop offset="1" stop-color="#0B0A08" stop-opacity="0"/></radialGradient><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F6E3A1"/><stop offset=".5" stop-color="#D4AF37"/><stop offset="1" stop-color="#9C7424"/></linearGradient></defs><rect width="360" height="210" fill="url(#a)" class="glow"/><g fill="#F6E3A1"><circle class="tw" cx="40" cy="30" r="1.4"/><circle class="tw" cx="110" cy="18" r="1"/><circle class="tw" cx="300" cy="34" r="1.4"/><circle class="tw" cx="250" cy="14" r="1"/><circle class="tw" cx="330" cy="80" r="1"/></g><path d="M50 60a16 16 0 1 0 14 24a13 13 0 1 1-14-24z" fill="url(#b)" opacity=".9"/><g fill="#050505" stroke="#9C7424"><rect x="286" y="60" width="26" height="120"/><rect x="292" y="40" width="14" height="20"/><path d="M299 40v-14"/></g><g fill="#050505" stroke="#9C7424"><rect x="40" y="120" width="8" height="60"/><rect x="62" y="130" width="8" height="50"/></g><polygon points="120,80 214,80 214,184 120,184" fill="#050505" stroke="#D4AF37" stroke-width="1.5"/><polygon points="214,80 250,92 250,188 214,184" fill="#14110a" stroke="#D4AF37" stroke-width="1.5"/><rect x="120" y="100" width="94" height="13" fill="url(#b)"/><polygon points="214,100 250,110 250,122 214,113" fill="url(#b)"/><rect x="170" y="134" width="26" height="50" rx="2" fill="#050505" stroke="url(#b)" stroke-width="2"/><ellipse cx="180" cy="194" rx="150" ry="9" fill="#d4af3722"/></svg><div style="padding:0 12px 14px"><div class="row" style="justify-content:center;gap:8px"><span class="h big" id="yrs">27</span><span class="h" style="font-size:20px;max-width:240px;text-align:start" data-t="trust">Years of Trust · Since 2001</span></div><div class="mu" style="font-size:12px;margin-top:6px" data-t="appr">Approved by Ministry of Minority Affairs, Govt of India</div></div></div>
+<div class="card r" style="--i:3;border-color:#D4AF37"><div class="mu" style="letter-spacing:2px;color:var(--gold)">HAJJ 2027 · SIGNATURE PACKAGE</div><div class="row" style="justify-content:space-between;margin:8px 0"><span class="h" style="font-size:32px">₹7,00,000</span><span class="gr" style="padding:6px 12px;font-size:14px;font-weight:600"><bdi>+2% TCS</bdi></span></div><div class="mu"><bdi>34–38 days · 12–15 April · Bombay → Jeddah</bdi></div><button class="btn g" style="margin-top:12px" data-go="pkg" data-t="view">View package</button></div>
+<div class="grid r" style="--i:4"><button class="card q" data-go="reg" data-um><i>◆</i><span data-t="umr">Umrah packages</span></button><button class="card q" data-go="reg"><i>◆</i><span data-t="reg">Register interest</span></button><button class="card q" data-go="fb"><i>◆</i><span data-t="fb">Pilgrim feedback</span></button><button class="card q" data-go="news"><i>◆</i><span data-t="news">Haj news</span></button></div>
+<div class="card hero r" style="--i:5"><svg viewBox="0 0 360 110" width="100%" role="img" aria-label="Illustration of the Green Dome in Madeenah"><rect width="360" height="110" fill="#0e1a12"/><g fill="#050505" stroke="#9C7424"><rect x="60" y="30" width="10" height="80"/><rect x="290" y="30" width="10" height="80"/><rect x="110" y="70" width="140" height="40"/></g><path d="M150 70a30 30 0 0 1 60 0z" fill="#1E6B3A" stroke="#4ea36a"/><path d="M180 40v-14" stroke="#D4AF37" stroke-width="2"/><circle cx="180" cy="24" r="3" fill="#D4AF37"/></svg><div style="padding:10px 14px 14px"><div class="h" style="font-size:20px">Ziyarat · Makkah &amp; Madeenah</div></div></div>
+</section>
+
+<section class="scr" id="pkg">
+<div class="row r"><button class="chip bk" data-go="home" aria-label="Back">←</button><p class="h" style="font-size:25px">Hajj 2027 Signature</p></div>
+<div class="gr r" style="--i:1"><span class="h" style="font-size:36px;color:#F6E3A1">₹7,00,000/-</span><b><bdi>+2% TCS</bdi></b></div>
+<div class="grid r" style="--i:2"><div class="card"><div class="mu" style="color:var(--gold)">DURATION</div><b>34–38 days</b></div><div class="card"><div class="mu" style="color:var(--gold)">MASHAER</div><b>Zone 5 · Category C/D</b></div><div class="card"><div class="mu" style="color:var(--gold)">DEPARTURE</div><b><bdi>12–15 April<br>Bombay → Jeddah</bdi></b></div><div class="card"><div class="mu" style="color:var(--gold)">RETURN</div><b><bdi>21–22 May<br>Jeddah → Bombay</bdi></b></div></div>
+<p class="h r" style="font-size:22px;--i:3">Where you stay</p>
+<div class="card r" style="--i:3;display:flex;flex-direction:column;gap:14px"><div class="row" style="align-items:flex-start"><div class="dot"></div><div><b>Makkah · Jabal Omar</b><div class="mu">Hilton Convention / Marriott or similar 5-star</div></div></div><div class="row" style="align-items:flex-start"><div class="dot"></div><div><b>Madeenah · Markaziya</b><div class="mu">Manazil Al Sadiq or similar</div></div></div><div class="row" style="align-items:flex-start"><div class="dot"></div><div><b>Makkah · Aziziya</b><div class="mu">Shar-E-Mansoor or similar</div></div></div></div>
+<p class="h r" style="font-size:22px;--i:4">Package includes</p>
+<div class="r" style="--i:4;display:flex;flex-wrap:wrap;gap:8px"><span class="tag">✓ Return air ticket</span><span class="tag">✓ Makkah shifting accommodation</span><span class="tag">✓ GST</span><span class="tag">✓ Daily hygienic Indian meals</span><span class="tag">✓ Local transport in Saudi Arabia</span><span class="tag">✓ Ziyarat in Makkah &amp; Madeenah</span><span class="tag">✓ Laundry service</span><span class="tag">✓ Zam Zam</span><span class="tag">✓ Hajj kit</span><span class="tag">✓ Experienced Hajj team</span><span class="tag">✓ Complete guidance &amp; assistance</span><span class="tag">✓ Applicable taxes</span></div>
+<div class="row r" style="--i:5"><button class="btn g" data-go="reg" data-t="reg">Register interest</button></div>
+</section>
+
+<section class="scr" id="reg">
+<div class="row r"><button class="chip bk" data-go="home" aria-label="Back">←</button><p class="h" style="font-size:26px" data-t="reg">Register interest</p></div>
+<form id="f" style="display:flex;flex-direction:column;gap:14px" onsubmit="return false">
+<div class="mu r" style="--i:1">Tell us a little. Our team will call you and guide you personally.</div>
+<label class="lb r" style="--i:1">Full name<input class="in" type="text" placeholder="As on passport"></label>
+<label class="lb r" style="--i:2">Mobile number<input class="in" type="tel" placeholder="10-digit number"></label>
+<label class="lb r" style="--i:2">City<input class="in" type="text" placeholder="e.g. Malegaon"></label>
+<div class="lb r" style="--i:3">I am interested in<div class="row sg" style="gap:6px"><button type="button" class="chip g">Hajj 2027</button><button type="button" class="chip">Umrah</button><button type="button" class="chip">Not sure yet</button></div></div>
+<div class="lb r" style="--i:3">Travelers<div class="row"><button type="button" class="chip" id="mi" aria-label="Fewer">−</button><span class="h" style="font-size:30px;min-width:40px;text-align:center" id="nt">2</span><button type="button" class="chip" id="pl" aria-label="More">+</button></div></div>
+<label class="lb cs r" style="--i:4"><input type="checkbox" id="cs">I agree that Meezab E Rahemat may contact me about Haj and Umrah packages.</label><div class="mu" id="er" style="color:#ff8a7a"></div><button class="btn g r" style="--i:4" id="sb" data-t="send">Send request</button>
+<div class="card mu r" style="--i:5;border-style:dashed">Documents and payment are handled at our office: 461/B, Khayaban Nishat Chowk, Motipura, Malegaon.</div></form>
+<div id="done" hidden style="text-align:center;padding-top:40px"><svg class="ok" width="96" height="96" viewBox="0 0 96 96" fill="none" role="img" aria-label="Sent"><circle cx="48" cy="48" r="44" stroke="#D4AF37" stroke-width="3"/><path d="M28 50l14 14 27-30" stroke="#E3C262" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg><p class="h" style="font-size:28px;margin-top:14px">Jazakallah Khair</p><p class="mu">WhatsApp opened with your details. Please press Send there so our team can call you.</p><button class="btn g" data-go="home" style="margin-top:12px">Back to home</button></div>
+</section>
+
+<section class="scr" id="fb">
+<p class="h r" style="font-size:28px" data-t="fb">Pilgrim feedback</p>
+<div class="card r" style="--i:1"><div class="mu">How was your journey with us?</div><div class="row" id="stars" style="gap:0"><button class="st" aria-label="1 star">★</button><button class="st" aria-label="2 stars">★</button><button class="st" aria-label="3 stars">★</button><button class="st" aria-label="4 stars">★</button><button class="st" aria-label="5 stars">★</button></div><textarea class="in" placeholder="Your words, in any language"></textarea><button class="btn g" id="fbs" style="margin-top:10px">Send feedback</button></div>
+<div class="card r" style="--i:2"><b>[Pilgrim name] · Hajj [year]</b><div class="mu">[Testimonial appears here after you approve it]</div></div>
+<div class="card r" style="--i:3"><b>[Pilgrim name] · Umrah [year]</b><div class="mu">[Video or text testimonial]</div></div>
+</section>
+
+<section class="scr" id="news">
+<p class="h r" style="font-size:28px" data-t="news">Haj news</p>
+<div class="card r" style="--i:1;border-color:#D4AF37"><div class="mu" style="color:var(--gold)">4 OCT 2026 · IANS</div><b>India and Saudi Arabia review preparations for Haj 2027</b><div class="mu" style="margin-top:6px">India’s Ambassador met Saudi Arabia’s Vice Minister of Hajj and Umrah and inspected the Haj Terminal at Jeddah Airport.</div></div>
+<div class="card r mu" id="nph" style="--i:2;border-style:dashed">More updates coming soon, in sha Allah.</div>
+</section>
+
+<section class="scr" id="contact"><p class="h r" style="font-size:28px" data-t="n5">Contact</p><div id="cl" style="display:flex;flex-direction:column;gap:14px"></div><div class="card r" style="--i:6"><b>Meezab E Rahemat Haj Umrah and Ziyarat Tours</b><div class="mu">461/B, Khayaban Nishat Chowk, Motipura, Malegaon</div><div class="row" style="margin-top:8px"><a class="btn g lk" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=461/B+Khayaban+Nishat+Chowk+Motipura+Malegaon">Map</a><a class="btn lk o" target="_blank" rel="noopener" href="https://www.instagram.com/meezab_e_rahemat">Instagram</a></div></div></section>
+<nav class="nav"><button class="on" data-go="home" data-t="n1">Home</button><button data-go="pkg" data-t="n2">Packages</button><button data-go="news" data-t="n3">News</button><button data-go="fb" data-t="n4">Feedback</button><button data-go="contact" data-t="n5">Contact</button></nav>
+</div>
+<script>
+const T={en:{tag:"Haj · Umrah · Ziyarat Tours",trust:"Years of Trust · Since 2001",appr:"Approved by Ministry of Minority Affairs, Govt of India",view:"View package",umr:"Umrah packages",reg:"Register interest",fb:"Pilgrim feedback",news:"Haj news",send:"Send request",n1:"Home",n2:"Packages",n3:"News",n4:"Feedback",n5:"Contact"},
+ur:{tag:"حج · عمرہ · زیارات ٹورز",trust:"سال کا اعتماد · ۲۰۰۱ سے",appr:"وزارتِ اقلیتی امور، حکومتِ ہند سے منظور شدہ",view:"پیکج دیکھیں",umr:"عمرہ پیکجز",reg:"دلچسپی درج کریں",fb:"حاجیوں کی رائے",news:"حج کی خبریں",send:"درخواست بھیجیں",n1:"ہوم",n2:"پیکجز",n3:"خبریں",n4:"رائے",n5:"رابطہ"},
+hi:{tag:"हज · उमराह · ज़ियारत टूर्स",trust:"साल का भरोसा · 2001 से",appr:"अल्पसंख्यक कार्य मंत्रालय, भारत सरकार से मान्यता प्राप्त",view:"पैकेज देखें",umr:"उमराह पैकेज",reg:"रुचि दर्ज करें",fb:"हाजियों की राय",news:"हज की ख़बरें",send:"अनुरोध भेजें",n1:"होम",n2:"पैकेज",n3:"ख़बरें",n4:"राय",n5:"संपर्क"},
+gu:{tag:"હજ · ઉમરાહ · ઝિયારત ટૂર્સ",trust:"વર્ષનો વિશ્વાસ · 2001 થી",appr:"લઘુમતી બાબતોના મંત્રાલય, ભારત સરકાર દ્વારા માન્ય",view:"પેકેજ જુઓ",umr:"ઉમરાહ પેકેજ",reg:"રસ નોંધાવો",fb:"હાજીઓનો અભિપ્રાય",news:"હજના સમાચાર",send:"વિનંતી મોકલો",n1:"હોમ",n2:"પેકેજ",n3:"સમાચાર",n4:"અભિપ્રાય",n5:"સંપર્ક"}};
+const $=s=>document.querySelectorAll(s);
+function setLang(l){const d=document.documentElement;d.lang=l;d.dir=l=='ur'?'rtl':'ltr';$('[data-t]').forEach(e=>e.textContent=T[l][e.dataset.t]);$('.lc').forEach(b=>b.classList.toggle('g',b.dataset.l==l))}
+function count(){const e=document.getElementById('yrs');let n=0;const t=setInterval(()=>{e.textContent=++n;if(n>=27)clearInterval(t)},35)}
+const ids=['home','pkg','reg','fb','news','contact'];
+function go(id,nh){ids.forEach(i=>document.getElementById(i).classList.toggle('on',i==id));$('.nav button').forEach(b=>b.classList.toggle('on',b.dataset.go==id));document.getElementById(id).scrollTop=0;if(id=='home')count();if(id=='reg'){const f=document.getElementById('f');f.reset();f.hidden=false;document.getElementById('done').hidden=true;document.getElementById('er').textContent=''}if(!nh){try{history.pushState(null,'','#'+id)}catch(e){}}}
+addEventListener('popstate',()=>{const h=location.hash.slice(1);go(ids.includes(h)?h:'home',1)});
+$('[data-go]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.go)));
+$('.lc').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.l)));
+document.querySelector('[data-um]').addEventListener('click',()=>{$('.sg .chip').forEach((c,i)=>c.classList.toggle('g',i==1))});
+$('.sg .chip').forEach(b=>b.addEventListener('click',()=>{$('.sg .chip').forEach(c=>c.classList.remove('g'));b.classList.add('g')}));
+$('#stars .st').forEach((s,i,a)=>s.addEventListener('click',()=>a.forEach((x,j)=>x.classList.toggle('on',j<=i))));
+let n=2;const nt=document.getElementById('nt');
+document.getElementById('pl').onclick=()=>nt.textContent=n=Math.min(20,n+1);
+document.getElementById('mi').onclick=()=>nt.textContent=n=Math.max(1,n-1);
+const OFFICE_WA='917038422399',LEAD_URL='';
+function wa(m){window.open('https://wa.me/'+OFFICE_WA+'?text='+encodeURIComponent(m),'_blank','noopener')}
+function keep(o){try{const a=JSON.parse(localStorage.getItem('leads')||'[]');a.push(o);localStorage.setItem('leads',JSON.stringify(a))}catch(e){}if(LEAD_URL){try{fetch(LEAD_URL,{method:'POST',mode:'no-cors',body:JSON.stringify(o)})}catch(e){}}}
+document.getElementById('sb').onclick=()=>{const v=[...$('#f .in')].map(x=>x.value.trim()),m=v[1].replace(/\D/g,'').slice(-10),er=document.getElementById('er');if(!v[0]||m.length<10||!document.getElementById('cs').checked){er.textContent='Please enter your name, a 10-digit mobile number and tick the consent box.';return}er.textContent='';const it=document.querySelector('.sg .chip.g').textContent;keep({name:v[0],mobile:m,city:v[2],interest:it,travelers:n,at:new Date().toISOString()});wa('Assalamu Alaikum. I am interested in '+it+'.\nName: '+v[0]+'\nMobile: '+m+'\nCity: '+v[2]+'\nTravelers: '+n+'\n(Sent from the Meezab E Rahemat app)');document.getElementById('f').hidden=true;document.getElementById('done').hidden=false};
+document.getElementById('fbs').onclick=()=>{const s=$('#stars .st.on').length,t=document.querySelector('#fb textarea').value.trim();if(!s&&!t)return;keep({type:'Feedback',interest:s+'/5 stars',notes:t,at:new Date().toISOString()});wa('Feedback: '+s+'/5 stars\n'+t+'\n(Sent from the Meezab E Rahemat app)')};
+if(LEAD_URL)fetch(LEAD_URL+'?action=news').then(r=>r.json()).then(a=>{const n=document.getElementById('news'),ph=document.getElementById('nph');a.forEach((x,i)=>{const c=document.createElement('div');c.className='card r';c.style.setProperty('--i',i+1);[['mu',x.date],['b',x.title],['mu',x.text]].forEach(([k,t])=>{const d=document.createElement(k=='b'?'b':'div');if(k=='mu')d.className='mu';d.textContent=t||'';c.appendChild(d)});n.insertBefore(c,ph)});ph.hidden=a.length>0}).catch(()=>{});
+const P=[['Ismail Ayyubi','9823584669'],['Sulait Ayyubi','7038422399'],['Basil Ayyubi','7020329450'],['Mohammad Ayyubi','8669002917']];
+document.getElementById('cl').innerHTML=P.map(([a,t],i)=>'<div class="card r" style="--i:'+(i+1)+'"><b>'+a+'</b><div class="mu">+91 '+t+'</div><div class="row" style="margin-top:8px"><a class="btn g lk" href="tel:+91'+t+'">Call</a><a class="btn lk o" target="_blank" rel="noopener" href="https://wa.me/91'+t+'">WhatsApp</a></div></div>').join('');
+let sp=0;function hide(){if(sp)return;sp=1;document.getElementById('spl').classList.add('x');count()}
+setTimeout(hide,2300);
+document.getElementById('spl').onclick=hide;
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js');
+</script>
+</body>
+</html>
