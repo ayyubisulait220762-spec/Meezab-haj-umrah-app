@@ -509,6 +509,48 @@ textarea.in{padding:14px 16px;min-height:104px;resize:vertical}
 .web small{font-size:11px;color:var(--mu);font-weight:600}
 .web b{font-size:15px;color:var(--g2)}
 .jim{display:block;width:100%;height:132px;object-fit:cover;border-radius:16px;margin-top:10px;border:1px solid var(--ln)}
+/* v11: Long Stay animated itinerary */
+.lsi{display:flex;flex-direction:column;gap:14px}
+.lsp{flex:none;width:100%}
+.lsp svg{width:18px;height:18px}
+.lsk{display:flex;gap:3px;height:30px;border-radius:10px;overflow:hidden;border:1px solid var(--ln)}
+.lsk>span{position:relative;display:flex;align-items:center;justify-content:center;background:var(--card);min-width:0}
+.lsk>span i{position:absolute;inset:0;background:var(--gg);transform-origin:left;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+[dir=rtl] .lsk>span i{transform-origin:right}
+.lsk>span em{position:relative;font-style:normal;font-size:10.5px;font-weight:700;color:#15110A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 3px;transition:color .4s}
+.lsi.run .lsk>span:not(.on) i{transform:scaleX(0)}
+.lsi.run .lsk>span:not(.on) em{color:var(--mu)}
+.lsl{font-size:11px;color:var(--mu);margin-top:-9px}
+.lst{position:relative;padding-inline-start:48px;display:flex;flex-direction:column;gap:12px}
+.lsr,.lsf{position:absolute;inset-inline-start:17px;top:18px;width:2px}
+.lsr{bottom:18px;background:var(--ln)}
+.lsf{height:calc(100% - 36px);background:linear-gradient(#F8E4A6,#A87B28);transition:height .9s cubic-bezier(.6,.05,.3,1)}
+.lsm{position:absolute;inset-inline-start:0;top:0;width:36px;height:36px;border-radius:50%;background:var(--gg);color:#15110A;display:grid;place-items:center;z-index:2;transition:transform .9s cubic-bezier(.6,.05,.3,1);box-shadow:0 0 0 5px #08070A,0 0 16px #E6C36A80}
+.lsm svg{width:19px;height:19px}
+.lsm.pu{animation:lspu 1.6s ease-out infinite}
+@keyframes lspu{0%{box-shadow:0 0 0 5px #08070A,0 0 0 5px #E6C36A90}100%{box-shadow:0 0 0 5px #08070A,0 0 0 20px #E6C36A00}}
+.ls{position:relative;padding:12px 14px;border-radius:16px;border:1px solid transparent;transition:opacity .5s,background .5s,border-color .5s;cursor:pointer}
+.ls::before{content:"";position:absolute;inset-inline-start:-36px;top:17px;width:12px;height:12px;border-radius:50%;background:#08070A;border:2px solid var(--gold)}
+.ls.lsg{padding-block:4px}
+.ls.lsg::before{width:8px;height:8px;inset-inline-start:-34px;top:9px;border-color:var(--ln)}
+.ls small{display:block;font-size:11px;letter-spacing:1.5px;color:var(--gold);font-weight:700}
+.ls .lh{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.ls b{font-size:16px;min-width:0}
+.ls.lsg b{font-size:13.5px;font-weight:600;color:var(--mu)}
+.ls p{margin:2px 0 0;font-size:13px;color:var(--mu)}
+.lsd{flex:none;font-size:11.5px;font-weight:700;color:var(--gold);border:1px solid var(--ln);border-radius:99px;padding:2px 9px;white-space:nowrap}
+.lsc{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.lsc span{font-size:12.5px;padding:4px 10px;border-radius:99px;background:var(--card2);border:1px solid var(--ln);color:var(--tx)}
+.lsh{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;margin-top:9px}
+.lsh div{background:var(--card2);border:1px solid var(--ln);border-radius:12px;padding:7px 3px;text-align:center;min-width:0}
+.lsh b{display:block;font-family:var(--fd);font-size:19px;color:var(--gold)}
+.lsh small{font-size:10px;letter-spacing:0;color:var(--mu);font-weight:500;line-height:1.25}
+.lsi.run .ls:not(.dn):not(.on){opacity:.4}
+.ls.on{background:var(--card);border-color:var(--ln)}
+.ls.on .lsc span,.ls.on .lsh div{animation:lspop .5s both}
+@keyframes lspop{from{opacity:0;transform:translateY(8px) scale(.94)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.lsm,.lsf,.ls,.lsk>span i{transition:none}.lsm.pu,.ls.on .lsc span,.ls.on .lsh div{animation:none}}
+
 /* feedback header with photo */
 .fbh{height:300px}
 .fbh .par img{object-position:50% 48%}
@@ -923,41 +965,41 @@ const CITYN={en:{BOM:'Mumbai',MED:'Madinah',JED:'Jeddah'},ur:{BOM:'ممبئی',M
 /* package text in each language (journey: [label, title, sub]; inc: [title, description], same order as PKM icons) */
 const PKT={
 en:{
-long:{name:'Long Stay',kick:'HAJJ 2027 · 5-STAR PREMIUM',title:'Long Stay Package',days:'39–43 days',line:'39–43 days · Madinah first',share:'Based on standard 5‑bed sharing · +2% TCS',why:'Your journey begins in Madinah, the better-value route to Hajj. Travelling straight to Makkah in this period costs more.',mashaer:'Zone 5 · Category C',dep:'8–10 April',depR:'Mumbai → Madinah',ret:'19–22 May',retR:'Jeddah → Mumbai',
-journey:[['DEPARTURE · 8–10 APRIL','Mumbai → Madinah',''],['01 · MADINAH','Markaziya','Crowne Plaza or a similar 5-star hotel'],['02 · MAKKAH','Jabal Omar','Hilton Convention / Marriott or a similar 5-star hotel'],['03 · MAKKAH','Aziziya','Shar-E-Mansoor or a similar hotel'],['RETURN · 19–22 MAY','Jeddah → Mumbai','']],
+long:{name:'Long Stay',kick:'HAJJ 2027 · 5-STAR PREMIUM',title:'Long Stay Package',days:'41–44 days',line:'41–44 days · Madinah first',share:'Based on standard 5‑bed sharing · +2% TCS',why:'Your journey begins in Madinah, the better-value route to Hajj. Travelling straight to Makkah in this period costs more.',mashaer:'Zone 5 · Category C',dep:'8–10 April',depR:'Mumbai → Madinah',ret:'19–22 May',retR:'Jeddah → Mumbai',
+journey:[['DEPARTURE · 8–10 APRIL','Mumbai → Madinah',''],['01 · MADINAH','Markaziya','Crowne Plaza or a similar 5-star hotel'],['02 · MAKKAH','Jabal Omar','Hilton Convention / Marriott or a similar 5-star hotel'],['03 · MAKKAH','Aziziya','Shifting hotel'],['RETURN · 19–22 MAY','Jeddah → Mumbai','']],
 inc:[['Return air ticket','Mumbai → Madinah on the way out, Jeddah → Mumbai on the way back.'],['Accommodation','Hotels in Makkah and Madinah — tap to see photos.'],['Makkah shifting accommodation','Accommodation in Makkah, including the shifting stay.'],['Indian buffet meals','Delicious Indian food served buffet-style, with hot and cold drinks.'],['Luxury A/C bus transfers','Transfers in Saudi Arabia by luxury air-conditioned buses.'],['Ziyarat in Makkah & Madinah','In A/C buses, guided by an experienced Moallim.'],['Taif Ziyarat with Umrah','A visit to Taif, together with Umrah.'],['Mashaer arrangements','Tents, food and travel in Mina, Arafat and Muzdalifah.'],['Haj orientation programme','An introductory meeting where pilgrims are given the full schedule of tickets, visa and the travel itinerary.'],['Laundry service','Your clothes are washed and returned during your stay.'],['5 litres of Zamzam','5 litres of Zamzam water to take home.'],['Hajj kit','You receive a Hajj kit: 3 trolley bags, a sling bag for your passport, a backpack, a chappal bag, Ihram for Umrah (1 pair), a dupatta for women, a prayer mat, an umbrella, a tasbeeh, a dua book and a water bottle.'],['Experienced Hajj team','Our experienced team travels with you.'],['Complete guidance & assistance','Step-by-step guidance for every ritual of Hajj.'],['GST & applicable taxes','GST and applicable taxes are included.']]},
 signature:{name:'Signature',kick:'HAJJ 2027 · SIGNATURE',title:'Signature Package',days:'34–38 days',line:'34–38 days · Makkah first',share:'Based on standard 5‑bed sharing · +2% TCS',mashaer:'Zone 5 · Category C',dep:'12–15 April',depR:'Mumbai → Jeddah',ret:'21–22 May',retR:'Jeddah → Mumbai',
-journey:[['DEPARTURE · 12–15 APRIL','Mumbai → Jeddah',''],['01 · MAKKAH','Jabal Omar','Hilton Convention / Marriott or a similar 5-star hotel'],['02 · MADINAH','Markaziya','Manazil Al Sadiq or a similar hotel'],['03 · MAKKAH','Aziziya','Shar-E-Mansoor or a similar hotel'],['RETURN · 21–22 MAY','Jeddah → Mumbai','']],
+journey:[['DEPARTURE · 12–15 APRIL','Mumbai → Jeddah',''],['01 · MAKKAH','Jabal Omar','Hilton Convention / Marriott or a similar 5-star hotel'],['02 · MADINAH','Markaziya','Manazil Al Sadiq or a similar hotel'],['03 · MAKKAH','Aziziya','Shifting hotel'],['RETURN · 21–22 MAY','Jeddah → Mumbai','']],
 inc:[['Return air ticket','Mumbai → Jeddah on the way out, Jeddah → Mumbai on the way back.'],['Accommodation','Hotels in Makkah and Madinah — tap to see photos.'],['Makkah shifting accommodation','Accommodation in Makkah, including the shifting stay.'],['Daily hygienic Indian meals','Fresh, hygienic Indian meals every day.'],['Local transport in Saudi Arabia','All local transport during the journey.'],['Ziyarat in Makkah & Madinah','Guided visits to the holy sites.'],['Taif Ziyarat with Umrah','A visit to Taif, together with Umrah.'],['Mashaer arrangements','Tents, food and travel in Mina, Arafat and Muzdalifah.'],['Haj orientation programme','An introductory meeting where pilgrims are given the full schedule of tickets, visa and the travel itinerary.'],['Laundry service','Your clothes are washed and returned during your stay.'],['Zamzam','Zamzam water to take home.'],['Hajj kit','You receive a Hajj kit: 3 trolley bags, a sling bag for your passport, a backpack, a chappal bag, Ihram for Umrah (1 pair), a dupatta for women, a prayer mat, an umbrella, a tasbeeh, a dua book and a water bottle.'],['Experienced Hajj team','Our experienced team travels with you.'],['Complete guidance & assistance','Step-by-step guidance for every ritual of Hajj.'],['GST & applicable taxes','GST and applicable taxes are included.']]},
 short:{name:'Short',kick:'HAJJ 2027 · 15–17 DAYS',title:'Short Package',days:'15–17 days',line:'15–17 days · Makkah first',share:'Based on standard 5‑bed sharing · +2% TCS',mashaer:'Zone 5 · Category C',dep:'7/8 May 2027',depR:'Mumbai → Jeddah',ret:'22–24 May 2027',retR:'Madinah → Mumbai',
 journey:[['7/8 MAY 2027','Mumbai → Jeddah','Arrival in Jeddah, transfer to Makkah, shifting accommodation'],['HAJJ · 5 DAYS','Days of Mashaer','As per the Hajj movement schedule'],['AFTER HAJJ · 2–3 DAYS','Makkah','Rest and post-Hajj arrangements'],['MADINAH · 3–4 DAYS','Madinah','Transfer to Madinah, stay and Ziyarat'],['22–24 MAY 2027','Madinah → Mumbai','Return to India']],
 inc:[['Return air ticket','Mumbai → Jeddah on the way out, Madinah → Mumbai on the way back.'],['Accommodation','Hotels in Makkah and Madinah — tap to see photos.'],['Makkah shifting accommodation','Accommodation in Makkah, including the shifting stay.'],['Madinah stay (3–4 nights)','3 to 4 nights in Madinah, with Ziyarat.'],['Daily hygienic Indian meals','Fresh, hygienic Indian meals every day.'],['Local transport in Saudi Arabia','All local transport during the journey.'],['Ziyarat in Makkah & Madinah','Guided visits to the holy sites.'],['Taif Ziyarat with Umrah','A visit to Taif, together with Umrah.'],['Mashaer arrangements','Tents, food and travel in Mina, Arafat and Muzdalifah.'],['Haj orientation programme','An introductory meeting where pilgrims are given the full schedule of tickets, visa and the travel itinerary.'],['Laundry service','Your clothes are washed and returned during your stay.'],['Zamzam','Zamzam water to take home.'],['Hajj kit','You receive a Hajj kit: 3 trolley bags, a sling bag for your passport, a backpack, a chappal bag, Ihram for Umrah (1 pair), a dupatta for women, a prayer mat, an umbrella, a tasbeeh, a dua book and a water bottle.'],['Experienced Hajj team','Our experienced team travels with you.'],['Complete guidance & assistance','Step-by-step guidance for every ritual of Hajj.'],['Applicable taxes','Applicable taxes are included.']]}},
 ur:{
-long:{name:'لانگ اسٹے',kick:'حج 2027 · فائیو اسٹار پریمیم',title:'لانگ اسٹے پیکج',days:'39–43 دن',line:'39–43 دن · پہلے مدینہ',share:'معیاری 5 بیڈ شیئرنگ کی بنیاد پر · +2% TCS',why:'آپ کا سفر مدینہ منورہ سے شروع ہوتا ہے، جو حج کے لیے زیادہ کفایتی راستہ ہے۔ اس مدت میں براہِ راست مکہ جانا زیادہ مہنگا پڑتا ہے۔',mashaer:'زون 5 · کیٹیگری C',dep:'8–10 اپریل',depR:'ممبئی ← مدینہ',ret:'19–22 مئی',retR:'جدہ ← ممبئی',
-journey:[['روانگی · 8–10 اپریل','ممبئی ← مدینہ',''],['01 · مدینہ','مرکزیہ','Crowne Plaza یا اسی درجے کا 5 اسٹار ہوٹل'],['02 · مکہ','جبلِ عمر','Hilton Convention / Marriott یا اسی درجے کا 5 اسٹار ہوٹل'],['03 · مکہ','عزیزیہ','Shar-E-Mansoor یا اسی طرح کا ہوٹل'],['واپسی · 19–22 مئی','جدہ ← ممبئی','']],
+long:{name:'لانگ اسٹے',kick:'حج 2027 · فائیو اسٹار پریمیم',title:'لانگ اسٹے پیکج',days:'41–44 دن',line:'41–44 دن · پہلے مدینہ',share:'معیاری 5 بیڈ شیئرنگ کی بنیاد پر · +2% TCS',why:'آپ کا سفر مدینہ منورہ سے شروع ہوتا ہے، جو حج کے لیے زیادہ کفایتی راستہ ہے۔ اس مدت میں براہِ راست مکہ جانا زیادہ مہنگا پڑتا ہے۔',mashaer:'زون 5 · کیٹیگری C',dep:'8–10 اپریل',depR:'ممبئی ← مدینہ',ret:'19–22 مئی',retR:'جدہ ← ممبئی',
+journey:[['روانگی · 8–10 اپریل','ممبئی ← مدینہ',''],['01 · مدینہ','مرکزیہ','Crowne Plaza یا اسی درجے کا 5 اسٹار ہوٹل'],['02 · مکہ','جبلِ عمر','Hilton Convention / Marriott یا اسی درجے کا 5 اسٹار ہوٹل'],['03 · مکہ','عزیزیہ','شفٹنگ ہوٹل'],['واپسی · 19–22 مئی','جدہ ← ممبئی','']],
 inc:[['آنے جانے کا ہوائی ٹکٹ','جاتے وقت ممبئی سے مدینہ، اور واپسی پر جدہ سے ممبئی۔'],['رہائش','مکہ اور مدینہ کے ہوٹل — تصاویر دیکھنے کے لیے ٹیپ کریں۔'],['مکہ میں شفٹنگ رہائش','مکہ میں رہائش، شفٹنگ قیام سمیت۔'],['ہندوستانی بوفے کھانا','لذیذ ہندوستانی کھانا بوفے انداز میں، گرم اور ٹھنڈے مشروبات کے ساتھ۔'],['لگژری اے سی بس ٹرانسفر','سعودی عرب میں تمام منتقلی لگژری ایئر کنڈیشنڈ بسوں سے۔'],['مکہ اور مدینہ کی زیارات','اے سی بسوں میں، تجربہ کار معلم کی رہنمائی میں۔'],['عمرہ کے ساتھ طائف کی زیارت','عمرہ کے ساتھ طائف کی زیارت۔'],['مشاعر کے انتظامات','منیٰ، عرفات اور مزدلفہ میں خیمے، کھانا اور سفر۔'],['حج اورینٹیشن پروگرام','تعارفی نشست جس میں حاجیوں کو ٹکٹ، ویزا اور سفر کے پروگرام کا مکمل شیڈول دیا جاتا ہے۔'],['لانڈری سروس','قیام کے دوران آپ کے کپڑے دھو کر واپس کیے جائیں گے۔'],['5 لیٹر آبِ زمزم','گھر لے جانے کے لیے 5 لیٹر آبِ زمزم۔'],['حج کٹ','آپ کو حج کٹ ملتی ہے: 3 ٹرالی بیگ، پاسپورٹ کے لیے سلنگ بیگ، بیک پیک، چپل بیگ، عمرہ کا احرام (1 جوڑا)، خواتین کے لیے دوپٹہ، جائے نماز، چھتری، تسبیح، دعا کی کتاب اور پانی کی بوتل۔'],['تجربہ کار حج ٹیم','ہماری تجربہ کار ٹیم آپ کے ساتھ سفر کرتی ہے۔'],['مکمل رہنمائی اور مدد','حج کے ہر رکن کے لیے قدم بہ قدم رہنمائی۔'],['جی ایس ٹی اور لاگو ٹیکس','جی ایس ٹی اور لاگو ٹیکس شامل ہیں۔']]},
 signature:{name:'سگنیچر',kick:'حج 2027 · سگنیچر',title:'سگنیچر پیکج',days:'34–38 دن',line:'34–38 دن · پہلے مکہ',share:'معیاری 5 بیڈ شیئرنگ کی بنیاد پر · +2% TCS',mashaer:'زون 5 · کیٹیگری C',dep:'12–15 اپریل',depR:'ممبئی ← جدہ',ret:'21–22 مئی',retR:'جدہ ← ممبئی',
-journey:[['روانگی · 12–15 اپریل','ممبئی ← جدہ',''],['01 · مکہ','جبلِ عمر','Hilton Convention / Marriott یا اسی درجے کا 5 اسٹار ہوٹل'],['02 · مدینہ','مرکزیہ','Manazil Al Sadiq یا اسی طرح کا ہوٹل'],['03 · مکہ','عزیزیہ','Shar-E-Mansoor یا اسی طرح کا ہوٹل'],['واپسی · 21–22 مئی','جدہ ← ممبئی','']],
+journey:[['روانگی · 12–15 اپریل','ممبئی ← جدہ',''],['01 · مکہ','جبلِ عمر','Hilton Convention / Marriott یا اسی درجے کا 5 اسٹار ہوٹل'],['02 · مدینہ','مرکزیہ','Manazil Al Sadiq یا اسی طرح کا ہوٹل'],['03 · مکہ','عزیزیہ','شفٹنگ ہوٹل'],['واپسی · 21–22 مئی','جدہ ← ممبئی','']],
 inc:[['آنے جانے کا ہوائی ٹکٹ','جاتے وقت ممبئی سے جدہ، اور واپسی پر جدہ سے ممبئی۔'],['رہائش','مکہ اور مدینہ کے ہوٹل — تصاویر دیکھنے کے لیے ٹیپ کریں۔'],['مکہ میں شفٹنگ رہائش','مکہ میں رہائش، شفٹنگ قیام سمیت۔'],['روزانہ صاف ستھرا ہندوستانی کھانا','ہر روز تازہ اور صاف ستھرا ہندوستانی کھانا۔'],['سعودی عرب میں مقامی ٹرانسپورٹ','سفر کے دوران تمام مقامی ٹرانسپورٹ۔'],['مکہ اور مدینہ کی زیارات','مقدس مقامات کی رہنمائی کے ساتھ زیارت۔'],['عمرہ کے ساتھ طائف کی زیارت','عمرہ کے ساتھ طائف کی زیارت۔'],['مشاعر کے انتظامات','منیٰ، عرفات اور مزدلفہ میں خیمے، کھانا اور سفر۔'],['حج اورینٹیشن پروگرام','تعارفی نشست جس میں حاجیوں کو ٹکٹ، ویزا اور سفر کے پروگرام کا مکمل شیڈول دیا جاتا ہے۔'],['لانڈری سروس','قیام کے دوران آپ کے کپڑے دھو کر واپس کیے جائیں گے۔'],['آبِ زمزم','گھر لے جانے کے لیے آبِ زمزم۔'],['حج کٹ','آپ کو حج کٹ ملتی ہے: 3 ٹرالی بیگ، پاسپورٹ کے لیے سلنگ بیگ، بیک پیک، چپل بیگ، عمرہ کا احرام (1 جوڑا)، خواتین کے لیے دوپٹہ، جائے نماز، چھتری، تسبیح، دعا کی کتاب اور پانی کی بوتل۔'],['تجربہ کار حج ٹیم','ہماری تجربہ کار ٹیم آپ کے ساتھ سفر کرتی ہے۔'],['مکمل رہنمائی اور مدد','حج کے ہر رکن کے لیے قدم بہ قدم رہنمائی۔'],['جی ایس ٹی اور لاگو ٹیکس','جی ایس ٹی اور لاگو ٹیکس شامل ہیں۔']]},
 short:{name:'شارٹ',kick:'حج 2027 · 15–17 دن',title:'شارٹ پیکج',days:'15–17 دن',line:'15–17 دن · پہلے مکہ',share:'معیاری 5 بیڈ شیئرنگ کی بنیاد پر · +2% TCS',mashaer:'زون 5 · کیٹیگری C',dep:'7/8 مئی 2027',depR:'ممبئی ← جدہ',ret:'22–24 مئی 2027',retR:'مدینہ ← ممبئی',
 journey:[['7/8 مئی 2027','ممبئی ← جدہ','جدہ آمد، مکہ منتقلی اور شفٹنگ رہائش'],['حج · 5 دن','ایامِ مشاعر','حج کے نقل و حرکت کے شیڈول کے مطابق'],['حج کے بعد · 2–3 دن','مکہ','آرام اور حج کے بعد کے انتظامات'],['مدینہ · 3–4 دن','مدینہ','مدینہ منتقلی، قیام اور زیارات'],['22–24 مئی 2027','مدینہ ← ممبئی','وطن واپسی']],
 inc:[['آنے جانے کا ہوائی ٹکٹ','جاتے وقت ممبئی سے جدہ، اور واپسی پر مدینہ سے ممبئی۔'],['رہائش','مکہ اور مدینہ کے ہوٹل — تصاویر دیکھنے کے لیے ٹیپ کریں۔'],['مکہ میں شفٹنگ رہائش','مکہ میں رہائش، شفٹنگ قیام سمیت۔'],['مدینہ میں قیام (3–4 راتیں)','مدینہ میں 3 سے 4 راتیں، زیارات کے ساتھ۔'],['روزانہ صاف ستھرا ہندوستانی کھانا','ہر روز تازہ اور صاف ستھرا ہندوستانی کھانا۔'],['سعودی عرب میں مقامی ٹرانسپورٹ','سفر کے دوران تمام مقامی ٹرانسپورٹ۔'],['مکہ اور مدینہ کی زیارات','مقدس مقامات کی رہنمائی کے ساتھ زیارت۔'],['عمرہ کے ساتھ طائف کی زیارت','عمرہ کے ساتھ طائف کی زیارت۔'],['مشاعر کے انتظامات','منیٰ، عرفات اور مزدلفہ میں خیمے، کھانا اور سفر۔'],['حج اورینٹیشن پروگرام','تعارفی نشست جس میں حاجیوں کو ٹکٹ، ویزا اور سفر کے پروگرام کا مکمل شیڈول دیا جاتا ہے۔'],['لانڈری سروس','قیام کے دوران آپ کے کپڑے دھو کر واپس کیے جائیں گے۔'],['آبِ زمزم','گھر لے جانے کے لیے آبِ زمزم۔'],['حج کٹ','آپ کو حج کٹ ملتی ہے: 3 ٹرالی بیگ، پاسپورٹ کے لیے سلنگ بیگ، بیک پیک، چپل بیگ، عمرہ کا احرام (1 جوڑا)، خواتین کے لیے دوپٹہ، جائے نماز، چھتری، تسبیح، دعا کی کتاب اور پانی کی بوتل۔'],['تجربہ کار حج ٹیم','ہماری تجربہ کار ٹیم آپ کے ساتھ سفر کرتی ہے۔'],['مکمل رہنمائی اور مدد','حج کے ہر رکن کے لیے قدم بہ قدم رہنمائی۔'],['لاگو ٹیکس','لاگو ٹیکس شامل ہیں۔']]}},
 hi:{
-long:{name:'लॉन्ग स्टे',kick:'हज 2027 · 5-स्टार प्रीमियम',title:'लॉन्ग स्टे पैकेज',days:'39–43 दिन',line:'39–43 दिन · पहले मदीना',share:'स्टैंडर्ड 5-बेड शेयरिंग के आधार पर · +2% TCS',why:'आपका सफ़र मदीना से शुरू होता है, जो हज का ज़्यादा किफ़ायती रास्ता है। इस अवधि में सीधे मक्का जाना ज़्यादा महंगा पड़ता है।',mashaer:'ज़ोन 5 · कैटेगरी C',dep:'8–10 अप्रैल',depR:'मुंबई → मदीना',ret:'19–22 मई',retR:'जेद्दा → मुंबई',
-journey:[['रवानगी · 8–10 अप्रैल','मुंबई → मदीना',''],['01 · मदीना','मरकज़िया','Crowne Plaza या इसी स्तर का 5-स्टार होटल'],['02 · मक्का','जबल उमर','Hilton Convention / Marriott या इसी स्तर का 5-स्टार होटल'],['03 · मक्का','अज़ीज़िया','Shar-E-Mansoor या इसी तरह का होटल'],['वापसी · 19–22 मई','जेद्दा → मुंबई','']],
+long:{name:'लॉन्ग स्टे',kick:'हज 2027 · 5-स्टार प्रीमियम',title:'लॉन्ग स्टे पैकेज',days:'41–44 दिन',line:'41–44 दिन · पहले मदीना',share:'स्टैंडर्ड 5-बेड शेयरिंग के आधार पर · +2% TCS',why:'आपका सफ़र मदीना से शुरू होता है, जो हज का ज़्यादा किफ़ायती रास्ता है। इस अवधि में सीधे मक्का जाना ज़्यादा महंगा पड़ता है।',mashaer:'ज़ोन 5 · कैटेगरी C',dep:'8–10 अप्रैल',depR:'मुंबई → मदीना',ret:'19–22 मई',retR:'जेद्दा → मुंबई',
+journey:[['रवानगी · 8–10 अप्रैल','मुंबई → मदीना',''],['01 · मदीना','मरकज़िया','Crowne Plaza या इसी स्तर का 5-स्टार होटल'],['02 · मक्का','जबल उमर','Hilton Convention / Marriott या इसी स्तर का 5-स्टार होटल'],['03 · मक्का','अज़ीज़िया','शिफ़्टिंग होटल'],['वापसी · 19–22 मई','जेद्दा → मुंबई','']],
 inc:[['आने-जाने का हवाई टिकट','जाते समय मुंबई से मदीना, और वापसी में जेद्दा से मुंबई।'],['आवास','मक्का और मदीना के होटल — फ़ोटो देखने के लिए टैप करें।'],['मक्का में शिफ्टिंग आवास','मक्का में आवास, शिफ्टिंग ठहराव सहित।'],['भारतीय बुफ़े भोजन','स्वादिष्ट भारतीय खाना बुफ़े में, गरम और ठंडे पेय के साथ।'],['लग्ज़री एसी बस ट्रांसफ़र','सऊदी अरब में सभी ट्रांसफ़र लग्ज़री एसी बसों से।'],['मक्का और मदीना की ज़ियारत','एसी बसों में, अनुभवी मुअल्लिम के मार्गदर्शन में।'],['उमराह के साथ ताइफ़ ज़ियारत','उमराह के साथ ताइफ़ की ज़ियारत।'],['मशाएर के इंतज़ाम','मिना, अराफ़ात और मुज़दलिफ़ा में ख़ेमे, खाना और सफ़र।'],['हज ओरिएंटेशन प्रोग्राम','परिचय बैठक, जिसमें हाजियों को टिकट, वीज़ा और सफ़र के प्रोग्राम का पूरा शेड्यूल दिया जाता है।'],['लॉन्ड्री सेवा','ठहराव के दौरान आपके कपड़े धोकर वापस दिए जाएँगे।'],['5 लीटर आब-ए-ज़मज़म','घर ले जाने के लिए 5 लीटर आब-ए-ज़मज़म।'],['हज किट','आपको हज किट मिलती है: 3 ट्रॉली बैग, पासपोर्ट के लिए स्लिंग बैग, बैकपैक, चप्पल बैग, उमराह का इहराम (1 जोड़ा), महिलाओं के लिए दुपट्टा, जा-नमाज़, छाता, तस्बीह, दुआ की किताब और पानी की बोतल।'],['अनुभवी हज टीम','हमारी अनुभवी टीम आपके साथ सफ़र करती है।'],['पूरा मार्गदर्शन और सहायता','हज के हर अमल के लिए क़दम-दर-क़दम मार्गदर्शन।'],['जीएसटी और लागू टैक्स','जीएसटी और लागू टैक्स शामिल हैं।']]},
 signature:{name:'सिग्नेचर',kick:'हज 2027 · सिग्नेचर',title:'सिग्नेचर पैकेज',days:'34–38 दिन',line:'34–38 दिन · पहले मक्का',share:'स्टैंडर्ड 5-बेड शेयरिंग के आधार पर · +2% TCS',mashaer:'ज़ोन 5 · कैटेगरी C',dep:'12–15 अप्रैल',depR:'मुंबई → जेद्दा',ret:'21–22 मई',retR:'जेद्दा → मुंबई',
-journey:[['रवानगी · 12–15 अप्रैल','मुंबई → जेद्दा',''],['01 · मक्का','जबल उमर','Hilton Convention / Marriott या इसी स्तर का 5-स्टार होटल'],['02 · मदीना','मरकज़िया','Manazil Al Sadiq या इसी तरह का होटल'],['03 · मक्का','अज़ीज़िया','Shar-E-Mansoor या इसी तरह का होटल'],['वापसी · 21–22 मई','जेद्दा → मुंबई','']],
+journey:[['रवानगी · 12–15 अप्रैल','मुंबई → जेद्दा',''],['01 · मक्का','जबल उमर','Hilton Convention / Marriott या इसी स्तर का 5-स्टार होटल'],['02 · मदीना','मरकज़िया','Manazil Al Sadiq या इसी तरह का होटल'],['03 · मक्का','अज़ीज़िया','शिफ़्टिंग होटल'],['वापसी · 21–22 मई','जेद्दा → मुंबई','']],
 inc:[['आने-जाने का हवाई टिकट','जाते समय मुंबई से जेद्दा, और वापसी में जेद्दा से मुंबई।'],['आवास','मक्का और मदीना के होटल — फ़ोटो देखने के लिए टैप करें।'],['मक्का में शिफ्टिंग आवास','मक्का में आवास, शिफ्टिंग ठहराव सहित।'],['रोज़ाना साफ़-सुथरा भारतीय भोजन','हर दिन ताज़ा और साफ़-सुथरा भारतीय भोजन।'],['सऊदी अरब में लोकल ट्रांसपोर्ट','सफ़र के दौरान सभी लोकल ट्रांसपोर्ट।'],['मक्का और मदीना की ज़ियारत','पवित्र स्थलों की मार्गदर्शन सहित ज़ियारत।'],['उमराह के साथ ताइफ़ ज़ियारत','उमराह के साथ ताइफ़ की ज़ियारत।'],['मशाएर के इंतज़ाम','मिना, अराफ़ात और मुज़दलिफ़ा में ख़ेमे, खाना और सफ़र।'],['हज ओरिएंटेशन प्रोग्राम','परिचय बैठक, जिसमें हाजियों को टिकट, वीज़ा और सफ़र के प्रोग्राम का पूरा शेड्यूल दिया जाता है।'],['लॉन्ड्री सेवा','ठहराव के दौरान आपके कपड़े धोकर वापस दिए जाएँगे।'],['आब-ए-ज़मज़म','घर ले जाने के लिए आब-ए-ज़मज़म।'],['हज किट','आपको हज किट मिलती है: 3 ट्रॉली बैग, पासपोर्ट के लिए स्लिंग बैग, बैकपैक, चप्पल बैग, उमराह का इहराम (1 जोड़ा), महिलाओं के लिए दुपट्टा, जा-नमाज़, छाता, तस्बीह, दुआ की किताब और पानी की बोतल।'],['अनुभवी हज टीम','हमारी अनुभवी टीम आपके साथ सफ़र करती है।'],['पूरा मार्गदर्शन और सहायता','हज के हर अमल के लिए क़दम-दर-क़दम मार्गदर्शन।'],['जीएसटी और लागू टैक्स','जीएसटी और लागू टैक्स शामिल हैं।']]},
 short:{name:'शॉर्ट',kick:'हज 2027 · 15–17 दिन',title:'शॉर्ट पैकेज',days:'15–17 दिन',line:'15–17 दिन · पहले मक्का',share:'स्टैंडर्ड 5-बेड शेयरिंग के आधार पर · +2% TCS',mashaer:'ज़ोन 5 · कैटेगरी C',dep:'7/8 मई 2027',depR:'मुंबई → जेद्दा',ret:'22–24 मई 2027',retR:'मदीना → मुंबई',
 journey:[['7/8 मई 2027','मुंबई → जेद्दा','जेद्दा आगमन, मक्का के लिए ट्रांसफ़र और शिफ्टिंग आवास'],['हज · 5 दिन','मशाएर के दिन','हज मूवमेंट शेड्यूल के अनुसार'],['हज के बाद · 2–3 दिन','मक्का','आराम और हज के बाद की व्यवस्थाएँ'],['मदीना · 3–4 दिन','मदीना','मदीना ट्रांसफ़र, ठहराव और ज़ियारत'],['22–24 मई 2027','मदीना → मुंबई','भारत वापसी']],
 inc:[['आने-जाने का हवाई टिकट','जाते समय मुंबई से जेद्दा, और वापसी में मदीना से मुंबई।'],['आवास','मक्का और मदीना के होटल — फ़ोटो देखने के लिए टैप करें।'],['मक्का में शिफ्टिंग आवास','मक्का में आवास, शिफ्टिंग ठहराव सहित।'],['मदीना में ठहराव (3–4 रातें)','मदीना में 3 से 4 रातें, ज़ियारत के साथ।'],['रोज़ाना साफ़-सुथरा भारतीय भोजन','हर दिन ताज़ा और साफ़-सुथरा भारतीय भोजन।'],['सऊदी अरब में लोकल ट्रांसपोर्ट','सफ़र के दौरान सभी लोकल ट्रांसपोर्ट।'],['मक्का और मदीना की ज़ियारत','पवित्र स्थलों की मार्गदर्शन सहित ज़ियारत।'],['उमराह के साथ ताइफ़ ज़ियारत','उमराह के साथ ताइफ़ की ज़ियारत।'],['मशाएर के इंतज़ाम','मिना, अराफ़ात और मुज़दलिफ़ा में ख़ेमे, खाना और सफ़र।'],['हज ओरिएंटेशन प्रोग्राम','परिचय बैठक, जिसमें हाजियों को टिकट, वीज़ा और सफ़र के प्रोग्राम का पूरा शेड्यूल दिया जाता है।'],['लॉन्ड्री सेवा','ठहराव के दौरान आपके कपड़े धोकर वापस दिए जाएँगे।'],['आब-ए-ज़मज़म','घर ले जाने के लिए आब-ए-ज़मज़म।'],['हज किट','आपको हज किट मिलती है: 3 ट्रॉली बैग, पासपोर्ट के लिए स्लिंग बैग, बैकपैक, चप्पल बैग, उमराह का इहराम (1 जोड़ा), महिलाओं के लिए दुपट्टा, जा-नमाज़, छाता, तस्बीह, दुआ की किताब और पानी की बोतल।'],['अनुभवी हज टीम','हमारी अनुभवी टीम आपके साथ सफ़र करती है।'],['पूरा मार्गदर्शन और सहायता','हज के हर अमल के लिए क़दम-दर-क़दम मार्गदर्शन।'],['लागू टैक्स','लागू टैक्स शामिल हैं।']]}},
 gu:{
-long:{name:'લોંગ સ્ટે',kick:'હજ 2027 · 5-સ્ટાર પ્રીમિયમ',title:'લોંગ સ્ટે પેકેજ',days:'39–43 દિવસ',line:'39–43 દિવસ · પહેલા મદીના',share:'સ્ટાન્ડર્ડ 5-બેડ શેરિંગના આધારે · +2% TCS',why:'તમારી યાત્રા મદીનાથી શરૂ થાય છે, જે હજ માટે વધુ કિફાયતી માર્ગ છે. આ સમયગાળામાં સીધા મક્કા જવું વધુ મોંઘું પડે છે.',mashaer:'ઝોન 5 · કેટેગરી C',dep:'8–10 એપ્રિલ',depR:'મુંબઈ → મદીના',ret:'19–22 મે',retR:'જેદ્દાહ → મુંબઈ',
-journey:[['પ્રસ્થાન · 8–10 એપ્રિલ','મુંબઈ → મદીના',''],['01 · મદીના','મરકઝિયા','Crowne Plaza અથવા સમાન 5-સ્ટાર હોટલ'],['02 · મક્કા','જબલ ઉમર','Hilton Convention / Marriott અથવા સમાન 5-સ્ટાર હોટલ'],['03 · મક્કા','અઝીઝિયા','Shar-E-Mansoor અથવા સમાન હોટલ'],['પરત · 19–22 મે','જેદ્દાહ → મુંબઈ','']],
+long:{name:'લોંગ સ્ટે',kick:'હજ 2027 · 5-સ્ટાર પ્રીમિયમ',title:'લોંગ સ્ટે પેકેજ',days:'41–44 દિવસ',line:'41–44 દિવસ · પહેલા મદીના',share:'સ્ટાન્ડર્ડ 5-બેડ શેરિંગના આધારે · +2% TCS',why:'તમારી યાત્રા મદીનાથી શરૂ થાય છે, જે હજ માટે વધુ કિફાયતી માર્ગ છે. આ સમયગાળામાં સીધા મક્કા જવું વધુ મોંઘું પડે છે.',mashaer:'ઝોન 5 · કેટેગરી C',dep:'8–10 એપ્રિલ',depR:'મુંબઈ → મદીના',ret:'19–22 મે',retR:'જેદ્દાહ → મુંબઈ',
+journey:[['પ્રસ્થાન · 8–10 એપ્રિલ','મુંબઈ → મદીના',''],['01 · મદીના','મરકઝિયા','Crowne Plaza અથવા સમાન 5-સ્ટાર હોટલ'],['02 · મક્કા','જબલ ઉમર','Hilton Convention / Marriott અથવા સમાન 5-સ્ટાર હોટલ'],['03 · મક્કા','અઝીઝિયા','શિફ્ટિંગ હોટેલ'],['પરત · 19–22 મે','જેદ્દાહ → મુંબઈ','']],
 inc:[['આવવા-જવાની હવાઈ ટિકિટ','જતી વખતે મુંબઈથી મદીના, અને પરત ફરતી વખતે જેદ્દાહથી મુંબઈ.'],['રહેઠાણ','મક્કા અને મદીનાની હોટલ — ફોટા જોવા માટે ટેપ કરો.'],['મક્કામાં શિફ્ટિંગ રહેઠાણ','મક્કામાં રહેઠાણ, શિફ્ટિંગ રોકાણ સહિત.'],['ભારતીય બુફે ભોજન','સ્વાદિષ્ટ ભારતીય ભોજન બુફે સ્વરૂપે, ગરમ અને ઠંડા પીણાં સાથે.'],['લક્ઝરી એસી બસ ટ્રાન્સફર','સાઉદી અરેબિયામાં તમામ ટ્રાન્સફર લક્ઝરી એસી બસ દ્વારા.'],['મક્કા અને મદીનાની ઝિયારત','એસી બસમાં, અનુભવી મુઅલ્લિમના માર્ગદર્શન હેઠળ.'],['ઉમરાહ સાથે તાઇફ ઝિયારત','ઉમરાહ સાથે તાઇફની ઝિયારત.'],['મશાએરની વ્યવસ્થા','મિના, અરાફાત અને મુઝદલિફામાં તંબુ, ભોજન અને મુસાફરી.'],['હજ ઓરિએન્ટેશન પ્રોગ્રામ','પરિચય બેઠક, જેમાં હાજીઓને ટિકિટ, વિઝા અને મુસાફરીના કાર્યક્રમનું સંપૂર્ણ શેડ્યૂલ આપવામાં આવે છે.'],['લોન્ડ્રી સેવા','રોકાણ દરમિયાન તમારા કપડાં ધોઈને પરત આપવામાં આવશે.'],['5 લિટર આબે ઝમઝમ','ઘરે લઈ જવા માટે 5 લિટર આબે ઝમઝમ.'],['હજ કિટ','તમને હજ કિટ મળે છે: 3 ટ્રોલી બેગ, પાસપોર્ટ માટે સ્લિંગ બેગ, બેકપેક, ચપ્પલ બેગ, ઉમરાહ માટે ઇહરામ (1 જોડી), મહિલાઓ માટે દુપટ્ટો, જાનમાઝ, છત્રી, તસ્બીહ, દુઆની કિતાબ અને પાણીની બોટલ.'],['અનુભવી હજ ટીમ','અમારી અનુભવી ટીમ તમારી સાથે યાત્રા કરે છે.'],['સંપૂર્ણ માર્ગદર્શન અને સહાય','હજની દરેક વિધિ માટે પગલે-પગલે માર્ગદર્શન.'],['જીએસટી અને લાગુ કર','જીએસટી અને લાગુ કર સામેલ છે.']]},
 signature:{name:'સિગ્નેચર',kick:'હજ 2027 · સિગ્નેચર',title:'સિગ્નેચર પેકેજ',days:'34–38 દિવસ',line:'34–38 દિવસ · પહેલા મક્કા',share:'સ્ટાન્ડર્ડ 5-બેડ શેરિંગના આધારે · +2% TCS',mashaer:'ઝોન 5 · કેટેગરી C',dep:'12–15 એપ્રિલ',depR:'મુંબઈ → જેદ્દાહ',ret:'21–22 મે',retR:'જેદ્દાહ → મુંબઈ',
-journey:[['પ્રસ્થાન · 12–15 એપ્રિલ','મુંબઈ → જેદ્દાહ',''],['01 · મક્કા','જબલ ઉમર','Hilton Convention / Marriott અથવા સમાન 5-સ્ટાર હોટલ'],['02 · મદીના','મરકઝિયા','Manazil Al Sadiq અથવા સમાન હોટલ'],['03 · મક્કા','અઝીઝિયા','Shar-E-Mansoor અથવા સમાન હોટલ'],['પરત · 21–22 મે','જેદ્દાહ → મુંબઈ','']],
+journey:[['પ્રસ્થાન · 12–15 એપ્રિલ','મુંબઈ → જેદ્દાહ',''],['01 · મક્કા','જબલ ઉમર','Hilton Convention / Marriott અથવા સમાન 5-સ્ટાર હોટલ'],['02 · મદીના','મરકઝિયા','Manazil Al Sadiq અથવા સમાન હોટલ'],['03 · મક્કા','અઝીઝિયા','શિફ્ટિંગ હોટેલ'],['પરત · 21–22 મે','જેદ્દાહ → મુંબઈ','']],
 inc:[['આવવા-જવાની હવાઈ ટિકિટ','જતી વખતે મુંબઈથી જેદ્દાહ, અને પરત ફરતી વખતે જેદ્દાહથી મુંબઈ.'],['રહેઠાણ','મક્કા અને મદીનાની હોટલ — ફોટા જોવા માટે ટેપ કરો.'],['મક્કામાં શિફ્ટિંગ રહેઠાણ','મક્કામાં રહેઠાણ, શિફ્ટિંગ રોકાણ સહિત.'],['રોજ સ્વચ્છ ભારતીય ભોજન','દરરોજ તાજું અને સ્વચ્છ ભારતીય ભોજન.'],['સાઉદી અરેબિયામાં લોકલ ટ્રાન્સપોર્ટ','યાત્રા દરમિયાન તમામ લોકલ ટ્રાન્સપોર્ટ.'],['મક્કા અને મદીનાની ઝિયારત','પવિત્ર સ્થળોની માર્ગદર્શન સાથે ઝિયારત.'],['ઉમરાહ સાથે તાઇફ ઝિયારત','ઉમરાહ સાથે તાઇફની ઝિયારત.'],['મશાએરની વ્યવસ્થા','મિના, અરાફાત અને મુઝદલિફામાં તંબુ, ભોજન અને મુસાફરી.'],['હજ ઓરિએન્ટેશન પ્રોગ્રામ','પરિચય બેઠક, જેમાં હાજીઓને ટિકિટ, વિઝા અને મુસાફરીના કાર્યક્રમનું સંપૂર્ણ શેડ્યૂલ આપવામાં આવે છે.'],['લોન્ડ્રી સેવા','રોકાણ દરમિયાન તમારા કપડાં ધોઈને પરત આપવામાં આવશે.'],['આબે ઝમઝમ','ઘરે લઈ જવા માટે આબે ઝમઝમ.'],['હજ કિટ','તમને હજ કિટ મળે છે: 3 ટ્રોલી બેગ, પાસપોર્ટ માટે સ્લિંગ બેગ, બેકપેક, ચપ્પલ બેગ, ઉમરાહ માટે ઇહરામ (1 જોડી), મહિલાઓ માટે દુપટ્ટો, જાનમાઝ, છત્રી, તસ્બીહ, દુઆની કિતાબ અને પાણીની બોટલ.'],['અનુભવી હજ ટીમ','અમારી અનુભવી ટીમ તમારી સાથે યાત્રા કરે છે.'],['સંપૂર્ણ માર્ગદર્શન અને સહાય','હજની દરેક વિધિ માટે પગલે-પગલે માર્ગદર્શન.'],['જીએસટી અને લાગુ કર','જીએસટી અને લાગુ કર સામેલ છે.']]},
 short:{name:'શોર્ટ',kick:'હજ 2027 · 15–17 દિવસ',title:'શોર્ટ પેકેજ',days:'15–17 દિવસ',line:'15–17 દિવસ · પહેલા મક્કા',share:'સ્ટાન્ડર્ડ 5-બેડ શેરિંગના આધારે · +2% TCS',mashaer:'ઝોન 5 · કેટેગરી C',dep:'7/8 મે 2027',depR:'મુંબઈ → જેદ્દાહ',ret:'22–24 મે 2027',retR:'મદીના → મુંબઈ',
 journey:[['7/8 મે 2027','મુંબઈ → જેદ્દાહ','જેદ્દાહ આગમન, મક્કા ટ્રાન્સફર અને શિફ્ટિંગ રહેઠાણ'],['હજ · 5 દિવસ','મશાએરના દિવસો','હજ મૂવમેન્ટ શેડ્યૂલ મુજબ'],['હજ પછી · 2–3 દિવસ','મક્કા','આરામ અને હજ પછીની વ્યવસ્થા'],['મદીના · 3–4 દિવસ','મદીના','મદીના ટ્રાન્સફર, રોકાણ અને ઝિયારત'],['22–24 મે 2027','મદીના → મુંબઈ','ભારત પરત']],
@@ -1132,7 +1174,7 @@ $('#pd').innerHTML='<header class="ph2"><div class="par"><img class="kb" src="'+
 (off?'<div class="rv">'+cdHTML()+'</div>':'')+
 (P.why?'<div class="why rv">'+ic('info')+'<span>'+esc(P.why)+'</span></div>':'')+
 '<div class="facts rv">'+fact('clock','fd1',esc(P.days))+fact('mount','fd2',esc(P.mashaer))+fact('ticket','fd3',esc(P.dep)+'<br>'+esc(P.depR))+fact('ticket','fd4',esc(P.ret)+'<br>'+esc(P.retR))+'</div>'+
-'<h2 class="h sh rv">'+esc(t('jr'))+'</h2><div class="tl rv">'+P.journey.map((j,i)=>'<div class="st'+(P.flags[i]?' fl':'')+'"><small>'+esc(j[0])+'</small><b><bdi>'+esc(j[1])+'</bdi></b>'+(j[2]?'<p>'+esc(j[2])+'</p>':'')+(jssCity(k,j[2],i)?jss(k,(HOTELS[k]||{})[jssCity(k,j[2],i)],jssCity(k,j[2],i)):P.jimg&&P.jimg[i]?'<img class="jim" src="'+P.jimg[i][0]+'" alt="'+ialt(P.jimg[i][0])+'" loading="lazy" style="object-position:'+P.jimg[i][1]+'">':'')+'</div>').join('')+'</div>'+
+'<h2 class="h sh rv">'+esc(t('jr'))+'</h2>'+(LSI_ON[k]?lsiHTML(k,P):'<div class="tl rv">'+P.journey.map((j,i)=>'<div class="st'+(P.flags[i]?' fl':'')+'"><small>'+esc(j[0])+'</small><b><bdi>'+esc(j[1])+'</bdi></b>'+(j[2]?'<p>'+esc(j[2])+'</p>':'')+(jssCity(k,j[2],i)?jss(k,(HOTELS[k]||{})[jssCity(k,j[2],i)],jssCity(k,j[2],i)):P.jimg&&P.jimg[i]?'<img class="jim" src="'+P.jimg[i][0]+'" alt="'+ialt(P.jimg[i][0])+'" loading="lazy" style="object-position:'+P.jimg[i][1]+'">':'')+'</div>').join('')+'</div>')+
 '<div class="tabs rv" role="tablist" data-on="0"><i></i><button class="on" type="button" role="tab" aria-selected="true" data-tab="0">'+esc(t('incT'))+'</button><button type="button" role="tab" aria-selected="false" data-tab="1">'+esc(t('excT'))+'</button></div>'+
 '<p class="hint rv">'+ic('tap')+'<span>'+esc(t('tapi'))+'</span></p>'+
 '<div class="tp on rv" role="tabpanel">'+tiles(incl,'i')+'</div><div class="tp'+(exl.length?'':' one')+'" role="tabpanel">'+tiles(exl,'e')+'</div>'+
@@ -1576,6 +1618,99 @@ document.addEventListener('click',e=>{const g=e.target.closest('[data-xg]');if(g
 $('#xg').addEventListener('click',e=>{if(e.target.closest('[data-xzclose]')){xzClose();return}if(e.target.closest('[data-xgclose]')){xgClose();return}const c=e.target.closest('[data-xc]');if(c){if(c.dataset.xc!==xgCity)xgSet(c.dataset.xc);return}const z=e.target.closest('[data-xz]');if(z)xzOpenZ(+z.dataset.xz)});
 $('#xgv').addEventListener('scroll',()=>{if(xgOpen)xgCount()},{passive:true});
 document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(xzOpen)xzClose();else if(xgOpen)xgClose()});
+/* ---------- v11: Long Stay animated itinerary (one Play button) ---------- */
+const LSI_ON={long:1};
+const LSI={
+en:{play:'Play the journey',pause:'Pause',again:'Play again',legend:'Days in each place',
+ f1:'By air · Mumbai → Madinah',b1:'By bus · Madinah → Makkah',b2:'By bus · to the shifting hotel',f2:'By air · Jeddah → Mumbai',shift:'Shifting hotel',
+ d:['9 days','13–14 days','12–13 days','5 days','2–3 days'],strip:['Madinah','Makkah','Aziziya','Hajj',''],
+ a1:['Prayers in Masjid an-Nabawi','Riyaz-ul-Jannah visit','Ziyarat of Madinah'],
+ a2:['Umrah on arrival','Prayers in Masjid al-Haram','Tawaf'],
+ a3:['Makkah Ziyarat','Walking Ziyarat','Taif Ziyarat with Umrah','Jeddah trip'],
+ hl:'04 · HAJJ',ht:'The 5 days of Hajj',hs:'8 to 12 Dhul Hijjah',
+ hd:['Mina','Arafat, then Muzdalifah','Rami, Qurbani, Halq, Tawaf','Rami at Mina','Rami, then back'],
+ rl:'05 · MAKKAH',rt:'Back to the shifting hotel',ra:['Rest and prayers before the flight home']},
+ur:{play:'سفر دیکھیں',pause:'روکیں',again:'دوبارہ دیکھیں',legend:'ہر جگہ کتنے دن',
+ f1:'ہوائی جہاز · ممبئی ← مدینہ',b1:'بس سے · مدینہ ← مکہ',b2:'بس سے · شفٹنگ ہوٹل',f2:'ہوائی جہاز · جدہ ← ممبئی',shift:'شفٹنگ ہوٹل',
+ d:['9 دن','\u206613–14\u2069 دن','\u206612–13\u2069 دن','5 دن','\u20662–3\u2069 دن'],strip:['مدینہ','مکہ','عزیزیہ','حج',''],
+ a1:['مسجد نبوی میں نمازیں','ریاض الجنہ کی زیارت','مدینہ کی زیارات'],
+ a2:['پہنچتے ہی عمرہ','مسجد الحرام میں نمازیں','طواف'],
+ a3:['مکہ کی زیارات','پیدل زیارات','طائف کی زیارت مع عمرہ','جدہ کا سفر'],
+ hl:'04 · حج',ht:'حج کے 5 دن',hs:'8 سے 12 ذوالحجہ',
+ hd:['منیٰ','عرفات، پھر مزدلفہ','رمی، قربانی، حلق، طواف','منیٰ میں رمی','رمی، پھر واپسی'],
+ rl:'05 · مکہ',rt:'شفٹنگ ہوٹل واپسی',ra:['وطن واپسی سے پہلے آرام اور عبادت']},
+hi:{play:'सफ़र देखें',pause:'रोकें',again:'फिर से देखें',legend:'हर जगह कितने दिन',
+ f1:'हवाई जहाज़ · मुंबई → मदीना',b1:'बस से · मदीना → मक्का',b2:'बस से · शिफ़्टिंग होटल',f2:'हवाई जहाज़ · जेद्दा → मुंबई',shift:'शिफ़्टिंग होटल',
+ d:['9 दिन','13–14 दिन','12–13 दिन','5 दिन','2–3 दिन'],strip:['मदीना','मक्का','अज़ीज़िया','हज',''],
+ a1:['मस्जिद-ए-नबवी में नमाज़ें','रियाज़ुल जन्नह की ज़ियारत','मदीना की ज़ियारतें'],
+ a2:['पहुँचते ही उमरा','मस्जिद-ए-हराम में नमाज़ें','तवाफ़'],
+ a3:['मक्का की ज़ियारतें','पैदल ज़ियारतें','ताइफ़ ज़ियारत उमरा के साथ','जेद्दा का सफ़र'],
+ hl:'04 · हज',ht:'हज के 5 दिन',hs:'8 से 12 ज़िलहिज्जा',
+ hd:['मिना','अरफ़ात, फिर मुज़दलिफ़ा','रमी, क़ुर्बानी, हल्क़, तवाफ़','मिना में रमी','रमी, फिर वापसी'],
+ rl:'05 · मक्का',rt:'शिफ़्टिंग होटल वापसी',ra:['घर लौटने से पहले आराम और इबादत']},
+gu:{play:'સફર જુઓ',pause:'રોકો',again:'ફરીથી જુઓ',legend:'દરેક જગ્યાએ કેટલા દિવસ',
+ f1:'વિમાન · મુંબઈ → મદીના',b1:'બસ દ્વારા · મદીના → મક્કા',b2:'બસ દ્વારા · શિફ્ટિંગ હોટેલ',f2:'વિમાન · જેદ્દાહ → મુંબઈ',shift:'શિફ્ટિંગ હોટેલ',
+ d:['9 દિવસ','13–14 દિવસ','12–13 દિવસ','5 દિવસ','2–3 દિવસ'],strip:['મદીના','મક્કા','અઝીઝિયા','હજ',''],
+ a1:['મસ્જિદે નબવીમાં નમાઝ','રિયાઝુલ જન્નહની ઝિયારત','મદીનાની ઝિયારતો'],
+ a2:['પહોંચતા જ ઉમરાહ','મસ્જિદે હરામમાં નમાઝ','તવાફ'],
+ a3:['મક્કાની ઝિયારતો','પગપાળા ઝિયારતો','ઉમરાહ સાથે તાઇફ ઝિયારત','જેદ્દાહની મુલાકાત'],
+ hl:'04 · હજ',ht:'હજના 5 દિવસ',hs:'8 થી 12 ઝિલહિજ્જાહ',
+ hd:['મિના','અરફાત, પછી મુઝદલિફા','રમી, કુરબાની, હલક, તવાફ','મિનામાં રમી','રમી, પછી પરત'],
+ rl:'05 · મક્કા',rt:'શિફ્ટિંગ હોટેલ પરત',ra:['ઘરે પાછા ફરતા પહેલા આરામ અને ઇબાદત']}};
+const LSIC={
+plane:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 15.5v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V8.5l-8 5v2l8-2.5V18l-2 1.5V21l3.5-1 3.5 1v-1.5L13 18v-5z"/></svg>',
+bus:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 3h14a2 2 0 0 1 2 2v11a2 2 0 0 1-1 1.7V20a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H7v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2.3A2 2 0 0 1 3 16V5a2 2 0 0 1 2-2zm0 3v5h14V6zm2 8.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm10 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>',
+dome:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1 2c3.5 1 6 4 6 8H5c0-4 2.5-7 6-8zM4 13h16v8H4zm6 3v5h4v-5a2 2 0 0 0-4 0z"/></svg>',
+kaaba:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l9 4v12l-9 4-9-4V6zm0 2.2L5.5 7 12 9.8 18.5 7zM4.5 9.5v1.6l7.5 3.3v-1.6z"/></svg>',
+hotel:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 21V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v5h3a1 1 0 0 1 1 1v11h-6v-4h-4v4zm3-15v2h2V6zm4 0v2h2V6zM7 10v2h2v-2zm4 0v2h2v-2zm6 2v2h2v-2z"/></svg>',
+tent:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3l1.2 1.6L22 19v2H2v-2L10.8 4.6zM12 9l-5 10h3.5L12 14l1.5 5H17z"/></svg>',
+play:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>',
+pause:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 4h4v16H6zm8 0h4v16h-4z"/></svg>'};
+const LSI_FLEX=[9,13.5,12.5,5,2.5];
+function lsiStops(P){const L=LSI[lang]||LSI.en,J=P.journey;return[
+ {lg:1,ic:'plane',l:J[0][0],t:L.f1},
+ {ic:'dome',l:J[1][0],t:J[1][1],s:J[1][2],d:L.d[0],g:0,a:L.a1,h:'madinah'},
+ {lg:1,ic:'bus',t:L.b1},
+ {ic:'kaaba',l:J[2][0],t:J[2][1],s:J[2][2],d:L.d[1],g:1,a:L.a2,h:'makkah'},
+ {lg:1,ic:'bus',t:L.b2},
+ {ic:'hotel',l:J[3][0],t:J[3][1],s:L.shift,d:L.d[2],g:2,a:L.a3},
+ {ic:'tent',l:L.hl,t:L.ht,s:L.hs,d:L.d[3],g:3,hj:1},
+ {ic:'hotel',l:L.rl,t:L.rt,s:L.shift,d:L.d[4],g:4,a:L.ra},
+ {lg:1,ic:'plane',l:J[4][0],t:L.f2}]}
+function lsiHTML(k,P){const L=LSI[lang]||LSI.en,H=HOTELS[k]||{};
+return '<div class="lsi rv" data-lsi="'+k+'"><button class="btn g lsp" type="button" data-lsp>'+LSIC.play+'<span>'+esc(L.play)+'</span></button>'+
+'<div class="lsk" aria-hidden="true">'+L.strip.map((n,i)=>'<span style="flex:'+LSI_FLEX[i]+'"><i></i><em>'+esc(n)+'</em></span>').join('')+'</div><div class="lsl">'+esc(L.legend)+'</div>'+
+'<div class="lst"><i class="lsr"></i><i class="lsf"></i><span class="lsm" aria-hidden="true">'+LSIC.plane+'</span>'+
+lsiStops(P).map((x,i)=>'<div class="ls'+(x.lg?' lsg':'')+'" data-lsx="'+i+'" data-ic="'+x.ic+'"'+(x.g!=null?' data-g="'+x.g+'"':'')+'>'+(x.l?'<small>'+esc(x.l)+'</small>':'')+
+'<div class="lh"><b><bdi>'+esc(x.t)+'</bdi></b>'+(x.d?'<span class="lsd">'+esc(x.d)+'</span>':'')+'</div>'+(x.s?'<p>'+esc(x.s)+'</p>':'')+
+(x.a?'<div class="lsc">'+x.a.map((y,j)=>'<span style="animation-delay:'+(.3+j*.22).toFixed(2)+'s">'+esc(y)+'</span>').join('')+'</div>':'')+
+(x.hj?'<div class="lsh">'+L.hd.map((y,j)=>'<div style="animation-delay:'+(.35+j*.4).toFixed(2)+'s"><b>'+(8+j)+'</b><small>'+esc(y)+'</small></div>').join('')+'</div>':'')+
+(x.h&&H[x.h]&&H[x.h].length?jss(k,H[x.h],x.h):'')+'</div>').join('')+'</div></div>'}
+let lsT=0,lsI=-1;
+const lsRoot=()=>$('#pd [data-lsi]');
+function lsBtn(r,mode){const b=$('[data-lsp]',r),L=LSI[lang]||LSI.en;if(!b)return;b.innerHTML=LSIC[mode==='pause'?'pause':'play']+'<span>'+esc(L[mode])+'</span>'}
+function lsGo(r,i,auto){const S=$$('.ls',r),x=S[i];if(!x)return;
+ S.forEach((e,j)=>{e.classList.toggle('on',j===i);e.classList.toggle('dn',j<i)});
+ const lg=x.classList.contains('lsg'),y=Math.max(0,x.offsetTop+(lg?x.offsetHeight/2-18:6)),m=$('.lsm',r);
+ m.style.transform='translateY('+y+'px)';m.innerHTML=LSIC[x.dataset.ic];m.classList.toggle('pu',!lg);
+ $('.lsf',r).style.height=y+'px';
+ let g=-1;S.slice(0,i+1).forEach(e=>{if(e.dataset.g!=null)g=+e.dataset.g});
+ $$('.lsk>span',r).forEach((e,j)=>e.classList.toggle('on',j<=g));
+ if(auto){try{x.scrollIntoView({block:'center',behavior:RM?'auto':'smooth'})}catch(e){}
+  const c=x.dataset.ic;sfx(c==='plane'?'flight':c==='bus'?'engine':'chime');hap()}}
+function lsStep(){const r=lsRoot();if(!r||!r.offsetParent||!r.classList.contains('run')){clearTimeout(lsT);lsT=0;return}
+ const S=$$('.ls',r);if(lsI>=S.length-1){lsEnd(r);return}
+ lsI++;lsGo(r,lsI,1);const x=S[lsI];lsT=setTimeout(lsStep,x.querySelector('.lsh')?6000:x.classList.contains('lsg')?1900:3800)}
+function lsEnd(r){clearTimeout(lsT);lsT=0;r.classList.remove('run');$$('.ls',r).forEach(e=>e.classList.remove('on','dn'));$('.lsm',r).classList.remove('pu');lsBtn(r,'again');sfx('ok');hap()}
+function lsPause(r){clearTimeout(lsT);lsT=0;lsBtn(r,'play')}
+document.addEventListener('click',e=>{const r=e.target.closest('[data-lsi]');if(!r)return;
+ if(e.target.closest('[data-lsp]')){hap();
+  if(lsT){lsPause(r);return}
+  if(!r.classList.contains('run')){r.classList.add('run');lsI=-1;const m=$('.lsm',r);m.style.transform='translateY(0)';m.innerHTML=LSIC.plane;$('.lsf',r).style.height='0px'}
+  lsBtn(r,'pause');lsStep();return}
+ const x=e.target.closest('.ls');if(!x)return;hap();
+ if(!r.classList.contains('run'))r.classList.add('run');lsPause(r);lsI=+x.dataset.lsx;lsGo(r,lsI,0)});
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&lsT){const r=lsRoot();if(r)lsPause(r)}});
 /* ---------- D3: hotel slideshows (journey stop + auto-advancing gallery) ---------- */
 const jssName=L=>xCap(L[0]).split(' · ')[0];
 /* journey text naming a hotel → the city list of that hotel in this package (needs photos) */

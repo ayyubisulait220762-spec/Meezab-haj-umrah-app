@@ -1,8 +1,8 @@
-MEEZAB E RAHEMAT APP - UPLOAD PACKAGE (version 10, 2 November 2026)
+MEEZAB E RAHEMAT APP - UPLOAD PACKAGE (version 11, 2 November 2026)
 
 WHAT TO UPLOAD
-21 files: index.html, sw.js, talbiyah.mp3, README.txt and 17 hotel photos (hilton-mk-1 to 6, crowne-md-1 to 4, swiss-md-1 to 4, manazil-md-1 to 3, all .webp).
-Upload these 21 files to the main folder of your GitHub repository (not inside a sub-folder). They replace the old ones.
+3 files: index.html, sw.js and README.txt. The hotel photos and talbiyah.mp3 are already on GitHub from version 10, so you do not need to upload them again.
+Upload these 3 files to the main folder of your GitHub repository (not inside a sub-folder). They replace the old ones.
 
 HOW TO UPLOAD FROM A PHONE
 1. Extract this zip in your phone's Files app (tap the zip, then Extract).
@@ -11,7 +11,14 @@ HOW TO UPLOAD FROM A PHONE
 4. Select all the extracted files and tap Commit changes.
 5. Wait about 2 minutes, then open the app link. If the old design still shows, close the app fully and open it again.
 
-WHAT IS NEW IN VERSION 10
+WHAT IS NEW IN VERSION 11
+- Long Stay package: the "Your journey" section is now an animated itinerary. One tap on "Play the journey" shows the whole trip step by step: flight Mumbai to Madinah, Madinah (Crowne Plaza, 9 days), bus to Makkah, Makkah (Hilton Convention, 13-14 days, Umrah on arrival), bus to the shifting hotel in Aziziya (12-13 days, Makkah Ziyarat, walking Ziyarat, Taif, Jeddah trip), the 5 days of Hajj (8-12 Dhul Hijjah), back to Aziziya (2-3 days), and the flight Jeddah to Mumbai.
+- A gold marker travels along the route, a day bar fills up, and the activities and Hajj days appear one by one, with soft sounds. Tap Pause to stop, or tap any stop to jump to it. Hotel photos still play on the Madinah and Makkah stops.
+- Available in English, Urdu, Hindi and Gujarati.
+- Long Stay length now shows 41-44 days (was 39-43).
+- The Aziziya hotel is now called "Shifting hotel" in Long Stay and Signature (Shar-E-Mansoor name removed until the hotel is confirmed).
+
+WHAT WAS NEW IN VERSION 10
 - Hilton Convention Makkah photos (6): exterior, lobby, Haram view from the room, Haram-view hall, restaurant, fitness centre.
 - Accommodation tile > Makkah tab (Long Stay and Signature): photos change by themselves every 2.5 seconds with a quick slide. Touching the photos pauses it for a few seconds.
 - Package journey: the Jabal Omar stop that mentions Hilton Convention (Long Stay and Signature) now shows a small slideshow of the same photos. Tapping it opens the full photo gallery.
@@ -38,6 +45,7 @@ WHERE THINGS ARE INSIDE index.html
 - Prices, offer price, photos and routes of each package: "const PKM="
 - Package text in each language (titles, journey, inclusions): "const PKT="
 - Hilton Convention Makkah photos: "const HILTON_MK=" (Long Stay and Signature). Crowne Plaza Madinah photos: "const CROWNE_MD=" (Long Stay). Swiss International Madinah photos: "const SWISS_MD=" (Short). Manazil Al Sadiq Madinah photos: "const MANAZIL_MD=" (Signature).
+- Long Stay animated itinerary text (all 4 languages): "const LSI="
 - Hotel names that get a journey slideshow: "const JSS_HOTELS="
 - Hotel photos for the Accommodation tile: "const HOTELS=" (one list per package, for makkah and madinah).
   Each photo: ['photo-file.webp',{en:'Hotel name · caption',ur:'',hi:'',gu:''},'50% 50%'] - the last part is the focus point of the photo.
