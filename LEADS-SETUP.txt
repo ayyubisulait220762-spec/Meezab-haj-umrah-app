@@ -1,0 +1,44 @@
+# Get every app registration into a Google Sheet (about 5 minutes)
+
+You only do this once. A computer is easiest. On a phone, open Chrome, tap the ⋮ menu and tick Desktop site first.
+
+## Step 1: Make the Sheet
+1. Open sheets.google.com with the Google account you want to use for the business.
+2. Tap + (Blank).
+3. Tap "Untitled spreadsheet" at the top and name it Meezab Leads.
+
+## Step 2: Paste the script
+1. In the menu, tap Extensions → Apps Script. A new tab opens.
+2. Delete everything in the big white box.
+3. Open the file meezab-sheet-script.gs, copy all of it and paste it into the box.
+4. Tap the Save icon (the floppy disk).
+
+## Step 3: Publish it as a web app
+1. Tap the blue Deploy button (top right), then New deployment.
+2. Tap the gear ⚙ next to "Select type" and choose Web app.
+3. Fill in:
+   - Description: `Meezab app leads`
+   - Execute as: Me
+   - Who has access: Anyone (this only lets the app *send* to your sheet; nobody can *read* your sheet)
+4. Tap Deploy.
+5. Google asks for permission. Tap Authorize access and choose your account. If you see "Google hasn't verified this app", tap Advanced → Go to Meezab Leads (unsafe), then Allow. You see this because you wrote the script yourself. It is safe.
+6. Copy the Web app URL. It looks like `https://script.google.com/macros/s/AKfy.../exec`.
+
+## Step 4: Check it works
+- Paste the link into your browser. You should see "Meezab leads link is working".
+- Go back to your Sheet. Three tabs have appeared: Leads, Feedback and News. (If they haven't, refresh the page.)
+
+## Step 5: Send the link to R
+Send the Web app URL to R. R puts it into the app (`LEAD_URL`) in the next version.
+
+## Every day
+- New registrations appear in the Leads tab: time, name, mobile, city, package, travellers, best time to call, language and where in the app the person came from.
+- Tap Chat in a row to open WhatsApp with that pilgrim.
+- Change Status as you follow up (for example New → Called → Booked) and write notes in Notes.
+- Get a ping for every lead: in the Sheet, tap Tools → Notification settings → Edit notifications → "Any changes are made" → Right away. Google will email you whenever a lead arrives.
+
+## Good to know
+- If a visitor has no internet, the app keeps the request on their phone and sends it automatically when the internet comes back. WhatsApp still opens as before.
+- Registrations made before the link is set up are also kept on the visitor's phone. They arrive in your Sheet the next time that person opens the updated app.
+- Want to add a news item without a new app version? Add a row in the News tab: Date, Title, Text, Show = `yes`. It appears at the top of the app's news page (English only).
+- If you ever change the script, use Deploy → Manage deployments → ✏ Edit → Version: New version → Deploy. That keeps the same link. Choosing "New deployment" again would create a different link.
