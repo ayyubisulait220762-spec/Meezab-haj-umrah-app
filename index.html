@@ -238,6 +238,138 @@ textarea.in{padding:14px 16px;min-height:104px;resize:vertical}
 .cf{position:absolute;inset:0;pointer-events:none;z-index:45;overflow:hidden}
 .cf i{position:absolute;top:38%;left:50%;width:8px;height:12px;border-radius:2px;animation:burst 1.5s cubic-bezier(.15,.7,.3,1) forwards}
 @keyframes burst{to{transform:translate(var(--x),var(--y)) rotate(var(--r));opacity:0}}
+/* featured package */
+.fx{position:relative;border-radius:26px;overflow:hidden;padding:0;display:flex;flex-direction:column;cursor:pointer}
+.fxi{position:relative;height:210px;overflow:hidden}
+.fxi img{width:100%;height:100%;object-fit:cover;object-position:20% 58%;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.fx:active .fxi img{transform:scale(1.05)}
+.fxi::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,7,10,.15) 30%,#1B170E 98%)}
+.offer{position:absolute;z-index:2;top:14px;inset-inline-start:14px;display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,#E5392E,#A3121A);color:#fff;font-weight:800;font-size:11.5px;letter-spacing:1px;padding:7px 11px;border-radius:12px;box-shadow:0 6px 22px #e5392e66;animation:opl 2.2s ease-in-out infinite}
+[lang=ur] .offer{letter-spacing:0}
+@keyframes opl{50%{box-shadow:0 6px 30px #e5392eaa;transform:scale(1.04)}}
+.star5{position:absolute;z-index:2;top:14px;inset-inline-end:14px;background:rgba(8,7,10,.6);border:1px solid #E6C36A66;border-radius:12px;padding:6px 10px;font-size:11.5px;font-weight:700;color:var(--g2);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.fxb{position:relative;margin-top:-58px;padding:0 16px 16px;display:flex;flex-direction:column;gap:6px;z-index:1}
+.fxb h3{font-size:25px;line-height:1.1}
+.prs{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.prs b{font:900 34px 'Cinzel',serif}
+.was{color:var(--mu);text-decoration:line-through;text-decoration-color:#E5392E;text-decoration-thickness:2px;font-weight:600;font-size:16px}
+.cdw{display:flex;flex-direction:column;gap:6px;margin:4px 0 6px}
+.cdl{font-size:11.5px;color:#FF9B8A;font-weight:800;letter-spacing:1px}
+[lang=ur] .cdl{letter-spacing:0}
+.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;direction:ltr}
+.cd span{background:#08070A;border:1px solid var(--ln);border-radius:12px;padding:6px 0 5px;display:flex;flex-direction:column;align-items:center;overflow:hidden}
+.cd b{font:900 22px/1.1 'Cinzel',serif;color:var(--g2);font-variant-numeric:tabular-nums}
+.cd b.cdt{animation:tick .45s cubic-bezier(.2,.9,.2,1)}
+@keyframes tick{from{transform:translateY(-60%);opacity:0}}
+.cd small{font-size:9px;letter-spacing:1.4px;color:var(--mu);font-weight:700}
+.mcs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mc{position:relative;overflow:hidden;border:1px solid var(--ln);border-radius:20px;background:linear-gradient(160deg,var(--card2),var(--card));text-align:start;display:flex;flex-direction:column;transition:transform .15s}
+.mc:active{transform:scale(.97)}
+.mc img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.mc>span{padding:10px 12px 12px;display:flex;flex-direction:column;gap:2px}
+.mc small{font-size:10px;letter-spacing:1.5px;color:var(--gold);font-weight:800}
+.mc b{font:800 20px 'Cinzel',serif;color:var(--g2)}
+.mc i{font-style:normal;font-size:12.5px;color:var(--mu)}
+.lr{position:relative;overflow:hidden;display:grid;grid-template-columns:118px 1fr;gap:14px;align-items:center;border:1px solid var(--ln);border-radius:22px;background:linear-gradient(160deg,var(--card2),var(--card));padding:10px;text-align:start;transition:transform .15s}
+.lr:active{transform:scale(.98)}
+.lr img{width:118px;height:132px;object-fit:cover;border-radius:16px}
+.lr span{display:flex;flex-direction:column;gap:3px}
+.lr small{font-size:10.5px;letter-spacing:1.5px;color:var(--gold);font-weight:800}
+.lr b{font:800 22px 'Cinzel',serif;color:var(--g2)}
+.lr i{font-style:normal;font-size:13px;color:var(--mu)}
+.lr em{font-style:normal;font-weight:700;font-size:13px;color:var(--gold);margin-top:4px}
+/* package detail */
+.why{display:flex;gap:10px;align-items:flex-start;border:1px solid #E6C36A55;background:#E6C36A12;border-radius:16px;padding:12px 14px;font-size:13.5px}
+.why svg{width:20px;height:20px;flex:none;color:var(--gold);margin-top:1px}
+.price s{color:#ffffffaa;font-size:15px;font-weight:600;text-decoration-color:#FF6B5E;text-decoration-thickness:2px;display:block}
+.tabs{--s:1;position:relative;display:grid;grid-template-columns:1fr 1fr;background:var(--card);border:1px solid var(--ln);border-radius:18px;padding:4px}
+[dir=rtl] .tabs{--s:-1}
+.tabs button{position:relative;z-index:1;min-height:48px;font-weight:800;font-size:15px;color:var(--mu);transition:color .3s}
+.tabs button.on{color:#15110A}
+.tabs i{position:absolute;z-index:0;top:4px;bottom:4px;inset-inline-start:4px;width:calc(50% - 4px);border-radius:14px;background:var(--gg);box-shadow:0 6px 20px #d4af3740;transition:transform .5s cubic-bezier(.3,1.3,.5,1)}
+.tabs[data-on="1"] i{transform:translateX(calc(100% * var(--s)))}
+.tp{display:none}
+.tp.on{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tp.on.one{grid-template-columns:1fr}
+.ftl{position:relative;overflow:hidden;min-height:100px;border:1px solid var(--ln);border-radius:18px;background:linear-gradient(160deg,var(--card2),var(--card));padding:12px;display:flex;flex-direction:column;gap:9px;text-align:start;font-weight:600;font-size:13.5px;line-height:1.25;transition:transform .15s,border-color .3s}
+.ftl:active{transform:scale(.96)}
+.tp.on .ftl,.tp.on .card{animation:tin .55s cubic-bezier(.2,.9,.2,1) both;animation-delay:calc(var(--i,0)*45ms)}
+@keyframes tin{from{opacity:0;transform:translateY(16px) scale(.96)}}
+.ftl .ti{width:40px;height:40px}
+.ftl.hv{border-color:#E6C36A99}
+.wt{position:absolute;top:10px;inset-inline-end:10px;display:flex;align-items:center;gap:4px;font-size:10px;font-weight:800;letter-spacing:.8px;color:#15110A;background:var(--gg);border-radius:8px;padding:4px 7px}
+.wt svg{width:9px;height:9px}
+.hint{font-size:12.5px;color:var(--mu);margin:-4px 0 0;display:flex;align-items:center;gap:6px}
+.hint svg{width:16px;height:16px;color:var(--gold)}
+/* feature sheet */
+#fs .sheet{max-height:94%;overflow-y:auto;gap:12px}
+.stg{position:relative;width:100%;aspect-ratio:4/3;border-radius:20px;overflow:hidden;background:radial-gradient(120% 90% at 50% 15%,#1c2340,#08090f 72%);border:1px solid var(--ln)}
+.stg>svg{position:absolute;inset:0;width:100%;height:100%}
+.ab{fill:none;stroke:#ffffff2e;stroke-width:1.5;stroke-dasharray:3 6}
+.trl{fill:none;stroke:url(#gl);stroke-width:2.6;stroke-linecap:round}
+.cty circle.c{fill:#F8E4A6}
+.cty circle.r{fill:none;stroke:#F8E4A6;animation:cring 2s infinite;transform-box:fill-box;transform-origin:center}
+@keyframes cring{from{transform:scale(1);opacity:.9}to{transform:scale(3.2);opacity:0}}
+.cty text{fill:#F4ECD6;font:700 10px 'Outfit',sans-serif;letter-spacing:1.4px}
+.cty text.k{fill:#E6C36A;font:900 13px 'Cinzel',serif;letter-spacing:1px}
+#pln{filter:drop-shadow(0 0 6px #E6C36Acc)}
+.bp{position:absolute;left:50%;bottom:10px;width:88%;display:flex;border-radius:12px;background:#F7EED6;color:#1b160b;box-shadow:0 14px 34px #000c;transform:translate(-50%,140%) rotateX(40deg);opacity:0;transition:transform .8s cubic-bezier(.2,.9,.2,1),opacity .4s;direction:ltr;overflow:hidden}
+.bp.on{transform:translate(-50%,0);opacity:1}
+.bp::before{content:"";position:absolute;inset:0 auto 0 0;width:6px;background:var(--gg)}
+.bp .m{flex:1;padding:9px 12px 9px 16px;display:flex;flex-direction:column;gap:3px}
+.bp .s{width:78px;border-left:2px dashed #b9a777;padding:9px 8px;display:flex;flex-direction:column;justify-content:space-between;align-items:center;text-align:center}
+.bp .cc{display:flex;align-items:center;gap:8px;font:900 22px 'Cinzel',serif;color:#1b160b}
+.bp .cc svg{width:18px;height:18px;color:#A87B28}
+.bp small{display:block;font-size:8.5px;letter-spacing:1.2px;color:#7a6630;font-weight:800}
+.bp .ln{display:flex;gap:14px;font-size:11px;font-weight:700}
+.bc{width:100%;height:26px;background:repeating-linear-gradient(90deg,#1b160b 0 2px,transparent 2px 4px,#1b160b 4px 5px,transparent 5px 8px,#1b160b 8px 11px,transparent 11px 13px)}
+.stamp{position:absolute;top:14px;right:14px;transform:rotate(-12deg) scale(2.4);opacity:0;border:3px solid #49D184;color:#49D184;font:900 13px 'Outfit',sans-serif;letter-spacing:2px;padding:6px 10px;border-radius:8px;background:#08090fcc;transition:transform .35s cubic-bezier(.3,1.6,.5,1),opacity .2s}
+.stamp.on{transform:rotate(-12deg) scale(1);opacity:1}
+.fcap{min-height:22px;text-align:center;font-weight:700;color:var(--g2);font-size:14px;transition:opacity .3s}
+.gi{position:absolute;inset:0;display:grid;place-items:center}
+.gi .ring{position:absolute;width:150px;height:150px;border-radius:50%;border:1.5px solid #E6C36A66;animation:cring 2.6s infinite}
+.gi .ring.b{animation-delay:1.3s}
+.gi .core{position:relative;width:118px;height:118px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#3a2e12,#14110a);border:2px solid #D9B44A;box-shadow:0 0 50px #E6C36A55;animation:in1 .9s cubic-bezier(.2,.8,.2,1) both}
+.gi .core svg{width:56px;height:56px;color:var(--g2)}
+.gi .core path{stroke-dasharray:1;stroke-dashoffset:1;animation:dr 1.4s .35s ease forwards}
+.sa{display:flex;gap:10px}
+/* transitions */
+#tx{position:absolute;inset:0;z-index:60;perspective:1200px;overflow:hidden}
+.door{position:absolute;top:0;bottom:0;width:50.2%;background-color:#050505;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.06'%3E%3Crect x='12' y='12' width='20' height='20'/%3E%3Crect x='12' y='12' width='20' height='20' transform='rotate(45 22 22)'/%3E%3C/g%3E%3C/svg%3E");transition:transform .5s cubic-bezier(.5,0,.2,1);backface-visibility:hidden}
+.door.l{left:0;transform-origin:left center;transform:translateX(-101%);border-right:2px solid #D9B44A}
+.door.r{right:0;transform-origin:right center;transform:translateX(101%);border-left:2px solid #D9B44A}
+.door::before{content:"";position:absolute;left:0;right:0;top:22%;height:54px;background:linear-gradient(180deg,#A87B28,#F8E4A6 20%,#D9B44A 50%,#F8E4A6 80%,#A87B28);box-shadow:0 0 30px #E6C36A55;-webkit-mask:repeating-linear-gradient(90deg,#000 0 14px,#000c 14px 16px);mask:repeating-linear-gradient(90deg,#000 0 14px,#000c 14px 16px)}
+.door::after{content:"";position:absolute;top:50%;width:26px;height:26px;margin-top:-13px;border-radius:50%;border:4px solid #D9B44A;box-shadow:0 0 16px #E6C36A88}
+.door.l::after{right:18px}
+.door.r::after{left:18px}
+.seam{position:absolute;top:0;bottom:0;left:50%;width:4px;margin-left:-2px;background:#FFF2C0;box-shadow:0 0 40px 14px #E6C36A;opacity:0;transition:opacity .3s}
+.burst{position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,#FFF2C0cc,#E6C36A33 30%,transparent 60%);opacity:0}
+#tx.close .door{transform:none}
+#tx.close .seam{opacity:1;transition-delay:.35s}
+#tx.open .door{transition:transform 1.15s cubic-bezier(.65,.05,.25,1)}
+#tx.open .door.l{transform:rotateY(-108deg)}
+#tx.open .door.r{transform:rotateY(108deg)}
+#tx.open .burst{animation:burst2 1.2s ease-out forwards}
+@keyframes burst2{25%{opacity:1}100%{opacity:0;transform:scale(1.8)}}
+.txc{position:absolute;inset:0;background-size:cover;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;padding:0 16px 30px}
+.txc b{font-size:34px}
+.tkb{position:absolute;inset:0;background:#000000b8;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;transition:opacity .35s}
+#tx.tki .tkb{opacity:1}
+#tx.zoom .tkb{opacity:0;transition:opacity .5s .1s}
+.tk{position:absolute;top:50%;left:50%;width:310px;height:150px;margin:-75px 0 0 -155px;display:flex;direction:ltr;filter:drop-shadow(0 20px 40px #000)}
+#tx.tki .tk{animation:tkin .6s cubic-bezier(.2,.9,.2,1) both}
+@keyframes tkin{from{transform:translateY(-120%) rotateX(70deg);opacity:0}}
+.tkm{flex:1;background:#F7EED6;border-radius:14px 0 0 14px;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;color:#1b160b;position:relative}
+.tkm::before{content:"";position:absolute;inset:0 auto 0 0;width:7px;border-radius:14px 0 0 14px;background:var(--gg)}
+.tkm small{font-size:9px;letter-spacing:1.4px;color:#7a6630;font-weight:800}
+.tkm .cc{display:flex;align-items:center;gap:10px;font:900 30px 'Cinzel',serif}
+.tkm .cc svg{width:22px;height:22px;color:#A87B28}
+.tks{width:84px;background:#F7EED6;border-left:2px dashed #b9a777;border-radius:0 14px 14px 0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#1b160b;transform-origin:left bottom;transition:transform .55s cubic-bezier(.5,0,.4,1),opacity .55s}
+.tks b{font:900 18px 'Cinzel',serif}
+#tx.tear .tks{transform:translate(30px,120px) rotate(28deg);opacity:0}
+#tx.zoom .tk{transform:scale(3.4);opacity:0;transition:transform .55s cubic-bezier(.5,0,.3,1),opacity .5s .05s}
+[dir=rtl] .st small,[dir=rtl] .st p{text-align:right}
+[dir=rtl] #pd p,[dir=rtl] #pd small,[dir=rtl] .note,[dir=rtl] .why span,[dir=rtl] .fcap,[dir=rtl] #fds{unicode-bidi:plaintext}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.hc .ar,.sc .ar{opacity:1;clip-path:none}.tl::before{transform:none}}
 </style>
 </head>
@@ -265,7 +397,7 @@ textarea.in{padding:14px 16px;min-height:104px;resize:vertical}
 <p class="ar" lang="ar" dir="rtl">لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ</p>
 <div class="yr"><span class="num shine" id="yrs">27</span><span class="h yl" data-t="trust">Years of Trust · Since 2001</span></div>
 <p class="ap" data-t="appr">Approved by Ministry of Minority Affairs, Govt of India &amp; Ministry of Hajj, Saudi Arabia</p>
-<div class="cta"><button class="btn g" data-go="reg" data-t="reg">Register interest</button><button class="btn o" data-go="pkg" data-t="cta2">View Hajj 2027</button></div>
+<div class="cta"><button class="btn g" data-go="reg" data-t="reg">Register interest</button><button class="btn o" data-go="pkgs" data-t="cta2">View packages</button></div>
 </div>
 </header>
 
@@ -276,15 +408,9 @@ textarea.in{padding:14px 16px;min-height:104px;resize:vertical}
 <div class="bd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.6 5.5 6 .8-4.4 4.2 1.1 6L12 16.6 6.7 19.5l1.1-6-4.4-4.2 6-.8z"/></svg><span data-t="b3">Serving since 2001</span></div>
 </div>
 
-<article class="pk glowb rv z">
-<div>
-<span class="kick">HAJJ 2027 · SIGNATURE</span>
-<div class="pr"><b class="shine">₹7,00,000</b><span class="tcs"><bdi>+2% TCS</bdi></span></div>
-<ul class="mini"><li>34–38 days</li><li><bdi>12–15 April · Bombay → Jeddah</bdi></li><li>Mashaer Zone 5 · Cat. C/D</li></ul>
-<button class="btn g" data-go="pkg" data-t="view">View package</button>
-</div>
-<img class="pkimg" src="makkah.jpg" alt="Makkah Royal Clock Tower" loading="lazy" width="1000" height="1334">
-</article>
+<div id="hfeat" class="rv z"></div>
+<h2 class="h sh rv" data-t="more">More Hajj 2027 packages</h2>
+<div class="mcs rv" id="hmore"></div>
 
 <h2 class="h sh rv" data-t="stories">Pilgrim stories · Hajj 2026</h2>
 </div>
@@ -296,7 +422,7 @@ textarea.in{padding:14px 16px;min-height:104px;resize:vertical}
 
 <div class="pad" style="margin-top:16px">
 <div class="grid4 rv">
-<button class="tile" data-go="reg" data-um><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></span><span data-t="umr">Umrah packages</span></button>
+<button class="tile" data-go="reg" data-sel="umrah"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></span><span data-t="umr">Umrah packages</span></button>
 <button class="tile" data-go="reg"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg></span><span data-t="reg">Register interest</span></button>
 <button class="tile" data-go="news"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h13v14H6a2 2 0 0 1-2-2z"/><path d="M17 9h3v8a2 2 0 0 1-2 2M8 9h5M8 13h5"/></svg></span><span data-t="news">Haj news</span></button>
 <button class="tile" data-go="contact"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span><span data-t="n5">Contact</span></button>
@@ -306,47 +432,17 @@ textarea.in{padding:14px 16px;min-height:104px;resize:vertical}
 </div>
 </section>
 
-<!-- PACKAGE -->
-<section class="scr" id="pkg" aria-label="Hajj 2027 package">
-<header class="ph2">
-<div class="par"><img class="kb" src="makkah.jpg" alt="Makkah Royal Clock Tower" width="1000" height="1334" loading="lazy"></div>
-<button class="ib back" data-go="home" aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
-<div class="phc fade"><span class="kick">HAJJ 2027</span><h1 class="h shine">Signature Package</h1></div>
-</header>
+<!-- PACKAGES LIST -->
+<section class="scr" id="pkgs" aria-label="Hajj 2027 packages">
+<header class="sub"><span class="kick">HAJJ 2027</span><h1 class="h shine" data-t="pk">Hajj 2027 packages</h1><p class="mu" style="margin:0">Choose the journey that suits you.</p></header>
 <div class="pad">
-<div class="price rv z"><b id="pr">₹7,00,000/-</b><span style="font-weight:700"><bdi>+2% TCS</bdi></span></div>
-<div class="facts rv">
-<div class="card fc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><small>DURATION</small><b>34–38 days</b></div></div>
-<div class="card fc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M3 20l6-11 4 6 2-3 6 8z"/></svg><div><small>MASHAER</small><b>Zone 5 · Category C/D</b></div></div>
-<div class="card fc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 16l20-6-3-2-6 2-6-5-2 1 4 5-4 1-2-2-1 1z"/></svg><div><small>DEPARTURE</small><b><bdi>12–15 April<br>Bombay → Jeddah</bdi></b></div></div>
-<div class="card fc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16L2 10l3-2 6 2 6-5 2 1-4 5 4 1 2-2 1 1z"/></svg><div><small>RETURN</small><b><bdi>21–22 May<br>Jeddah → Bombay</bdi></b></div></div>
-</div>
-<h2 class="h sh rv" data-t="jr">Your journey</h2>
-<div class="tl rv">
-<div class="st fl"><small>DEPARTURE · 12–15 APRIL</small><b><bdi>Bombay → Jeddah</bdi></b></div>
-<div class="st"><small>01 · MAKKAH</small><b>Jabal Omar</b><p>Hilton Convention / Marriott or similar 5-star</p></div>
-<div class="st"><small>02 · MADEENAH</small><b>Markaziya</b><p>Manazil Al Sadiq or similar</p></div>
-<div class="st"><small>03 · MAKKAH</small><b>Aziziya</b><p>Shar-E-Mansoor or similar</p></div>
-<div class="st fl"><small>RETURN · 21–22 MAY</small><b><bdi>Jeddah → Bombay</bdi></b></div>
-</div>
-<h2 class="h sh rv" data-t="inc">Package includes</h2>
-<div class="inc rv">
-<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Return air ticket</span>
-<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Makkah shifting accommodation</span>
-<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Daily hygienic Indian meals</span>
-<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Local transport in Saudi Arabia</span>
-<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Ziyarat in Makkah &amp; Madeenah</span>
-<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Experienced Hajj team</span>
-<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Complete guidance &amp; assistance</span>
-<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Hajj kit</span>
-<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Zam Zam</span>
-<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Laundry service</span>
-<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>GST</span>
-<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Applicable taxes</span>
-</div>
-<div class="stick"><button class="btn g" data-go="reg" data-t="reg">Register interest</button><a class="btn wa" href="https://wa.me/917038422399?text=Assalamu%20Alaikum.%20I%20want%20details%20of%20the%20Hajj%202027%20Signature%20Package." target="_blank" rel="noopener" aria-label="Ask on WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-2-1-1 .8a4 4 0 0 1-2.1-2.1l.8-1-1-2z"/></svg></a></div>
+<div id="pfeat" class="rv z"></div>
+<div id="plist" style="display:flex;flex-direction:column;gap:12px"></div>
 </div>
 </section>
+
+<!-- PACKAGE DETAIL -->
+<section class="scr" id="pd" aria-label="Package details"></section>
 
 <!-- REGISTER -->
 <section class="scr" id="reg" aria-label="Register interest">
@@ -361,7 +457,7 @@ textarea.in{padding:14px 16px;min-height:104px;resize:vertical}
 <label class="lb rv">Full name<input class="in" type="text" autocomplete="name" placeholder="As on passport"></label>
 <label class="lb rv">Mobile number<input class="in" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10-digit number"></label>
 <label class="lb rv">City<input class="in" type="text" autocomplete="address-level2" placeholder="e.g. Malegaon"></label>
-<div class="lb rv">I am interested in<div class="chips" id="sg"><button type="button" class="chip g">Hajj 2027</button><button type="button" class="chip">Umrah</button><button type="button" class="chip">Not sure yet</button></div></div>
+<div class="lb rv">I am interested in<div class="chips" id="sg"><button type="button" class="chip g" data-k="long" data-m="Hajj 2027 Long Stay Package">Long Stay</button><button type="button" class="chip" data-k="signature" data-m="Hajj 2027 Signature Package">Signature</button><button type="button" class="chip" data-k="short" data-m="Hajj 2027 Short Package">Short</button><button type="button" class="chip" data-k="umrah" data-m="Umrah">Umrah</button><button type="button" class="chip" data-k="unsure" data-m="Not sure yet">Not sure yet</button></div></div>
 <div class="lb rv">Travelers<div class="cnt"><button type="button" class="chip" id="mi" aria-label="Fewer travelers">−</button><b id="nt">2</b><button type="button" class="chip" id="pl" aria-label="More travelers">+</button></div></div>
 <label class="lb cs rv"><input type="checkbox" id="cs">I agree that Meezab E Rahemat may contact me about Haj and Umrah packages.</label>
 <div class="err" id="er" role="alert"></div>
@@ -420,7 +516,7 @@ textarea.in{padding:14px 16px;min-height:104px;resize:vertical}
 <nav class="nav" aria-label="Main">
 <span id="ind" aria-hidden="true"></span>
 <button class="on" data-go="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span data-t="n1">Home</span></button>
-<button data-go="pkg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg><span data-t="n2">Packages</span></button>
+<button data-go="pkgs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg><span data-t="n2">Packages</span></button>
 <button data-go="news"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h13v14H6a2 2 0 0 1-2-2z"/><path d="M17 9h3v8a2 2 0 0 1-2 2M8 9h5M8 13h5"/></svg><span data-t="n3">News</span></button>
 <button data-go="fb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><span data-t="n4">Feedback</span></button>
 <button data-go="contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span data-t="n5">Contact</span></button>
@@ -441,30 +537,62 @@ textarea.in{padding:14px 16px;min-height:104px;resize:vertical}
 <div class="vcap"><b id="vn"></b><small id="vc"></small></div>
 <button class="ib" id="vx" aria-label="Close video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
 </div>
+<div class="ov" id="fs" hidden role="dialog" aria-modal="true" aria-label="Package feature">
+<div class="bk" data-fclose></div>
+<div class="sheet"><div class="grab"></div>
+<div class="stg" id="stg" dir="ltr"></div>
+<p class="fcap" id="fcap" aria-live="polite"></p>
+<p class="h" id="ftl" style="font-size:22px;margin:0"></p>
+<p class="mu" id="fds" style="margin:0;font-size:14px"></p>
+<div class="sa"><button class="btn d s" id="frp" type="button">Replay</button><button class="btn g s" type="button" data-fclose>Close</button></div>
+</div></div>
+<div id="tx" hidden aria-hidden="true"></div>
 <div class="cf" id="cf" aria-hidden="true"></div>
 </div>
 
 <script>
 const VID={burhan:{n:'Mohd Burhan',c:'Delhi · Hajj 2026',src:'review-burhan.mp4',p:'poster-burhan.jpg'},mubashshira:{n:'Mubashshira Ahemad',c:'Mumbai · Hajj 2026',src:'review-mubashshira.mp4',p:'poster-mubashshira.jpg'},faisal:{n:'Faisal Ahmed',c:'Malegaon · Hajj 2026',src:'review-faisal.mp4',p:'poster-faisal.jpg'}};
 const OFFICE_WA='917038422399',LEAD_URL='';
+const OFFER_END=new Date('2026-12-31T23:59:59+05:30').getTime();
+const IMG={kaaba:'kaaba.jpg',madeenah:'madeenah.jpg',makkah:'makkah.jpg'};
+
+/* ---------- packages (edit prices, dates and inclusions here) ---------- */
+const PK={
+long:{name:'Long Stay',title:'Long Stay Package',kick:'HAJJ 2027 · 5-STAR PREMIUM',img:IMG.madeenah,pos:'20% 58%',open:'doors',days:'39–43 days',price:669999,old:800000,offer:true,share:'Based on standard 5-bed sharing · +2% TCS',mashaer:'Zone 5 · Category C',dep:'8–10 April',depR:'Bombay → Madina',ret:'19–22 May',retR:'Jeddah → Bombay',out:['BOM','MED'],back:['JED','BOM'],why:'Begins in Madina first, the better-value route to Hajj. Travelling straight to Makkah in this period costs more.',tnc:true,
+journey:[['fl','DEPARTURE · 8–10 APRIL','Bombay → Madina',''],['','01 · MADEENAH','Markaziya','Crown Plaza or similar 5-star'],['','02 · MAKKAH','Jabal Omar','Hilton Convention / Marriott or similar 5-star'],['','03 · MAKKAH','Aziziya','Shar-E-Mansoor or similar'],['fl','RETURN · 19–22 MAY','Jeddah → Bombay','']],
+inc:[['ticket','Return air ticket','Bombay → Madina on the way out, Jeddah → Bombay on the way back.'],['food','Indian buffet meals','Delicious Indian food served buffet-style, with hot and cold drinks.'],['bus','Luxury A/C bus transfers','Transfers in Saudi Arabia by luxury air-conditioned buses.'],['mosque','Ziyarat in Makkah & Madina','In A/C buses, guided by an experienced Moallim.'],['mount','Taif Ziyarat with Umrah','A visit to Taif, together with Umrah.'],['bag','Travelling bag & passport bag','Your travelling bag and passport bag are provided.'],['shirt','Laundry service','Your clothes washed and returned during the stay.'],['drop','5 litre Zam Zam','5 litres of Zam Zam to take home.']]},
+signature:{name:'Signature',title:'Signature Package',kick:'HAJJ 2027 · SIGNATURE',img:IMG.makkah,pos:'50% 40%',open:'card',days:'34–38 days',price:700000,share:'+2% TCS',mashaer:'Zone 5 · Category C/D',dep:'12–15 April',depR:'Bombay → Jeddah',ret:'21–22 May',retR:'Jeddah → Bombay',out:['BOM','JED'],back:['JED','BOM'],
+journey:[['fl','DEPARTURE · 12–15 APRIL','Bombay → Jeddah',''],['','01 · MAKKAH','Jabal Omar','Hilton Convention / Marriott or similar 5-star'],['','02 · MADEENAH','Markaziya','Manazil Al Sadiq or similar'],['','03 · MAKKAH','Aziziya','Shar-E-Mansoor or similar'],['fl','RETURN · 21–22 MAY','Jeddah → Bombay','']],
+inc:[['ticket','Return air ticket','Bombay → Jeddah on the way out, Jeddah → Bombay on the way back.'],['building','Makkah shifting accommodation','Accommodation in Makkah, including the shifting stay.'],['food','Daily hygienic Indian meals','Fresh, hygienic Indian meals every day.'],['bus','Local transport in Saudi Arabia','All local transport during the journey.'],['mosque','Ziyarat in Makkah & Madeenah','Guided visits to the holy sites.'],['shirt','Laundry service','Your clothes washed and returned during the stay.'],['drop','Zam Zam','Zam Zam to take home.'],['box','Hajj kit','Your Hajj kit is provided.'],['people','Experienced Hajj team','Our experienced team travels with you.'],['compass','Complete guidance & assistance','Step-by-step guidance for every ritual.'],['receipt','GST & applicable taxes','GST and applicable taxes are included.']]},
+short:{name:'Short',title:'Short Package',kick:'HAJJ 2027 · 15–17 DAYS',img:IMG.kaaba,pos:'50% 35%',open:'ticket',days:'15–17 days',price:630000,share:'Based on standard 5-bed sharing · +2% TCS',mashaer:'Zone 5 · Category C/D',dep:'7/8 May 2027',depR:'Bombay → Jeddah',ret:'22–24 May 2027',retR:'Madina → Mumbai',out:['BOM','JED'],back:['MED','BOM'],
+journey:[['fl','7/8 MAY 2027','Bombay → Jeddah','Arrival in Jeddah, transfer to Makkah, shifting accommodation'],['','HAJJ · 5 DAYS','Mashair period','As per the Hajj movement schedule'],['','AFTER HAJJ · 2–3 DAYS','Makkah','Rest and post-Hajj arrangements'],['','MADINA · 3–4 DAYS','Madina','Transfer to Madina, stay and Ziyarat'],['fl','22–24 MAY 2027','Madina → Mumbai','Return to India']],
+inc:[['ticket','Return air ticket','Bombay → Jeddah on the way out, Madina → Mumbai on the way back.'],['building','Makkah shifting accommodation','Accommodation in Makkah, including the shifting stay.'],['moon','Madina stay (3–4 nights)','3 to 4 nights in Madina, with Ziyarat.'],['food','Daily hygienic Indian meals','Fresh, hygienic Indian meals every day.'],['bus','Local transport in Saudi Arabia','All local transport during the journey.'],['mosque','Ziyarat in Makkah & Madeenah','Guided visits to the holy sites.'],['shirt','Laundry service','Your clothes washed and returned during the stay.'],['drop','Zam Zam','Zam Zam to take home.'],['box','Hajj kit','Your Hajj kit is provided.'],['people','Experienced Hajj team','Our experienced team travels with you.'],['compass','Complete guidance & assistance','Step-by-step guidance for every ritual.'],['receipt','Applicable taxes','Applicable taxes are included.']]}};
+const EXC={long:[],signature:[],short:[]}; /* exclusions: add ['icon','Title','Description'] items here */
+const ICO={ticket:'M2 16l20-6-3-2-6 2-6-5-2 1 4 5-4 1-2-2-1 1z',food:'M3 11h18a9 9 0 0 1-18 0zM8 7.5c0-1.5 1-2 1-3.5M12 7.5c0-1.5 1-2 1-3.5M16 7.5c0-1.5 1-2 1-3.5',bus:'M5 18V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v12zM5 12h14M8 18v2M16 18v2M8 15h.01M16 15h.01',mosque:'M4 21v-9a8 8 0 0 1 16 0v9zM12 4V2M9 21v-4a3 3 0 0 1 6 0v4',mount:'M3 20l6-11 4 6 2-3 6 8z',bag:'M4 8h16v12H4zM9 8V5h6v3M4 13h16',shirt:'M8 3L3 6l2 4 3-1v12h8V9l3 1 2-4-5-3a4 4 0 0 1-8 0z',drop:'M12 3s7 7.5 7 12a7 7 0 0 1-14 0c0-4.5 7-12 7-12z',building:'M5 21V5l7-2 7 2v16zM9 8h2M13 8h2M9 12h2M13 12h2M10 21v-4h4v4',moon:'M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z',box:'M3 7l9-4 9 4v10l-9 4-9-4zM3 7l9 4 9-4M12 11v10',people:'M9 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM2 21a7 7 0 0 1 14 0M16 4a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 4 7',compass:'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM15.5 8.5l-2 5-5 2 2-5z',receipt:'M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6M9 12h6',x:'M6 6l12 12M18 6L6 18',info:'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 11v6M12 7.5h.01',tap:'M9 11V5a2 2 0 0 1 4 0v5l4 1a2 2 0 0 1 1.5 2.3L17 20H9l-4-5a1.8 1.8 0 0 1 2.6-2.4L9 14'};
+function ic(n,sw){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="'+(sw||1.8)+'" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="'+ICO[n]+'"/></svg>'}
+const PLANE='<path d="M13 0L-5-3.2-7.5-11h-3.2l1.6 7.6-5 .8-2.4-3.8H-19l1.2 6.4-1.2 6.4h2.5l2.4-3.8 5 .8-1.6 7.6h3.2L-5 3.2z" fill="#F8E4A6"/>';
+
 const T={
-en:{tag:"Haj · Umrah · Ziyarat Tours",trust:"Years of Trust · Since 2001",appr:"Approved by Ministry of Minority Affairs, Govt of India & Ministry of Hajj, Saudi Arabia",view:"View package",cta2:"View Hajj 2027",umr:"Umrah packages",reg:"Register interest",fb:"Pilgrim feedback",news:"Haj news",send:"Send request",stories:"Pilgrim stories · Hajj 2026",zy:"Ziyarat · Makkah & Madeenah",jr:"Your journey",inc:"Package includes",lang:"Choose language",b1:"Govt of India approved",b2:"Ministry of Hajj, KSA",b3:"Serving since 2001",n1:"Home",n2:"Packages",n3:"News",n4:"Feedback",n5:"Contact"},
-ur:{tag:"حج · عمرہ · زیارات ٹورز",trust:"سال کا اعتماد · ۲۰۰۱ سے",appr:"وزارتِ اقلیتی امور حکومتِ ہند اور وزارتِ حج سعودی عرب سے منظور شدہ",view:"پیکج دیکھیں",cta2:"حج ۲۰۲۷ دیکھیں",umr:"عمرہ پیکجز",reg:"دلچسپی درج کریں",fb:"حاجیوں کی رائے",news:"حج کی خبریں",send:"درخواست بھیجیں",stories:"حاجیوں کی زبانی · حج ۲۰۲۶",zy:"زیارات · مکہ و مدینہ",jr:"آپ کا سفر",inc:"پیکج میں شامل",lang:"زبان منتخب کریں",b1:"حکومتِ ہند سے منظور",b2:"وزارتِ حج، سعودی عرب",b3:"۲۰۰۱ سے خدمت میں",n1:"ہوم",n2:"پیکجز",n3:"خبریں",n4:"رائے",n5:"رابطہ"},
-hi:{tag:"हज · उमराह · ज़ियारत टूर्स",trust:"साल का भरोसा · 2001 से",appr:"अल्पसंख्यक कार्य मंत्रालय, भारत सरकार और हज मंत्रालय, सऊदी अरब से मान्यता प्राप्त",view:"पैकेज देखें",cta2:"हज 2027 देखें",umr:"उमराह पैकेज",reg:"रुचि दर्ज करें",fb:"हाजियों की राय",news:"हज की ख़बरें",send:"अनुरोध भेजें",stories:"हाजियों की ज़ुबानी · हज 2026",zy:"ज़ियारत · मक्का और मदीना",jr:"आपका सफ़र",inc:"पैकेज में शामिल",lang:"भाषा चुनें",b1:"भारत सरकार से मान्य",b2:"हज मंत्रालय, सऊदी अरब",b3:"2001 से सेवा में",n1:"होम",n2:"पैकेज",n3:"ख़बरें",n4:"राय",n5:"संपर्क"},
-gu:{tag:"હજ · ઉમરાહ · ઝિયારત ટૂર્સ",trust:"વર્ષનો વિશ્વાસ · 2001 થી",appr:"લઘુમતી બાબતોના મંત્રાલય, ભારત સરકાર અને હજ મંત્રાલય, સાઉદી અરેબિયા દ્વારા માન્ય",view:"પેકેજ જુઓ",cta2:"હજ 2027 જુઓ",umr:"ઉમરાહ પેકેજ",reg:"રસ નોંધાવો",fb:"હાજીઓનો અભિપ્રાય",news:"હજના સમાચાર",send:"વિનંતી મોકલો",stories:"હાજીઓના અનુભવ · હજ 2026",zy:"ઝિયારત · મક્કા અને મદીના",jr:"તમારી યાત્રા",inc:"પેકેજમાં સામેલ",lang:"ભાષા પસંદ કરો",b1:"ભારત સરકાર માન્ય",b2:"હજ મંત્રાલય, સાઉદી",b3:"2001 થી સેવામાં",n1:"હોમ",n2:"પેકેજ",n3:"સમાચાર",n4:"અભિપ્રાય",n5:"સંપર્ક"}};
+en:{tag:"Haj · Umrah · Ziyarat Tours",trust:"Years of Trust · Since 2001",appr:"Approved by Ministry of Minority Affairs, Govt of India & Ministry of Hajj, Saudi Arabia",view:"View package",cta2:"View packages",umr:"Umrah packages",reg:"Register interest",fb:"Pilgrim feedback",news:"Haj news",send:"Send request",stories:"Pilgrim stories · Hajj 2026",zy:"Ziyarat · Makkah & Madeenah",jr:"Your journey",inc:"Package includes",lang:"Choose language",b1:"Govt of India approved",b2:"Ministry of Hajj, KSA",b3:"Serving since 2001",offer:"Limited time offer",ends:"Offer ends in",more:"More Hajj 2027 packages",explore:"Explore package",pk:"Hajj 2027 packages",incT:"Includes",excT:"Excludes",tapi:"Tap any item to see it",n1:"Home",n2:"Packages",n3:"News",n4:"Feedback",n5:"Contact"},
+ur:{tag:"حج · عمرہ · زیارات ٹورز",trust:"سال کا اعتماد · ۲۰۰۱ سے",appr:"وزارتِ اقلیتی امور حکومتِ ہند اور وزارتِ حج سعودی عرب سے منظور شدہ",view:"پیکج دیکھیں",cta2:"پیکجز دیکھیں",umr:"عمرہ پیکجز",reg:"دلچسپی درج کریں",fb:"حاجیوں کی رائے",news:"حج کی خبریں",send:"درخواست بھیجیں",stories:"حاجیوں کی زبانی · حج ۲۰۲۶",zy:"زیارات · مکہ و مدینہ",jr:"آپ کا سفر",inc:"پیکج میں شامل",lang:"زبان منتخب کریں",b1:"حکومتِ ہند سے منظور",b2:"وزارتِ حج، سعودی عرب",b3:"۲۰۰۱ سے خدمت میں",offer:"محدود مدت کی پیشکش",ends:"پیشکش ختم ہونے میں",more:"حج ۲۰۲۷ کے مزید پیکجز",explore:"پیکج دیکھیں",pk:"حج ۲۰۲۷ پیکجز",incT:"شامل",excT:"شامل نہیں",tapi:"دیکھنے کے لیے کسی بھی چیز پر ٹیپ کریں",n1:"ہوم",n2:"پیکجز",n3:"خبریں",n4:"رائے",n5:"رابطہ"},
+hi:{tag:"हज · उमराह · ज़ियारत टूर्स",trust:"साल का भरोसा · 2001 से",appr:"अल्पसंख्यक कार्य मंत्रालय, भारत सरकार और हज मंत्रालय, सऊदी अरब से मान्यता प्राप्त",view:"पैकेज देखें",cta2:"पैकेज देखें",umr:"उमराह पैकेज",reg:"रुचि दर्ज करें",fb:"हाजियों की राय",news:"हज की ख़बरें",send:"अनुरोध भेजें",stories:"हाजियों की ज़ुबानी · हज 2026",zy:"ज़ियारत · मक्का और मदीना",jr:"आपका सफ़र",inc:"पैकेज में शामिल",lang:"भाषा चुनें",b1:"भारत सरकार से मान्य",b2:"हज मंत्रालय, सऊदी अरब",b3:"2001 से सेवा में",offer:"सीमित समय का ऑफ़र",ends:"ऑफ़र समाप्त होने में",more:"हज 2027 के और पैकेज",explore:"पैकेज देखें",pk:"हज 2027 पैकेज",incT:"शामिल",excT:"शामिल नहीं",tapi:"देखने के लिए किसी भी आइटम पर टैप करें",n1:"होम",n2:"पैकेज",n3:"ख़बरें",n4:"राय",n5:"संपर्क"},
+gu:{tag:"હજ · ઉમરાહ · ઝિયારત ટૂર્સ",trust:"વર્ષનો વિશ્વાસ · 2001 થી",appr:"લઘુમતી બાબતોના મંત્રાલય, ભારત સરકાર અને હજ મંત્રાલય, સાઉદી અરેબિયા દ્વારા માન્ય",view:"પેકેજ જુઓ",cta2:"પેકેજ જુઓ",umr:"ઉમરાહ પેકેજ",reg:"રસ નોંધાવો",fb:"હાજીઓનો અભિપ્રાય",news:"હજના સમાચાર",send:"વિનંતી મોકલો",stories:"હાજીઓના અનુભવ · હજ 2026",zy:"ઝિયારત · મક્કા અને મદીના",jr:"તમારી યાત્રા",inc:"પેકેજમાં સામેલ",lang:"ભાષા પસંદ કરો",b1:"ભારત સરકાર માન્ય",b2:"હજ મંત્રાલય, સાઉદી",b3:"2001 થી સેવામાં",offer:"મર્યાદિત સમયની ઓફર",ends:"ઓફર પૂરી થવામાં",more:"હજ 2027 ના વધુ પેકેજ",explore:"પેકેજ જુઓ",pk:"હજ 2027 પેકેજ",incT:"સામેલ",excT:"સામેલ નથી",tapi:"જોવા માટે કોઈપણ આઇટમ પર ટેપ કરો",n1:"હોમ",n2:"પેકેજ",n3:"સમાચાર",n4:"અભિપ્રાય",n5:"સંપર્ક"}};
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const inr=n=>'₹'+n.toLocaleString('en-IN');
 const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const app=$('#app');
-let cur='home',vpOpen=false,lsOpen=false;
+let cur='home',curPk=null,vpOpen=false,lsOpen=false,fsOpen=false,lang='en';
+const offerOn=()=>Date.now()<OFFER_END;
 
 /* ---------- sound (synthesised, no files) ---------- */
 let AC=null,master=null,noise=null,sndOn=store.get('snd')!=='0';
 function ac(){if(!AC){try{AC=new(window.AudioContext||window.webkitAudioContext)();master=AC.createGain();master.gain.value=.9;master.connect(AC.destination)}catch(e){return null}}if(AC.state==='suspended')AC.resume();return AC}
 function env(f,t,d,g,type){const a=ac();if(!a)return;const s=a.currentTime+t,o=a.createOscillator(),v=a.createGain();o.type=type||'sine';o.frequency.setValueAtTime(f,s);v.gain.setValueAtTime(.0001,s);v.gain.exponentialRampToValueAtTime(g,s+.012);v.gain.exponentialRampToValueAtTime(.0001,s+d);o.connect(v);v.connect(master);o.start(s);o.stop(s+d+.05)}
 function bell(f,t,g){env(f,t,1.5,g);env(f*2.01,t,.9,g*.35);env(f*3.03,t,.5,g*.14)}
-function swoosh(){const a=ac();if(!a)return;if(!noise){noise=a.createBuffer(1,a.sampleRate*.35,a.sampleRate);const d=noise.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1}const s=a.currentTime,n=a.createBufferSource(),f=a.createBiquadFilter(),v=a.createGain();n.buffer=noise;f.type='bandpass';f.Q.value=1.1;f.frequency.setValueAtTime(450,s);f.frequency.exponentialRampToValueAtTime(2800,s+.24);v.gain.setValueAtTime(.0001,s);v.gain.exponentialRampToValueAtTime(.045,s+.07);v.gain.exponentialRampToValueAtTime(.0001,s+.28);n.connect(f);f.connect(v);v.connect(master);n.start(s);n.stop(s+.32)}
-const SFX={tap(){env(1320,0,.06,.025)},nav(){swoosh();env(1760,.02,.18,.012)},chime(){bell(783.99,0,.05);bell(1174.66,.16,.04);bell(1567.98,.32,.025)},ok(){[523.25,659.25,783.99,1046.5].forEach((f,i)=>bell(f,i*.12,.045))},err(){env(233,0,.14,.05,'triangle');env(196,.16,.2,.05,'triangle')},open(){bell(659.25,0,.035)},star(n){bell(523.25*Math.pow(1.122,n),0,.035)}};
+function nz(t,d,g,ft,f0,f1,q){const a=ac();if(!a)return;if(!noise){noise=a.createBuffer(1,a.sampleRate*2,a.sampleRate);const x=noise.getChannelData(0);for(let i=0;i<x.length;i++)x[i]=Math.random()*2-1}const s=a.currentTime+t,n=a.createBufferSource(),f=a.createBiquadFilter(),v=a.createGain();n.buffer=noise;f.type=ft;f.Q.value=q||1;f.frequency.setValueAtTime(f0,s);f.frequency.exponentialRampToValueAtTime(f1,s+d*.85);v.gain.setValueAtTime(.0001,s);v.gain.exponentialRampToValueAtTime(g,s+d*.25);v.gain.exponentialRampToValueAtTime(.0001,s+d);n.connect(f);f.connect(v);v.connect(master);n.start(s);n.stop(s+d+.05)}
+const SFX={tap(){env(1320,0,.06,.025)},nav(){nz(0,.28,.045,'bandpass',450,2800,1.1);env(1760,.02,.18,.012)},chime(){bell(783.99,0,.05);bell(1174.66,.16,.04);bell(1567.98,.32,.025)},ok(){[523.25,659.25,783.99,1046.5].forEach((f,i)=>bell(f,i*.12,.045))},err(){env(233,0,.14,.05,'triangle');env(196,.16,.2,.05,'triangle')},open(){bell(659.25,0,.035)},star(n){bell(523.25*Math.pow(1.122,n),0,.035)},door(){env(98,0,.5,.09);nz(0,.4,.03,'lowpass',900,200)},whoosh(){nz(0,1.1,.05,'bandpass',300,2400,.8)},tear(){nz(0,.32,.07,'highpass',1800,5000,.7)},takeoff(){nz(0,1.6,.05,'lowpass',250,2200,.9);env(140,0,1.4,.015,'sawtooth')},print(){for(let i=0;i<7;i++)env(1900+i*40,i*.055,.03,.018,'triangle')},stamp(){env(110,0,.22,.13);nz(0,.08,.05,'highpass',2000,4000)}};
 function sfx(k,x){if(!sndOn||vpOpen)return;try{SFX[k](x)}catch(e){}}
 function paintSnd(){$('#sndb').setAttribute('aria-pressed',sndOn);$('#sndb .son').style.display=sndOn?'':'none';$('#sndb .soff').style.display=sndOn?'none':''}
 $('#sndb').addEventListener('click',e=>{e.stopPropagation();sndOn=!sndOn;store.set('snd',sndOn?'1':'0');paintSnd();if(sndOn)sfx('chime')});
@@ -472,34 +600,127 @@ paintSnd();
 
 /* ---------- language ---------- */
 const LC={en:'EN',ur:'اردو',hi:'हिं',gu:'ગુ'};
-function setLang(l){if(!T[l])l='en';const d=document.documentElement;d.lang=l;d.dir=l==='ur'?'rtl':'ltr';$$('[data-t]').forEach(e=>{const v=T[l][e.dataset.t];if(v)e.textContent=v});$('#lcur').textContent=LC[l];$$('.lo').forEach(b=>b.classList.toggle('on',b.dataset.l===l));store.set('lang',l);requestAnimationFrame(setTab)}
-function openLang(){lsOpen=true;const o=$('#ls');o.hidden=false;requestAnimationFrame(()=>o.classList.add('on'));sfx('open');try{history.pushState({ov:1},'',location.hash||'#'+cur)}catch(e){}}
+function tr(root){$$('[data-t]',root||document).forEach(e=>{const v=T[lang][e.dataset.t];if(v)e.textContent=v})}
+function setLang(l){if(!T[l])l='en';lang=l;const d=document.documentElement;d.lang=l;d.dir=l==='ur'?'rtl':'ltr';tr();$('#lcur').textContent=LC[l];$$('.lo').forEach(b=>b.classList.toggle('on',b.dataset.l===l));store.set('lang',l);requestAnimationFrame(setTab)}
+function push(h){try{history.pushState({app:1},'','#'+h)}catch(e){}}
+function openLang(){lsOpen=true;const o=$('#ls');o.hidden=false;requestAnimationFrame(()=>o.classList.add('on'));sfx('open');push(location.hash.slice(1)||cur)}
 function closeLang(fromPop){if(!lsOpen)return;lsOpen=false;const o=$('#ls');o.classList.remove('on');setTimeout(()=>{if(!lsOpen)o.hidden=true},400);if(!fromPop)history.back()}
 $('#langb').addEventListener('click',e=>{e.stopPropagation();openLang()});
 $('#ls').addEventListener('click',e=>{const b=e.target.closest('.lo');if(b){setLang(b.dataset.l);sfx('tap');closeLang()}else if(e.target.closest('[data-close]'))closeLang()});
 
+/* ---------- package cards ---------- */
+function cdHTML(){return '<div class="cdw" data-offer><span class="cdl" data-t="ends">Offer ends in</span><div class="cd" data-cd><span><b>00</b><small>DAYS</small></span><span><b>00</b><small>HRS</small></span><span><b>00</b><small>MIN</small></span><span><b>00</b><small>SEC</small></span></div></div>'}
+function featHTML(){const P=PK.long;return '<article class="fx glowb" data-open="long"><div class="fxi"><img src="'+P.img+'" alt="Masjid an-Nabawi, Madeenah" loading="lazy" width="1000" height="1400"><span class="offer" data-offer data-t="offer">Limited time offer</span><span class="star5">★ 5-STAR</span></div><div class="fxb"><span class="kick">'+esc(P.kick)+'</span><h3 class="h">'+esc(P.title)+'</h3><span style="font-weight:700;color:var(--g2)">'+esc(P.days)+' · Madina first</span><div class="prs"><span class="was" data-offer>'+inr(P.old)+'</span><b class="shine">'+inr(P.price)+'</b></div><span class="mu">'+esc(P.share)+'</span>'+cdHTML()+'<button class="btn g" type="button" data-t="explore">Explore package</button></div></article>'}
+function miniHTML(k){const P=PK[k];return '<button class="mc" type="button" data-open="'+k+'"><img src="'+P.img+'" alt="" loading="lazy" style="object-position:'+P.pos+'"><span><small>'+esc(P.name.toUpperCase())+'</small><b>'+inr(P.price)+'</b><i>'+esc(P.days)+'</i></span></button>'}
+function rowHTML(k){const P=PK[k];return '<button class="lr rv" type="button" data-open="'+k+'"><img src="'+P.img+'" alt="" loading="lazy" style="object-position:'+P.pos+'"><span><small>'+esc(P.kick)+'</small><b>'+inr(P.price)+'</b><i>'+esc(P.days)+' · '+esc(P.depR)+'</i><em>'+esc(P.dep)+' → '+esc(P.ret)+'</em></span></button>'}
+$('#hfeat').innerHTML=featHTML();$('#pfeat').innerHTML=featHTML();
+$('#hmore').innerHTML=miniHTML('signature')+miniHTML('short');
+$('#plist').innerHTML=rowHTML('signature')+rowHTML('short');
+
+function renderPd(k){const P=PK[k];curPk=k;const off=P.offer&&offerOn();
+const fact=(i,l,v)=>'<div class="card fc">'+ic(i)+'<div><small>'+l+'</small><b><bdi>'+v+'</bdi></b></div></div>';
+const tiles=(L,kind)=>L.length?L.map((x,i)=>'<button class="ftl'+(x[0]==='ticket'&&kind==='i'?' hv':'')+'" type="button" style="--i:'+i+'" data-f="'+kind+i+'"><span class="ti">'+ic(x[0])+'</span>'+esc(x[1])+(x[0]==='ticket'&&kind==='i'?'<span class="wt"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>WATCH</span>':'')+'</button>').join(''):'<div class="card note" style="--i:0">The exclusions list will be added here soon.</div>';
+$('#pd').innerHTML='<header class="ph2"><div class="par"><img class="kb" src="'+P.img+'" alt="" style="object-position:'+P.pos+'"></div><button class="ib back" type="button" data-back aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>'+(off?'<span class="offer" style="top:auto;bottom:118px;inset-inline-start:16px" data-offer data-t="offer">Limited time offer</span>':'')+'<div class="phc fade"><span class="kick">'+esc(P.kick)+'</span><h1 class="h shine">'+esc(P.title)+'</h1></div></header>'+
+'<div class="pad">'+
+'<div class="price rv z"><div>'+(off?'<s>'+inr(P.old)+'</s>':'')+'<b id="pr">'+inr(P.price)+'/-</b></div><span style="font-weight:700;text-align:end;font-size:13px;max-width:150px">'+esc(P.share)+'</span></div>'+
+(off?'<div class="rv">'+cdHTML()+'</div>':'')+
+(P.why?'<div class="why rv">'+ic('info')+'<span>'+esc(P.why)+'</span></div>':'')+
+'<div class="facts rv">'+fact('compass','DURATION',esc(P.days))+fact('mount','MASHAER',esc(P.mashaer))+fact('ticket','DEPARTURE',esc(P.dep)+'<br>'+esc(P.depR))+fact('ticket','RETURN',esc(P.ret)+'<br>'+esc(P.retR))+'</div>'+
+'<h2 class="h sh rv" data-t="jr">Your journey</h2><div class="tl rv">'+P.journey.map(j=>'<div class="st'+(j[0]?' fl':'')+'"><small>'+esc(j[1])+'</small><b><bdi>'+esc(j[2])+'</bdi></b>'+(j[3]?'<p>'+esc(j[3])+'</p>':'')+'</div>').join('')+'</div>'+
+'<div class="tabs rv" role="tablist" data-on="0"><i></i><button class="on" type="button" role="tab" aria-selected="true" data-tab="0" data-t="incT">Includes</button><button type="button" role="tab" aria-selected="false" data-tab="1" data-t="excT">Excludes</button></div>'+
+'<p class="hint rv">'+ic('tap')+'<span data-t="tapi">Tap any item to see it</span></p>'+
+'<div class="tp on rv" role="tabpanel">'+tiles(P.inc,'i')+'</div><div class="tp'+(EXC[k].length?'':' one')+'" role="tabpanel">'+tiles(EXC[k],'e')+'</div>'+
+(P.tnc?'<p class="mu" style="margin:0;text-align:center">Note: T&amp;C apply.</p>':'')+
+'<div class="stick"><button class="btn g" type="button" data-go="reg" data-sel="'+k+'" data-t="reg">Register interest</button><a class="btn wa" href="https://wa.me/'+OFFICE_WA+'?text='+encodeURIComponent('Assalamu Alaikum. I want details of the Hajj 2027 '+P.title+'.')+'" target="_blank" rel="noopener" aria-label="Ask on WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-2-1-1 .8a4 4 0 0 1-2.1-2.1l.8-1-1-2z"/></svg></a></div></div>';
+tr($('#pd'));bindParallax($('#pd'));tickCd(true)}
+function setTabPane(n){const t=$('#pd .tabs');if(!t)return;t.dataset.on=n;$$('button',t).forEach((b,i)=>{b.classList.toggle('on',i===n);b.setAttribute('aria-selected',i===n)});$$('#pd .tp').forEach((p,i)=>{p.classList.toggle('on',i===n);if(i===n)p.classList.add('vis')})}
+
+/* ---------- countdown ---------- */
+let lastCd='';
+function tickCd(force){const r=OFFER_END-Date.now();if(r<=0){$$('[data-offer]').forEach(e=>e.hidden=true);return}const d=Math.floor(r/864e5),h=Math.floor(r/36e5)%24,m=Math.floor(r/6e4)%60,s=Math.floor(r/1e3)%60,v=[d,h,m,s].map(x=>String(x).padStart(2,'0'));$$('[data-cd]').forEach(c=>{const bs=$$('b',c);v.forEach((x,i)=>{if(bs[i].textContent!==x){bs[i].textContent=x;if(!RM&&!force){bs[i].classList.remove('cdt');void bs[i].offsetWidth;bs[i].classList.add('cdt')}}})})}
+tickCd(true);setInterval(tickCd,1000);
+
 /* ---------- reveal on scroll ---------- */
-const io='IntersectionObserver' in window?new IntersectionObserver(es=>{let k=0;es.forEach(en=>{const t=en.target;if(en.isIntersecting&&t.closest('.scr.on')){t.style.transitionDelay=(k++*80)+'ms';t.classList.add('vis');io.unobserve(t);setTimeout(()=>t.style.transitionDelay='',1400)}})},{threshold:.1}):null;
-function enter(s){$$('.rv',s).forEach(e=>{if(!io||RM){e.classList.add('vis');return}if(!e.classList.contains('vis'))io.observe(e)});if(s.id==='home'){countTo($('#yrs'),27,1500,n=>n);startP()}else stopP();if(s.id==='pkg')countTo($('#pr'),700000,1300,n=>'₹'+n.toLocaleString('en-IN')+'/-')}
-function countTo(el,to,dur,fmt){if(RM){el.textContent=fmt(to);return}const s0=performance.now();(function f(t){const p=Math.min(1,(t-s0)/dur),e=1-Math.pow(1-p,3);el.textContent=fmt(Math.round(to*e));if(p<1)requestAnimationFrame(f)})(s0)}
+const io='IntersectionObserver' in window?new IntersectionObserver(es=>{let k=0;es.forEach(en=>{const t=en.target;if(en.isIntersecting&&t.closest('.scr.on')){t.style.transitionDelay=(k++*80)+'ms';t.classList.add('vis');io.unobserve(t);setTimeout(()=>t.style.transitionDelay='',1400)}})},{threshold:.08}):null;
+function enter(s){$$('.rv',s).forEach(e=>{if(!io||RM){e.classList.add('vis');return}if(!e.classList.contains('vis'))io.observe(e)});if(s.id==='home'){countTo($('#yrs'),27,1500,n=>n);startP()}else stopP();if(s.id==='pd'&&curPk){const P=PK[curPk];countTo($('#pr'),P.price,1300,n=>inr(n)+'/-')}}
+function countTo(el,to,dur,fmt){if(!el)return;if(RM){el.textContent=fmt(to);return}const s0=performance.now();(function f(t){const p=Math.min(1,(t-s0)/dur),e=1-Math.pow(1-p,3);el.textContent=fmt(Math.round(to*e));if(p<1)requestAnimationFrame(f)})(s0)}
 
 /* ---------- navigation ---------- */
-const ids=['home','pkg','reg','fb','news','contact'],ord={home:0,pkg:1,reg:1.5,news:2,fb:3,contact:4},tab={home:0,pkg:1,news:2,fb:3,contact:4};
+const ids=['home','pkgs','pd','reg','fb','news','contact'],ord={home:0,pkgs:1,pd:1.3,reg:1.6,news:2,fb:3,contact:4},tab={home:0,pkgs:1,pd:1,news:2,fb:3,contact:4};
 function setTab(){const bs=$$('.nav button'),i=tab[cur]??-1,ind=$('#ind');bs.forEach((b,j)=>{b.classList.toggle('on',j===i);b.setAttribute('aria-current',j===i?'page':'false')});if(i<0){ind.style.opacity=0;return}const b=bs[i];ind.style.opacity=1;ind.style.width=b.offsetWidth+'px';ind.style.transform='translateX('+b.offsetLeft+'px)'}
-function go(id,nh){if(!ids.includes(id))id='home';if(id===cur){if(!nh)$('#'+id).scrollTo({top:0,behavior:RM?'auto':'smooth'});return}
-const a=$('#'+cur),b=$('#'+id),rtl=document.documentElement.dir==='rtl',back=ord[id]<ord[cur];
-b.style.transition='none';app.style.setProperty('--d',(back?-1:1)*(rtl?-1:1));b.offsetWidth;b.style.transition='';
-a.classList.remove('on');a.classList.add('out');setTimeout(()=>{a.classList.remove('out');if(!a.classList.contains('on'))$$('.rv',a).forEach(e=>e.classList.remove('vis'))},620);
-b.scrollTop=0;b.classList.add('on');cur=id;setTab();if(id==='reg')resetForm();enter(b);
-if(!nh){try{history.pushState(null,'','#'+id)}catch(e){}}}
-addEventListener('popstate',()=>{if(vpOpen){closeVideo(1);return}if(lsOpen){closeLang(1);return}go(location.hash.slice(1)||'home',1)});
-document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g){sfx('nav');go(g.dataset.go);if(g.hasAttribute('data-um'))$$('#sg .chip').forEach((c,i)=>c.classList.toggle('g',i===1));return}const v=e.target.closest('[data-v]');if(v){openVideo(v.dataset.v);return}if(e.target.closest('button:not(#sb):not(#fbs):not(.sb):not(.lo),a'))sfx('tap')});
+function go(id,nh,inst){if(!ids.includes(id))id='home';if(id===cur&&!inst){if(!nh)$('#'+id).scrollTo({top:0,behavior:RM?'auto':'smooth'});return}
+const a=$('#'+cur),b=$('#'+id);
+if(a!==b){if(inst){[a,b].forEach(x=>x.style.transition='none');a.classList.remove('on');b.scrollTop=0;b.classList.add('on');b.offsetWidth;requestAnimationFrame(()=>{a.style.transition='';b.style.transition=''});$$('.rv',a).forEach(e=>e.classList.remove('vis'))}
+else{const rtl=document.documentElement.dir==='rtl',back=ord[id]<ord[cur];b.style.transition='none';app.style.setProperty('--d',(back?-1:1)*(rtl?-1:1));b.offsetWidth;b.style.transition='';a.classList.remove('on');a.classList.add('out');setTimeout(()=>{a.classList.remove('out');if(!a.classList.contains('on'))$$('.rv',a).forEach(e=>e.classList.remove('vis'))},620);b.scrollTop=0;b.classList.add('on')}}
+cur=id;setTab();if(id==='reg')resetForm();enter(b);
+if(!nh)push(id)}
+addEventListener('popstate',()=>{if(vpOpen){closeVideo(1);return}if(lsOpen){closeLang(1);return}if(fsOpen){closeFeature(1);return}const h=location.hash.slice(1)||'home';if(PK[h]){if(cur!=='pd'||curPk!==h){renderPd(h);go('pd',1)}return}go(h,1)});
+function goBack(){if(history.state&&history.state.app)history.back();else go('pkgs')}
+
+/* ---------- opening transitions ---------- */
+let busy=false;
+function openPkg(k,el){if(busy||!PK[k])return;const P=PK[k];
+const fin=()=>{renderPd(k);go('pd',1,1);push(k)};
+if(RM){fin();return}busy=true;setTimeout(()=>busy=false,1900);
+const t=$('#tx');t.innerHTML='';t.className='';t.hidden=false;
+if(P.open==='doors'){t.innerHTML='<div class="door l"></div><div class="door r"></div><div class="seam"></div><div class="burst"></div>';t.offsetWidth;t.className='close';sfx('door');setTimeout(fin,520);setTimeout(()=>{t.className='open';sfx('chime')},760);setTimeout(()=>{t.hidden=true;t.className='';t.innerHTML=''},2000)}
+else if(P.open==='card'){const a=app.getBoundingClientRect(),r=(el||app).getBoundingClientRect(),c=document.createElement('div');c.className='txc';c.style.backgroundImage='linear-gradient(180deg,rgba(8,7,10,.25),rgba(8,7,10,.15) 40%,#08070A 100%),url('+P.img+')';c.style.backgroundPosition=P.pos;c.innerHTML='<span class="kick">'+esc(P.kick)+'</span><b class="h shine">'+esc(P.title)+'</b>';t.appendChild(c);sfx('whoosh');
+const cl=[r.top-a.top,a.right-r.right,a.bottom-r.bottom,r.left-a.left].map(v=>Math.max(0,v)+'px').join(' ');
+const an=c.animate([{clipPath:'inset('+cl+' round 22px)'},{clipPath:'inset(0px 0px 0px 0px round 0px)'}],{duration:640,easing:'cubic-bezier(.2,.8,.2,1)',fill:'forwards'});
+an.onfinish=()=>{fin();c.animate([{opacity:1},{opacity:0}],{duration:420,fill:'forwards'}).onfinish=()=>{t.hidden=true;t.innerHTML=''}}}
+else{t.innerHTML='<div class="tkb"></div><div class="tk"><div class="tkm"><small>HAJJ 2027 · BOARDING PASS</small><div class="cc">BOM'+ic('ticket',2)+esc(P.out[1])+'</div><small>'+esc(P.title.toUpperCase())+' · '+esc(P.days.toUpperCase())+'</small></div><div class="tks"><small style="font-size:8px;letter-spacing:1px;color:#7a6630;font-weight:800">SEAT</small><b>HAJJ</b><div class="bc" style="width:60px;height:22px"></div></div></div>';t.offsetWidth;t.className='tki';sfx('open');
+setTimeout(()=>{t.classList.add('tear');sfx('tear')},700);setTimeout(()=>{fin();t.classList.add('zoom');sfx('whoosh')},1250);setTimeout(()=>{t.hidden=true;t.className='';t.innerHTML=''},1900)}}
+
+/* ---------- feature pop-ups ---------- */
+let fr=0,ftm=[];
+const CITY={BOM:{x:300,y:146,n:'MUMBAI'},MED:{x:76,y:60,n:'MADINA'},JED:{x:56,y:132,n:'JEDDAH'}};
+function clearAnim(){cancelAnimationFrame(fr);ftm.forEach(clearTimeout);ftm=[]}
+function openFeature(code){const P=PK[curPk];if(!P)return;const kind=code[0],i=+code.slice(1),L=kind==='i'?P.inc:EXC[curPk],x=L[i];if(!x)return;
+fsOpen=true;$('#ftl').textContent=x[1];$('#fds').textContent=x[2]||'';const o=$('#fs');o.hidden=false;requestAnimationFrame(()=>o.classList.add('on'));push(location.hash.slice(1)||cur);
+const isT=x[0]==='ticket'&&kind==='i';$('#frp').hidden=!isT;$('#frp').onclick=()=>playFlight(P);
+if(isT){$('#stg').innerHTML=flightStage(P);playFlight(P)}else{clearAnim();$('#fcap').textContent='';$('#stg').innerHTML='<div class="gi"><span class="ring"></span><span class="ring b"></span><span class="core">'+ic(x[0],1.5)+'</span></div>';sfx('open')}}
+function closeFeature(fromPop){if(!fsOpen)return;fsOpen=false;clearAnim();const o=$('#fs');o.classList.remove('on');setTimeout(()=>{if(!fsOpen){o.hidden=true;$('#stg').innerHTML=''}},400);if(!fromPop)history.back()}
+$('#fs').addEventListener('click',e=>{if(e.target.closest('[data-fclose]'))closeFeature()});
+function flightStage(P){const H=CITY.BOM,O=CITY[P.out[1]],R=CITY[P.back[0]];
+const d1='M'+H.x+' '+H.y+' Q'+((H.x+O.x)/2)+' '+(Math.min(H.y,O.y)-78)+' '+O.x+' '+O.y,d2='M'+R.x+' '+R.y+' Q'+((H.x+R.x)/2)+' '+(Math.max(H.y,R.y)+58)+' '+H.x+' '+H.y;
+const cs=[...new Set(['BOM',P.out[1],P.back[0]])].map(c=>{const p=CITY[c],below=c==='JED';return '<g class="cty"><circle class="r" cx="'+p.x+'" cy="'+p.y+'" r="5"/><circle class="c" cx="'+p.x+'" cy="'+p.y+'" r="4.5"/><text class="k" x="'+p.x+'" y="'+(below?p.y+22:p.y-20)+'" text-anchor="middle">'+c+'</text><text x="'+p.x+'" y="'+(below?p.y+34:p.y-9)+'" text-anchor="middle">'+p.n+'</text></g>'}).join('');
+let st='';for(let i=0;i<28;i++)st+='<circle cx="'+((i*73)%360)+'" cy="'+((i*41)%120+4)+'" r="'+(i%3?.6:1)+'" fill="#fff" opacity="'+(.15+(i%5)*.08)+'"/>';
+const pass=(id,lab,a,b,date)=>'<div class="bp" id="'+id+'"><div class="m"><small>HAJJ 2027 · '+lab+'</small><div class="cc">'+a+ic('ticket',2)+b+'</div><div class="ln"><span><small>DATE</small>'+esc(date)+'</span><span><small>PACKAGE</small>'+esc(P.name.toUpperCase())+'</span></div></div><div class="s"><small>PILGRIM</small><div class="bc"></div><small>MEEZAB E RAHEMAT</small></div></div>';
+return '<svg viewBox="0 0 360 270" aria-hidden="true"><defs><linearGradient id="gl" x1="0" x2="1"><stop offset="0" stop-color="#A87B28"/><stop offset=".5" stop-color="#FFF0B8"/><stop offset="1" stop-color="#E6C36A"/></linearGradient></defs>'+st+'<path class="ab" d="'+d1+'"/><path class="ab" d="'+d2+'"/><path class="trl" id="t1" d="'+d1+'"/><path class="trl" id="t2" d="'+d2+'"/>'+cs+'<g id="pln" opacity="0">'+PLANE+'</g></svg>'+pass('bp1','OUTBOUND',P.out[0],P.out[1],P.dep)+pass('bp2','RETURN',P.back[0],P.back[1],P.ret)+'<div class="stamp" id="stp">INCLUDED</div>'}
+function playFlight(P){clearAnim();const t1=$('#t1'),t2=$('#t2'),pl=$('#pln'),cap=$('#fcap');if(!t1)return;const L1=t1.getTotalLength(),L2=t2.getTotalLength();
+[[t1,L1],[t2,L2]].forEach(([p,L])=>{p.style.strokeDasharray=L;p.style.strokeDashoffset=L});$('#bp1').classList.remove('on');$('#bp2').classList.remove('on');$('#stp').classList.remove('on');pl.setAttribute('opacity',0);
+const nm=c=>CITY[c].n.charAt(0)+CITY[c].n.slice(1).toLowerCase();
+const say=s=>{cap.style.opacity=0;setTimeout(()=>{cap.textContent=s;cap.style.opacity=1},200)};
+if(RM){t1.style.strokeDashoffset=0;t2.style.strokeDashoffset=0;$('#bp2').classList.add('on');$('#stp').classList.add('on');cap.textContent='Outbound '+nm(P.out[0])+' → '+nm(P.out[1])+' · Return '+nm(P.back[0])+' → '+nm(P.back[1]);return}
+const ease=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+function fly(p,L,e){const d=L*e,a=p.getPointAtLength(d),b=p.getPointAtLength(Math.min(L,d+1)),c=p.getPointAtLength(Math.max(0,d-1)),ang=Math.atan2(b.y-c.y,b.x-c.x)*180/Math.PI;pl.setAttribute('transform','translate('+a.x+' '+a.y+') rotate('+ang+') scale(.95)');p.style.strokeDashoffset=L*(1-e)}
+const s0=performance.now();let ph=-1;
+function step(now){const t=now-s0;
+if(t>=300&&t<2600){if(ph<0){ph=0;pl.setAttribute('opacity',1);say('Outbound · '+nm(P.out[0])+' → '+nm(P.out[1])+' · '+P.dep);sfx('takeoff')}fly(t1,L1,ease((t-300)/2300))}
+else if(t>=2600&&ph<1){ph=1;fly(t1,L1,1);pl.setAttribute('opacity',0);$('#bp1').classList.add('on');sfx('print')}
+if(t>=4500&&ph<2){ph=2;$('#bp1').classList.remove('on')}
+if(t>=4800&&t<7100){if(ph<3){ph=3;pl.setAttribute('opacity',1);say('Return · '+nm(P.back[0])+' → '+nm(P.back[1])+' · '+P.ret);sfx('takeoff')}fly(t2,L2,ease((t-4800)/2300))}
+else if(t>=7100&&ph<4){ph=4;fly(t2,L2,1);pl.setAttribute('opacity',0);$('#bp2').classList.add('on');sfx('print')}
+if(t>=8200&&ph<5){ph=5;$('#stp').classList.add('on');sfx('stamp');say('Return air ticket included')}
+if(ph<5)fr=requestAnimationFrame(step)}
+fr=requestAnimationFrame(step)}
+
+/* ---------- clicks ---------- */
+document.addEventListener('click',e=>{
+const o=e.target.closest('[data-open]');if(o){openPkg(o.dataset.open,o);return}
+const g=e.target.closest('[data-go]');if(g){sfx('nav');go(g.dataset.go);if(g.dataset.sel)selectChip(g.dataset.sel);return}
+if(e.target.closest('[data-back]')){sfx('nav');goBack();return}
+const v=e.target.closest('[data-v]');if(v){openVideo(v.dataset.v);return}
+const f=e.target.closest('[data-f]');if(f){openFeature(f.dataset.f);return}
+const tb=e.target.closest('[data-tab]');if(tb){setTabPane(+tb.dataset.tab);sfx('tap');return}
+if(e.target.closest('button:not(#sb):not(#fbs):not(.sb):not(.lo):not(#frp),a'))sfx('tap')});
 
 /* ripple */
-document.addEventListener('pointerdown',e=>{if(RM)return;const b=e.target.closest('.btn,.tile,.nav button,.chip');if(!b)return;const r=b.getBoundingClientRect(),d=Math.max(r.width,r.height)*2.2,s=document.createElement('span');s.className='rip';s.style.cssText='width:'+d+'px;height:'+d+'px;left:'+(e.clientX-r.left-d/2)+'px;top:'+(e.clientY-r.top-d/2)+'px';b.appendChild(s);setTimeout(()=>s.remove(),700)},{passive:true});
+document.addEventListener('pointerdown',e=>{if(RM)return;const b=e.target.closest('.btn,.tile,.nav button,.chip,.ftl,.mc,.lr');if(!b)return;const r=b.getBoundingClientRect(),d=Math.max(r.width,r.height)*2.2,s=document.createElement('span');s.className='rip';s.style.cssText='width:'+d+'px;height:'+d+'px;left:'+(e.clientX-r.left-d/2)+'px;top:'+(e.clientY-r.top-d/2)+'px';b.appendChild(s);setTimeout(()=>s.remove(),700)},{passive:true});
 
 /* parallax */
-$$('.scr').forEach(s=>s.addEventListener('scroll',()=>{if(RM)return;const y=s.scrollTop,p=$('.par',s),f=$('.fade',s);if(p&&y<700)p.style.transform='translate3d(0,'+(y*.42)+'px,0)';if(f){f.style.opacity=Math.max(0,1-y/340);f.style.transform='translate3d(0,'+(y*.18)+'px,0)'}if(s.id==='home')(y>650?stopP:startP)()},{passive:true}));
+function bindParallax(s){if(s.dataset.px)return;s.dataset.px=1;s.addEventListener('scroll',()=>{if(RM)return;const y=s.scrollTop,p=$('.par',s),f=$('.fade',s);if(p&&y<700)p.style.transform='translate3d(0,'+(y*.42)+'px,0)';if(f){f.style.opacity=Math.max(0,1-y/340);f.style.transform='translate3d(0,'+(y*.18)+'px,0)'}if(s.id==='home')(y>650?stopP:startP)()},{passive:true})}
+$$('.scr').forEach(bindParallax);
 
 /* ---------- gold particles ---------- */
 const pc=$('#pc'),px=pc.getContext('2d');let P=[],run=false;
@@ -517,20 +738,21 @@ $('#spl').addEventListener('click',()=>hideSplash(true));
 setTimeout(()=>hideSplash(false),RM?300:2900);
 
 /* ---------- video stories ---------- */
-function openVideo(k){const d=VID[k];if(!d)return;sfx('open');vpOpen=true;const o=$('#vp'),v=$('#vv');$('#vn').textContent=d.n;$('#vc').textContent=d.c;v.poster=d.p;v.src=d.src;o.hidden=false;requestAnimationFrame(()=>o.classList.add('on'));const p=v.play();if(p)p.catch(()=>{});stopP();try{history.pushState({ov:1},'',location.hash||'#'+cur)}catch(e){}}
+function openVideo(k){const d=VID[k];if(!d)return;sfx('open');vpOpen=true;const o=$('#vp'),v=$('#vv');$('#vn').textContent=d.n;$('#vc').textContent=d.c;v.poster=d.p;v.src=d.src;o.hidden=false;requestAnimationFrame(()=>o.classList.add('on'));const p=v.play();if(p)p.catch(()=>{});stopP();push(location.hash.slice(1)||cur)}
 function closeVideo(fromPop){if(!vpOpen)return;const o=$('#vp'),v=$('#vv');v.pause();v.removeAttribute('src');v.load();vpOpen=false;o.classList.remove('on');setTimeout(()=>{if(!vpOpen)o.hidden=true},380);startP();if(!fromPop)history.back()}
 $('#vx').addEventListener('click',e=>{e.stopPropagation();closeVideo()});
 
 /* ---------- register ---------- */
 let n=2;const nt=$('#nt');
-function resetForm(){const f=$('#f');f.reset();f.hidden=false;$('#done').hidden=true;$('#er').textContent='';n=2;nt.textContent=n;$$('#sg .chip').forEach((c,i)=>c.classList.toggle('g',i===0))}
-$$('#sg .chip').forEach(b=>b.addEventListener('click',()=>{$$('#sg .chip').forEach(c=>c.classList.remove('g'));b.classList.add('g')}));
+function selectChip(k){$$('#sg .chip').forEach(c=>c.classList.toggle('g',c.dataset.k===k))}
+function resetForm(){const f=$('#f');f.reset();f.hidden=false;$('#done').hidden=true;$('#er').textContent='';n=2;nt.textContent=n;selectChip('long')}
+$$('#sg .chip').forEach(b=>b.addEventListener('click',()=>selectChip(b.dataset.k)));
 $('#pl').addEventListener('click',()=>nt.textContent=n=Math.min(20,n+1));
 $('#mi').addEventListener('click',()=>nt.textContent=n=Math.max(1,n-1));
 function wa(m){window.open('https://wa.me/'+OFFICE_WA+'?text='+encodeURIComponent(m),'_blank','noopener')}
 function keep(o){try{const a=JSON.parse(store.get('leads')||'[]');a.push(o);store.set('leads',JSON.stringify(a))}catch(e){}if(LEAD_URL){try{fetch(LEAD_URL,{method:'POST',mode:'no-cors',body:JSON.stringify(o)})}catch(e){}}}
 function confetti(){if(RM)return;const c=$('#cf'),cols=['#F8E4A6','#E6C36A','#A87B28','#1E6B3A','#FFFFFF'];for(let i=0;i<46;i++){const p=document.createElement('i'),a=Math.random()*Math.PI*2,r=120+Math.random()*190;p.style.cssText='background:'+cols[i%5]+';--x:'+(Math.cos(a)*r).toFixed(0)+'px;--y:'+(Math.sin(a)*r+160).toFixed(0)+'px;--r:'+(Math.random()*720-360).toFixed(0)+'deg;animation-delay:'+(Math.random()*.12).toFixed(2)+'s';c.appendChild(p)}setTimeout(()=>c.textContent='',1800)}
-$('#sb').addEventListener('click',()=>{const v=$$('#f .in').map(x=>x.value.trim()),m=v[1].replace(/\D/g,'').slice(-10),er=$('#er');if(!v[0]||m.length<10||!$('#cs').checked){er.textContent='Please enter your name, a 10-digit mobile number and tick the consent box.';const f=$('#f');f.classList.remove('shake');f.offsetWidth;f.classList.add('shake');sfx('err');return}er.textContent='';const it=$('#sg .chip.g').textContent;keep({name:v[0],mobile:m,city:v[2],interest:it,travelers:n,at:new Date().toISOString()});wa('Assalamu Alaikum. I am interested in '+it+'.\nName: '+v[0]+'\nMobile: '+m+'\nCity: '+v[2]+'\nTravelers: '+n+'\n(Sent from the Meezab E Rahemat app)');$('#f').hidden=true;$('#done').hidden=false;$('#reg').scrollTo({top:0});sfx('ok');confetti()});
+$('#sb').addEventListener('click',()=>{const v=$$('#f .in').map(x=>x.value.trim()),m=v[1].replace(/\D/g,'').slice(-10),er=$('#er');if(!v[0]||m.length<10||!$('#cs').checked){er.textContent='Please enter your name, a 10-digit mobile number and tick the consent box.';const f=$('#f');f.classList.remove('shake');f.offsetWidth;f.classList.add('shake');sfx('err');return}er.textContent='';const it=($('#sg .chip.g')||$('#sg .chip')).dataset.m;keep({name:v[0],mobile:m,city:v[2],interest:it,travelers:n,at:new Date().toISOString()});wa('Assalamu Alaikum. I am interested in '+it+'.\nName: '+v[0]+'\nMobile: '+m+'\nCity: '+v[2]+'\nTravelers: '+n+'\n(Sent from the Meezab E Rahemat app)');$('#f').hidden=true;$('#done').hidden=false;$('#reg').scrollTo({top:0});sfx('ok');confetti()});
 
 /* ---------- feedback ---------- */
 $$('#stars .sb').forEach((s,i,a)=>s.addEventListener('click',()=>{a.forEach((x,j)=>x.classList.toggle('on',j<=i));sfx('star',i)}));
@@ -541,7 +763,7 @@ if(LEAD_URL)fetch(LEAD_URL+'?action=news').then(r=>r.json()).then(a=>{const ph=$
 
 /* ---------- start ---------- */
 setLang(store.get('lang')||'en');
-{const h=location.hash.slice(1);if(ids.includes(h)&&h!=='home'){$('#home').classList.remove('on');$('#'+h).classList.add('on');cur=h;if(h==='reg')resetForm()}}
+{const h=location.hash.slice(1);if(PK[h]){renderPd(h);$('#home').classList.remove('on');$('#pd').classList.add('on');cur='pd'}else if(ids.includes(h)&&h!=='home'&&h!=='pd'){$('#home').classList.remove('on');$('#'+h).classList.add('on');cur=h;if(h==='reg')resetForm()}}
 setTab();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
