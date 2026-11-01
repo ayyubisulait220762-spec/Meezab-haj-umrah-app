@@ -334,6 +334,56 @@ textarea.in{padding:14px 16px;min-height:104px;resize:vertical}
 .gi .core{position:relative;width:118px;height:118px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#3a2e12,#14110a);border:2px solid #D9B44A;box-shadow:0 0 50px #E6C36A55;animation:in1 .9s cubic-bezier(.2,.8,.2,1) both}
 .gi .core svg{width:56px;height:56px;color:var(--g2)}
 .gi .core path{stroke-dasharray:1;stroke-dashoffset:1;animation:dr 1.4s .35s ease forwards}
+/* include-tile animations */
+.zsv{position:absolute;inset:0;width:100%;height:100%;padding:0!important;margin:0}
+.zsv .o{transform-box:fill-box;transform-origin:center}
+.zsv .ob{transform-box:fill-box;transform-origin:50% 100%}
+.zsv .ot{transform-box:fill-box;transform-origin:50% 0}
+.zsv .lb{font:700 10px 'Outfit','Noto Nastaliq Urdu','Noto Sans Devanagari','Noto Sans Gujarati',sans-serif;fill:#F4ECD6;letter-spacing:.3px}
+.zsv .lk{font:900 10px 'Cinzel',serif;fill:#E6C36A;letter-spacing:1.2px}
+.zsv .dr{stroke-dasharray:1;fill:none}
+.zsv .mk .hl{opacity:0;transition:opacity .45s}
+.zsv .mk.on .hl{opacity:1}
+.zsv .mk .dim{transition:opacity .45s}
+.zsv .mk.on .dim{opacity:1!important}
+.zsv .mk.on .pp{animation:zp .55s cubic-bezier(.2,.8,.2,1) both}
+@keyframes zf{from{opacity:0}}
+@keyframes zo{from{opacity:1}}
+@keyframes zu{from{opacity:0;transform:translateY(18px)}}
+@keyframes zdn{from{opacity:0;transform:translateY(-22px)}}
+@keyframes zp{0%{opacity:0;transform:scale(0)}60%{opacity:1;transform:scale(1.14)}}
+@keyframes zd{from{stroke-dashoffset:1}}
+@keyframes zm{from{transform:translate(var(--x,0px),var(--y,0px))}}
+@keyframes zmi{from{opacity:0;transform:translate(var(--x,0px),var(--y,0px))}}
+@keyframes zout{0%{opacity:0;transform:translate(0,0) scale(1)}12%{opacity:1}100%{opacity:0;transform:translate(var(--x,0px),var(--y,0px)) scale(.4)}}
+@keyframes zbob{50%{transform:translateY(-1.5px)}}
+@keyframes zcl{50%{transform:translateX(14px)}}
+@keyframes zdrop{0%{opacity:0;transform:translateY(-190px)}55%{opacity:1;transform:translateY(0)}70%{transform:translateY(-16px)}85%{transform:translateY(0)}93%{transform:translateY(-4px)}}
+@keyframes zfl{50%{transform:translateY(-4px)}}
+@keyframes zsp{to{transform:rotate(360deg)}}
+@keyframes zspr{to{transform:rotate(-360deg)}}
+@keyframes zpl{50%{opacity:.35}}
+@keyframes ztw{0%{transform:scale(0) rotate(0);opacity:0}50%{transform:scale(1) rotate(45deg);opacity:1}100%{transform:scale(0) rotate(90deg);opacity:0}}
+@keyframes zstm{0%{opacity:0;transform:translateY(0) scaleX(1)}30%{opacity:.75}100%{opacity:0;transform:translateY(-28px) scaleX(1.5)}}
+@keyframes zbub{0%{opacity:0;transform:translateY(0)}20%{opacity:.9}100%{opacity:0;transform:translateY(-46px)}}
+@keyframes zfall{0%{opacity:0;transform:translateY(0)}15%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translateY(92px)}}
+@keyframes zshk{25%{transform:translate(-1.5px,0) rotate(-.6deg)}75%{transform:translate(1.5px,0) rotate(.6deg)}}
+@keyframes zwig{25%{transform:rotate(-7deg)}75%{transform:rotate(7deg)}}
+@keyframes zswg{50%{transform:rotate(-14deg)}}
+@keyframes zlid{0%{transform:none;opacity:1}60%{opacity:1}100%{transform:translate(8px,-46px) rotate(18deg);opacity:0}}
+@keyframes zlidk{0%{transform:none;opacity:1}100%{transform:translate(70px,-150px) rotate(70deg);opacity:0}}
+@keyframes zrd{from{transform:translateX(0)}to{transform:translateX(-40px)}}
+@keyframes zpar{from{transform:translateX(0)}to{transform:translateX(-420px)}}
+@keyframes zwv{from{transform:translateX(0)}to{transform:translateX(-60px)}}
+@keyframes zfill{from{transform:translateY(var(--h,100px))}}
+@keyframes zrise{from{opacity:0;transform:translateY(70px)}}
+@keyframes zgrow{from{transform:scaleY(0)}}
+@keyframes zflag{50%{transform:skewY(-6deg) scaleX(.92)}}
+@keyframes zbeat{50%{transform:scale(1.08)}}
+@keyframes zring{from{transform:scale(.6);opacity:.9}to{transform:scale(1.9);opacity:0}}
+@keyframes zprint{from{transform:translateY(-196px)}}
+@keyframes zneedle{0%{transform:rotate(0)}70%{transform:rotate(830deg)}85%{transform:rotate(705deg)}100%{transform:rotate(720deg)}}
+@keyframes zdoor{from{transform:scaleX(1)}}
 .sa{display:flex;gap:10px}
 /* transitions */
 #tx{position:absolute;inset:0;z-index:60;perspective:1200px;overflow:hidden}
@@ -754,7 +804,8 @@ let AC=null,master=null,noise=null,sndOn=store.get('snd')!=='0';
 function ac(){if(!AC){try{AC=new(window.AudioContext||window.webkitAudioContext)();master=AC.createGain();master.gain.value=.8;master.connect(AC.destination)}catch(e){return null}}if(AC.state==='suspended')AC.resume();return AC}
 function tone(f,at,att,dur,g){const a=ac();if(!a)return;const s=a.currentTime+at,o=a.createOscillator(),v=a.createGain();o.type='sine';o.frequency.value=f;v.gain.setValueAtTime(.0001,s);v.gain.exponentialRampToValueAtTime(g,s+att);v.gain.exponentialRampToValueAtTime(.0001,s+dur);o.connect(v);v.connect(master);o.start(s);o.stop(s+dur+.05)}
 function nz(at,d,g,ft,f0,f1,q){const a=ac();if(!a)return;if(!noise){noise=a.createBuffer(1,a.sampleRate*2,a.sampleRate);const x=noise.getChannelData(0);for(let i=0;i<x.length;i++)x[i]=Math.random()*2-1}const s=a.currentTime+at,n=a.createBufferSource(),f=a.createBiquadFilter(),v=a.createGain();n.buffer=noise;f.type=ft;f.Q.value=q||.7;f.frequency.setValueAtTime(f0,s);f.frequency.exponentialRampToValueAtTime(f1,s+d*.8);v.gain.setValueAtTime(.0001,s);v.gain.exponentialRampToValueAtTime(g,s+d*.35);v.gain.exponentialRampToValueAtTime(.0001,s+d);n.connect(f);f.connect(v);v.connect(master);n.start(s);n.stop(s+d+.05)}
-const SFX={door(){tone(196,0,.35,1.9,.016);tone(293.66,.06,.4,1.9,.011);tone(392,.12,.5,1.7,.005);nz(0,1.3,.009,'lowpass',380,1100)},air(){nz(0,.75,.011,'lowpass',450,1500)},paper(){nz(0,.24,.008,'highpass',2400,3600)},flight(){nz(0,1.9,.01,'bandpass',320,880,.6)},stamp(){tone(210,0,.008,.28,.02);nz(0,.08,.008,'lowpass',1400,700)},ok(){tone(587.33,0,.05,1.7,.016);tone(880,.14,.06,1.5,.009)},on(){tone(523.25,0,.05,1,.012)}};
+function swp(f0,f1,at,d,g){const a=ac();if(!a)return;const s=a.currentTime+at,o=a.createOscillator(),v=a.createGain();o.type='sine';o.frequency.setValueAtTime(f0,s);o.frequency.exponentialRampToValueAtTime(f1,s+d);v.gain.setValueAtTime(.0001,s);v.gain.exponentialRampToValueAtTime(g,s+.01);v.gain.exponentialRampToValueAtTime(.0001,s+d);o.connect(v);v.connect(master);o.start(s);o.stop(s+d+.05)}
+const SFX={door(){tone(196,0,.35,1.9,.016);tone(293.66,.06,.4,1.9,.011);tone(392,.12,.5,1.7,.005);nz(0,1.3,.009,'lowpass',380,1100)},air(){nz(0,.75,.011,'lowpass',450,1500)},paper(){nz(0,.24,.008,'highpass',2400,3600)},flight(){nz(0,1.9,.01,'bandpass',320,880,.6)},stamp(){tone(210,0,.008,.28,.02);nz(0,.08,.008,'lowpass',1400,700)},ok(){tone(587.33,0,.05,1.7,.016);tone(880,.14,.06,1.5,.009)},on(){tone(523.25,0,.05,1,.012)},pop(){swp(420,780,0,.14,.012)},ting(){tone(1568,0,.005,.7,.006);tone(2349,.01,.005,.45,.003)},tick(){nz(0,.04,.01,'highpass',3000,4200)},chime(){tone(1046.5,0,.01,1.2,.009);tone(1318.5,.09,.01,1.1,.007);tone(1568,.18,.01,1.3,.006)},bubble(){swp(300,720,0,.09,.008);swp(380,900,.13,.08,.006);swp(260,640,.27,.1,.007)},drop(){swp(1100,380,0,.16,.011)},hiss(){nz(0,1.1,.005,'highpass',3200,5200)},engine(){nz(0,1.8,.012,'lowpass',110,320)},thud(){swp(140,55,0,.22,.03);nz(0,.12,.01,'lowpass',500,200)},print(){for(let i=0;i<16;i++)nz(i*.15,.06,.007,'bandpass',2100,2500,3)}};
 function sfx(k){if(!sndOn||vpOpen)return;try{SFX[k]()}catch(e){}}
 const tlb=TALBIYAH?$('#tlb'):null;if(tlb)tlb.src=TALBIYAH;let tlbPlayed=false;
 function playTalbiyah(){if(!sndOn||tlbPlayed||!tlb)return;tlb.volume=.75;const p=tlb.play();if(p)p.then(()=>{tlbPlayed=true}).catch(()=>{})}
@@ -850,8 +901,8 @@ const CITY={BOM:{x:300,y:146},MED:{x:76,y:60},JED:{x:56,y:132}};
 function clearAnim(){cancelAnimationFrame(fr);ftm.forEach(clearTimeout);ftm=[]}
 function openFeature(code){const P=pk(curPk);if(!P)return;const kind=code[0],i=+code.slice(1);let x;if(kind==='i')x=[P.ico[i],...P.inc[i]];else{const e=EXC[curPk][i];if(e)x=[e[0],e[1][lang]||e[1].en,e[2][lang]||e[2].en]}if(!x)return;
 curF=code;fsOpen=true;$('#ftl').textContent=x[1];$('#fds').textContent=x[2]||'';$('#frp').textContent=t('rp');$('#fcl').textContent=t('cl');const o=$('#fs');o.hidden=false;requestAnimationFrame(()=>o.classList.add('on'));push(location.hash.slice(1)||cur);
-const isT=x[0]==='ticket'&&kind==='i';$('#frp').hidden=!isT;$('#frp').onclick=()=>{hap();playFlight(P)};
-if(isT){$('#stg').innerHTML=flightStage(P);playFlight(P)}else{clearAnim();$('#fcap').textContent='';$('#stg').innerHTML='<div class="gi"><span class="ring"></span><span class="ring b"></span><span class="core">'+ic(x[0],1.5)+'</span></div>'}}
+const isT=x[0]==='ticket'&&kind==='i',zid=kind==='i'&&!isT?zKey(x[0],curPk):null;$('#frp').hidden=!(isT||zid);$('#frp').onclick=()=>{hap();if(isT)playFlight(P);else zPlay(zid,P,curPk)};
+if(isT){$('#stg').innerHTML=flightStage(P);playFlight(P)}else if(zid){zPlay(zid,P,curPk)}else{clearAnim();$('#fcap').textContent='';$('#stg').innerHTML='<div class="gi"><span class="ring"></span><span class="ring b"></span><span class="core">'+ic(x[0],1.5)+'</span></div>'}}
 function closeFeature(fromPop){if(!fsOpen)return;fsOpen=false;clearAnim();const o=$('#fs');o.classList.remove('on');setTimeout(()=>{if(!fsOpen){o.hidden=true;$('#stg').innerHTML=''}},400);if(!fromPop)history.back()}
 $('#fs').addEventListener('click',e=>{if(e.target.closest('[data-fclose]')){hap();closeFeature()}});
 function flightStage(P){const H=CITY.BOM,O=CITY[P.out[1]],R=CITY[P.back[0]];
@@ -878,6 +929,261 @@ else if(x>=7100&&ph<4){ph=4;fly(t2,L2,1);pl.setAttribute('opacity',0);$('#bp2').
 if(x>=8200&&ph<5){ph=5;$('#stp').classList.add('on');sfx('stamp');say(t('cap3'))}
 if(ph<5)fr=requestAnimationFrame(step)}
 fr=requestAnimationFrame(step)}
+
+/* ---------- include-tile animations ---------- */
+const ZC={
+en:{kt3:"Bags, prayer mat, Ihram and more",buf1:"A grand Indian buffet",buf2:"Freshly cooked, served buffet-style",buf3:"Hot and cold drinks too",ml1:"Fresh Indian meals",ml2:"Cooked clean, served hygienic",ml3:"Every single day",lx1:"Luxury coach transfers",lx2:"Fully air-conditioned",lx3:"Cool and comfortable in the desert heat",lt1:"From the airport to your hotel",lt2:"To the Haram and the Mashaer",lt3:"Every transfer taken care of",zy1:"Ziyarat in Makkah",zy2:"Ziyarat in Madinah",zy3:"Guided visits to the holy sites",tf1:"Up the mountains of Taif",tf2:"Taif, the city of roses",tf3:"Together with Umrah",bg1:"Your travel bag",bg2:"And a passport bag",bg3:"Documents kept safe and handy",ld1:"Your clothes, washed",ld2:"Folded and returned to you",zz1:"Blessed Zamzam water",zz2L:"A full 5 litres for you",zz2:"Filled for you with care",zz3:"To take home to your family",sh1:"Your stay in Makkah",sh2:"Including the shifting stay",sh3:"Every stay arranged for you",md1:"Peaceful nights in Madinah",md2:"3 to 4 nights",md3:"With Ziyarat included",kt1:"A gift for your journey",kt2:"Your own Hajj kit",tm1:"Our experienced Hajj team",tm2:"Travels with you",tm3:"Every step of the way",gd1:"Guidance for every ritual",gd2:"Step by step through Hajj",gd3:"Help whenever you need it",gs1:"Your bill, made clear",gs2:"GST included",gs3:"Applicable taxes included"},
+ur:{kt3:"بیگ، جائے نماز، احرام اور بہت کچھ",buf1:"شاندار ہندوستانی بوفے",buf2:"تازہ پکا ہوا، بوفے انداز میں",buf3:"گرم اور ٹھنڈے مشروبات بھی",ml1:"تازہ ہندوستانی کھانا",ml2:"صفائی سے پکا، صفائی سے پیش",ml3:"ہر روز، بلا ناغہ",lx1:"لگژری بس سے سفر",lx2:"مکمل ایئر کنڈیشنڈ",lx3:"صحرا کی گرمی میں بھی ٹھنڈک اور آرام",lt1:"ایئرپورٹ سے آپ کے ہوٹل تک",lt2:"حرم اور مشاعر تک",lt3:"ہر منتقلی کا مکمل انتظام",zy1:"مکہ کی زیارات",zy2:"مدینہ کی زیارات",zy3:"رہنمائی کے ساتھ مقدس مقامات کی زیارت",tf1:"طائف کے پہاڑوں کی طرف",tf2:"طائف، گلابوں کا شہر",tf3:"عمرہ کے ساتھ",bg1:"آپ کا ٹریول بیگ",bg2:"اور ایک پاسپورٹ بیگ",bg3:"دستاویزات محفوظ اور ہمیشہ پاس",ld1:"آپ کے کپڑے، دھلے ہوئے",ld2:"تہہ کر کے آپ کو واپس",zz1:"مبارک آبِ زمزم",zz2L:"پورے 5 لیٹر آپ کے لیے",zz2:"آپ کے لیے احتیاط سے بھرا گیا",zz3:"گھر والوں کے لیے ساتھ لے جائیں",sh1:"مکہ میں آپ کا قیام",sh2:"شفٹنگ قیام سمیت",sh3:"ہر قیام کا انتظام آپ کے لیے",md1:"مدینہ کی پُرسکون راتیں",md2:"3 سے 4 راتیں",md3:"زیارات کے ساتھ",kt1:"آپ کے سفر کا تحفہ",kt2:"آپ کی اپنی حج کٹ",tm1:"ہماری تجربہ کار حج ٹیم",tm2:"آپ کے ساتھ سفر کرتی ہے",tm3:"ہر قدم پر",gd1:"ہر رکن کی رہنمائی",gd2:"حج کا ہر مرحلہ، قدم بہ قدم",gd3:"جب بھی ضرورت ہو، مدد حاضر",gs1:"آپ کا بل، بالکل واضح",gs2:"GST شامل ہے",gs3:"قابلِ اطلاق ٹیکس شامل ہیں"},
+hi:{kt3:"बैग, जा-नमाज़, इहराम और भी बहुत कुछ",buf1:"शानदार भारतीय बुफ़े",buf2:"ताज़ा पका, बुफ़े अंदाज़ में",buf3:"गरम और ठंडे पेय भी",ml1:"ताज़ा भारतीय खाना",ml2:"साफ़-सफ़ाई से पका और परोसा",ml3:"हर दिन, बिना नागा",lx1:"लग्ज़री बस से सफ़र",lx2:"पूरी तरह एयर-कंडीशंड",lx3:"रेगिस्तान की गर्मी में भी ठंडक और आराम",lt1:"एयरपोर्ट से आपके होटल तक",lt2:"हरम और मशाएर तक",lt3:"हर ट्रांसफ़र का पूरा इंतज़ाम",zy1:"मक्का की ज़ियारत",zy2:"मदीना की ज़ियारत",zy3:"रहनुमाई के साथ पवित्र स्थलों की ज़ियारत",tf1:"ताइफ़ के पहाड़ों की ओर",tf2:"ताइफ़, गुलाबों का शहर",tf3:"उमरा के साथ",bg1:"आपका ट्रैवल बैग",bg2:"और एक पासपोर्ट बैग",bg3:"दस्तावेज़ सुरक्षित और हमेशा पास",ld1:"आपके कपड़े, धुले हुए",ld2:"तह करके आपको वापस",zz1:"मुबारक आब-ए-ज़मज़म",zz2L:"पूरे 5 लीटर आपके लिए",zz2:"आपके लिए एहतियात से भरा गया",zz3:"घरवालों के लिए साथ ले जाएँ",sh1:"मक्का में आपका क़याम",sh2:"शिफ़्टिंग क़याम सहित",sh3:"हर क़याम का इंतज़ाम आपके लिए",md1:"मदीना की सुकून भरी रातें",md2:"3 से 4 रातें",md3:"ज़ियारत के साथ",kt1:"आपके सफ़र का तोहफ़ा",kt2:"आपकी अपनी हज किट",tm1:"हमारी अनुभवी हज टीम",tm2:"आपके साथ सफ़र करती है",tm3:"हर क़दम पर",gd1:"हर अरकान की रहनुमाई",gd2:"हज का हर पड़ाव, क़दम-ब-क़दम",gd3:"जब भी ज़रूरत हो, मदद हाज़िर",gs1:"आपका बिल, बिल्कुल साफ़",gs2:"GST शामिल है",gs3:"लागू टैक्स शामिल हैं"},
+gu:{kt3:"બેગ, જાનમાઝ, ઇહરામ અને ઘણું બધું",buf1:"શાનદાર ભારતીય બુફે",buf2:"તાજું રાંધેલું, બુફે શૈલીમાં",buf3:"ગરમ અને ઠંડાં પીણાં પણ",ml1:"તાજું ભારતીય ભોજન",ml2:"સ્વચ્છતાથી રાંધેલું અને પીરસેલું",ml3:"દરરોજ, એક પણ દિવસ ચૂક્યા વગર",lx1:"લક્ઝરી બસમાં મુસાફરી",lx2:"સંપૂર્ણ એર-કન્ડિશન્ડ",lx3:"રણની ગરમીમાં પણ ઠંડક અને આરામ",lt1:"એરપોર્ટથી તમારી હોટલ સુધી",lt2:"હરમ અને મશાએર સુધી",lt3:"દરેક ટ્રાન્સફરની સંપૂર્ણ વ્યવસ્થા",zy1:"મક્કાની ઝિયારત",zy2:"મદીનાની ઝિયારત",zy3:"માર્ગદર્શન સાથે પવિત્ર સ્થળોની ઝિયારત",tf1:"તાઇફના પહાડો તરફ",tf2:"તાઇફ, ગુલાબોનું શહેર",tf3:"ઉમરાહ સાથે",bg1:"તમારી ટ્રાવેલ બેગ",bg2:"અને એક પાસપોર્ટ બેગ",bg3:"દસ્તાવેજો સુરક્ષિત અને હંમેશા પાસે",ld1:"તમારાં કપડાં, ધોયેલાં",ld2:"ગડી કરીને તમને પરત",zz1:"મુબારક આબે ઝમઝમ",zz2L:"પૂરા 5 લિટર તમારા માટે",zz2:"તમારા માટે કાળજીથી ભરેલું",zz3:"પરિવાર માટે ઘરે લઈ જાઓ",sh1:"મક્કામાં તમારું રોકાણ",sh2:"શિફ્ટિંગ રોકાણ સહિત",sh3:"દરેક રોકાણની વ્યવસ્થા તમારા માટે",md1:"મદીનાની શાંત રાતો",md2:"3 થી 4 રાત",md3:"ઝિયારત સાથે",kt1:"તમારી યાત્રાની ભેટ",kt2:"તમારી પોતાની હજ કિટ",tm1:"અમારી અનુભવી હજ ટીમ",tm2:"તમારી સાથે મુસાફરી કરે છે",tm3:"દરેક પગલે",gd1:"દરેક વિધિ માટે માર્ગદર્શન",gd2:"હજનો દરેક પડાવ, પગલે પગલે",gd3:"જ્યારે પણ જરૂર હોય, મદદ હાજર",gs1:"તમારું બિલ, એકદમ સ્પષ્ટ",gs2:"GST સામેલ છે",gs3:"લાગુ ટેક્સ સામેલ છે"}};
+const ZL={
+en:{trol:"3 Trolley bags",back:"Backpack",mat:"Prayer mat",umb:"Umbrella",sling:"Sling bag",bottle:"Water bottle",air:"Airport",hot:"Hotel",hrm:"Haram",msh:"Mashaer",thawr:"Jabal Thawr",nour:"Jabal al-Nour",arafat:"Arafat",quba:"Masjid Quba",uhud:"Mount Uhud",qib:"Masjid Qiblatain",ihram:"Ihram",mina:"Mina",muzd:"Muzdalifah",jam:"Jamarat",tawaf:"Tawaf",kit:"HAJJ KIT",tax:"Taxes",pkg:"Package",tot:"Total"},
+ur:{trol:"3 ٹرالی بیگ",back:"بیک پیک",mat:"جائے نماز",umb:"چھتری",sling:"سلنگ بیگ",bottle:"پانی کی بوتل",air:"ایئرپورٹ",hot:"ہوٹل",hrm:"حرم",msh:"مشاعر",thawr:"جبلِ ثور",nour:"جبلِ نور",arafat:"عرفات",quba:"مسجدِ قبا",uhud:"جبلِ احد",qib:"مسجدِ قبلتین",ihram:"احرام",mina:"منیٰ",muzd:"مزدلفہ",jam:"جمرات",tawaf:"طواف",kit:"حج کٹ",tax:"ٹیکس",pkg:"پیکج",tot:"کل"},
+hi:{trol:"3 ट्रॉली बैग",back:"बैकपैक",mat:"जा-नमाज़",umb:"छाता",sling:"स्लिंग बैग",bottle:"पानी की बोतल",air:"एयरपोर्ट",hot:"होटल",hrm:"हरम",msh:"मशाएर",thawr:"जबल-ए-सौर",nour:"जबल-ए-नूर",arafat:"अराफ़ात",quba:"मस्जिद-ए-क़ुबा",uhud:"उहुद पहाड़",qib:"मस्जिद-ए-क़िब्लतैन",ihram:"इहराम",mina:"मिना",muzd:"मुज़दलिफ़ा",jam:"जमरात",tawaf:"तवाफ़",kit:"हज किट",tax:"टैक्स",pkg:"पैकेज",tot:"कुल"},
+gu:{trol:"3 ટ્રોલી બેગ",back:"બેકપેક",mat:"જાનમાઝ",umb:"છત્રી",sling:"સ્લિંગ બેગ",bottle:"પાણીની બોટલ",air:"એરપોર્ટ",hot:"હોટલ",hrm:"હરમ",msh:"મશાએર",thawr:"જબલે સૌર",nour:"જબલે નૂર",arafat:"અરાફાત",quba:"મસ્જિદે કુબા",uhud:"ઉહુદ પહાડ",qib:"મસ્જિદે કિબ્લતૈન",ihram:"ઇહરામ",mina:"મિના",muzd:"મુઝદલિફા",jam:"જમરાત",tawaf:"તવાફ",kit:"હજ કિટ",tax:"ટેક્સ",pkg:"પેકેજ",tot:"કુલ"}};
+const zc=k=>(ZC[lang]&&ZC[lang][k])||ZC.en[k]||'',zl=k=>esc((ZL[lang]&&ZL[lang][k])||ZL.en[k]||'');
+/* animation style helpers: A = play once (ends on final state), LP = loop */
+const A=(n,d,dl,x)=>'animation:'+n+' '+d+'s '+((x&&x.e)||'cubic-bezier(.2,.8,.2,1)')+' '+dl+'s '+((x&&x.i)||1)+' both'+(x&&x.s?';'+x.s:'');
+const LP=(n,d,dl,e)=>'animation:'+n+' '+d+'s '+(e||'ease-in-out')+' '+(dl||0)+'s infinite both';
+const G=(x,y,inner,st,cls)=>'<g transform="translate('+x+' '+y+')"><g'+(cls?' class="'+cls+'"':'')+(st?' style="'+st+'"':'')+'>'+inner+'</g></g>';
+const ZDEF='<defs><linearGradient id="zg" x1="0" x2="1"><stop offset="0" stop-color="#A87B28"/><stop offset=".5" stop-color="#FFF0B8"/><stop offset="1" stop-color="#D9B44A"/></linearGradient><linearGradient id="zgv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FBEBB5"/><stop offset=".55" stop-color="#D9B44A"/><stop offset="1" stop-color="#8a6420"/></linearGradient><radialGradient id="zglo"><stop offset="0" stop-color="#F8E4A6" stop-opacity=".55"/><stop offset="1" stop-color="#F8E4A6" stop-opacity="0"/></radialGradient><radialGradient id="zblu"><stop offset="0" stop-color="#8fd3ff" stop-opacity=".5"/><stop offset="1" stop-color="#8fd3ff" stop-opacity="0"/></radialGradient><linearGradient id="zwt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fdcff"/><stop offset="1" stop-color="#1f5f9a"/></linearGradient><linearGradient id="zgd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4fd18a"/><stop offset=".5" stop-color="#1E8A4A"/><stop offset="1" stop-color="#0f4d29"/></linearGradient><linearGradient id="zgr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a9a5a"/><stop offset="1" stop-color="#0f3d21"/></linearGradient><linearGradient id="zcr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF8E6"/><stop offset="1" stop-color="#D8CBA6"/></linearGradient></defs>';
+const zStars=(n,h)=>{let s='';for(let i=0;i<n;i++){const x=(i*73+17)%360,y=(i*41+7)%(h||120)+4;s+='<circle cx="'+x+'" cy="'+y+'" r="'+(i%3?.6:1.1)+'" fill="#fff" style="opacity:'+(.2+(i%5)*.12).toFixed(2)+(i%4?'':';'+LP('zpl',2+i%3,i*.3))+'"/>'}return s};
+const zSpk=(x,y,s,dl,inf)=>{const a=s*.22;return '<g transform="translate('+x+' '+y+')"><path class="o" d="M0 '+(-s)+'L'+a+' '+(-a)+'L'+s+' 0L'+a+' '+a+'L0 '+s+'L'+(-a)+' '+a+'L'+(-s)+' 0L'+(-a)+' '+(-a)+'Z" fill="#FFF3C4" style="opacity:0;animation:ztw 1.1s ease-in-out '+dl+'s '+(inf?'infinite':'1')+' both"/></g>'};
+const zStar=(x,y,r,f)=>{let d='';for(let i=0;i<10;i++){const a=Math.PI/5*i-Math.PI/2,q=i%2?r*.45:r;d+=(i?'L':'M')+(x+q*Math.cos(a)).toFixed(1)+' '+(y+q*Math.sin(a)).toFixed(1)}return '<path d="'+d+'Z" fill="'+(f||'url(#zgv)')+'"/>'};
+const zGlow=(x,y,rx,ry,o)=>'<ellipse cx="'+x+'" cy="'+y+'" rx="'+rx+'" ry="'+ry+'" fill="url(#zglo)" opacity="'+(o||1)+'"/>';
+const zCheck=(x,y,r,dl)=>G(x,y,'<circle r="'+r+'" fill="#1E8A4A" stroke="#49D184" stroke-width="1.5"/><path class="dr" pathLength="1" d="M'+(-r*.45)+' 0L'+(-r*.1)+' '+(r*.38)+'L'+(r*.5)+' '+(-r*.35)+'" stroke="#fff" stroke-width="'+Math.max(1.6,r*.28)+'" stroke-linecap="round" stroke-linejoin="round" style="'+A('zd',.4,dl+.25,{e:'ease'})+'"/>',A('zp',.5,dl),'o');
+const zLbl=(x,y,k,anc,cls)=>'<text class="'+(cls||'lb')+'" x="'+x+'" y="'+y+'" text-anchor="'+(anc||'middle')+'" style="paint-order:stroke;stroke:#08090f;stroke-width:3px;stroke-linejoin:round">'+zl(k)+'</text>';
+const zKaaba=(x,y,w)=>{const h=w*1.02,d=w*.36;return '<g transform="translate('+x+' '+y+')"><path d="M0 0h'+w+'v'+(-h)+'H0z" fill="#0d0c0a" stroke="#3a3122" stroke-width=".8"/><path d="M'+w+' 0l'+d+' '+(-d*.5)+'v'+(-h)+'l'+(-d)+' '+(d*.5)+'z" fill="#1b1813"/><path d="M0 '+(-h)+'l'+d+' '+(-d*.5)+'h'+w+'l'+(-d)+' '+(d*.5)+'z" fill="#2a251c"/><path d="M0 '+(-h*.76)+'h'+w+'v'+(h*.11)+'H0z" fill="url(#zg)"/><path d="M'+w+' '+(-h*.76)+'l'+d+' '+(-d*.5)+'v'+(h*.11)+'l'+(-d)+' '+(d*.5)+'z" fill="#A87B28"/><rect x="'+(w*.6)+'" y="'+(-h*.52)+'" width="'+(w*.2)+'" height="'+(h*.36)+'" fill="url(#zgv)" opacity=".9"/></g>'};
+const zMinaret=(x,y,h,dl)=>'<g class="ob" style="'+A('zgrow',.9,dl)+'"><rect x="'+(x-3.5)+'" y="'+(y-h)+'" width="7" height="'+h+'" fill="#E2D8BC"/><rect x="'+(x-6)+'" y="'+(y-h*.62)+'" width="12" height="3" fill="#D9B44A"/><rect x="'+(x-5.5)+'" y="'+(y-h*.9)+'" width="11" height="3" fill="#D9B44A"/><path d="M'+(x-4)+' '+(y-h)+'L'+x+' '+(y-h-11)+'L'+(x+4)+' '+(y-h)+'Z" fill="#D9B44A"/><path d="M'+x+' '+(y-h-11)+'v-5" stroke="#FBEBB5" stroke-width="1.2"/></g>';
+const zNabawi=(cx,y,dl)=>{let ar='';for(let i=0;i<10;i++){const x=cx-74+i*15;ar+='<path d="M'+x+' '+(y-4)+'V'+(y-16)+'Q'+(x+5.5)+' '+(y-25)+' '+(x+11)+' '+(y-16)+'V'+(y-4)+'Z" fill="#FFD780" opacity=".55"/>'}
+return '<g style="'+A('zu',.8,dl)+'"><rect x="'+(cx-80)+'" y="'+(y-34)+'" width="160" height="34" fill="#DCD1B1"/><rect x="'+(cx-80)+'" y="'+(y-36)+'" width="160" height="3" fill="#D9B44A"/>'+ar+'</g>'+zMinaret(cx-70,y-34,70,dl+.3)+zMinaret(cx+70,y-34,70,dl+.4)+zMinaret(cx-30,y-34,58,dl+.5)+
+G(cx+30,y-36,'<rect x="-17" y="-8" width="34" height="9" fill="#17703c"/><path d="M-18-8Q-18-36 0-42Q18-36 18-8Z" fill="url(#zgd)"/><path d="M-9-14Q-9-30 2-36" stroke="#ffffff55" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M0-42v-9" stroke="#FBEBB5" stroke-width="1.5"/><path d="M-3-55a4 4 0 1 0 6 0a3 3 0 1 1-6 0" fill="#FBEBB5"/>',A('zp',.8,dl+.6),'ob')};
+const zPin=(x,y,k,dl,anc,bl)=>{const tx=anc==='end'?12:anc==='start'?-12:0;return G(x,y,'<ellipse cx="0" cy="1" rx="6" ry="2" fill="#E6C36A" opacity=".5"/><circle r="5" fill="none" stroke="#F8E4A6" class="o" style="'+LP('zring',2,dl+.5,'ease-out')+'"/><path d="M0 0C-7-9-10-13-10-18A10 10 0 1 1 10-18C10-13 7-9 0 0Z" fill="url(#zgv)" stroke="#8a6420" stroke-width=".6"/><circle cy="-18" r="3.8" fill="#13110C"/>'+zLbl(tx,bl?16:-34,k,anc),A('zmi',.7,dl,{e:'cubic-bezier(.3,1.5,.5,1)',s:'--y:-34px'}))};
+const zSteam=(x,y,n,dl,gap)=>{let s='';for(let j=0;j<n;j++)s+='<path class="ob" d="M'+(x+(j-(n-1)/2)*(gap||10))+' '+y+'q-5-7 0-14q5-7 0-14" stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none" style="opacity:0;animation:zstm 2.2s ease-out '+(dl+j*.5).toFixed(2)+'s infinite both"/>';return s};
+const zSnow=(x,y,r,c)=>'<g transform="translate('+x+' '+y+')" stroke="'+(c||'#CFEFFF')+'" stroke-width="1.4" stroke-linecap="round"><path d="M0 '+(-r)+'V'+r+'M'+(-r*.87)+' '+(-r/2)+'L'+(r*.87)+' '+(r/2)+'M'+(-r*.87)+' '+(r/2)+'L'+(r*.87)+' '+(-r/2)+'"/></g>';
+
+const SC={
+buffet(){const D=[[75,'#E2A23B','#F7D98A'],[145,'#E8C547','#FFF3A8'],[215,'#C2582B','#EE9658'],[285,'#B5813F','#E6C08A']];
+let s=zStars(26,80)+zGlow(180,205,200,44,.5)+'<g style="'+A('zu',.7,.1)+'"><rect x="22" y="186" width="316" height="12" rx="4" fill="url(#zg)"/><rect x="30" y="198" width="300" height="60" rx="6" fill="#1a1408" stroke="#5E4B1D"/><path d="M30 216H330" stroke="#E6C36A33"/><path d="M60 236h40M160 236h40M260 236h40" stroke="#E6C36A22" stroke-width="3" stroke-linecap="round"/></g>',f=[],L='';
+D.forEach(([x,c,c2],i)=>{const d0=.35+i*.14,dl=1.3+i*.5;f.push([d0*1e3,'pop'],[dl*1e3+120,'ting']);
+s+='<g style="'+A('zu',.6,d0)+'"><path d="M'+(x-22)+' 186l4-11M'+(x+22)+' 186l-4-11" stroke="#A87B28" stroke-width="2.5"/><circle cx="'+x+'" cy="181" r="3" fill="#ff9a3c" style="'+LP('zpl',.7,i*.2)+'"/><rect x="'+(x-30)+'" y="164" width="60" height="12" rx="5" fill="#3a2e12" stroke="#D9B44A"/><ellipse cx="'+x+'" cy="166" rx="25" ry="6" fill="'+c+'"/><ellipse cx="'+(x-6)+'" cy="164.6" rx="9" ry="2.2" fill="'+c2+'" opacity=".85"/><circle cx="'+(x+9)+'" cy="166" r="1.6" fill="#3d8b3d"/><circle cx="'+(x-13)+'" cy="167" r="1.4" fill="#3d8b3d"/><circle cx="'+(x+2)+'" cy="168" r="1.2" fill="#3d8b3d"/></g>'+zSteam(x,156,3,dl+.35);
+L+='<g style="'+A('zu',.6,d0)+'"><g class="o" style="opacity:0;transform:translate(8px,-46px) rotate(18deg);animation:zlid 1s cubic-bezier(.5,0,.3,1) '+dl+'s both"><path d="M'+(x-27)+' 166Q'+(x-27)+' 135 '+x+' 135Q'+(x+27)+' 135 '+(x+27)+' 166Z" fill="url(#zgv)"/><path d="M'+(x-18)+' 152q4-10 14-12" stroke="#fff" stroke-opacity=".55" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="'+x+'" cy="132" r="4" fill="#FBEBB5"/></g></g>'+zSpk(x+14,152,6,dl+.55)});
+s+=L;
+s+=G(128,84,'<ellipse cy="22" rx="30" ry="6" fill="#D9B44A"/><path d="M-20-14H20L16 16Q0 24-16 16Z" fill="#F7EED6"/><ellipse cy="-13.5" rx="19.5" ry="4" fill="#9A5A28"/><path d="M20-6q12 0 11 9t-14 8" stroke="#F7EED6" stroke-width="4" fill="none"/><path d="M-13 3h26" stroke="#D9B44A" stroke-width="2"/>'+zSteam(0,-22,3,4.9,9),A('zp',.6,4.3),'o');
+s+=G(232,80,'<path d="M-16-28H16L12 26H-12Z" fill="#cdeeff18" stroke="#cdeeffaa" stroke-width="1.5"/><path d="M-14.7-12H14.7L12 25H-12Z" fill="#E8574A" opacity=".92"/><g style="'+LP('zfl',1.6,5)+'"><rect x="-10" y="-15" width="9" height="9" rx="2" fill="#fff" opacity=".75" transform="rotate(-12 -6 -10)"/><rect x="1" y="-13" width="8" height="8" rx="2" fill="#fff" opacity=".6" transform="rotate(15 5 -9)"/></g><path d="M7-42L0 14" stroke="url(#zg)" stroke-width="3.5" stroke-linecap="round"/><circle cx="-13" cy="4" r="1.3" fill="#fff" opacity=".7"/><circle cx="14" cy="-2" r="1" fill="#fff" opacity=".6"/>'+zSnow(26,-28,6),A('zp',.6,4.6),'o');
+f.push([4300,'pop'],[4600,'pop'],[4900,'hiss']);
+return {s,c:[[300,'buf1'],[1900,'buf2'],[4300,'buf3']],f,e:6500}},
+
+meal(){let s=zStars(26,90)+zGlow(180,142,150,110,.55),f=[[200,'pop']];
+let p='<g class="o" style="'+A('zp',.8,.2)+'"><circle r="84" fill="#E6C36A" opacity=".07"/><circle r="76" fill="#2a2414" stroke="url(#zg)" stroke-width="4"/><circle r="64" fill="none" stroke="#E6C36A44" stroke-width="1.2"/></g>';
+[[-40,-30,'#E8B83A','#F6D978'],[0,-46,'#4E9A3A','#7cc35e'],[40,-30,'#F3EFE2','#ffffff']].forEach(([x,y,c,c2],i)=>{p+=G(x,y,'<circle r="17" fill="#C9A24A"/><circle r="13.5" fill="'+c+'"/><ellipse cx="-4" cy="-4" rx="5" ry="2.5" fill="'+c2+'" opacity=".8"/><circle cx="4" cy="3" r="1.4" fill="#2d6b2d"/>',A('zp',.5,1+i*.25),'o');f.push([1000+i*250,'pop'])});
+let gr='';for(let i=0;i<14;i++)gr+='<ellipse cx="'+((i*13)%40-20)+'" cy="'+((i*7)%18-8)+'" rx="2.4" ry="1" fill="#fff" transform="rotate('+(i*37%180)+' '+((i*13)%40-20)+' '+((i*7)%18-8)+')"/>';
+p+=G(-24,18,'<ellipse rx="30" ry="20" fill="#F2EAD3"/>'+gr+'<path d="M8-12q6-6 12-2q-6 5-12 2Z" fill="#3d8b3d"/>',A('zp',.5,1.8),'o');
+p+=G(30,22,'<circle cx="-3" cy="-3" r="23" fill="#C99245"/><circle r="23" fill="#E0B067"/><circle cx="-8" cy="-6" r="2.2" fill="#9a6a2a" opacity=".6"/><circle cx="6" cy="4" r="2.6" fill="#9a6a2a" opacity=".5"/><circle cx="9" cy="-9" r="1.6" fill="#9a6a2a" opacity=".6"/><circle cx="-6" cy="10" r="1.8" fill="#9a6a2a" opacity=".5"/>',A('zp',.5,2.1),'o');
+p+=G(0,54,'<path d="M-9 0A9 9 0 0 1 9 0Z" fill="#f2d02e"/><path d="M-6-1L0-7M0-1V-8M6-1L0-7" stroke="#d1a90f" stroke-width=".8"/>',A('zp',.4,2.3),'o');
+p+=zSteam(-30,-60,2,2.4,14)+zSteam(30,-60,2,2.9,14);
+s+='<g transform="translate(180 138)">'+p+'</g>';f.push([1800,'pop'],[2100,'pop']);
+s+=G(52,138,'<circle r="34" fill="url(#zglo)" class="o" style="'+LP('zbeat',2,3.4)+'"/><path d="M0-27L23-18V1Q23 20 0 30Q-23 20-23 1V-18Z" fill="#1E6B3A" stroke="#49D184" stroke-width="2"/><path class="dr" pathLength="1" d="M-10 1L-2 9L12-7" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="'+A('zd',.5,3.5,{e:'ease'})+'"/>',A('zp',.6,3.1),'o');
+s+=zSpk(110,70,7,3.3)+zSpk(252,74,6,3.6)+zSpk(250,206,7,3.9)+zSpk(108,210,5,4.1);f.push([3100,'chime']);
+let cal='<rect x="-27" y="-32" width="54" height="62" rx="8" fill="#F7EED6"/><path d="M-27-24a8 8 0 0 1 8-8h38a8 8 0 0 1 8 8v8h-54Z" fill="url(#zg)"/><rect x="-14" y="-37" width="4" height="10" rx="2" fill="#5E4B1D"/><rect x="10" y="-37" width="4" height="10" rx="2" fill="#5E4B1D"/>';
+for(let i=0;i<7;i++){const dl=4.9+i*.24;cal+='<g style="'+A('zdn',.22,dl,{e:'ease-out'})+'"><rect x="-24" y="-14" width="48" height="41" rx="4" fill="#F7EED6"/>'+(i<6?'<text x="0" y="17" text-anchor="middle" style="font:900 25px Cinzel,serif;fill:#1b160b">'+(i+1)+'</text>':'<path d="M-11 5L-3 13L13-4" stroke="#1E8A4A" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>')+'</g>';f.push([dl*1e3,i<6?'tick':'ok'])}
+s+=G(306,138,cal,A('zp',.6,4.5),'o');f.push([4500,'pop']);
+return {s,c:[[300,'ml1'],[3100,'ml2'],[4600,'ml3']],f,e:6900}},
+
+lux(){let s='<rect width="360" height="270" fill="#1a1530"/><rect width="360" height="200" fill="url(#zsk)"/><defs><linearGradient id="zsk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#151a36"/><stop offset=".7" stop-color="#5a2f35"/><stop offset="1" stop-color="#b8612c"/></linearGradient><linearGradient id="zbus" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF9E8"/><stop offset="1" stop-color="#E4D09B"/></linearGradient></defs>';
+s+='<circle cx="292" cy="88" r="46" fill="url(#zglo)" class="o" style="'+LP('zbeat',3,0)+'"/><circle cx="292" cy="88" r="22" fill="#FFCF73"/>';
+s+='<path d="M0 182Q60 164 120 178T240 174T360 178V270H0Z" fill="#4a2a14"/><path d="M0 196Q80 182 170 194T360 190V270H0Z" fill="#5c3518"/>';
+s+='<g style="'+LP('zpar',6,0,'linear')+'">'+zPalm(392,198)+'</g><g style="'+LP('zpar',6,-3,'linear')+'">'+zPalm(392,198,.8)+'</g>';
+let ds='';for(let i=0;i<11;i++)ds+='<rect x="'+(i*40)+'" y="226" width="20" height="3" rx="1.5" fill="#E6C36A" opacity=".7"/>';
+s+='<rect x="0" y="206" width="360" height="40" fill="#18140f"/><path d="M0 207H360M0 245H360" stroke="#E6C36A55"/><g style="'+LP('zrd',.45,0,'linear')+'">'+ds+'</g>';
+let w='';[-60,-30,0,30].forEach(x=>w+='<path d="M'+x+'-42V-14" stroke="#E4D09B" stroke-width="3"/>');
+const wh=x=>'<g transform="translate('+x+' 22)"><circle r="13" fill="#15130f"/><g class="o" style="'+LP('zsp',.45,0,'linear')+'"><circle r="7" fill="#C9C2B0"/><path d="M-6 0H6M0-6V6" stroke="#6b6450" stroke-width="2"/></g></g>';
+let sn='';[-75,-45,-15,15,45].forEach((x,i)=>sn+='<g style="opacity:0;'+A('zf',.5,2.2+i*.12)+'"><g class="o" style="'+LP('zfl',1.4,i*.2)+'">'+zSnow(x,-28,4)+'</g></g>');
+let bus='<ellipse cx="0" cy="-14" rx="130" ry="58" fill="url(#zblu)" style="opacity:0;animation:zf .8s ease 2s both,zpl 2s ease-in-out 2.8s infinite"/><path d="M104 6L176-8V26Z" fill="url(#zglo)" opacity=".7"/><rect x="-40" y="-59" width="64" height="9" rx="3" fill="#D9D2BE"/><path d="M-98 18V-34Q-98-50-82-50H76Q92-50 98-34L104-6V18Q104 24 98 24H-92Q-98 24-98 18Z" fill="url(#zbus)"/><path d="M-90-42H72Q86-42 92-30L96-14H-90Z" fill="#1c2340"/><path d="M-90-42H72Q86-42 92-30L96-14H-90Z" fill="#8fd3ff" style="opacity:.28;'+A('zf',.8,2)+'"/>'+w+sn+'<path d="M80-38l7 17M-80-40l10 22M-20-40l10 22" stroke="#ffffff30" stroke-width="3"/><path d="M-98 0H104" stroke="url(#zg)" stroke-width="5"/><path d="M-98 8H104" stroke="#D9B44A" stroke-width="1.2"/><rect x="64" y="-12" width="18" height="34" rx="2" fill="#1c2340" stroke="#E4D09B"/><image href="'+LOGO+'" x="-44" y="-13" width="26" height="26"/><circle cx="101" cy="9" r="3.2" fill="#FFF0B8"/>'+wh(-62)+wh(62);
+let air='';for(let i=0;i<3;i++)air+='<path d="M'+(-36+i*24)+'-64q8-8 16 0" stroke="#8fd3ff" stroke-width="2" fill="none" stroke-linecap="round" style="opacity:0;animation:zf .4s ease '+(2+i*.15)+'s both,zpl 1.4s ease-in-out '+(2.4+i*.2)+'s infinite"/>';
+s+=G(180,190,'<g style="'+LP('zbob',.5,2.1)+'">'+bus+air+'</g>',A('zm',1.8,.3,{e:'cubic-bezier(.15,.7,.25,1)',s:'--x:-340px'}));
+s+=G(180,40,'<rect x="-40" y="-14" width="80" height="28" rx="14" fill="#0f2a3d" stroke="#8fd3ff"/>'+zSnow(-22,0,6)+'<text x="8" y="5" text-anchor="middle" style="font:800 13px Outfit,sans-serif;fill:#CFEFFF">A/C</text>',A('zp',.5,3.3),'o');
+for(let i=0;i<5;i++)s+=G(140+i*20,96,zStar(0,0,7),A('zp',.4,4.6+i*.12),'o');
+return {s,c:[[300,'lx1'],[2000,'lx2'],[3300,'lx3']],f:[[300,'engine'],[2000,'air'],[3300,'pop'],[4600,'chime']],e:6000}},
+
+local(){let s=zStars(30,260);let gl='';for(let i=1;i<9;i++)gl+='<path d="M'+i*40+' 0V270" stroke="#ffffff08"/>';for(let i=1;i<7;i++)gl+='<path d="M0 '+i*40+'H360" stroke="#ffffff08"/>';s+=gl;
+const d='M42 206C78 206 92 112 128 112S178 176 214 176S276 78 312 78';
+s+='<path d="'+d+'" class="ab" style="'+A('zf',.6,.2)+'"/><path id="zrt" d="'+d+'" class="trl" style="stroke-dasharray:1000;stroke-dashoffset:1000"/>';
+const node=(id,x,y,ic,k,ly)=>'<g id="'+id+'" class="mk" transform="translate('+x+' '+y+')"><g style="'+A('zp',.5,.3)+'" class="o"><circle r="26" fill="url(#zglo)" class="hl"/><circle r="15" fill="#13110C" stroke="#E6C36A" stroke-width="2" class="dim" style="opacity:.4"/><g class="dim" style="opacity:.4">'+ic+'</g><circle r="15" fill="none" stroke="#FFF0B8" stroke-width="2" class="hl"/></g><g class="hl">'+zLbl(0,ly,k)+'</g></g>';
+const ico=n=>'<g transform="translate(-9 -9) scale(.75)"><path d="'+ICO[n]+'" stroke="#F8E4A6" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></g>';
+s+=node('zn1',42,206,ico('ticket'),'air',32)+node('zn2',128,112,ico('building'),'hot',-24)+node('zn3',214,176,'<rect x="-6" y="-6" width="12" height="12" fill="#0d0c0a" stroke="#F8E4A6" stroke-width="1.2"/><rect x="-6" y="-3" width="12" height="2.4" fill="#E6C36A"/>','hrm',32)+node('zn4',312,78,'<path d="M-10 7L0-8L10 7ZM0-8V7" stroke="#F8E4A6" stroke-width="1.8" fill="none" stroke-linejoin="round"/><path d="M-14 7H14" stroke="#F8E4A6" stroke-width="1.8"/>','msh',32);
+s+='<g id="zbz"><g transform="translate(0 -22)" style="filter:drop-shadow(0 0 5px #E6C36Acc)"><rect x="-13" y="-8" width="26" height="14" rx="4" fill="url(#zgv)"/><rect x="-10" y="-5" width="17" height="5" rx="1.5" fill="#1c2340"/><circle cx="-7" cy="6" r="2.6" fill="#15130f"/><circle cx="7" cy="6" r="2.6" fill="#15130f"/></g></g>';
+return {s,c:[[300,'lt1'],[2300,'lt2'],[4700,'lt3']],f:[[700,'engine'],[2600,'engine']],e:5700,
+m:[{el:'zbz',p:'zrt',t:700,d:4000,tr:1,mk:[[42,206,'zn1','on'],[128,112,'zn2','on'],[214,176,'zn3','on'],[312,78,'zn4','ok']]}]}},
+
+mosque(){let s=zStars(40,150)+'<path d="M0 214H360" stroke="#E6C36A55"/>'+zGlow(180,214,190,30,.6);
+let a='<path d="M-10 214L52 148L78 168L110 140L150 214Z" fill="#1f1c30" style="'+A('zu',.9,.2)+'"/><path d="M226 214L258 188L262 180L266 188L300 214Z" fill="#26223a" style="'+A('zu',.9,.3)+'"/><path d="M262 180V170" stroke="#F7EED6" stroke-width="2.5" style="'+A('zf',.4,.9)+'"/><path d="M270 214L318 118L334 132L370 214Z" fill="#1f1c30" style="'+A('zu',.9,.25)+'"/>';
+a+='<g class="ob" style="'+A('zgrow',1.1,.3)+'"><rect x="118" y="132" width="44" height="82" fill="#17151f" stroke="#E6C36A44"/><rect x="128" y="72" width="24" height="60" fill="#1b1924" stroke="#E6C36A44"/><circle cx="140" cy="88" r="9" fill="#FFF0B8" style="filter:drop-shadow(0 0 6px #FFF0B8)"/><path d="M140 88V82M140 88l4 2" stroke="#8a6420" stroke-width="1.4"/><path d="M131 72L140 40L149 72Z" fill="#D9B44A"/><path d="M140 40V30" stroke="#FBEBB5" stroke-width="1.5"/><path d="M137 27a4 4 0 1 0 6 0a3 3 0 1 1-6 0" fill="#FBEBB5"/>';
+for(let r=0;r<5;r++)a+='<path d="M122 '+(144+r*13)+'H158" stroke="#FFD780" stroke-width="2.5" stroke-dasharray="3 3" opacity=".5"/>';
+a+='</g><g style="'+A('zu',.8,.9)+'">'+zKaaba(176,214,32)+'</g>';
+a+=zPin(52,148,'thawr',1.4,'start')+zPin(262,168,'arafat',1.9)+zPin(318,118,'nour',2.4,'end');
+s+='<g style="opacity:0;'+A('zo',.7,3.6,{e:'ease'})+'">'+a+'</g>';
+let b='<path d="M-10 214L30 174L74 186L130 138L172 178L200 168L240 214Z" fill="#1f1c30" style="'+A('zu',.9,3.8)+'"/>'+zNabawi(236,214,3.9);
+b+='<g style="'+A('zu',.6,4.6)+'"><rect x="34" y="196" width="34" height="18" fill="#DCD1B1"/><path d="M40 196Q51 182 62 196Z" fill="#E2D8BC"/><path d="M36 196V178" stroke="#E2D8BC" stroke-width="3"/></g>';
+b+=zPin(51,180,'quba',4.9,'start')+zPin(130,138,'uhud',5.4)+zPin(330,236,'qib',5.9,'end',1);
+s+='<g style="'+A('zf',.8,3.7,{e:'ease'})+'">'+b+'</g>';
+return {s,c:[[300,'zy1'],[3800,'zy2'],[6100,'zy3']],f:[[1400,'pop'],[1900,'pop'],[2400,'pop'],[3600,'air'],[4900,'pop'],[5400,'pop'],[5900,'pop'],[6100,'chime']],e:7100}},
+
+mount(){let s='<defs><linearGradient id="zdw" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#141a3a"/><stop offset=".6" stop-color="#43305c"/><stop offset="1" stop-color="#a65a5c"/></linearGradient></defs>';
+const road='M40 258L130 238L72 220L156 202L110 184L176 166L148 150L182 132';
+const rose=(x,y,r,dl)=>G(x,y,'<path d="M0 0V'+(r*2.6)+'" stroke="#2f7a3a" stroke-width="2"/><path d="M0 '+r*1.6+'q-9-2-11-9q9 0 11 9Z" fill="#3d8b3d"/><path d="M0 '+r*1.9+'q9-2 11-9q-9 0-11 9Z" fill="#3d8b3d"/><g class="o" style="'+A('zp',.7,dl)+'"><circle r="'+r+'" fill="#B8213F"/>'+[0,72,144,216,288].map(a=>'<circle cx="'+(Math.cos(a*Math.PI/180)*r*.55).toFixed(1)+'" cy="'+(Math.sin(a*Math.PI/180)*r*.55).toFixed(1)+'" r="'+(r*.55).toFixed(1)+'" fill="#E0506E"/>').join('')+'<circle r="'+(r*.42)+'" fill="#C2304F"/><path d="M-'+r*.2+' 0a'+r*.2+' '+r*.2+' 0 1 1 '+r*.3+' '+r*.15+'" stroke="#8a1830" stroke-width="1.2" fill="none"/></g>');
+let a='<rect width="360" height="270" fill="url(#zdw)"/>'+zStars(18,70);
+a+='<g style="'+LP('zcl',7,0)+'"><path d="M40 60a12 12 0 0 1 22-6a10 10 0 0 1 18 4a8 8 0 0 1 0 14H44a9 9 0 0 1-4-12Z" fill="#ffffff22"/></g><g style="'+LP('zcl',9,-3)+'"><path d="M240 40a10 10 0 0 1 18-5a8 8 0 0 1 15 3a7 7 0 0 1 0 12H244a8 8 0 0 1-4-10Z" fill="#ffffff1a"/></g>';
+a+='<path d="M-10 200L50 110L95 150L150 84L210 140L262 96L320 150L370 118V270H-10Z" fill="#2b2440" style="'+A('zu',1,.1)+'"/><path d="M-10 236L60 166L120 204L182 128L250 212L310 170L370 204V270H-10Z" fill="#3a2a3f" style="'+A('zu',1,.25)+'"/>';
+a+='<path d="'+road+'" stroke="#15121a" stroke-width="7" fill="none" stroke-linejoin="round"/><path id="zrr" d="'+road+'" stroke="#E6C36A" stroke-width="2" fill="none" stroke-linejoin="round" style="stroke-dasharray:1000;stroke-dashoffset:1000"/>';
+a+='<g id="ztb"><circle r="9" fill="url(#zglo)"/><circle r="3.4" fill="#FFF0B8"/></g>';
+a+='<path d="M-10 254Q180 228 370 254V270H-10Z" fill="#2a1a22"/>'+rose(40,238,8,2.3)+rose(92,248,6,2.5)+rose(276,244,8,2.7)+rose(326,236,6,2.9)+rose(214,252,5,3.1);
+for(let i=0;i<6;i++)a+='<ellipse cx="'+(60+i*48)+'" cy="240" rx="3" ry="1.8" fill="#E0506E" style="opacity:0;--x:'+(-30+i*9)+'px;--y:-'+(60+i*12)+'px;'+LP('zout',3.2,2.8+i*.35,'ease-out')+'"/>';
+s+='<g style="opacity:0;'+A('zo',.8,4,{e:'ease'})+'">'+a+'</g>';
+let dots='<circle r="128" fill="none" stroke="#ffffff00"/>';for(let i=0;i<18;i++){const t=i/18*Math.PI*2;dots+='<circle cx="'+(Math.cos(t)*120).toFixed(1)+'" cy="'+(Math.sin(t)*120).toFixed(1)+'" r="5" fill="#F7EED6" opacity="'+(.5+(i%3)*.2)+'"/>'}
+let dots2='<circle r="96" fill="none" stroke="#ffffff00"/>';for(let i=0;i<14;i++){const t=i/14*Math.PI*2;dots2+='<circle cx="'+(Math.cos(t)*90).toFixed(1)+'" cy="'+(Math.sin(t)*90).toFixed(1)+'" r="4.5" fill="#F7EED6" opacity=".75"/>'}
+let b=zStars(34,120)+'<rect x="168" y="0" width="44" height="200" fill="url(#zglo)" opacity=".35" style="'+LP('zpl',3,4.5)+'"/>'+zGlow(186,206,170,46,.8)+'<ellipse cx="186" cy="208" rx="150" ry="40" fill="#E6C36A10" stroke="#E6C36A44"/>';
+b+='<g transform="translate(186 208) scale(1 .3)"><g class="o" style="'+LP('zspr',9,4,'linear')+'">'+dots+'</g></g><g transform="translate(186 208) scale(1 .3)"><g class="o" style="'+LP('zspr',6,4,'linear')+'">'+dots2+'</g></g>';
+b+='<g style="'+A('zu',.9,4.2)+'">'+zKaaba(158,204,50)+'</g>';
+s+='<g style="'+A('zf',.9,4,{e:'ease'})+'">'+b+'</g>';
+return {s,c:[[300,'tf1'],[2300,'tf2'],[4300,'tf3']],f:[[900,'engine'],[2300,'pop'],[2700,'pop'],[3100,'pop'],[4000,'air'],[4500,'chime']],e:6700,
+m:[{el:'ztb',p:'zrr',t:900,d:2900,lin:1,tr:1}]}},
+
+bag(){let s=zStars(26,100)+zGlow(180,214,190,34,.6)+'<path d="M20 214H340" stroke="#E6C36A44"/><defs><linearGradient id="zcs" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a9a5a"/><stop offset="1" stop-color="#0f3d21"/></linearGradient></defs>';
+let cs='<path d="M-20-132V-146Q-20-153-13-153H13Q20-153 20-146V-132" stroke="#D9B44A" stroke-width="5" fill="none"/><rect x="-58" y="-132" width="116" height="126" rx="14" fill="url(#zcs)" stroke="#E6C36A" stroke-width="1.5"/><path d="M-34-120V-18M34-120V-18" stroke="#0b2e1a" stroke-width="4" stroke-linecap="round"/><path d="M-58-110v-8q0-14 14-14h8M58-110v-8q0-14-14-14h-8M-58-28v8q0 14 14 14h8M58-28v8q0 14-14 14h-8" stroke="#E6C36A" stroke-width="3" fill="none"/><path d="M-44-6v6M44-6v6" stroke="#333" stroke-width="3"/><circle cx="-44" cy="2" r="5" fill="#111"/><circle cx="44" cy="2" r="5" fill="#111"/>';
+cs+=G(0,-70,'<circle r="22" fill="#F7EED6" stroke="#D9B44A" stroke-width="2"/><image href="'+LOGO+'" x="-19" y="-19" width="38" height="38"/>',A('zp',.6,1.2),'o');
+cs+=G(14,-150,'<path d="M0 0V16" stroke="#D9B44A" stroke-width="1.5"/><rect x="-11" y="16" width="22" height="30" rx="3" fill="#F7EED6" stroke="#A87B28"/><circle cy="21" r="2" fill="#13110C"/><text y="34" text-anchor="middle" style="font:900 6px Cinzel,serif;fill:#7a6630">HAJJ</text><text y="42" text-anchor="middle" style="font:800 5.5px Outfit,sans-serif;fill:#7a6630">2027</text>',LP('zswg',1.8,1.2),'ot');
+s+=G(140,212,cs,A('zdrop',1.1,.2,{e:'ease-out'}),'');
+let pc='<path d="M-30-88C-30-150 30-150 30-88" stroke="#A87B28" stroke-width="4" fill="none"/><rect x="-36" y="-92" width="72" height="92" rx="10" fill="#2a2110" stroke="#5E4B1D"/>';
+pc+=G(0,-70,'<rect x="-18" y="-26" width="36" height="50" rx="3" fill="#1d2f5e" stroke="#D9B44A"/><circle cy="-8" r="7" fill="none" stroke="#D9B44A" stroke-width="1.2"/><path d="M-4-8h8M0-12v8" stroke="#D9B44A" stroke-width="1"/><text y="10" text-anchor="middle" style="font:800 5.5px Outfit,sans-serif;fill:#D9B44A;letter-spacing:.6px">PASSPORT</text>',A('zm',.8,3,{e:'cubic-bezier(.3,1.3,.5,1)',s:'--y:-120px'}));
+pc+='<rect x="-36" y="-62" width="72" height="62" rx="10" fill="#3a2e12" stroke="#D9B44A" stroke-width="1.5"/><path d="M-28-52H28" stroke="#E6C36A" stroke-width="2" stroke-dasharray="2 2"/><rect x="22" y="-56" width="6" height="10" rx="2" fill="url(#zg)"/><image href="'+LOGO+'" x="-12" y="-40" width="24" height="24"/>';
+s+=G(268,212,pc,A('zmi',.8,2,{s:'--x:130px'}));
+s+=zCheck(318,86,13,4)+zSpk(80,70,7,3.9)+zSpk(210,60,6,4.2)+zSpk(232,150,5,4.4);
+return {s,c:[[250,'bg1'],[2000,'bg2'],[3400,'bg3']],f:[[650,'thud'],[1200,'pop'],[2000,'air'],[3200,'paper'],[4000,'chime']],e:5400}},
+
+shirt(){let s=zStars(26,90)+zGlow(180,224,180,30,.6)+'<path d="M10 224H350" stroke="#E6C36A44"/><defs><clipPath id="zcl"><circle cx="0" cy="14" r="40"/></clipPath><linearGradient id="zwm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6F1E4"/><stop offset="1" stop-color="#CFC6AE"/></linearGradient></defs>';
+let wv='<path d="M-100 20q15-8 30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0V70H-100Z" fill="#4fa3e0" opacity=".6"/>';
+let cl='<circle r="40" fill="none"/><path d="M-4-26q12-8 22 0q6 10-4 16q-14 4-18-16Z" fill="#F7F4EA"/><path d="M-30-6q10-8 18 2q2 12-10 12q-12-2-8-14Z" fill="#2f8a52"/><path d="M6 14q14-4 20 6q-2 12-14 10q-10-4-6-16Z" fill="#D9B44A"/><path d="M-14 18q8-2 12 6q-4 8-12 4Z" fill="#F7F4EA"/>';
+let bb='';for(let i=0;i<7;i++)bb+='<circle cx="'+(-24+i*8)+'" cy="44" r="'+(1.5+i%3)+'" fill="#fff" style="opacity:0;'+LP('zbub',1.6,.8+i*.22,'ease-out')+'"/>';
+let m='<rect x="-66" y="-96" width="132" height="178" rx="16" fill="url(#zwm)"/><path d="M-66-66H66" stroke="#B9AF95"/><circle cx="-42" cy="-81" r="8" fill="#E6DEC8" stroke="#A39a80" stroke-width="1.5"/><path d="M-42-81l4-5" stroke="#7a705a" stroke-width="2" stroke-linecap="round"/><rect x="14" y="-89" width="36" height="14" rx="3" fill="#0f1a14"/><text x="32" y="-78.5" text-anchor="middle" style="font:800 9px Outfit,sans-serif;fill:#49D184">0:45</text><circle cx="-18" cy="-81" r="2.4" fill="#49D184" style="'+LP('zpl',.8,0)+'"/><circle cx="-8" cy="-81" r="2.4" fill="#E6C36A" style="'+LP('zpl',.8,.4)+'"/>';
+m+='<circle cy="14" r="52" fill="#C9C1AA"/><circle cy="14" r="46" fill="none" stroke="#9a927a" stroke-width="6"/><circle cy="14" r="40" fill="#13253d"/><g clip-path="url(#zcl)"><g style="'+A('zf',.6,.6)+'"><g style="'+LP('zwv',1.1,.6,'linear')+'">'+wv+'</g></g><g transform="translate(0 14)"><g class="o" style="'+A('zsp',.9,.8,{e:'linear',i:4})+'">'+cl+'</g></g>'+bb+'</g><path d="M-24-12a34 34 0 0 1 30-12" stroke="#ffffff55" stroke-width="3" fill="none" stroke-linecap="round"/><rect x="-58" y="72" width="116" height="6" rx="3" fill="#B9AF95"/>';
+s+=G(180,144,m,A('zshk',.16,.9,{e:'linear',i:18}));
+s+=G(54,62,'<g style="'+LP('zswg',2.2,4.6)+';transform-box:fill-box;transform-origin:50% 0"><path d="M0 0q0-8 6-8t5 6q-1 4-11 10" stroke="#D9B44A" stroke-width="2.2" fill="none"/><path d="M-26 22L0 8L26 22Z" stroke="#D9B44A" stroke-width="2.2" fill="none" stroke-linejoin="round"/><path d="M-22 20L-30 32L-22 36V78H22V36L30 32L22 20L8 16Q0 24-8 16Z" fill="#F7F4EA"/><path d="M0 22V60" stroke="#D8CBA6" stroke-width="1.2"/><circle cy="30" r="1.4" fill="#C9C1AA"/><circle cy="40" r="1.4" fill="#C9C1AA"/></g>',A('zdn',.6,4));
+const fold=(y,c,dl)=>G(306,y,'<rect x="-36" y="-14" width="72" height="16" rx="4" fill="'+c+'" stroke="#C9C1AA" stroke-width=".8"/><path d="M-30-6H30" stroke="#D8CBA6" stroke-width="1"/><path d="M-36-10q8 4 0 10" stroke="#D8CBA6" stroke-width="1" fill="none"/>',A('zmi',.5,dl,{e:'cubic-bezier(.3,1.4,.5,1)',s:'--y:-60px'}));
+s+=fold(222,'#F7F4EA',4.2)+fold(206,'#EFE8D6',4.5)+fold(190,'#F7F4EA',4.8)+G(306,168,'<rect x="-14" y="-8" width="28" height="12" rx="3" fill="url(#zg)"/><text y="1" text-anchor="middle" style="font:900 6.5px Cinzel,serif;fill:#1b160b">FRESH</text>',A('zp',.5,5.1),'o')+zSteam(306,150,3,5.3,12).replace(/#fff"/g,'#8fd3ff"')+zSpk(270,170,6,5.2)+zSpk(342,196,5,5.5);
+return {s,c:[[300,'ld1'],[4100,'ld2']],f:[[700,'bubble'],[1500,'bubble'],[2400,'bubble'],[3300,'bubble'],[4000,'air'],[4200,'pop'],[4500,'pop'],[4800,'pop'],[5200,'chime']],e:6300}},
+
+drop(P,k){const L5=k==='long';let s=zStars(30,110)+zGlow(180,230,170,30,.6)+'<path d="M20 230H340" stroke="#E6C36A44"/><defs><clipPath id="zcz"><rect x="-54" y="-122" width="108" height="120" rx="10"/></clipPath></defs>';
+let wv='<path d="M-120-4q10-6 20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0V10H-120Z" fill="#a8e6ff"/>';
+let bb='';for(let i=0;i<6;i++)bb+='<circle cx="'+(-36+i*14)+'" cy="-8" r="'+(1.4+i%3*.7)+'" fill="#fff" style="opacity:0;'+LP('zbub',1.8,1+i*.3,'ease-out')+'"/>';
+let c='<path d="M0-124V-142Q0-151 9-151H39Q48-151 48-142V-124" stroke="#F7EED6" stroke-width="7" fill="none" opacity=".9"/><rect x="-44" y="-138" width="22" height="16" fill="#F7EED6" opacity=".85"/><rect x="-47" y="-147" width="28" height="10" rx="2" fill="url(#zg)"/>';
+c+='<rect x="-56" y="-124" width="112" height="124" rx="12" fill="#F7EED614"/><g clip-path="url(#zcz)"><g style="--h:122px;'+A('zfill',3.4,.6,{e:'cubic-bezier(.45,0,.35,1)'})+'"><rect x="-60" y="-114" width="120" height="120" fill="url(#zwt)" opacity=".9"/><g transform="translate(0 -114)"><g style="'+LP('zwv',1.3,0,'linear')+'">'+wv+'</g></g></g>'+bb+'</g><rect x="-56" y="-124" width="112" height="124" rx="12" fill="none" stroke="#F7EED6" stroke-width="2.5" opacity=".9"/><path d="M-44-112V-20" stroke="#ffffff40" stroke-width="5" stroke-linecap="round"/>';
+c+=G(4,-56,'<text text-anchor="middle" y="10" style="font:700 30px Amiri,serif;fill:#FFF0B8;paint-order:stroke;stroke:#0e2a44;stroke-width:4px">زمزم</text>',A('zp',.7,4),'o');
+if(L5)for(let i=1;i<=5;i++){const y=-(i/5)*114-2;c+='<g style="'+A('zf',.3,(.6+3.4*(.25+i*.15))*1)+'"><path d="M60 '+y+'H70" stroke="#E6C36A" stroke-width="2"/><text x="74" y="'+(y+3.5)+'" style="font:800 9px Outfit,sans-serif;fill:#F8E4A6">'+i+'L</text></g>'}
+s+=G(180,230,c,A('zu',.6,.1));
+let dr='';for(let i=0;i<5;i++)dr+='<path d="M0-8C4-2 6 2 6 5A6 6 0 0 1-6 5C-6 2-4-2 0-8Z" fill="#8fd3ff" style="opacity:0;'+A('zfall',.7,.3+i*.65,{e:'ease-in'})+'"/>';
+s+='<g transform="translate(147 -8)">'+dr+'</g>';
+if(L5)s+=G(66,110,'<circle r="40" fill="url(#zglo)"/><circle r="27" fill="url(#zgv)"/><circle r="22" fill="none" stroke="#8a6420" stroke-width="1"/><text y="7" text-anchor="middle" style="font:900 20px Cinzel,serif;fill:#1b160b">5L</text>',A('zp',.7,3.9),'o');
+s+='<path class="dr" pathLength="1" d="M244 138Q290 112 306 168" stroke="#E6C36A" stroke-width="2" stroke-dasharray="1" style="'+A('zd',.8,4.6,{e:'ease'})+'"/>';
+s+=G(308,190,'<path d="M-20 0V20H20V0" fill="#2a2110" stroke="#E6C36A" stroke-width="2" stroke-linejoin="round"/><path d="M-26 4L0-18L26 4" stroke="#E6C36A" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/><path d="M0 16C-10 9-10 2-5 1C-2 0 0 3 0 4C0 3 2 0 5 1C10 2 10 9 0 16Z" fill="#E0506E"/>',A('zp',.6,5.1),'o')+zSpk(330,160,6,5.4);
+const f=[[300,'drop'],[950,'drop'],[1600,'drop'],[2250,'drop'],[2900,'drop'],[3900,'chime'],[5100,'pop']];
+return {s,c:[[300,'zz1'],[2400,L5?'zz2L':'zz2'],[4600,'zz3']],f,e:6400}},
+
+building(){let s=zStars(40,150)+zGlow(180,224,190,30,.6)+'<path d="M0 224H360" stroke="#E6C36A44"/>';
+s+='<g style="opacity:.55;'+A('zf',1,.1)+'"><rect x="292" y="104" width="34" height="120" fill="#14121c"/><rect x="300" y="56" width="18" height="48" fill="#17151f"/><circle cx="309" cy="70" r="7" fill="#FFF0B8" style="filter:drop-shadow(0 0 5px #FFF0B8)"/><path d="M302 56L309 30L316 56Z" fill="#8a6420"/></g>';
+const hotel=(x0,w,fl,d0,wl,id)=>{let h='';for(let f=0;f<fl;f++){const y=224-(f+1)*14;let wn='';const n=Math.floor((w-8)/16);for(let j=0;j<n;j++){const dl=wl+((f*7+j*13)%10)*.08;wn+='<rect x="'+(x0+8+j*16)+'" y="'+(y+3)+'" width="9" height="7" rx="1" fill="#FFD780" style="opacity:.9;'+A('zf',.25,dl,{e:'ease'})+'"/>'}h+='<g style="'+A('zu',.35,d0+f*.1)+'"><rect x="'+x0+'" y="'+y+'" width="'+w+'" height="14" fill="#1d1a26" stroke="#E6C36A22"/>'+wn+'</g>'}
+return '<g'+(id?' id="'+id+'"':'')+'>'+h+'</g>'};
+s+=hotel(36,96,9,.3,1.5)+'<g style="'+A('zu',.4,1.3)+'"><path d="M36 98H132L120 86H48Z" fill="url(#zgv)"/></g>';for(let i=0;i<5;i++)s+=G(64+i*10,79,zStar(0,0,3.6),A('zp',.3,1.6+i*.08),'o');
+s+=hotel(186,80,6,2.6,4.6)+'<g style="'+A('zu',.4,3.3)+'"><path d="M186 140H266V134H186Z" fill="url(#zg)"/></g>';
+s+='<path d="M88 74Q160 0 226 108" class="ab" style="'+A('zf',.5,3.2)+'"/><path id="zkp" d="M88 74Q160 0 226 108" class="trl" style="stroke-dasharray:1000;stroke-dashoffset:1000"/>';
+s+='<g id="zky"><g style="filter:drop-shadow(0 0 6px #E6C36Acc);'+A('zp',.4,3.1)+'" class="o"><circle cx="-7" r="5.5" fill="none" stroke="#FBEBB5" stroke-width="3"/><path d="M-2 0H12M8 0v4M12 0v5" stroke="#FBEBB5" stroke-width="3" stroke-linecap="round"/></g></g>';
+s+='<rect x="186" y="140" width="80" height="84" fill="url(#zglo)" style="opacity:0;'+A('zout',1,4.6,{e:'ease-out',s:'--x:0px;--y:0px'})+'"/>'+zSpk(202,128,6,4.7)+zSpk(254,150,7,4.9)+zSpk(230,196,5,5.1);
+const f=[[300,'tick'],[700,'tick'],[1100,'tick'],[1500,'on'],[2600,'tick'],[3000,'tick'],[3400,'air'],[4600,'chime']];
+return {s,c:[[300,'sh1'],[2600,'sh2'],[4700,'sh3']],f,e:6000,m:[{el:'zky',p:'zkp',t:3400,d:1200,tr:1}]}},
+
+moon(){let s='<rect width="360" height="270" fill="#081626" opacity=".7"/>'+zStars(60,170);
+s+=G(276,64,'<circle r="44" fill="url(#zglo)"/><path d="M4-22A22 22 0 1 0 4 22A28 28 0 0 1 4-22Z" fill="#FBEBB5"/>',A('zrise',2,.3,{e:'cubic-bezier(.2,.7,.2,1)'}));
+s+=zGlow(180,218,190,34,.7)+'<path d="M0 218H360" stroke="#E6C36A44"/>'+zNabawi(170,218,.2);
+s+='<path d="M0 218H360V270H0Z" fill="#0b1520"/>';
+for(let i=0;i<4;i++){const x=135+i*30,dl=2.6+i*.4;s+='<g transform="translate('+x+' 244)"><path d="M3-9A9 9 0 1 0 3 9A12 12 0 0 1 3-9Z" fill="none" stroke="#E6C36A66" stroke-width="1.2"/><g class="o" style="'+(i===3?'opacity:.55;':'')+A('zp',.5,dl)+'"><path d="M3-9A9 9 0 1 0 3 9A12 12 0 0 1 3-9Z" fill="'+(i===3?'none':'url(#zgv)')+'" stroke="#FBEBB5" stroke-width="'+(i===3?1.4:0)+'" stroke-dasharray="'+(i===3?'2 2':'0')+'"/></g></g>'}
+s+=zSpk(60,40,5,1,1)+zSpk(120,24,4,1.8,1)+zSpk(330,130,4,2.4,1);
+return {s,c:[[300,'md1'],[2600,'md2'],[4300,'md3']],f:[[300,'on'],[2600,'on'],[3000,'on'],[3400,'on'],[3800,'on'],[4300,'chime']],e:5800}},
+
+box(){let s=zStars(30,60)+zGlow(180,250,180,30,.6)+'<path d="M20 262H340" stroke="#E6C36A44"/>';
+let r='<circle r="230" fill="none"/>';for(let i=0;i<12;i++)r+='<path d="M0 0L-16-230H16Z" fill="#F8E4A6" opacity=".08" transform="rotate('+i*30+')"/>';
+s+='<g transform="translate(180 200)"><g class="o" style="opacity:1;animation:zf .6s ease 2s both,zsp 18s linear 2s infinite">'+r+'</g></g>';
+s+='<ellipse cx="180" cy="200" rx="66" ry="22" fill="url(#zglo)" style="opacity:1;'+A('zf',.4,2)+'"/>';
+const IT=[
+['trol',58,86,'<rect x="-21" y="-12" width="17" height="25" rx="3" fill="#1E8A4A" stroke="#E6C36A"/><path d="M-16-12v-8h7v8" stroke="#D9B44A" stroke-width="1.6" fill="none"/><rect x="-1" y="-6" width="14" height="19" rx="3" fill="#2a9a5a" stroke="#E6C36A"/><path d="M3-6v-6h6v6" stroke="#D9B44A" stroke-width="1.5" fill="none"/><rect x="15" y="0" width="10" height="13" rx="2.5" fill="#36ad67" stroke="#E6C36A"/><path d="M18 0v-4h4v4" stroke="#D9B44A" stroke-width="1.3" fill="none"/><path d="M-13-8v18M6-2v12" stroke="#0b2e1a" stroke-width="1.6"/><circle cx="-17" cy="15" r="2" fill="#111"/><circle cx="-8" cy="15" r="2" fill="#111"/><circle cx="2" cy="15" r="1.8" fill="#111"/><circle cx="10" cy="15" r="1.8" fill="#111"/><circle cx="17" cy="15" r="1.6" fill="#111"/><circle cx="23" cy="15" r="1.6" fill="#111"/>'],
+['back',139,86,'<path d="M-8-15q8-7 16 0" stroke="#D9B44A" stroke-width="2.4" fill="none"/><path d="M-13 15V-5Q-13-15 0-15Q13-15 13-5V15Z" fill="#1E6B3A" stroke="#E6C36A" stroke-width="1.4"/><rect x="-9" y="1" width="18" height="11" rx="3" fill="#24804a" stroke="#E6C36A" stroke-width="1"/><path d="M-6 4H6" stroke="#D9B44A" stroke-width="1.2"/><path d="M-13-2h-3v12h3M13-2h3v12h-3" stroke="#A87B28" stroke-width="1.6" fill="none"/>'],
+['mat',220,86,'<rect x="-14" y="-19" width="28" height="36" rx="2" fill="#8a1f2e" stroke="#E6C36A" stroke-width="1.4"/><rect x="-10" y="-15" width="20" height="28" fill="none" stroke="#E6C36A88" stroke-width="1"/><path d="M-6 11V-2Q-6-11 0-12Q6-11 6-2V11" stroke="#E6C36A" stroke-width="1.6" fill="#a83242"/><circle cy="-6" r="1.4" fill="#FBEBB5"/><path d="M-12 17v4M-7 17v4M-2 17v4M3 17v4M8 17v4M12 17v4" stroke="#E6C36A" stroke-width="1"/>'],
+['umb',300,86,'<circle cx="20" cy="-22" r="4.5" fill="#FFCF73"/><path d="M20-30v2M28-22h-2M26-28l-1.4 1.4" stroke="#FFCF73" stroke-width="1.3" stroke-linecap="round"/><path d="M-22 0Q-22-20 0-20Q22-20 22 0Q16.5-5 11 0Q5.5-5 0 0Q-5.5-5-11 0Q-16.5-5-22 0Z" fill="#F7F4EA" stroke="#C9C1AA"/><path d="M0-20Q-6-10-11 0M0-20Q6-10 11 0" stroke="#C9C1AA" stroke-width="1" fill="none"/><path d="M0-20V14q0 5-5 5" stroke="#D9B44A" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M0-20v-4" stroke="#D9B44A" stroke-width="2"/>'],
+['sling',60,160,'<path d="M-10 -3L16-22" stroke="#A87B28" stroke-width="3" stroke-linecap="round"/><rect x="-14" y="-5" width="28" height="20" rx="7" fill="#3a2e12" stroke="#E6C36A" stroke-width="1.4"/><path d="M-9 1H9" stroke="#E6C36A" stroke-width="1.4" stroke-dasharray="2 1.6"/><rect x="7" y="-1" width="4" height="6" rx="1" fill="url(#zg)"/>'],
+['ihram',180,160,'<rect x="-20" y="-1" width="40" height="14" rx="3" fill="#F7F4EA" stroke="#C9C1AA"/><rect x="-16" y="-13" width="32" height="12" rx="3" fill="#FFFDF6" stroke="#C9C1AA"/><path d="M-14 6H14M-11-7H11" stroke="#D8CBA6" stroke-width="1"/><path d="M-16-11q6 4 0 9M20 1q-6 5 0 11" stroke="#D8CBA6" stroke-width="1" fill="none"/>'],
+['bottle',300,160,'<rect x="-4.5" y="-21" width="9" height="6" rx="1.5" fill="url(#zg)"/><path d="M-7-15h14v2q3 3 3 7v19q0 4-4 4H-6q-4 0-4-4V-6q0-4 3-7Z" fill="url(#zwt)" stroke="#cdeeff" stroke-width="1"/><rect x="-10" y="-1" width="20" height="8" fill="#F7EED6" opacity=".85"/><path d="M-6-9V10" stroke="#ffffff66" stroke-width="2" stroke-linecap="round"/>']];
+const f=[[650,'thud'],[1300,'tick'],[1500,'tick'],[2000,'pop'],[2050,'chime']];
+IT.forEach(([k,x,y,ic],i)=>{const dl=2.25+i*.28;f.push([dl*1e3,'pop']);s+=G(x,y,'<circle r="27" fill="url(#zglo)"/>'+ic+'<g style="'+A('zf',.4,dl+.3)+'">'+zLbl(0,33,k)+'</g>',A('zmi',.75,dl,{e:'cubic-bezier(.25,1.3,.5,1)',s:'--x:'+(180-x)+'px;--y:'+(205-y)+'px'}))});
+let bx='<rect x="-60" y="-78" width="120" height="78" rx="6" fill="url(#zgr)" stroke="#E6C36A"/><rect x="-9" y="-78" width="18" height="78" fill="url(#zg)"/>';
+bx+=G(0,-36,'<path d="M-54-12H54L46 0L54 12H-54L-46 0Z" fill="url(#zg)"/><text y="4" text-anchor="middle" style="font:900 11px Cinzel,\'Noto Nastaliq Urdu\',\'Noto Sans Devanagari\',\'Noto Sans Gujarati\',serif;fill:#1b160b;letter-spacing:1px">'+zl('kit')+'</text>',A('zp',.6,4.4),'o');
+bx+='<g class="o" style="opacity:0;transform:translate(90px,-170px) rotate(70deg);animation:zlidk .9s cubic-bezier(.3,0,.3,1) 2s both"><rect x="-66" y="-96" width="132" height="22" rx="5" fill="#1f7a44" stroke="#E6C36A"/><rect x="-9" y="-96" width="18" height="22" fill="url(#zg)"/><ellipse cx="-14" cy="-104" rx="13" ry="7" fill="none" stroke="url(#zg)" stroke-width="4" transform="rotate(-20 -14 -104)"/><ellipse cx="14" cy="-104" rx="13" ry="7" fill="none" stroke="url(#zg)" stroke-width="4" transform="rotate(20 14 -104)"/><circle cy="-100" r="5" fill="#FBEBB5"/></g>';
+s+='<g transform="translate(180 262) scale(.78)"><g style="'+A('zdrop',1,.2,{e:'ease-out'})+'"><g style="'+A('zshk',.12,1.3,{e:'linear',i:5})+'">'+bx+'</g></g></g>';
+s+=zSpk(100,110,6,4.2)+zSpk(262,112,6,4.5)+zSpk(236,206,5,4.8);f.push([4400,'chime']);
+return {s,c:[[300,'kt1'],[2200,'kt3'],[4400,'kt2']],f,e:5900}},
+
+people(){let s=zStars(40,150);
+s+='<path d="M-10 270C80 236 170 190 254 124L276 130C200 200 120 250 70 270Z" fill="#ffffff0a"/><path id="ztp" d="M46 232C112 212 172 176 240 130" fill="none"/><path d="M46 232C112 212 172 176 240 130" class="ab"/>';
+s+='<circle cx="272" cy="104" r="40" fill="url(#zglo)" class="o" style="'+LP('zbeat',2.4,0)+'"/>'+zKaaba(262,114,18);
+const fig=(x,y,c,dl,sc)=>G(x,y,'<path d="M-6 0L-7-18Q0-25 7-18L6 0Z" fill="'+c+'"/><path d="M-6-17L6-5" stroke="#D8CBA6" stroke-width="1.2"/><circle cy="-25" r="4.6" fill="#C89A72"/>',LP('zfl',.55,dl),'ob');
+let grp='<ellipse cy="2" rx="56" ry="17" fill="#E6C36A12" stroke="#E6C36A" stroke-width="1.5" style="'+A('zf',.6,2.4)+'"/><ellipse cy="2" rx="56" ry="17" fill="none" stroke="#F8E4A6" class="o" style="opacity:0;animation:zring 2s ease-out 2.6s infinite both"/>';
+grp+=fig(-36,-4,'#F4EFE3',0)+fig(-22,-6,'#F4EFE3',.2)+fig(-8,-4,'#F4EFE3',.1)+fig(-30,6,'#EDE6D3',.3)+fig(-14,8,'#F4EFE3',.15)+fig(2,6,'#EDE6D3',.25);
+grp+=G(26,0,'<path d="M-6 0L-7-19Q0-26 7-19L6 0Z" fill="url(#zgv)"/><circle cy="-27" r="5" fill="#C89A72"/><path d="M8-14L10-68" stroke="#E6C36A" stroke-width="2"/><g style="'+LP('zflag',1.2,0)+';transform-box:fill-box;transform-origin:0 50%"><path d="M10-68L42-62L10-52Z" fill="url(#zg)"/></g>',LP('zfl',.55,.05),'ob');
+s+='<g id="ztg">'+grp+'</g>';
+s+=zSpk(110,120,6,2.8)+zSpk(300,160,5,3.4)+zSpk(200,70,6,4.2);
+return {s,c:[[300,'tm1'],[2400,'tm2'],[4300,'tm3']],f:[[2400,'chime'],[4300,'on']],e:5900,m:[{el:'ztg',p:'ztp',t:400,d:4600,sc:[1.05,.62]}]}},
+
+compass(){let s=zStars(34,120);
+let nd='<circle r="30" fill="none"/><path d="M0-26L6 0L0 26L-6 0Z" fill="#6b6450"/><path d="M0-26L6 0H-6Z" fill="url(#zgv)"/><circle r="3.5" fill="#FBEBB5"/>';
+let cp='<circle r="44" fill="url(#zglo)"/><circle r="32" fill="#13110C" stroke="url(#zg)" stroke-width="3"/>';for(let i=0;i<8;i++)cp+='<path d="M0-28V'+(i%2?-24:-21)+'" stroke="#E6C36A" stroke-width="1.6" transform="rotate('+i*45+')"/>';
+cp+='<text y="-13" text-anchor="middle" style="font:900 7px Cinzel,serif;fill:#E6C36A">N</text><g class="o" style="'+A('zneedle',1.7,.3,{e:'cubic-bezier(.2,.7,.3,1)'})+'">'+nd+'</g><circle r="32" fill="none" stroke="#F8E4A6" class="o" style="opacity:0;animation:zring 2s ease-out 2s infinite both"/>';
+s+=G(180,62,cp,A('zp',.6,.1),'o');
+const P=[[36,186],[94,170],[152,186],[210,170],[268,186],[326,170]],d='M36 186C65 186 65 170 94 170S123 186 152 186S181 170 210 170S239 186 268 186S297 170 326 170';
+s+='<path d="'+d+'" class="ab" style="'+A('zf',.5,1.4)+'"/><path id="zgp" d="'+d+'" class="trl" style="stroke-dasharray:1000;stroke-dashoffset:1000"/>';
+const IC=['<rect x="-7" y="-8" width="14" height="16" rx="2" fill="#F7F4EA"/><path d="M-7-6L7 6" stroke="#C9C1AA" stroke-width="2"/>','<path d="M-10 7L0-8L10 7Z" fill="#F7F4EA"/><path d="M0-8V7" stroke="#C9C1AA" stroke-width="1.4"/>','<path d="M-11 7L-3-5L1 0L5-4L11 7Z" fill="#F7F4EA"/><path d="M-3-5V-11" stroke="#F7F4EA" stroke-width="2"/>','<circle cx="-5" cy="5" r="2.4" fill="#F7F4EA"/><circle cx="1" cy="6" r="2" fill="#F7F4EA"/><circle cx="6" cy="4" r="2.4" fill="#F7F4EA"/><path d="M1-9A5 5 0 1 0 1 1A4 4 0 1 1 1-9Z" fill="#F7F4EA"/>','<rect x="-3" y="-9" width="6" height="15" fill="#F7F4EA"/><ellipse cy="7" rx="9" ry="2.4" fill="#C9C1AA"/>','<ellipse cy="5" rx="11" ry="3" fill="none" stroke="#C9C1AA" stroke-width="1.2"/><rect x="-6" y="-7" width="12" height="12" fill="#0d0c0a" stroke="#F7F4EA" stroke-width="1.2"/><rect x="-6" y="-4" width="12" height="2.4" fill="#E6C36A"/>'];
+const K=['ihram','mina','arafat','muzd','jam','tawaf'],mk=[];
+P.forEach(([x,y],i)=>{s+='<g id="zs'+i+'" class="mk" transform="translate('+x+' '+y+')"><g class="o" style="'+A('zp',.45,1.5+i*.08)+'"><circle r="24" fill="url(#zglo)" class="hl"/><circle r="16" fill="#13110C" stroke="#E6C36A" stroke-width="2"/><circle r="16" fill="#3a2e12" class="hl"/><g class="dim" style="opacity:.45">'+IC[i]+'</g></g><g class="hl">'+zCheck(11,-12,6,0).replace(/animation:[^"]*/g,'')+'</g>'+'<g style="'+A('zf',.4,1.6+i*.08)+'">'+zLbl(0,32,K[i])+'</g></g>';mk.push([x,y,'zs'+i,i<5?'on':'ok'])});
+s+='<g id="zgm"><circle r="11" fill="url(#zglo)"/><circle r="4.5" fill="#FFF0B8" style="filter:drop-shadow(0 0 4px #FFF0B8)"/></g>';
+return {s,c:[[300,'gd1'],[1900,'gd2'],[5700,'gd3']],f:[[300,'air'],[1500,'pop']],e:6700,m:[{el:'zgm',p:'zgp',t:1800,d:3800,tr:1,mk}]}},
+
+receipt(P,k){const sh=k==='short';let s=zStars(26,60)+zGlow(180,140,150,100,.4)+'<defs><clipPath id="zrc"><rect x="0" y="44" width="360" height="226"/></clipPath></defs>';
+let zz='M104 40H256V226';for(let i=0;i<10;i++)zz+='l-7.6 6-7.6-6';zz+='V40Z';
+const rows=sh?[['pkg',0],['tax',1]]:[['pkg',0],['GST',1],['tax',1]];
+let pc='<path d="'+zz+'" fill="#F7EED6"/><image href="'+LOGO+'" x="164" y="50" width="32" height="32"/><text x="180" y="96" text-anchor="middle" style="font:900 9px Cinzel,serif;fill:#7a6630;letter-spacing:1.4px">HAJJ 2027</text><path d="M114 104H246" stroke="#b9a777" stroke-dasharray="3 3"/>';
+const ck=[];rows.forEach(([k2,c],i)=>{const y=124+i*22;pc+='<text x="116" y="'+y+'" style="font:700 10px Outfit,\'Noto Nastaliq Urdu\',\'Noto Sans Devanagari\',\'Noto Sans Gujarati\',sans-serif;fill:#1b160b">'+(k2==='GST'?'GST':zl(k2))+'</text>'+(c?'':'<rect x="196" y="'+(y-7)+'" width="48" height="6" rx="3" fill="#d8cba6"/>');if(c)ck.push(y)});
+const ty=124+rows.length*22;pc+='<path d="M114 '+(ty-8)+'H246" stroke="#b9a777" stroke-dasharray="3 3"/><text x="116" y="'+(ty+10)+'" style="font:900 11px Outfit,\'Noto Nastaliq Urdu\',\'Noto Sans Devanagari\',\'Noto Sans Gujarati\',sans-serif;fill:#1b160b">'+zl('tot')+'</text><rect x="186" y="'+(ty+2)+'" width="58" height="9" rx="3" fill="#D9B44A"/><rect x="128" y="'+(ty+24)+'" width="104" height="18" fill="url(#zbc)"/>';
+s+='<defs><pattern id="zbc" width="9" height="18" patternUnits="userSpaceOnUse"><rect width="2" height="18" fill="#1b160b"/><rect x="4" width="1" height="18" fill="#1b160b"/><rect x="6" width="2" height="18" fill="#1b160b"/></pattern></defs>';
+s+='<g clip-path="url(#zrc)"><g style="'+A('zprint',2.4,.3,{e:'steps(16,end)'})+'">'+pc+'</g></g>';
+s+='<rect x="80" y="10" width="200" height="30" rx="10" fill="#1B170E" stroke="#5E4B1D"/><rect x="92" y="34" width="176" height="12" rx="6" fill="#050505" stroke="#5E4B1D"/><circle cx="262" cy="22" r="3" fill="#49D184" style="'+LP('zpl',.6,0)+'"/><circle cx="250" cy="22" r="3" fill="#E6C36A"/>';
+ck.forEach((y,i)=>s+=zCheck(232,y-4,8,2.9+i*.45));
+s+=zSpk(84,150,7,3.4)+zSpk(282,120,6,3.7)+zSpk(270,220,5,4);
+const c=[[300,'gs1']];if(sh)c.push([2900,'gs3']);else c.push([2900,'gs2'],[3400,'gs3']);
+const f=[[300,'print']];ck.forEach((y,i)=>f.push([2900+i*450,'ok']));
+return {s,c,f,e:4800}}};
+function zPalm(x,y,sc){sc=sc||1;return '<g transform="translate('+x+' '+y+') scale('+sc+')"><path d="M0 0Q4-30 -2-58" stroke="#2a1a0c" stroke-width="5" fill="none"/><path d="M-2-58Q-26-66-40-50Q-20-58-2-56ZM-2-58Q22-70 40-54Q18-60-2-56ZM-2-58Q-18-80-34-80Q-16-72-2-58ZM-2-58Q14-82 32-80Q14-74-2-58Z" fill="#1d3a1f"/></g>'}
+SC.food=SC.meal;
+const zKey=(ic,k)=>ic==='food'?(k==='long'?'buffet':'meal'):ic==='bus'?(k==='long'?'lux':'local'):ic==='mosque'?'mosque':SC[ic]?ic:null;
+function zPos(m,e){const L=m.L,p=m.Pth.getPointAtLength(L*e);let tf='translate('+p.x.toFixed(1)+' '+p.y.toFixed(1)+')';
+if(m.rot){const a=m.Pth.getPointAtLength(Math.max(0,L*e-1)),b=m.Pth.getPointAtLength(Math.min(L,L*e+1));tf+=' rotate('+(Math.atan2(b.y-a.y,b.x-a.x)*180/Math.PI).toFixed(1)+')'}
+if(m.sc)tf+=' scale('+(m.sc[0]+(m.sc[1]-m.sc[0])*e).toFixed(3)+')';m.E.setAttribute('transform',tf);if(m.tr){m.Pth.style.strokeDasharray=L;m.Pth.style.strokeDashoffset=L*(1-e)}}
+function zPlay(id,P,k){clearAnim();const S=SC[id](P,k),stg=$('#stg'),cap=$('#fcap');
+stg.innerHTML='<svg class="zsv" viewBox="0 0 360 270" aria-hidden="true">'+ZDEF+S.s+'</svg><div class="stamp" id="stp">INCLUDED</div>';
+cap.textContent='';cap.style.opacity=1;const say=q=>{cap.style.opacity=0;ftm.push(setTimeout(()=>{cap.textContent=zc(q);cap.style.opacity=1},200))};
+const M=(S.m||[]).map(m=>Object.assign({},m,{E:stg.querySelector('#'+m.el),Pth:stg.querySelector('#'+m.p)})).filter(m=>m.E&&m.Pth);
+M.forEach(m=>{m.L=m.Pth.getTotalLength();m.mk=(m.mk||[]).map(q=>{let best=0,bd=1e9;for(let i=0;i<=200;i++){const p=m.Pth.getPointAtLength(m.L*i/200),dd=(p.x-q[0])**2+(p.y-q[1])**2;if(dd<bd){bd=dd;best=i/200}}return {f:best,n:stg.querySelector('#'+q[2]),s:q[3]}});zPos(m,RM?1:0)});
+if(RM){M.forEach(m=>m.mk.forEach(q=>q.n&&q.n.classList.add('on')));cap.textContent=zc(S.c[S.c.length-1][1]);$('#stp').classList.add('on');return}
+S.c.forEach(([ms,q])=>ftm.push(setTimeout(()=>say(q),ms)));(S.f||[]).forEach(([ms,n])=>ftm.push(setTimeout(()=>sfx(n),ms)));
+ftm.push(setTimeout(()=>{const x=$('#stp');if(x){x.classList.add('on');sfx('stamp')}},S.e));
+if(M.length){const s0=performance.now(),ez=x=>x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2;
+const st=now=>{const x=now-s0;let live=false;M.forEach(m=>{const r=Math.min(1,Math.max(0,(x-m.t)/m.d));if(r<1)live=true;const e=m.lin?r:ez(r);if(x>=m.t)zPos(m,e);m.mk.forEach(q=>{if(!q.done&&x>=m.t&&e>=q.f-.002){q.done=1;if(q.n)q.n.classList.add('on');if(q.s)sfx(q.s)}})});if(live)fr=requestAnimationFrame(st)};fr=requestAnimationFrame(st)}}
 
 /* ---------- clicks ---------- */
 document.addEventListener('click',e=>{
