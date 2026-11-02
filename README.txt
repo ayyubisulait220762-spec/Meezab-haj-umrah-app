@@ -1,66 +1,44 @@
-MEEZAB E RAHEMAT APP - UPLOAD PACKAGE (version 11, 2 November 2026)
+MEEZAB E RAHEMAT APP - UPLOAD PACKAGE (version 21, 2 November 2026)
+All agents' work since the live version 11, compiled into one app.
 
 WHAT TO UPLOAD
-3 files: index.html, sw.js and README.txt. The hotel photos and talbiyah.mp3 are already on GitHub from version 10, so you do not need to upload them again.
+3 files: index.html, sw.js and README.txt. The hotel photos, videos and talbiyah.mp3 are already on GitHub, so you do not need to upload them again.
 Upload these 3 files to the main folder of your GitHub repository (not inside a sub-folder). They replace the old ones.
 
 HOW TO UPLOAD FROM A PHONE
-1. Extract this zip in your phone's Files app (tap the zip, then Extract).
+1. Extract the zip in your phone's Files app (tap the zip, then Extract).
 2. In Chrome, open github.com/ayyubisulait220762-spec/Meezab-haj-umrah-app
 3. Tap Add file > Upload files (tick "Desktop site" in Chrome's menu if you don't see it).
 4. Select all the extracted files and tap Commit changes.
 5. Wait about 2 minutes, then open the app link. If the old design still shows, close the app fully and open it again.
 
-WHAT IS NEW IN VERSION 11
-- Long Stay package: the "Your journey" section is now an animated itinerary. One tap on "Play the journey" shows the whole trip step by step: flight Mumbai to Madinah, Madinah (Crowne Plaza, 9 days), bus to Makkah, Makkah (Hilton Convention, 13-14 days, Umrah on arrival), bus to the shifting hotel in Aziziya (12-13 days, Makkah Ziyarat, walking Ziyarat, Taif, Jeddah trip), the 5 days of Hajj (8-12 Dhul Hijjah), back to Aziziya (2-3 days), and the flight Jeddah to Mumbai.
-- A gold marker travels along the route, a day bar fills up, and the activities and Hajj days appear one by one, with soft sounds. Tap Pause to stop, or tap any stop to jump to it. Hotel photos still play on the Madinah and Makkah stops.
-- Available in English, Urdu, Hindi and Gujarati.
-- Long Stay length now shows 41-44 days (was 39-43).
-- The Aziziya hotel is now called "Shifting hotel" in Long Stay and Signature (Shar-E-Mansoor name removed until the hotel is confirmed).
+WHAT IS NEW SINCE VERSION 11 (the live version)
+- v12 Home: "Questions pilgrims ask" – all 8 FAQs as sideways-swipe cards (replaces the Ziyarat photo banner).
+- v13 Signature package: animated itinerary with "Play the journey"; length 38-40 days; "Dates are approximate (± 2 days)".
+- v14 Short package: animated itinerary with "Play the journey" (Makkah shifting hotel > Hajj > shifting hotel > Madinah, Swiss International).
+- v15 Contact: Facebook button next to Instagram ("Open map" now full width).
+- v16 Home: countdown to the Day of Arafah 2027; prayer times for Makkah, Madinah and the pilgrim's own city (choose a city or use location);
+  "Share your Hajj 2027 card" (name + city card to share on WhatsApp/Instagram); Qibla compass.
+- v17 Feedback: "Videos from our journeys" – Instagram reels in 6 tabs (Hujjaj reviews, Food, Hotel, Ziyarat, Hajj 5 days, Orientation & welcome), gold clip-art covers; tap opens the reel in Instagram.
+- v18 Feedback: "Rate us on Google" card (opens Google Maps to write a review).
+- v19 Long Stay offer: old price ₹8,00,000 big and clear with a red strike line, "Save ₹1,30,000" badge, strike + pop animation with sound.
+- v20 Signature package: opening animation – black-and-gold envelope, gold wax seal with the Meezab logo, flap opens and the Signature card slides out.
+- v21 Sounds (Agent A): richer natural sounds that vary each time – wooden clicks, swishes, paper flick, bells, jet pass-by, bus engine, water drops; itinerary stops: Madinah doves, Makkah crowd murmur, Hajj desert wind. No music.
+- Everything in English, Urdu, Hindi and Gujarati.
 
-WHAT WAS NEW IN VERSION 10
-- Hilton Convention Makkah photos (6): exterior, lobby, Haram view from the room, Haram-view hall, restaurant, fitness centre.
-- Accommodation tile > Makkah tab (Long Stay and Signature): photos change by themselves every 2.5 seconds with a quick slide. Touching the photos pauses it for a few seconds.
-- Package journey: the Jabal Omar stop that mentions Hilton Convention (Long Stay and Signature) now shows a small slideshow of the same photos. Tapping it opens the full photo gallery.
-- Crowne Plaza Madinah photos (4) for Long Stay: exterior, entrance, room with a view of Masjid an-Nabawi, banquet hall. They show in the Accommodation tile > Madinah tab and on the Madinah journey stop (Markaziya), with the same slideshow. Tapping the journey slideshow opens the gallery on the Madinah tab.
-- Swiss International Madinah photos (4) for Short: exterior, reception, room, restaurant. They show in the Accommodation tile > Madinah tab and as a slideshow on the Madinah stop of the journey.
-- Manazil Al Sadiq Madinah photos (3) for Signature: exterior, lounge, room. They show in the Accommodation tile > Madinah tab and as a slideshow on the Madinah journey stop (Markaziya).
-- Gallery photos are now in 4:3 shape, which suits hotel photos better.
-
-WHAT WAS NEW IN VERSION 9
-- New Include tiles in all 3 packages, with animations: "Mashaer arrangements" (tents in Mina, bus to Arafat and Muzdalifah, meals) and "Haj orientation programme" (ticket, visa and itinerary shown on a screen).
-- Long Stay: "Travel bag & passport bag" tile removed.
-- Hajj kit (all 3 packages): 11 items with a new animation - 3 trolley bags, sling bag for passport, backpack, chappal bag, Ihram for Umrah (1 pair), dupatta for women, prayer mat, umbrella, tasbeeh, dua book, water bottle.
-- Excludes tab (all 3 packages): one tile with a play button; 11 excluded items appear one after another, ending with a red "NOT INCLUDED" stamp.
-
-WHAT WAS NEW IN VERSION 8
-- "Taif Ziyarat with Umrah" tile added to Signature and Short (all 3 packages now have it).
-- FAQ: Taif included in all 3 packages; 3 Umrah packages every year (summer vacation, October vacation, Eid Milad).
-- FAQ: ladies can travel without a Mahram with our group.
-- FAQ: payment in 3 steps - Rs 2,00,000 advance, then 60% of the full package price, then the full balance incl. 2% TCS (TCS refunded on filing ITR).
-- FAQ: basic price of all 3 packages is for 5-bed sharing; 4, 3 or 2-bed rooms at extra charge. Signature price note updated.
-- Sound effects and the Talbiyah are louder on phones.
+EARLIER VERSIONS (already live)
+- v11 Long Stay animated itinerary, 41-44 days. v10 hotel photo galleries and slideshows. v8-v9 FAQ, Taif, Mashaer and orientation tiles, Hajj kit, louder sounds.
 
 WHERE THINGS ARE INSIDE index.html
-- Prices, offer price, photos and routes of each package: "const PKM="
-- Package text in each language (titles, journey, inclusions): "const PKT="
-- Hilton Convention Makkah photos: "const HILTON_MK=" (Long Stay and Signature). Crowne Plaza Madinah photos: "const CROWNE_MD=" (Long Stay). Swiss International Madinah photos: "const SWISS_MD=" (Short). Manazil Al Sadiq Madinah photos: "const MANAZIL_MD=" (Signature).
-- Long Stay animated itinerary text (all 4 languages): "const LSI="
-- Hotel names that get a journey slideshow: "const JSS_HOTELS="
-- Hotel photos for the Accommodation tile: "const HOTELS=" (one list per package, for makkah and madinah).
-  Each photo: ['photo-file.webp',{en:'Hotel name · caption',ur:'',hi:'',gu:''},'50% 50%'] - the last part is the focus point of the photo.
-- Exclusions: "const EXC="
-- Hajj news: "const NEWS=" (newest first)
-- FAQ: "const FAQ="
-- Long Stay offer end: OFFER_END (31 Dec 2026, 11:59 pm).
-- All other app text in 4 languages: "const T="
+- Prices, offer price, photos and routes of each package: "const PKM="   Save amount: "SAVE_AMT="
+- Package text in each language: "const PKT="
+- Hotel photos: "const HILTON_MK=", "const CROWNE_MD=", "const SWISS_MD=", "const MANAZIL_MD=", per package "const HOTELS="
+- Animated itineraries: "const LSI=" (Long Stay, with "sg:" Signature and "sh:" Short parts); which packages use it: "const LSI_ON="
+- Home FAQ cards: "const HFQ="   Countdown/prayer times/share card/Qibla texts: "const MZ="   Indian city list: "const MZCITIES="
+- Instagram reels per category: "IGV="   Rate us on Google link: "GLINK="
+- Exclusions: "const EXC="   Hajj news: "const NEWS="   FAQ: "const FAQ="   Other app text: "const T="
 - WhatsApp number: OFFICE_WA='917038422399'
 - Google Sheet link for leads: LEAD_URL='' (empty for now; follow LEADS-SETUP.txt, then send the link to Agent R)
-- Opening sound: TALBIYAH='talbiyah.mp3'
 
 SOUNDS
-The Talbiyah plays when the visitor taps "Tap to enter" on the opening screen. All other sounds are soft and only on key moments.
-Visitors can mute everything (sounds and vibration) with the speaker button at the top of the home screen.
-
-ADDING A NEW REVIEW VIDEO OR HOTEL PHOTOS
-Send them to Agent R. They will be compressed and added for you.
+The Talbiyah plays when the visitor taps "Tap to enter". Visitors can mute everything with the speaker button at the top of the home screen.
