@@ -1,9 +1,10 @@
-MEEZAB E RAHEMAT APP - UPLOAD PACKAGE (version 21, 2 November 2026)
+MEEZAB E RAHEMAT APP - UPLOAD PACKAGE (version 24, 2 November 2026)
 All agents' work since the live version 11, compiled into one app.
 
 WHAT TO UPLOAD
-3 files: index.html, sw.js and README.txt. The hotel photos, videos and talbiyah.mp3 are already on GitHub, so you do not need to upload them again.
-Upload these 3 files to the main folder of your GitHub repository (not inside a sub-folder). They replace the old ones.
+4 files: index.html, sw.js, README.txt and the NEW file privacy.html. The hotel photos, videos and talbiyah.mp3 are already on GitHub, so you do not need to upload them again.
+Upload these 4 files to GitHub (replace the old ones): index.html, sw.js, README.txt, and the NEW file privacy.html.
+Put them in the main folder of your GitHub repository (not inside a sub-folder).
 
 HOW TO UPLOAD FROM A PHONE
 1. Extract the zip in your phone's Files app (tap the zip, then Extract).
@@ -24,6 +25,10 @@ WHAT IS NEW SINCE VERSION 11 (the live version)
 - v19 Long Stay offer: old price ₹8,00,000 big and clear with a red strike line, "Save ₹1,30,000" badge, strike + pop animation with sound.
 - v20 Signature package: opening animation – black-and-gold envelope, gold wax seal with the Meezab logo, flap opens and the Signature card slides out.
 - v21 Sounds (Agent A): richer natural sounds that vary each time – wooden clicks, swishes, paper flick, bells, jet pass-by, bus engine, water drops; itinerary stops: Madinah doves, Makkah crowd murmur, Hajj desert wind. No music.
+- v22 Privacy policy page (privacy.html) + a link to it in the app (Home and Contact).
+- v23 Excludes ("Not included") player: readable timing, controls (previous / pause-play / next, counter), full list at the end.
+- v24 Google Sheet connected: registrations and feedback are saved in the Sheet; enquiry emails go to Basil and Sulait via the Sheet script.
+  Spam protection (hidden trap field + form time check). New "Rate us on Google" link (opens the write-a-review box directly).
 - Everything in English, Urdu, Hindi and Gujarati.
 
 EARLIER VERSIONS (already live)
@@ -38,7 +43,7 @@ WHERE THINGS ARE INSIDE index.html
 - Instagram reels per category: "IGV="   Rate us on Google link: "GLINK="
 - Exclusions: "const EXC="   Hajj news: "const NEWS="   FAQ: "const FAQ="   Other app text: "const T="
 - WhatsApp number: OFFICE_WA='917038422399'
-- Google Sheet link for leads: LEAD_URL='' (empty for now; follow LEADS-SETUP.txt, then send the link to Agent R)
+- Google Sheet link for leads and feedback: LEAD_URL= (connected in v24)
 
 SOUNDS
 The Talbiyah plays when the visitor taps "Tap to enter". Visitors can mute everything with the speaker button at the top of the home screen.
