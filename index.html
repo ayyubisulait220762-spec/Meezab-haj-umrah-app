@@ -593,6 +593,54 @@ textarea.in{padding:14px 16px;min-height:104px;resize:vertical}
 .mfq[open] summary svg{transform:rotate(-90deg)}
 .mfq p{margin:0;padding:0 16px 16px;font-size:14px;line-height:1.65}
 .mfqa{display:flex;flex-direction:column;gap:10px}
+/* v27: Invite your family + Install the app */
+.mzi{display:flex;flex-direction:column;gap:12px}
+.mzi h3{margin:0;font-size:17px;color:var(--g2);display:flex;align-items:center;gap:8px}
+.mzi h3 svg{width:22px;height:22px;color:var(--gold);flex:none}
+.mzi p{margin:0;font-size:13.5px;color:var(--mu);line-height:1.55}
+.mzi .rw{display:flex;gap:8px}
+.mzi .rw .mzin{flex:1;min-width:0}
+.mzi .btn{width:100%;gap:9px}
+.mzi .btn svg{width:19px;height:19px}
+.mzi .lk{font-size:12px;color:var(--mu);word-break:break-all;direction:ltr;text-align:start;background:#0c0b08;border:1px dashed var(--ln);border-radius:10px;padding:7px 10px}
+.mzi .ok{font-size:13px;color:var(--gold);font-weight:700;min-height:1px}
+.mzi .hlp{display:none;margin:0;padding:10px 12px;border-radius:12px;background:#0c0b08;border:1px solid var(--ln);font-size:13.5px;line-height:1.6;color:var(--tx)}
+.mzi .hlp.on{display:block;animation:zu .35s ease both}
+.mzi .sep{height:1px;background:linear-gradient(90deg,transparent,#5E4B1D,transparent)}
+[lang=ur] .mzi p,[lang=ur] .mzi .hlp{line-height:2}
+
+/* v26: Excludes – original animation restored, note inside the box (Agent R + Agent A) */
+#stg.exm{aspect-ratio:360/330}
+#fs .stg{flex:none}
+#stg.exm .stamp{top:96px;right:auto;left:50%;transform:translateX(-50%) rotate(-12deg) scale(2.4);font-size:15px;box-shadow:0 6px 24px #000c}
+#stg.exm .stamp.on{transform:translateX(-50%) rotate(-12deg) scale(1)}
+.exk{transform-box:fill-box;transform-origin:center}
+.exk.run{animation:zcard var(--d) ease both}
+.exk.hin{animation:exhin .6s cubic-bezier(.2,.8,.2,1) both}
+.exk.hold{animation:none;opacity:1;transform:none}
+.exk.gone{animation:exgo .45s ease-in forwards}
+@keyframes exhin{from{opacity:0;transform:scale(.5)}}
+@keyframes exgo{to{opacity:0;transform:translateX(-70px) scale(.8)}}
+.exk .exx2{stroke-dasharray:1;stroke-dashoffset:1;animation:exdraw .5s ease .45s forwards}
+.exk .exb2{opacity:0;transform-box:fill-box;transform-origin:center;animation:expop .45s cubic-bezier(.3,1.6,.5,1) .6s forwards}
+.exk.hold .exx2{animation:none;stroke-dashoffset:0}
+.exk.hold .exb2{animation:none;opacity:1;transform:none}
+@keyframes exdraw{to{stroke-dashoffset:0}}
+@keyframes expop{0%{opacity:0;transform:scale(0)}60%{opacity:1;transform:scale(1.14)}100%{opacity:1;transform:scale(1)}}
+.exn{position:absolute;left:12px;right:12px;bottom:62px;min-height:50px;display:flex;align-items:center;justify-content:center;text-align:center;padding:7px 12px;border-radius:12px;background:#08090fe0;border:1px solid #D9B44A66;color:var(--g2);font-weight:700;font-size:15.5px;line-height:1.35;z-index:2;transition:opacity .22s}
+.exn.ch{opacity:0}
+[lang=ur] .exn{font-size:14.5px;line-height:1.95}
+@media (prefers-reduced-motion:reduce){.exk,.exk .exx2,.exk .exb2{animation:none!important;opacity:1;stroke-dashoffset:0;transform:none}}
+
+/* v25: real thumbnails on reel cards (Agent D) */
+.igr.ph{background-color:#000;background-size:cover;background-position:50% 35%}
+.igr.ph::before{inset:0;border:0;border-radius:0;background:linear-gradient(180deg,#0008 0%,transparent 22%,transparent 52%,#000c 78%,#000 94%)}
+.igr.ph .no{display:none}
+.igr.ph .bt{background:none}
+.igr.ph .bt b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.igr.ph .bt small{padding-inline-end:52px}
+.igr.ph .pp{top:auto;bottom:16px;inset-inline-end:12px;width:40px;height:40px}
+
 .hpw{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
 
 /* v23: Excludes player – readable timing, controls, soft transition, full list at the end */
@@ -956,7 +1004,7 @@ html.sva .svb:not(.go){opacity:0;transform:scale(.5)}
 <div class="bd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M4 8l8-4 8 4v10l-8 3-8-3z"/><path d="M4 8l8 3 8-3M12 11v10"/></svg><span data-t="b2">Ministry of Hajj, Saudi Arabia</span></div>
 <div class="bd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.6 5.5 6 .8-4.4 4.2 1.1 6L12 16.6 6.7 19.5l1.1-6-4.4-4.2 6-.8z"/></svg><span data-t="b3">Serving since 2001</span></div>
 </div>
-<div id="mzh" class="rv"></div><h2 class="h sh rv" data-t="pk">Hajj 2027 packages</h2>
+<div id="mzh" class="rv"></div><div id="mzi" class="rv"></div><h2 class="h sh rv" data-t="pk">Hajj 2027 packages</h2>
 <div class="deck rv" id="hdeck" data-i="0"></div>
 <section class="team rv" aria-labelledby="tmha">
 <h2 class="h sh" id="tmha" data-t="tmh">The family behind your journey</h2>
@@ -1402,7 +1450,7 @@ const IGLOGO='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-
 function renderIg(){const c=$('#igc'),g=$('#igg');if(!c||!g)return;const h=$('[data-igh]');if(h)h.textContent=igt('h');
  c.innerHTML=IGK.map(k=>'<button type="button" role="tab" data-igk="'+k+'" class="'+(k===igTab?'on':'')+'" aria-selected="'+(k===igTab)+'">'+igSvg(IGI[k],1.9)+'<span>'+esc(igt(k))+'</span><small>'+(IGV[k].length+(k==='rv'?3:0))+'</small></button>').join('');
  $('#fbvg').hidden=igTab!=='rv';
- g.innerHTML=IGV[igTab].map((id,i)=>'<a class="igr" style="animation-delay:'+(i*60)+'ms" href="https://www.instagram.com/reel/'+id+'/" target="_blank" rel="noopener" aria-label="'+esc(igt(igTab)+' '+(i+1)+' – '+igt('w'))+'"><span class="no">'+(i+1+(igTab==='rv'?3:0))+'</span><span class="ci"><svg viewBox="0 0 180 200" aria-hidden="true">'+IGA[igTab][i%IGA[igTab].length]+'</svg></span><span class="pp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg></span><span class="bt"><b>'+esc(igt(igTab))+'</b><small>'+IGLOGO+esc(igt('w'))+'</small></span></a>').join('')}
+ g.innerHTML=IGV[igTab].map((id,i)=>'<a class="igr'+(igTh(i)?' ph':'')+'" style="animation-delay:'+(i*60)+'ms'+(igTh(i)?';background-image:url('+igTh(i)+')':'')+'" href="https://www.instagram.com/reel/'+id+'/" target="_blank" rel="noopener" aria-label="'+esc(igt(igTab)+' '+(i+1)+' – '+igt('w'))+'"><span class="no">'+(i+1+(igTab==='rv'?3:0))+'</span>'+(igTh(i)?'':'<span class="ci"><svg viewBox="0 0 180 200" aria-hidden="true">'+IGA[igTab][i%IGA[igTab].length]+'</svg></span>')+'<span class="pp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg></span><span class="bt"><b>'+esc(igTh(i)?igSt(igTab):igt(igTab))+(igTh(i)?' · '+(i+1+(igTab==='rv'?3:0)):'')+'</b><small>'+IGLOGO+esc(igt('w'))+'</small></span></a>').join('')}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-igk]');if(b){hap();sfx('tick');igTab=b.dataset.igk;renderIg();b.scrollIntoView&&$('[data-igk="'+igTab+'"]').scrollIntoView({block:'nearest',inline:'nearest',behavior:RM?'auto':'smooth'});return}
  if(e.target.closest('.igr'))hap()});
 
@@ -1475,6 +1523,103 @@ const hpV=()=>{const h=document.getElementById('mhp');return h?String(h.value||'
 const ftV=k=>FT0[k]?Date.now()-FT0[k]:0;
 document.addEventListener('focusin',e=>{if(e.target.closest('#f')&&!FT0.reg)FT0.reg=Date.now();if(e.target.closest('#fb')&&!FT0.fb)FT0.fb=Date.now()});
 document.addEventListener('pointerdown',e=>{if(e.target.closest('#f')&&!FT0.reg)FT0.reg=Date.now();if(e.target.closest('#fb .card')&&!FT0.fb)FT0.fb=Date.now()},true);
+
+/* v25: reel thumbnails per category (same order as IGV) */
+var IGTH={hotel:['ig-hotel-1.webp','ig-hotel-2.webp','ig-hotel-3.webp','ig-hotel-4.webp','ig-hotel-5.webp','ig-hotel-6.webp'],
+ food:['ig-food-1.webp','ig-food-2.webp','ig-food-3.webp','ig-food-4.webp'],
+ ziy:['ig-ziy-1.webp','ig-ziy-2.webp','ig-ziy-3.webp'],
+ hajj:['ig-hajj-1.webp','ig-hajj-2.webp','ig-hajj-3.webp'],
+ ori:['ig-ori-1.webp','ig-ori-2.webp','ig-ori-3.webp'],
+ rv:['ig-rv-1.webp','ig-rv-2.webp']};
+function igTh(i){return (IGTH[igTab]||[])[i]||''}
+/* short card titles so they stay on one line (tab names stay full) */
+var IGS={ori:{en:'Orientation',ur:'استقبال',hi:'ओरिएंटेशन',gu:'ઓરિએન્ટેશન'}};
+function igSt(k){const x=IGS[k];return x?(x[lang]||x.en):igt(k)}
+
+/* v26: Excludes – original animation, longer for longer text, note inside the box */
+function exDur(i){const q=zc('ex'+(i+1));return Math.max(3000,Math.min(7000,2800+q.length*55))}
+function exPlay(P,k){const S=SC.excl(P,k),I=S.I||[],n=I.length,stg=$('#stg'),cap=$('#fcap');stg.classList.add('exm');
+ stg.innerHTML='<svg class="zsv" viewBox="0 0 360 330" aria-hidden="true">'+ZDEF+zStars(30,300)+zGlow(180,112,150,92,.35)+
+  I.map((x,i)=>'<circle cx="'+(180+(i-(n-1)/2)*16)+'" cy="20" r="4" fill="#2a251c" stroke="#5E4B1D" data-exd="'+i+'"/>').join('')+'<g id="exw"></g></svg>'+
+  '<div class="stamp x" id="stp">NOT INCLUDED</div><div class="exn" id="exn" dir="auto" aria-live="polite"></div>'+
+  '<div class="exc"><button type="button" data-exv="-1" aria-label="'+esc(exT('pv'))+'">'+EXI.prev+'</button><button type="button" class="pp" data-exp aria-label="'+esc(exT('pz'))+'">'+EXI.pause+'</button><b dir="ltr" data-exn></b><button type="button" data-exv="1" aria-label="'+esc(exT('nx'))+'">'+EXI.next+'</button></div>';
+ cap.textContent='';cap.style.opacity=0;
+ exSt={on:true,i:-1,n,I,paused:false,t:0,done:false};
+ $('#exn').textContent=zc('ex0');
+ if(RM){exSt.paused=true;exShow(0,1);exList();$('#stp').classList.add('on');exSt.done=true;exBtns();return}
+ exBtns();ftm.push(setTimeout(()=>exShow(0),1000))}
+function exShow(i,still){const st=exSt;if(!st.on)return;clearTimeout(st.t);st.i=i;const w=$('#exw');if(!w)return;
+ const hold=st.paused||still,last=i===st.n-1,d=exDur(i);
+ [...w.children].forEach(o=>{const k=o.firstElementChild;if(RM||!k){o.remove();return}k.classList.remove('run','hin','hold');k.classList.add('gone');setTimeout(()=>o.remove(),470)});
+ const g=document.createElementNS('http://www.w3.org/2000/svg','g');g.setAttribute('transform','translate(180 112)');
+ g.innerHTML='<g class="exk '+(RM?'hold':hold||last?'hin':'run')+'" style="--d:'+(d/1000)+'s"><circle r="64" fill="#14110b" stroke="#5E4B1D" stroke-width="1.5"/><circle r="64" fill="url(#zglo)" opacity=".5"/><g transform="scale(1.7)">'+st.I[i]+'</g><path d="M-46 46L46-46" pathLength="1" class="exx2" stroke="#E5484D" stroke-width="4" stroke-linecap="round" opacity=".9"/><g transform="translate(46 -46)"><g class="exb2"><circle r="15" fill="#E5484D" stroke="#fff" stroke-width="2"/><path d="M-6-6l12 12M6-6l-6 6-6 6" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g></g></g>';
+ w.appendChild(g);
+ const nt=$('#exn');if(nt){nt.classList.add('ch');setTimeout(()=>{if(exSt.i===i){nt.textContent=zc('ex'+(i+1));nt.classList.remove('ch')}},230)}
+ $$('[data-exd]').forEach((x,j)=>x.setAttribute('fill',j<=i?'#E5484D':'#2a251c'));
+ if(!RM){sfx('pop');ftm.push(setTimeout(()=>sfx('tick'),600))}
+ exBtns();if(!hold)exNext()}
+function exNext(){const st=exSt;clearTimeout(st.t);st.t=setTimeout(()=>{if(!st.on||st.paused)return;if(st.i<st.n-1)exShow(st.i+1);else exEnd()},exDur(st.i));ftm.push(st.t)}
+function exEnd(){const st=exSt;if(!st.on||st.done)return;st.done=true;st.paused=true;const x=$('#stp');if(x){x.classList.add('on');sfx('stamp');zBuzz()}exList();exBtns()}
+function exToggle(){const st=exSt;if(!st.on||st.i<0)return;hap();sfx('tick');
+ if(st.done){st.done=false;st.paused=false;const x=$('#stp');if(x)x.classList.remove('on');exShow(0);return}
+ st.paused=!st.paused;clearTimeout(st.t);
+ if(st.paused){const k=$('#exw .exk:not(.gone)');if(k){k.classList.remove('run','hin');k.classList.add('hold')}}
+ else exNext();
+ exBtns()}
+
+/* v27: Invite your family (personal ?ref= link, tracked in the Sheet) + Install the app */
+const MZI={en:{h:'Invite your family',p:'Going for Hajj 2027 with family or friends? Send them your personal link. Our team will know who invited them.',nm:'Your name',b:'WhatsApp',sh:'Share link',need:'Please type your name first.',ok:'Link ready – choose who to send it to.',
+ msg:'Assalamu Alaikum! I am planning Hajj 2027 with Meezab E Rahemat Haj Tours. See the packages here:',
+ ih:'Install the app',ip:'Keep Meezab on your home screen – countdown, prayer times and Qibla in one tap. No Play Store needed.',ib:'Install the app',
+ ios:'On iPhone: 1. Tap the Share button (square with arrow) at the bottom of Safari.  2. Tap “Add to Home Screen”.  3. Tap “Add”.',
+ oth:'In Chrome: tap the menu ⋮ (top right), then “Install app” or “Add to Home screen”.',done:'Installed – find Meezab on your home screen.'},
+ur:{h:'اپنے گھر والوں کو دعوت دیں',p:'گھر والوں یا دوستوں کے ساتھ حج 2027 کا ارادہ ہے؟ انہیں اپنا ذاتی لنک بھیجیں۔ ہماری ٹیم کو معلوم ہوگا کہ انہیں کس نے دعوت دی۔',nm:'آپ کا نام',b:'واٹس ایپ',sh:'لنک شیئر کریں',need:'براہِ کرم پہلے اپنا نام لکھیں۔',ok:'لنک تیار ہے – جسے بھیجنا ہو منتخب کریں۔',
+ msg:'السلام علیکم! میں میزابِ رحمت حج ٹورز کے ساتھ حج 2027 کا ارادہ رکھتا ہوں۔ پیکجز یہاں دیکھیں:',
+ ih:'ایپ انسٹال کریں',ip:'میزاب کو اپنی ہوم اسکرین پر رکھیں – کاؤنٹ ڈاؤن، اوقاتِ نماز اور قبلہ ایک ٹیپ میں۔ پلے اسٹور کی ضرورت نہیں۔',ib:'ایپ انسٹال کریں',
+ ios:'آئی فون پر: 1۔ سفاری میں نیچے شیئر بٹن (تیر والا خانہ) دبائیں۔ 2۔ «Add to Home Screen» دبائیں۔ 3۔ «Add» دبائیں۔',
+ oth:'کروم میں: اوپر دائیں مینو ⋮ دبائیں، پھر «Install app» یا «Add to Home screen»۔',done:'انسٹال ہو گئی – میزاب آپ کی ہوم اسکرین پر ہے۔'},
+hi:{h:'अपने परिवार को बुलाएँ',p:'परिवार या दोस्तों के साथ हज 2027 का इरादा है? उन्हें अपना निजी लिंक भेजें। हमारी टीम को पता रहेगा कि उन्हें किसने बुलाया।',nm:'आपका नाम',b:'व्हाट्सऐप',sh:'लिंक शेयर करें',need:'कृपया पहले अपना नाम लिखें।',ok:'लिंक तैयार है – जिसे भेजना हो चुनें।',
+ msg:'अस्सलामु अलैकुम! मैं मीज़ाब-ए-रहमत हज टूर्स के साथ हज 2027 का इरादा रखता हूँ। पैकेज यहाँ देखें:',
+ ih:'ऐप इंस्टॉल करें',ip:'मीज़ाब को अपनी होम स्क्रीन पर रखें – काउंटडाउन, नमाज़ के औक़ात और क़िब्ला एक टैप में। प्ले स्टोर की ज़रूरत नहीं।',ib:'ऐप इंस्टॉल करें',
+ ios:'आईफ़ोन पर: 1. सफ़ारी में नीचे शेयर बटन (तीर वाला चौकोर) दबाएँ। 2. “Add to Home Screen” दबाएँ। 3. “Add” दबाएँ।',
+ oth:'क्रोम में: ऊपर दाएँ मेन्यू ⋮ दबाएँ, फिर “Install app” या “Add to Home screen”।',done:'इंस्टॉल हो गया – मीज़ाब आपकी होम स्क्रीन पर है।'},
+gu:{h:'તમારા પરિવારને આમંત્રણ આપો',p:'પરિવાર કે મિત્રો સાથે હજ 2027 નો ઇરાદો છે? તેમને તમારી અંગત લિંક મોકલો. અમારી ટીમને ખબર રહેશે કે તેમને કોણે આમંત્રણ આપ્યું.',nm:'તમારું નામ',b:'વોટ્સએપ',sh:'લિંક શેર કરો',need:'કૃપા કરી પહેલા તમારું નામ લખો.',ok:'લિંક તૈયાર છે – જેને મોકલવી હોય તે પસંદ કરો.',
+ msg:'અસ્સલામુ અલૈકુમ! હું મીઝાબે રહેમત હજ ટૂર્સ સાથે હજ 2027 નો ઇરાદો રાખું છું. પેકેજ અહીં જુઓ:',
+ ih:'એપ ઇન્સ્ટોલ કરો',ip:'મીઝાબને તમારી હોમ સ્ક્રીન પર રાખો – કાઉન્ટડાઉન, નમાઝના સમય અને કિબ્લા એક ટેપમાં. પ્લે સ્ટોરની જરૂર નથી.',ib:'એપ ઇન્સ્ટોલ કરો',
+ ios:'આઇફોન પર: 1. સફારીમાં નીચે શેર બટન (તીરવાળું ચોરસ) દબાવો. 2. “Add to Home Screen” દબાવો. 3. “Add” દબાવો.',
+ oth:'ક્રોમમાં: ઉપર જમણે મેનુ ⋮ દબાવો, પછી “Install app” અથવા “Add to Home screen”.',done:'ઇન્સ્ટોલ થઈ ગઈ – મીઝાબ તમારી હોમ સ્ક્રીન પર છે.'}};
+const mzi=k=>(MZI[lang]||MZI.en)[k]||MZI.en[k];
+const MZBASE=location.origin+location.pathname;
+let mzInstEv=null,mzInstalled=false;
+addEventListener('beforeinstallprompt',e=>{e.preventDefault();mzInstEv=e});
+addEventListener('appinstalled',()=>{mzInstalled=true;renderMzi()});
+const mzStandalone=()=>{try{return matchMedia('(display-mode: standalone)').matches||navigator.standalone===true}catch(e){return false}};
+const mzIOS=()=>/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const MZIC={fam:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.2A4.8 4.8 0 0 1 21 19"/></svg>',
+ wa:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>',
+ inst:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M12 7v7M9 11l3 3 3-3M10 18h4"/></svg>'};
+function mziLink(){const n=(store.get('mzName')||'').trim();return n?MZBASE+'?ref='+encodeURIComponent(n.slice(0,28)):''}
+function renderMzi(){const b=$('#mzi');if(!b)return;const nm=store.get('mzName')||'',showInst=!mzStandalone()&&!mzInstalled;
+ b.innerHTML='<div class="card mzi"><h3>'+MZIC.fam+'<span>'+esc(mzi('h'))+'</span></h3><p>'+esc(mzi('p'))+'</p>'+
+ '<div class="rw"><input class="mzin" data-mzin maxlength="28" autocomplete="name" placeholder="'+esc(mzi('nm'))+'" value="'+esc(nm)+'"></div>'+
+ '<div class="lk" data-mzil'+(nm?'':' hidden')+'>'+esc(mziLink())+'</div>'+
+ '<div class="two"><button type="button" class="btn g s" data-mziw>'+MZIC.wa+'<span>'+esc(mzi('b'))+'</span></button><button type="button" class="btn d s" data-mzis>'+esc(mzi('sh'))+'</button></div><p class="ok" data-mzio role="status"></p>'+
+ (showInst?'<div class="sep"></div><h3>'+MZIC.inst+'<span>'+esc(mzi('ih'))+'</span></h3><p>'+esc(mzi('ip'))+'</p><button type="button" class="btn d s" data-mzinst>'+MZIC.inst+'<span>'+esc(mzi('ib'))+'</span></button><p class="hlp" data-mzhlp></p>':
+  (mzInstalled?'<p class="ok">'+esc(mzi('done'))+'</p>':''))+'</div>'}
+function mziGo(how){hap();const n=($('[data-mzin]').value||'').trim(),o=$('[data-mzio]');
+ if(n.replace(/[\d\s.]/g,'').length<2){o.textContent=mzi('need');$('[data-mzin]').focus();return}
+ store.set('mzName',n);const link=mziLink(),txt=mzi('msg')+' '+link;$('[data-mzil]').textContent=link;$('[data-mzil]').hidden=false;
+ if(how==='share'&&navigator.share){navigator.share({text:mzi('msg'),url:link}).then(()=>sfx('ok')).catch(()=>{});o.textContent=mzi('ok');return}
+ sfx('ok');o.textContent=mzi('ok');open('https://wa.me/?text='+encodeURIComponent(txt),'_blank','noopener')}
+document.addEventListener('click',e=>{if(!e.target.closest('#mzi'))return;
+ if(e.target.closest('[data-mziw]')){mziGo('wa');return}
+ if(e.target.closest('[data-mzis]')){mziGo('share');return}
+ if(e.target.closest('[data-mzinst]')){hap();if(mzInstEv){const ev=mzInstEv;mzInstEv=null;ev.prompt();ev.userChoice.then(c=>{if(c&&c.outcome==='accepted'){mzInstalled=true;sfx('ok');renderMzi()}}).catch(()=>{});return}
+  const h=$('[data-mzhlp]');h.textContent=mzIOS()?mzi('ios'):mzi('oth');h.classList.toggle('on');return}});
+document.addEventListener('input',e=>{if(!e.target.closest('[data-mzin]'))return;store.set('mzName',e.target.value);const l=$('[data-mzil]');if(l){const k=mziLink();l.textContent=k;l.hidden=!k}});
+/* package links: ?p=long | signature | short – open that package after "Tap to enter" */
+(()=>{let k='';try{k=new URLSearchParams(location.search).get('p')||''}catch(e){}if(!k)return;k=k.toLowerCase();if(k==='sig')k='signature';
+ document.addEventListener('click',e=>{if(!e.target.closest('#spl')||!PKM[k])return;setTimeout(()=>{try{openPkg(k)}catch(x){}},1300)},{once:true,capture:true})})();
 /* FAQ on the Packages screen: [question, answer] in each language (same order in every language). */
 const FAQ={
 en:[
@@ -1640,7 +1785,7 @@ setTimeout(()=>{x.classList.add('tear');sfx('paper')},720);setTimeout(()=>{fin()
 /* ---------- feature pop-ups ---------- */
 let fr=0,ftm=[];
 const CITY={BOM:{x:300,y:146},MED:{x:76,y:60},JED:{x:56,y:132}};
-function clearAnim(){cancelAnimationFrame(fr);ftm.forEach(clearTimeout);ftm=[];const l=document.getElementById('exl');if(l)l.remove();if(window.exSt)exSt.on=false}
+function clearAnim(){cancelAnimationFrame(fr);ftm.forEach(clearTimeout);ftm=[];const l=document.getElementById('exl');if(l)l.remove();if(window.exSt)exSt.on=false;const _g=document.getElementById('stg');if(_g)_g.classList.remove('exm')}
 function openFeature(code){const P=pk(curPk);if(!P)return;const kind=code[0],i=+code.slice(1);let x;if(kind==='i')x=[P.ico[i],...P.inc[i]];else{const e=EXC[curPk][i];if(e)x=[e[0],e[1][lang]||e[1].en,e[2][lang]||e[2].en]}if(!x)return;
 curF=code;fsOpen=true;$('#ftl').textContent=x[1];$('#fds').textContent=x[2]||'';$('#frp').textContent=t('rp');$('#fcl').textContent=t('cl');const o=$('#fs');o.hidden=false;requestAnimationFrame(()=>o.classList.add('on'));push(location.hash.slice(1)||cur);
 const isT=x[0]==='ticket'&&kind==='i',zid=kind==='i'&&!isT?zKey(x[0],curPk):(kind==='e'&&x[0]==='excl'?'excl':null);$('#frp').hidden=!(isT||zid);$('#frp').onclick=()=>{hap();fxStop();if(isT)playFlight(P);else zPlay(zid,P,curPk)};
@@ -2337,7 +2482,7 @@ function wa(m){window.open('https://wa.me/'+OFFICE_WA+'?text='+encodeURIComponen
 /* ---------- leads: every request is saved on the phone first, then sent to the Google Sheet (LEAD_URL).
    Unsent requests stay in a queue and are retried when the app opens again or the internet comes back. ---------- */
 const LQK='mzq',CTN={any:'Any time',m:'Morning',a:'Afternoon',e:'Evening'};let lqBusy=false,leadSrc='',sbBusy=false;
-const SRCQ=(()=>{try{const u=new URLSearchParams(location.search);return (u.get('src')||u.get('utm_source')||'').slice(0,40)}catch(e){return ''}})();
+const SRCQ=(()=>{let v='';try{const u=new URLSearchParams(location.search),r=(u.get('ref')||'').trim();v=(r?'invite: '+r:(u.get('src')||u.get('utm_source')||'')).replace(/[\u0000-\u001f<>]/g,'').slice(0,40);if(v)localStorage.setItem('mzSrc',JSON.stringify({v,t:Date.now()}));else{const o=JSON.parse(localStorage.getItem('mzSrc')||'null');if(o&&Date.now()-o.t<2592e6)v=o.v}}catch(e){}return v})();
 function lqGet(){try{const a=JSON.parse(store.get(LQK)||'[]');return Array.isArray(a)?a:[]}catch(e){return []}}
 function lqSet(a){store.set(LQK,JSON.stringify(a.slice(-50)))}
 function lqSend(o){return fetch(LEAD_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(o)})}
@@ -2376,7 +2521,7 @@ keep({type:'Feedback',rating:s,notes:x.slice(0,2000),source:srcName(),website:hp
 function renderNews(){const nl=$('#nl'),ph=$('#nph');if(!nl||!ph)return;$$('.mnw',nl).forEach(e=>e.remove());const on=$('#news').classList.contains('on');
 NEWS.forEach((x,i)=>{const L=x[lang]||x.en,a=document.createElement('article');a.className='card nw rv mnw'+(i===0?' glowb':'')+(on?' vis':'');a.innerHTML='<small><bdi dir="ltr">'+esc(x.d)+' · '+esc(x.src)+'</bdi></small><b>'+esc(L[0])+'</b><p class="mu" style="margin:0">'+esc(L[1])+'</p>'+(x.url?'<a class="mnl" href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(t('nsrc'))+' ↗</a>':'');ph.before(a)})}
 /* FAQ accordion (FAQ list at the top of the script) */
-function renderFaq(){renderGrt();renderIg();renderMz();renderHomeFaq();const b=$('#mfaq');if(!b)return;const L=FAQ[lang]||FAQ.en;b.innerHTML=L.map(q=>'<details class="card mfq"><summary><span>'+esc(q[0])+'</span>'+ic('chev',2.2)+'</summary><p class="mu">'+esc(q[1])+'</p></details>').join('')+'<div class="card note mfqa"><span>'+esc(t('faqq'))+'</span><a class="btn d s" href="https://wa.me/'+OFFICE_WA+'?text='+encodeURIComponent('Assalamu Alaikum. I have a question about Hajj 2027.')+'" target="_blank" rel="noopener">'+esc(t('faqa'))+'</a></div>'}
+function renderFaq(){renderGrt();renderMzi();renderIg();renderMz();renderHomeFaq();const b=$('#mfaq');if(!b)return;const L=FAQ[lang]||FAQ.en;b.innerHTML=L.map(q=>'<details class="card mfq"><summary><span>'+esc(q[0])+'</span>'+ic('chev',2.2)+'</summary><p class="mu">'+esc(q[1])+'</p></details>').join('')+'<div class="card note mfqa"><span>'+esc(t('faqq'))+'</span><a class="btn d s" href="https://wa.me/'+OFFICE_WA+'?text='+encodeURIComponent('Assalamu Alaikum. I have a question about Hajj 2027.')+'" target="_blank" rel="noopener">'+esc(t('faqa'))+'</a></div>'}
 /* extra news from the Google Sheet (optional, English only), shown on top */
 if(LEAD_URL)fetch(LEAD_URL+'?action=news').then(r=>r.json()).then(a=>{if(!Array.isArray(a))return;const nl=$('#nl');a.slice().reverse().forEach(x=>{const c=document.createElement('article');c.className='card nw rv vis';const s=document.createElement('small'),b=document.createElement('b'),p=document.createElement('p');s.textContent=x.date||'';b.textContent=x.title||'';p.className='mu';p.style.margin='0';p.textContent=x.text||'';c.append(s,b,p);nl.prepend(c)})}).catch(()=>{});
 
