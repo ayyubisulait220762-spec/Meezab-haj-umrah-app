@@ -604,6 +604,97 @@ textarea.in{padding:14px 16px;min-height:104px;resize:vertical}
 .mfq[open] summary svg{transform:rotate(-90deg)}
 .mfq p{margin:0;padding:0 16px 16px;font-size:14px;line-height:1.65}
 .mfqa{display:flex;flex-direction:column;gap:10px}
+/* v32: License & Achievements tab */
+.nav button{font-size:11px}
+.nav button[data-go=trust]{flex:1.42}
+.nav button[data-go=trust] span{white-space:pre-line;text-align:center;line-height:1.08;font-size:10.5px}
+@media(max-width:374px){.nav button{font-size:10.5px}.nav button[data-go=trust] span{font-size:10px}}
+.badges .bd{cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .15s,border-color .3s}
+.badges .bd:active{transform:scale(.96);border-color:#E6C36A88}
+#tl{display:flex;flex-direction:column;gap:14px;padding-bottom:28px}
+.tseal{position:relative;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px;padding:20px 16px 18px;overflow:hidden}
+.tseal::before{content:"";position:absolute;inset:-40% -20% auto;height:160%;background:radial-gradient(closest-side,#E6C36A33,transparent 70%);pointer-events:none}
+.tseal svg{width:104px;height:110px;overflow:visible}
+.tseal .sp{fill:#14110b;stroke:url(#tsg);stroke-width:3;stroke-dasharray:1;stroke-dashoffset:0}
+.tseal .sk{fill:none;stroke:#F8E4A6;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:0}
+.tseal.go .sp{animation:tdraw 1.1s cubic-bezier(.4,.1,.2,1) both}
+.tseal.go .sk{animation:tdraw .55s ease-out .95s both}
+.tseal.go .tzg{animation:tglow 2.6s ease-in-out 1.4s infinite}
+@keyframes tdraw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes tglow{50%{opacity:.45}}
+.tseal .tzst{position:absolute;top:22px;inset-inline-end:14px;transform:rotate(-12deg);border:2.5px solid #49D184;color:#49D184;font:900 12px 'Outfit',sans-serif;letter-spacing:1.6px;padding:5px 9px;border-radius:8px;background:#08090fcc}
+[lang=ur] .tseal .tzst{letter-spacing:0;font-size:13px}
+.tseal.go .tzst{animation:tstamp .45s cubic-bezier(.3,1.6,.5,1) 1.45s both}
+@keyframes tstamp{0%{opacity:0;transform:rotate(-12deg) scale(2.6)}100%{opacity:1;transform:rotate(-12deg) scale(1)}}
+.tseal h2{margin:6px 0 0;font-size:22px}
+.tseal p{margin:0;color:var(--mu);font-size:13.5px;line-height:1.5;max-width:300px}
+.tzq{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border:1.5px solid #E6C36A99;background:linear-gradient(135deg,#2a2110,#14110b 60%);box-shadow:0 0 0 4px #08070A,0 10px 30px #E6C36A26}
+.tzq small{display:block;color:var(--g2);font-size:12px;font-weight:700;letter-spacing:.4px}
+.tzq b{display:block;font:900 34px/1.05 var(--fd);color:#FFF0B8}
+.tzq b i{font-style:normal;font:700 15px 'Outfit',sans-serif;color:var(--g2);margin-inline-start:6px}
+.tzq svg{flex:none;width:44px;height:44px;color:#E6C36A}
+.tf{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tf div{border:1px solid var(--ln);border-radius:14px;background:var(--card);padding:10px 12px;min-width:0}
+.tf div.tzw{grid-column:span 2}
+.tf small{display:block;color:var(--mu);font-size:11.5px;line-height:1.3}
+.tf b{display:block;font-size:15px;color:#F4ECD6;overflow-wrap:anywhere;margin-top:2px;user-select:text;-webkit-user-select:text}
+.tvf{display:flex;flex-direction:column;gap:10px}
+.tvf h3{margin:0;font-size:16px;color:var(--g2);display:flex;align-items:center;gap:8px}
+.tvf h3 svg{width:20px;height:20px;color:#49D184}
+.tvf p{margin:0;color:var(--mu);font-size:13px;line-height:1.5}
+.tvf a{display:flex;align-items:center;justify-content:space-between;gap:10px;text-align:start;padding:12px 14px;border-radius:14px;border:1px solid #E6C36A66;background:#14110b;color:#F8E4A6;font-weight:700;font-size:14px;text-decoration:none}
+.tvf a small{display:block;font-weight:500;color:var(--mu);font-size:12px;margin-top:2px}
+.tvf a svg{flex:none;width:18px;height:18px}
+.tsec{margin:8px 0 -2px;font-size:19px;display:flex;align-items:center;gap:8px}
+.tsec span{font-size:20px}
+.tgr{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tc{position:relative;display:flex;flex-direction:column;text-align:start;border:1px solid var(--ln);border-radius:18px;background:var(--card);overflow:hidden;padding:0;color:inherit;font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .2s,border-color .3s,box-shadow .3s}
+.tc:active{transform:scale(.97)}
+.tc .tzi{display:block;position:relative;aspect-ratio:4/3;background:#f4f1e8;overflow:hidden}
+.tc .tzi.tzdk{background:#0d0c0a}
+.tc .tzi img{width:100%;height:100%;object-fit:cover;object-position:50% 0%;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.tc .tzi.tzct img{object-fit:contain;object-position:50% 50%}
+.tc .tzi::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,#0009);pointer-events:none}
+.tc .zi{position:absolute;z-index:1;top:8px;inset-inline-end:8px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#08070Acc;border:1px solid #E6C36A88;color:#F8E4A6}
+.tc .zi svg{width:15px;height:15px}
+.tc .tt{padding:10px 12px 12px;display:flex;flex-direction:column;gap:3px}
+.tc .tt b{font-size:13.5px;line-height:1.3;color:#F8E4A6}
+.tc .tt small{font-size:11.5px;line-height:1.35;color:var(--mu)}
+.tc.tzw{grid-column:span 2}
+.tc.tzw .tzi{aspect-ratio:2/1}
+.thint{margin:0;text-align:center;color:var(--mu);font-size:12.5px}
+/* full-screen viewer */
+.tv{position:fixed;inset:0;z-index:80;background:#050403;opacity:0;transition:opacity .35s}
+.tv.on{opacity:1}
+.tv .tvs{position:absolute;inset:0;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;opacity:0;transition:opacity .2s}
+.tv .tvs::-webkit-scrollbar{display:none}
+.tv.tzready .tvs{opacity:1}
+.tv .tvs.tzm{overflow-x:hidden}
+.tvp{flex:none;width:100%;height:100%;scroll-snap-align:center;scroll-snap-stop:always;display:flex;align-items:center;justify-content:center;padding:calc(64px + env(safe-area-inset-top,0px)) 10px calc(118px + env(safe-area-inset-bottom,0px));box-sizing:border-box;overflow:hidden;touch-action:pan-x}
+.tvp.tzm{touch-action:none}
+.tvw{position:relative;max-width:100%;max-height:100%;display:flex}
+.tvi{display:block;max-width:100%;max-height:calc(100vh - 182px);max-height:calc(100dvh - 182px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));object-fit:contain;border-radius:8px;box-shadow:0 0 0 1px #D9B44A55,0 24px 60px #000;transform-origin:50% 50%;will-change:transform;transition:transform .3s cubic-bezier(.2,.8,.2,1);user-select:none;-webkit-user-select:none;-webkit-user-drag:none}
+.tvi.nt{transition:none}
+.tvw::after{content:"";position:absolute;inset:0;border-radius:8px;pointer-events:none;background:linear-gradient(105deg,transparent 35%,#FFF6D055 48%,#FFFFFF22 52%,transparent 65%);background-size:250% 100%;background-position:120% 0;opacity:0}
+.tvp.act .tvw::after{animation:tshine 1.3s ease .25s 1 both}
+@keyframes tshine{0%{opacity:1;background-position:120% 0}100%{opacity:1;background-position:-30% 0}}
+.tvtop{position:absolute;z-index:2;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:calc(12px + env(safe-area-inset-top,0px)) 14px 10px;background:linear-gradient(#050403,#05040300);pointer-events:none}
+.tvtop>*{pointer-events:auto}
+.tvn{font:700 13px 'Outfit',sans-serif;color:var(--g2);background:#14110bcc;border:1px solid #E6C36A55;border-radius:20px;padding:6px 12px}
+.tvx{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#14110bcc;border:1px solid #E6C36A77;color:#F8E4A6}
+.tvx svg{width:20px;height:20px}
+.tvb{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:14px 18px calc(16px + env(safe-area-inset-bottom,0px));background:linear-gradient(#05040300,#050403 40%);text-align:center;pointer-events:none}
+.tvb b{display:block;font-size:16px;color:#F8E4A6;line-height:1.35;transition:opacity .25s}
+.tvb small{display:block;font-size:12.5px;color:var(--mu);line-height:1.45;margin-top:3px;transition:opacity .25s}
+.tvb em{display:block;font-style:normal;font-size:11.5px;color:#8f8467;margin-top:6px}
+.tvb.tzch b,.tvb.tzch small{opacity:0}
+.tva{position:absolute;z-index:2;top:50%;width:40px;height:40px;margin-top:-20px;border-radius:50%;display:grid;place-items:center;background:#14110bb3;border:1px solid #E6C36A55;color:#F8E4A6}
+.tva svg{width:18px;height:18px}
+.tva.tzl{left:8px}.tva.tzr{right:8px}
+.tva[disabled]{opacity:0;pointer-events:none}
+.tvfly{position:fixed;z-index:81;margin:0;object-fit:contain;border-radius:12px;pointer-events:none;box-shadow:0 24px 60px #000c;transition:left .45s cubic-bezier(.2,.8,.2,1),top .45s cubic-bezier(.2,.8,.2,1),width .45s cubic-bezier(.2,.8,.2,1),height .45s cubic-bezier(.2,.8,.2,1),border-radius .45s,opacity .25s}
+@media (prefers-reduced-motion:reduce){.tseal.go .sp,.tseal.go .sk,.tseal.go .tzst,.tseal.go .tzg,.tvp.act .tvw::after{animation:none}.tv,.tvi{transition:none}}
+
 /* v27: Invite your family + Install the app */
 .mzi{display:flex;flex-direction:column;gap:12px}
 .mzi h3{margin:0;font-size:17px;color:var(--g2);display:flex;align-items:center;gap:8px}
@@ -1015,8 +1106,9 @@ html.sva .svb:not(.go){opacity:0;transform:scale(.5)}
 <div class="bd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M4 8l8-4 8 4v10l-8 3-8-3z"/><path d="M4 8l8 3 8-3M12 11v10"/></svg><span data-t="b2">Ministry of Hajj, Saudi Arabia</span></div>
 <div class="bd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.6 5.5 6 .8-4.4 4.2 1.1 6L12 16.6 6.7 19.5l1.1-6-4.4-4.2 6-.8z"/></svg><span data-t="b3">Serving since 2001</span></div>
 </div>
-<div id="mzh" class="rv"></div><div id="mzi" class="rv"></div><h2 class="h sh rv" data-t="pk">Hajj 2027 packages</h2>
+<div id="mzc" class="rv"></div><h2 class="h sh rv" data-t="pk">Hajj 2027 packages</h2>
 <div class="deck rv" id="hdeck" data-i="0"></div>
+<div id="mzh" class="rv"></div><div id="mzi" class="rv"></div>
 <section class="team rv" aria-labelledby="tmha">
 <h2 class="h sh" id="tmha" data-t="tmh">The family behind your journey</h2>
 <div class="tst">
@@ -1127,6 +1219,12 @@ html.sva .svb:not(.go){opacity:0;transform:scale(.5)}
 </div>
 </section>
 
+<!-- LICENSE & ACHIEVEMENTS (v32) -->
+<section class="scr" id="trust" aria-label="License and achievements">
+<header class="sub"><span class="kick" data-t="tkick">VERIFIED · SINCE 2001</span><h1 class="h shine" data-t="ttl">License &amp; Achievements</h1></header>
+<div class="pad" id="tl"></div>
+</section>
+
 <!-- CONTACT -->
 <section class="scr" id="contact" aria-label="Contact">
 <header class="sub"><span class="kick" data-t="ckick">MALEGAON · SINCE 2001</span><h1 class="h shine" data-t="n5">Contact</h1></header>
@@ -1154,9 +1252,11 @@ html.sva .svb:not(.go){opacity:0;transform:scale(.5)}
 <button data-go="pkgs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg><span data-t="n2">Packages</span></button>
 <button data-go="news"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h13v14H6a2 2 0 0 1-2-2z"/><path d="M17 9h3v8a2 2 0 0 1-2 2M8 9h5M8 13h5"/></svg><span data-t="n3">News</span></button>
 <button data-go="fb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><span data-t="n4">Feedback</span></button>
+<button data-go="trust"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><span data-t="n6">License &amp; Achievements</span></button>
 <button data-go="contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span data-t="n5">Contact</span></button>
 </nav>
 
+<div class="tv" id="tv" hidden role="dialog" aria-modal="true" aria-label="Certificate"></div>
 <div class="ov" id="mzov" hidden role="dialog" aria-modal="true"><div class="bk" data-mzx></div><div class="sheet mzs" id="mzsh"></div></div>
 <div class="ov" id="ls" hidden role="dialog" aria-modal="true" aria-label="Choose language">
 <div class="bk" data-close></div>
@@ -1360,8 +1460,8 @@ function mzIco(k){return{share:'<svg viewBox="0 0 24 24" fill="none" stroke="cur
  qibla:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 5l2.5 7h-5z" fill="currentColor"/><path d="M12 19l-2.5-7h5z"/></svg>',
  x:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>'}[k]}
 function renderMz(){const b=$('#mzh');if(!b)return;if(!mzInit){mzInit=1;mzTab=store.get('mzTab')||'mk';try{mzCity=JSON.parse(store.get('mzCity')||'null')}catch(e){}}
- b.innerHTML='<div class="card mzcd"><p class="t1">'+esc(mz('cdT'))+'</p><div class="mzu" dir="ltr">'+mz('u').map((u,i)=>'<span><b data-mzu="'+i+'">–</b><small>'+esc(u)+'</small></span>').join('')+'</div><p class="t2">'+esc(mz('cdS'))+'</p><p class="t3">'+esc(mz('moon'))+'</p></div>'+
- '<div class="card mzpt"><h3><span>'+esc(mz('ptT'))+'</span><small data-mzz></small></h3><div class="mztb" role="tablist">'+['mk','md','my'].map(k=>'<button type="button" role="tab" data-mzt="'+k+'" class="'+(k===mzTab?'on':'')+'" aria-selected="'+(k===mzTab)+'">'+esc(mz(k))+'</button>').join('')+'</div><div data-mzb></div><p class="mzn">'+esc(mz('ptN'))+'</p></div>'+
+ {const c=$('#mzc')||b;c.innerHTML='<div class="card mzcd"><p class="t1">'+esc(mz('cdT'))+'</p><div class="mzu" dir="ltr">'+mz('u').map((u,i)=>'<span><b data-mzu="'+i+'">–</b><small>'+esc(u)+'</small></span>').join('')+'</div><p class="t2">'+esc(mz('cdS'))+'</p><p class="t3">'+esc(mz('moon'))+'</p></div>'}
+ b.innerHTML=(b===$('#mzc')?b.innerHTML:'')+'<div class="card mzpt"><h3><span>'+esc(mz('ptT'))+'</span><small data-mzz></small></h3><div class="mztb" role="tablist">'+['mk','md','my'].map(k=>'<button type="button" role="tab" data-mzt="'+k+'" class="'+(k===mzTab?'on':'')+'" aria-selected="'+(k===mzTab)+'">'+esc(mz(k))+'</button>').join('')+'</div><div data-mzb></div><p class="mzn">'+esc(mz('ptN'))+'</p></div>'+
  '<div class="mztl"><button type="button" class="card" data-mzo="share">'+mzIco('share')+'<b>'+esc(mz('shT'))+'</b><small>'+esc(mz('shS'))+'</small></button><button type="button" class="card" data-mzo="qibla">'+mzIco('qibla')+'<b>'+esc(mz('qbT'))+'</b><small>'+esc(mz('qbS'))+'</small></button></div>';
  mzPrayers();mzTick()}
 function mzCityPicker(){return '<div class="mzcity"><div class="rw"><select class="mzsel" data-mzsel aria-label="'+esc(mz('pick'))+'"><option value="">'+esc(mz('pick'))+'</option>'+MZCITIES.map((c,i)=>'<option value="'+i+'"'+(mzCity&&mzCity.n===c[0]?' selected':'')+'>'+c[0]+'</option>').join('')+'</select></div><button type="button" class="btn d s" data-mzgps>'+esc(mz('gps'))+'</button>'+(mzErr?'<p class="mzer">'+esc(mz('locErr'))+'</p>':'')+'</div>'}
@@ -1375,7 +1475,7 @@ function mzPrayers(){const b=$('#mzh [data-mzb]');if(!b)return;const P=mzPlace()
  '<p class="mznx" style="margin:10px 0 0"><i></i>'+esc(mz('nx'))+': '+esc(pn[k])+' · <bdi dir="ltr">'+lh+'h '+lm+'m</bdi> '+esc(mz('left'))+'</p>'+(mzTab==='my'?'<p style="margin:6px 0 0;text-align:center"><button type="button" class="mzlnk" data-mzchg>'+esc(mz('chg'))+'</button></p>':'')}
 let mzLastMin=-1;
 function mzTick(){const b=$('#mzh');if(!b)return;let d=Math.max(0,ARAFAH-Date.now())/1000;const v=[Math.floor(d/86400),Math.floor(d%86400/3600),Math.floor(d%3600/60),Math.floor(d%60)];
- $$('[data-mzu]',b).forEach((e,i)=>{const s=i?String(v[i]).padStart(2,'0'):String(v[i]);if(e.textContent!==s)e.textContent=s});
+ $$('[data-mzu]',$('#mzc')||b).forEach((e,i)=>{const s=i?String(v[i]).padStart(2,'0'):String(v[i]);if(e.textContent!==s)e.textContent=s});
  const m=Math.floor(Date.now()/60000);if(m!==mzLastMin){mzLastMin=m;mzPrayers()}}
 setInterval(()=>{if(!document.hidden&&cur==='home')mzTick()},1000);
 function mzSetCity(c){mzCity=c;mzErr=false;store.set('mzCity',JSON.stringify(c));mzPrayers();if(mzMode==='qibla')mzRender()}
@@ -1781,9 +1881,9 @@ function go(id,nh,inst){if(!ids.includes(id))id='home';if(id===cur&&!inst){if(!n
 const a=$('#'+cur),b=$('#'+id);
 if(a!==b){if(inst){[a,b].forEach(x=>x.style.transition='none');a.classList.remove('on');b.scrollTop=0;b.classList.add('on');b.offsetWidth;requestAnimationFrame(()=>{a.style.transition='';b.style.transition=''});$$('.rv',a).forEach(e=>e.classList.remove('vis'))}
 else{const rtl=document.documentElement.dir==='rtl',back=ord[id]<ord[cur];b.style.transition='none';app.style.setProperty('--d',(back?-1:1)*(rtl?-1:1));b.offsetWidth;b.style.transition='';a.classList.remove('on');a.classList.add('out');setTimeout(()=>{a.classList.remove('out');if(!a.classList.contains('on'))$$('.rv',a).forEach(e=>e.classList.remove('vis'))},620);b.scrollTop=0;b.classList.add('on')}}
-cur=id;setTab();if(id==='reg')resetForm();enter(b);
+cur=id;setTab();if(id==='reg')resetForm();enter(b);if(id==='trust'&&typeof trustEnter==='function')trustEnter();
 if(!nh)push(id)}
-addEventListener('popstate',()=>{if(xgPop())return;if(mzPop())return;if(vpOpen){closeVideo(1);return}if(lsOpen){closeLang(1);return}if(fsOpen){closeFeature(1);return}const h=location.hash.slice(1)||'home';if(PKM[h]){if(cur!=='pd'||curPk!==h){renderPd(h);go('pd',1)}return}go(h,1)});
+addEventListener('popstate',()=>{if(typeof tvPop==='function'&&tvPop())return;if(xgPop())return;if(mzPop())return;if(vpOpen){closeVideo(1);return}if(lsOpen){closeLang(1);return}if(fsOpen){closeFeature(1);return}const h=location.hash.slice(1)||'home';if(PKM[h]){if(cur!=='pd'||curPk!==h){renderPd(h);go('pd',1)}return}go(h,1)});
 function goBack(){if(history.state&&history.state.app)history.back();else go('pkgs')}
 
 /* ---------- opening transitions (different for each package) ---------- */
@@ -2213,6 +2313,125 @@ Object.assign(MZI.en,{iap:'You are inside another app (Instagram / Facebook). Ta
 Object.assign(MZI.ur,{iap:'آپ کسی دوسری ایپ (انسٹاگرام / فیس بک) کے اندر ہیں۔ اس کا مینو (⋯ یا ⋮) دبائیں ← «Open in browser» (کروم یا سفاری)، پھر دوبارہ انسٹال دبائیں۔'});
 Object.assign(MZI.hi,{iap:'आप किसी दूसरे ऐप (इंस्टाग्राम / फ़ेसबुक) के अंदर हैं। उसका मेन्यू (⋯ या ⋮) दबाएँ → “Open in browser” (क्रोम या सफ़ारी), फिर दोबारा इंस्टॉल दबाएँ।'});
 Object.assign(MZI.gu,{iap:'તમે બીજી ઍપ (ઇન્સ્ટાગ્રામ / ફેસબુક) ની અંદર છો. તેનું મેનુ (⋯ અથવા ⋮) દબાવો → “Open in browser” (ક્રોમ અથવા સફારી), પછી ફરી ઇન્સ્ટોલ દબાવો.'});
+/* v32: License & Achievements – page, seal, cards and full-screen certificate viewer */
+ids.push('trust');ord.trust=3.5;tabm.trust=4;tabm.contact=5;
+Object.assign(T.en,{n6:'License &\nAchievements',ttl:'License & Achievements',tkick:'VERIFIED · SINCE 2001'});
+Object.assign(T.ur,{n6:'لائسنس اور\nاعزازات',ttl:'لائسنس اور اعزازات',tkick:'تصدیق شدہ · 2001 سے'});
+Object.assign(T.hi,{n6:'लाइसेंस और\nउपलब्धियाँ',ttl:'लाइसेंस और उपलब्धियाँ',tkick:'प्रमाणित · 2001 से'});
+Object.assign(T.gu,{n6:'લાઇસન્સ અને\nસિદ્ધિઓ',ttl:'લાઇસન્સ અને સિદ્ધિઓ',tkick:'પ્રમાણિત · 2001 થી'});
+const TMINL='https://pto.haj.gov.in/downloadFile/45',TIATL='https://www.checkacode.com/';
+const TRI=[['gov','trust-moma-eligibility-2027','',1],['gov','trust-moma-hgo-list-2027','tzct',2],['sau','trust-saudi-masharik-2026','',1],['sau','trust-saudi-memento-1437','tzdk',1],['sau','trust-saudi-office64-1435','tzdk',1],['iata','trust-iata-2026','',2],['mem','trust-fhpi-member-2023','',2]];
+const TRL={
+en:{h:'Verified & Trusted',p:'Govt of India approved Haj Group Organiser · Haj 2027 · Category I',st:'VERIFIED',q:'Haj 2027 quota – allotted by the Ministry',qn:'74',qu:'pilgrims',
+ f:[['HGO ID','MH01759627'],['Category','I (First Category)'],['Registration No.','MH01759627/Cat-I/28094/2027',1],['IATA code','14330982'],['Munazim No. (Makkah)','1089'],['Federation Haj PTOs membership','20190019'],['Serving pilgrims','since 2001']],
+ vh:'Verify it yourself',vp:'Anyone can check our name on the official government and IATA websites.',vm:'Ministry list (official PDF)',vms:'Page 21 · S.No. 627 · Meezab E Rahemat',vi:'IATA code check',vis:'Enter code 14330982',hint:'Tap any certificate to open it full screen',
+ sec:{gov:'Government of India',sau:'Kingdom of Saudi Arabia',iata:'IATA – International Air Transport Association',mem:'Memberships'},
+ it:[['Government approval – Haj 2027','Certificate of Eligibility, Haj Group Organiser · Ministry of Minority Affairs · 6 Aug 2026'],['Ministry list – our name & licence','Haj 2027 Final Quota Allocation List · S.No. 627 · Page 21'],['Appreciation from Saudi Arabia – Hajj 2026','Certificate of Thanks · Mashariq Al Masiah, Service Center 610 · Hajj 1447H'],['Memento from the Muallim office, Makkah','Muttawiffy Hujjaj South Asia · Service Office No. 54 · 1437H'],['Outstanding Tour Company award – Makkah, 1435H','Certificate of Appreciation · Field Service Office No. 64 · Munazim No. 1089'],['IATA accredited – 2026','Certificate of Accreditation · IATA code 14330982'],['Member – Federation Haj PTOs of India','Certificate of Membership · No. 20190019 · since April 2023']],
+ of:'{n} of {m}',zm:'Double-tap or pinch to zoom · swipe for the next',cl:'Close',pv:'Previous',nx:'Next'},
+ur:{h:'تصدیق شدہ اور قابلِ اعتماد',p:'حکومتِ ہند سے منظور شدہ حج گروپ آرگنائزر · حج 2027 · کیٹیگری I',st:'تصدیق شدہ',q:'حج 2027 کوٹہ – وزارت کی طرف سے الاٹ',qn:'74',qu:'حجاج',
+ f:[['HGO ID','MH01759627'],['کیٹیگری','I (پہلی کیٹیگری)'],['رجسٹریشن نمبر','MH01759627/Cat-I/28094/2027',1],['آئی اے ٹی اے کوڈ','14330982'],['منظم نمبر (مکہ)','1089'],['فیڈریشن حج پی ٹی اوز رکنیت','20190019'],['حجاج کی خدمت','2001 سے']],
+ vh:'خود تصدیق کریں',vp:'کوئی بھی سرکاری اور آئی اے ٹی اے کی ویب سائٹ پر ہمارا نام دیکھ سکتا ہے۔',vm:'وزارت کی فہرست (سرکاری PDF)',vms:'صفحہ 21 · سیریل 627 · میزاب رحمت',vi:'آئی اے ٹی اے کوڈ چیک',vis:'کوڈ 14330982 درج کریں',hint:'پوری اسکرین پر دیکھنے کے لیے کسی بھی سند کو ٹیپ کریں',
+ sec:{gov:'حکومتِ ہند',sau:'سعودی عرب',iata:'آئی اے ٹی اے – بین الاقوامی فضائی ٹرانسپورٹ ایسوسی ایشن',mem:'رکنیت'},
+ it:[['حکومتی منظوری – حج 2027','حج گروپ آرگنائزر اہلیت سرٹیفکیٹ · وزارتِ اقلیتی امور · 6 اگست 2026'],['وزارت کی فہرست – ہمارا نام اور لائسنس','حج 2027 حتمی کوٹہ فہرست · سیریل 627 · صفحہ 21'],['سعودی عرب سے تعریفی سند – حج 2026','شکریہ کا سرٹیفکیٹ · مشارق الماسیہ، سروس سینٹر 610 · حج 1447ھ'],['معلم آفس، مکہ کی جانب سے یادگاری شیلڈ','مطوفی حجاج جنوبی ایشیا · سروس آفس نمبر 54 · 1437ھ'],['بہترین ٹور کمپنی ایوارڈ – مکہ، 1435ھ','تعریفی سند · فیلڈ سروس آفس نمبر 64 · منظم نمبر 1089'],['آئی اے ٹی اے سے منظور شدہ – 2026','منظوری سرٹیفکیٹ · آئی اے ٹی اے کوڈ 14330982'],['رکن – فیڈریشن حج پی ٹی اوز آف انڈیا','رکنیت سرٹیفکیٹ · نمبر 20190019 · اپریل 2023 سے']],
+ of:'{n} از {m}',zm:'زوم کے لیے دو بار ٹیپ یا چٹکی کریں · اگلے کے لیے سوائپ کریں',cl:'بند کریں',pv:'پچھلا',nx:'اگلا'},
+hi:{h:'प्रमाणित और भरोसेमंद',p:'भारत सरकार द्वारा मान्य हज ग्रुप ऑर्गनाइज़र · हज 2027 · कैटेगरी I',st:'प्रमाणित',q:'हज 2027 कोटा – मंत्रालय द्वारा आवंटित',qn:'74',qu:'हाजी',
+ f:[['HGO ID','MH01759627'],['कैटेगरी','I (प्रथम कैटेगरी)'],['रजिस्ट्रेशन नं.','MH01759627/Cat-I/28094/2027',1],['IATA कोड','14330982'],['मुनज़्ज़िम नं. (मक्का)','1089'],['फ़ेडरेशन हज PTOs सदस्यता','20190019'],['हाजियों की सेवा','2001 से']],
+ vh:'ख़ुद जाँच करें',vp:'कोई भी सरकारी और IATA की वेबसाइट पर हमारा नाम देख सकता है।',vm:'मंत्रालय की सूची (सरकारी PDF)',vms:'पेज 21 · क्रमांक 627 · मीज़ाब ए रहमत',vi:'IATA कोड जाँच',vis:'कोड 14330982 डालें',hint:'पूरी स्क्रीन पर देखने के लिए किसी भी प्रमाण-पत्र पर टैप करें',
+ sec:{gov:'भारत सरकार',sau:'सऊदी अरब',iata:'IATA – अंतरराष्ट्रीय हवाई परिवहन संघ',mem:'सदस्यता'},
+ it:[['सरकारी मंज़ूरी – हज 2027','हज ग्रुप ऑर्गनाइज़र पात्रता प्रमाण-पत्र · अल्पसंख्यक कार्य मंत्रालय · 6 अगस्त 2026'],['मंत्रालय की सूची – हमारा नाम और लाइसेंस','हज 2027 अंतिम कोटा आवंटन सूची · क्रमांक 627 · पेज 21'],['सऊदी अरब से प्रशंसा पत्र – हज 2026','धन्यवाद प्रमाण-पत्र · मशारिक़ अल-मासिया, सर्विस सेंटर 610 · हज 1447 हि.'],['मुअल्लिम ऑफ़िस, मक्का की ओर से स्मृति-चिह्न','मुतव्विफ़ी हुज्जाज साउथ एशिया · सर्विस ऑफ़िस नं. 54 · 1437 हि.'],['उत्कृष्ट टूर कंपनी सम्मान – मक्का, 1435 हि.','प्रशंसा प्रमाण-पत्र · फ़ील्ड सर्विस ऑफ़िस नं. 64 · मुनज़्ज़िम नं. 1089'],['IATA से मान्यता प्राप्त – 2026','मान्यता प्रमाण-पत्र · IATA कोड 14330982'],['सदस्य – फ़ेडरेशन हज PTOs ऑफ़ इंडिया','सदस्यता प्रमाण-पत्र · नं. 20190019 · अप्रैल 2023 से']],
+ of:'{n} / {m}',zm:'ज़ूम के लिए दो बार टैप या पिंच करें · अगले के लिए स्वाइप करें',cl:'बंद करें',pv:'पिछला',nx:'अगला'},
+gu:{h:'પ્રમાણિત અને વિશ્વસનીય',p:'ભારત સરકાર માન્ય હજ ગ્રુપ ઓર્ગેનાઇઝર · હજ 2027 · કેટેગરી I',st:'પ્રમાણિત',q:'હજ 2027 ક્વોટા – મંત્રાલય દ્વારા ફાળવેલ',qn:'74',qu:'હાજી',
+ f:[['HGO ID','MH01759627'],['કેટેગરી','I (પ્રથમ કેટેગરી)'],['રજિસ્ટ્રેશન નં.','MH01759627/Cat-I/28094/2027',1],['IATA કોડ','14330982'],['મુનઝ્ઝિમ નં. (મક્કા)','1089'],['ફેડરેશન હજ PTOs સભ્યપદ','20190019'],['હાજીઓની સેવા','2001 થી']],
+ vh:'જાતે ચકાસો',vp:'કોઈ પણ સરકારી અને IATA વેબસાઇટ પર અમારું નામ જોઈ શકે છે.',vm:'મંત્રાલયની યાદી (સરકારી PDF)',vms:'પાનું 21 · ક્રમ 627 · મીઝાબ એ રહેમત',vi:'IATA કોડ ચકાસણી',vis:'કોડ 14330982 દાખલ કરો',hint:'પૂર્ણ સ્ક્રીન પર જોવા કોઈ પણ પ્રમાણપત્ર પર ટેપ કરો',
+ sec:{gov:'ભારત સરકાર',sau:'સાઉદી અરેબિયા',iata:'IATA – આંતરરાષ્ટ્રીય હવાઈ પરિવહન સંઘ',mem:'સભ્યપદ'},
+ it:[['સરકારી મંજૂરી – હજ 2027','હજ ગ્રુપ ઓર્ગેનાઇઝર પાત્રતા પ્રમાણપત્ર · લઘુમતી બાબતોનું મંત્રાલય · 6 ઑગસ્ટ 2026'],['મંત્રાલયની યાદી – અમારું નામ અને લાઇસન્સ','હજ 2027 અંતિમ ક્વોટા ફાળવણી યાદી · ક્રમ 627 · પાનું 21'],['સાઉદી અરેબિયા તરફથી પ્રશંસાપત્ર – હજ 2026','આભાર પ્રમાણપત્ર · મશારિક અલ-માસિયા, સર્વિસ સેન્ટર 610 · હજ 1447 હિ.'],['મુઅલ્લિમ ઑફિસ, મક્કા તરફથી સ્મૃતિચિહ્ન','મુતવ્વિફી હુજ્જાજ સાઉથ એશિયા · સર્વિસ ઑફિસ નં. 54 · 1437 હિ.'],['ઉત્કૃષ્ટ ટૂર કંપની સન્માન – મક્કા, 1435 હિ.','પ્રશંસા પ્રમાણપત્ર · ફિલ્ડ સર્વિસ ઑફિસ નં. 64 · મુનઝ્ઝિમ નં. 1089'],['IATA માન્યતા પ્રાપ્ત – 2026','માન્યતા પ્રમાણપત્ર · IATA કોડ 14330982'],['સભ્ય – ફેડરેશન હજ PTOs ઓફ ઇન્ડિયા','સભ્યપદ પ્રમાણપત્ર · નં. 20190019 · એપ્રિલ 2023 થી']],
+ of:'{n} / {m}',zm:'ઝૂમ કરવા બે વાર ટેપ અથવા પિંચ કરો · આગળ માટે સ્વાઇપ કરો',cl:'બંધ કરો',pv:'પાછળ',nx:'આગળ'}};
+const trl=k=>{const a=TRL[lang]||TRL.en;return k in a?a[k]:TRL.en[k]};
+const TIC={ext:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>',
+ zoom:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>',
+ chk:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>',
+ ppl:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="8" r="2.4"/><path d="M15.5 13.5A5 5 0 0 1 21 19"/></svg>',
+ x:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+ l:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>',
+ r:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>'};
+const TFLAG={gov:'🇮🇳',sau:'🇸🇦',iata:'✈️',mem:'🤝'};
+function renderTrust(){const b=$('#tl');if(!b)return;const it=trl('it');let h='';
+ h+='<div class="card tseal rv"><svg viewBox="0 0 100 106" aria-hidden="true"><defs><linearGradient id="tsg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A87B28"/><stop offset=".5" stop-color="#FFF0B8"/><stop offset="1" stop-color="#D9B44A"/></linearGradient></defs>'+
+  '<ellipse class="tzg" cx="50" cy="54" rx="46" ry="46" fill="#E6C36A" opacity=".16"/><path class="sp" pathLength="1" d="M50 6L88 20V50C88 74 71 92 50 99C29 92 12 74 12 50V20Z"/><path class="sk" pathLength="1" d="M33 53l12 12 23-26"/></svg>'+
+  '<span class="tzst">'+esc(trl('st'))+'</span><h2 class="h shine">'+esc(trl('h'))+'</h2><p>'+esc(trl('p'))+'</p></div>';
+ h+='<div class="card tzq rv"><div><small>'+esc(trl('q'))+'</small><b><bdi dir="ltr">'+esc(trl('qn'))+'</bdi><i>'+esc(trl('qu'))+'</i></b></div>'+TIC.ppl+'</div>';
+ h+='<div class="tf rv">'+trl('f').map(x=>'<div'+(x[2]?' class="tzw"':'')+'><small>'+esc(x[0])+'</small><b><bdi dir="ltr">'+esc(x[1])+'</bdi></b></div>').join('')+'</div>';
+ h+='<div class="card tvf rv"><h3>'+TIC.chk+'<span>'+esc(trl('vh'))+'</span></h3><p>'+esc(trl('vp'))+'</p>'+
+  '<a href="'+TMINL+'" target="_blank" rel="noopener"><span>'+esc(trl('vm'))+'<small>'+esc(trl('vms'))+'</small></span>'+TIC.ext+'</a>'+
+  '<a href="'+TIATL+'" target="_blank" rel="noopener"><span>'+esc(trl('vi'))+'<small>'+esc(trl('vis'))+'</small></span>'+TIC.ext+'</a></div>';
+ h+='<p class="thint rv">'+esc(trl('hint'))+'</p>';
+ let last='';TRI.forEach((x,i)=>{if(x[0]!==last){if(last)h+='</div>';last=x[0];h+='<h2 class="h tsec rv"><span aria-hidden="true">'+TFLAG[x[0]]+'</span>'+esc(trl('sec')[x[0]])+'</h2><div class="tgr">'}
+  const t=it[i]||['',''];h+='<button type="button" class="tc rv'+(x[3]===2?' tzw':'')+'" data-ti="'+i+'" style="transition-delay:'+((i%2)*90)+'ms"><span class="tzi '+x[2]+'"><img src="'+x[1]+'-t.webp" alt="'+esc(t[0])+'" loading="lazy" decoding="async"></span><span class="zi">'+TIC.zoom+'</span><span class="tt"><b>'+esc(t[0])+'</b><small>'+esc(t[1])+'</small></span></button>'});
+ h+='</div>';b.innerHTML=h;if(cur==='trust')enter($('#trust'))}
+function trustEnter(){if(!$('#tl').innerHTML)renderTrust();const s=$('#tl .tseal');if(!s)return;s.classList.remove('go');void s.offsetWidth;if(RM)return;s.classList.add('go');ftm.push(setTimeout(()=>{if(cur==='trust'){sfx('stamp');hap()}},1450))}
+(()=>{const sl=setLang;setLang=function(l){sl(l);renderTrust();if(tvOpen)tvTexts()}})();
+/* Home badges open this page */
+document.addEventListener('click',e=>{const bd=e.target.closest('#home .badges .bd');if(bd){hap();go('trust')}});
+document.addEventListener('keydown',e=>{const bd=e.target.closest&&e.target.closest('#home .badges .bd');if(bd&&(e.key==='Enter'||e.key===' ')){e.preventDefault();go('trust')}});
+$$('#home .badges .bd').forEach(b=>{b.setAttribute('role','link');b.tabIndex=0});
+/* ---- full-screen viewer ---- */
+let tvOpen=false,tvI=0,tvSkip=false,tvBusy=false,tvZ=null;
+const tvEl=()=>$('#tv');
+function tvTexts(){const o=tvEl(),t=(trl('it')[tvI]||['','']);$('.tvn',o).textContent=trl('of').replace('{n}',tvI+1).replace('{m}',TRI.length);
+ $('.tvb b',o).textContent=t[0];$('.tvb small',o).textContent=t[1];$('.tvb em',o).textContent=trl('zm');$('.tvx',o).setAttribute('aria-label',trl('cl'));$('.tva.tzl',o).setAttribute('aria-label',trl('pv'));$('.tva.tzr',o).setAttribute('aria-label',trl('nx'));
+ $('.tva.tzl',o).disabled=tvI<=0;$('.tva.tzr',o).disabled=tvI>=TRI.length-1;o.setAttribute('aria-label',t[0])}
+function tvBuild(){const o=tvEl();o.innerHTML='<div class="tvs" dir="ltr">'+TRI.map((x,i)=>'<div class="tvp" data-tp="'+i+'"><div class="tvw"><img class="tvi" alt="" draggable="false" data-src="'+x[1]+'.webp"></div></div>').join('')+'</div>'+
+ '<div class="tvtop"><span class="tvn" aria-live="polite"></span><button type="button" class="tvx" data-tvx>'+TIC.x+'</button></div>'+
+ '<button type="button" class="tva tzl" data-tvp>'+TIC.l+'</button><button type="button" class="tva tzr" data-tvn>'+TIC.r+'</button><div class="tvb"><b></b><small></small><em></em></div>';
+ const sc=$('.tvs',o);let tm=0;sc.addEventListener('scroll',()=>{clearTimeout(tm);tm=setTimeout(()=>{const i=Math.round(sc.scrollLeft/sc.clientWidth);if(i!==tvI&&i>=0&&i<TRI.length)tvSet(i,1)},90)},{passive:true});tvGest(sc)}
+function tvLoad(i){[i-1,i,i+1].forEach(j=>{const im=$('#tv [data-tp="'+j+'"] img');if(im&&!im.getAttribute('src'))im.src=im.dataset.src})}
+function tvSet(i,fromScroll){const o=tvEl();const old=$('.tvp.act',o);if(old&&old.dataset.tp!=i){tvReset(old);old.classList.remove('act')}
+ tvI=i;tvLoad(i);const p=$('[data-tp="'+i+'"]',o);if(p){p.classList.remove('act');void p.offsetWidth;p.classList.add('act')}
+ const bt=$('.tvb',o);bt.classList.add('tzch');setTimeout(()=>{tvTexts();bt.classList.remove('tzch')},fromScroll?180:0);if(fromScroll){sfx('tick');hap()}}
+function tvGo(i){if(i<0||i>=TRI.length)return;const sc=$('#tv .tvs');sc.scrollTo({left:i*sc.clientWidth,behavior:RM?'auto':'smooth'})}
+function tvFit(ar){const o=tvEl(),W=o.clientWidth-20,top=64+(parseFloat(getComputedStyle(o).paddingTop)||0),H=o.clientHeight-182;let w=W,h=W/ar;if(h>H){h=H;w=H*ar}return {l:(o.clientWidth-w)/2,t:64+(H-h)/2,w,h}}
+function tvOpenAt(i,card){if(tvOpen||tvBusy)return;const o=tvEl();if(!o.innerHTML)tvBuild();tvOpen=true;tvBusy=true;tvRet=card||null;o.hidden=false;o.classList.remove('tzready');
+ const sc=$('.tvs',o);tvI=i;tvLoad(i);requestAnimationFrame(()=>{sc.scrollLeft=i*sc.clientWidth;tvSet(i)});push(location.hash.slice(1)||cur);sfx('paper');
+ const th=card&&$('img',card);const done=()=>{o.classList.add('tzready');tvBusy=false;setTimeout(()=>{try{$('.tvx',o).focus({preventScroll:true})}catch(e){}},60)};
+ requestAnimationFrame(()=>o.classList.add('on'));
+ if(RM||!th||!th.complete||!th.naturalWidth){setTimeout(done,RM?0:200);return}
+ const r=th.getBoundingClientRect(),f=document.createElement('img');f.className='tvfly';f.src=th.currentSrc||th.src;f.alt='';
+ Object.assign(f.style,{left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px',objectFit:getComputedStyle(th).objectFit,objectPosition:getComputedStyle(th).objectPosition});document.body.appendChild(f);
+ const g=tvFit(th.naturalWidth/th.naturalHeight);requestAnimationFrame(()=>requestAnimationFrame(()=>{f.style.objectFit='contain';Object.assign(f.style,{left:g.l+'px',top:g.t+'px',width:g.w+'px',height:g.h+'px',borderRadius:'8px'})}));
+ let fin=0;const end=()=>{if(fin)return;fin=1;done();setTimeout(()=>{f.style.opacity=0;setTimeout(()=>f.remove(),260)},60)};f.addEventListener('transitionend',e=>{if(e.propertyName==='width')end()});setTimeout(end,700)}
+let tvRet=null;
+function tvClose(fromPop){if(!tvOpen)return;tvOpen=false;const o=tvEl(),p=$('[data-tp="'+tvI+'"]',o),im=p&&$('img',p);const card=$('#tl [data-ti="'+tvI+'"]'),th=card&&$('img',card);
+ const fin=()=>{o.classList.remove('on','tzready');setTimeout(()=>{if(!tvOpen){o.hidden=true;$$('.tvp',o).forEach(x=>{tvReset(x);x.classList.remove('act')})}},360)};
+ if(!RM&&im&&im.complete&&im.naturalWidth&&th&&!(p.classList.contains('tzm'))){const cr=th.getBoundingClientRect();
+  if(cr.bottom>0&&cr.top<innerHeight){const r=im.getBoundingClientRect(),f=document.createElement('img');f.className='tvfly';f.src=im.currentSrc||im.src;f.alt='';
+   Object.assign(f.style,{left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px',objectFit:'contain',borderRadius:'8px'});document.body.appendChild(f);o.classList.remove('tzready');
+   requestAnimationFrame(()=>requestAnimationFrame(()=>{f.style.objectFit=getComputedStyle(th).objectFit;f.style.objectPosition=getComputedStyle(th).objectPosition;Object.assign(f.style,{left:cr.left+'px',top:cr.top+'px',width:cr.width+'px',height:cr.height+'px',borderRadius:'0px'})}));
+   o.classList.remove('on');setTimeout(()=>{f.style.opacity=0;setTimeout(()=>f.remove(),260)},470);fin()}else fin()}else fin();
+ if(card)try{card.focus({preventScroll:true})}catch(e){}
+ if(!fromPop){tvSkip=true;history.back()}}
+function tvPop(){if(tvSkip){tvSkip=false;return true}if(tvOpen){tvClose(1);return true}return false}
+document.addEventListener('click',e=>{const c=e.target.closest('#tl [data-ti]');if(c){hap();tvOpenAt(+c.dataset.ti,c);return}
+ if(!e.target.closest('#tv'))return;if(e.target.closest('[data-tvx]')){hap();tvClose();return}
+ if(e.target.closest('[data-tvp]')){hap();tvGo(tvI-1);return}if(e.target.closest('[data-tvn]')){hap();tvGo(tvI+1);return}});
+document.addEventListener('keydown',e=>{if(!tvOpen)return;if(e.key==='Escape'){e.preventDefault();tvClose()}else if(e.key==='ArrowRight')tvGo(tvI+1);else if(e.key==='ArrowLeft')tvGo(tvI-1)});
+/* zoom: double-tap / double-click and pinch, pan when zoomed */
+function tvApply(p,z,anim){const im=$('img',p);if(!im)return;im.classList.toggle('nt',!anim);im.style.transform=z.s>1.01?'translate('+z.x.toFixed(1)+'px,'+z.y.toFixed(1)+'px) scale('+z.s.toFixed(3)+')':'';p.classList.toggle('tzm',z.s>1.01);$('#tv .tvs').classList.toggle('tzm',z.s>1.01);p._z=z}
+function tvReset(p){if(p&&p._z&&p._z.s>1)tvApply(p,{s:1,x:0,y:0},0)}
+function tvClamp(p,z){const im=$('img',p),w=im.offsetWidth,h=im.offsetHeight,mx=Math.max(0,(w*z.s-p.clientWidth)/2+20),my=Math.max(0,(h*z.s-(p.clientHeight-120))/2+20);
+ const lx=Math.max(mx,(w*(z.s-1))/2),ly=Math.max(my,(h*(z.s-1))/2);z.x=Math.max(-lx,Math.min(lx,z.x));z.y=Math.max(-ly,Math.min(ly,z.y));return z}
+function tvToggleAt(p,cx,cy){const im=$('img',p);if(!im)return;const z=p._z||{s:1,x:0,y:0};if(z.s>1.01){tvApply(p,{s:1,x:0,y:0},1);return}
+ const r=im.getBoundingClientRect(),dx=cx-(r.left+r.width/2),dy=cy-(r.top+r.height/2),s=2.6;tvApply(p,tvClamp(p,{s,x:-dx*(s-1),y:-dy*(s-1)}),1)}
+function tvGest(sc){let lastT=0,lx=0,ly=0,pin=null,pan=null;
+ sc.addEventListener('dblclick',e=>{const p=e.target.closest('.tvp');if(p)tvToggleAt(p,e.clientX,e.clientY)});
+ sc.addEventListener('touchstart',e=>{const p=e.target.closest('.tvp');if(!p)return;const z=p._z||{s:1,x:0,y:0};
+  if(e.touches.length===2){const [a,b]=e.touches,im=$('img',p),r=im.getBoundingClientRect();const mid={x:(a.clientX+b.clientX)/2,y:(a.clientY+b.clientY)/2};
+   const C={x:r.left+r.width/2-z.x,y:r.top+r.height/2-z.y};pin={p,d0:Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY),s0:z.s,C,u:{x:(mid.x-C.x-z.x)/z.s,y:(mid.y-C.y-z.y)/z.s}};pan=null;e.preventDefault();return}
+  if(e.touches.length===1){const t=e.touches[0],now=Date.now();if(now-lastT<300&&Math.hypot(t.clientX-lx,t.clientY-ly)<30){e.preventDefault();tvToggleAt(p,t.clientX,t.clientY);lastT=0;return}lastT=now;lx=t.clientX;ly=t.clientY;
+   if(z.s>1.01)pan={p,x0:t.clientX,y0:t.clientY,zx:z.x,zy:z.y}}},{passive:false});
+ sc.addEventListener('touchmove',e=>{if(pin&&e.touches.length===2){const [a,b]=e.touches,d=Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY),s=Math.max(1,Math.min(4,pin.s0*d/pin.d0)),mid={x:(a.clientX+b.clientX)/2,y:(a.clientY+b.clientY)/2};
+   tvApply(pin.p,{s,x:mid.x-pin.C.x-s*pin.u.x,y:mid.y-pin.C.y-s*pin.u.y},0);e.preventDefault();return}
+  if(pan&&e.touches.length===1){const t=e.touches[0],z=pan.p._z;tvApply(pan.p,tvClamp(pan.p,{s:z.s,x:pan.zx+t.clientX-pan.x0,y:pan.zy+t.clientY-pan.y0}),0);e.preventDefault()}},{passive:false});
+ sc.addEventListener('touchend',e=>{if(pin&&e.touches.length<2){const p=pin.p,z=p._z||{s:1,x:0,y:0};pin=null;if(z.s<1.05)tvApply(p,{s:1,x:0,y:0},1);else tvApply(p,tvClamp(p,z),1)}if(!e.touches.length)pan=null},{passive:true})}
 const zKey=(ic,k)=>ic==='food'?(k==='long'?'buffet':'meal'):ic==='bus'?(k==='long'?'lux':'local'):ic==='mosque'?'mosque':SC[ic]?ic:null;
 function zPos(m,e){const L=m.L,p=m.Pth.getPointAtLength(L*e);let tf='translate('+p.x.toFixed(1)+' '+p.y.toFixed(1)+')';
 if(m.rot){const a=m.Pth.getPointAtLength(Math.max(0,L*e-1)),b=m.Pth.getPointAtLength(Math.min(L,L*e+1));tf+=' rotate('+(Math.atan2(b.y-a.y,b.x-a.x)*180/Math.PI).toFixed(1)+')'}

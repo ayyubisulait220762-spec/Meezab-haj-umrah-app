@@ -1,8 +1,8 @@
-MEEZAB E RAHEMAT APP - UPLOAD PACKAGE (version 30, 3 November 2026)
-Version 27 is already live on GitHub (checked 3 Nov). This package has only the changed files.
+MEEZAB E RAHEMAT APP - UPLOAD PACKAGE (version 32, 3 November 2026)
+Version 30 is live on GitHub. This package has only the changed files.
 
 WHAT TO UPLOAD
-4 files: index.html, sw.js, README.txt and og-card.jpg (NEW - the picture shown when the app link is shared on WhatsApp).
+17 files: index.html, sw.js, README.txt and 14 NEW pictures (trust-....webp - the 7 certificates and their 7 small previews).
 Put them in the main folder of your GitHub repository (not inside a sub-folder). They replace the old index.html, sw.js and README.txt.
 
 HOW TO UPLOAD FROM A PHONE
@@ -11,9 +11,16 @@ HOW TO UPLOAD FROM A PHONE
 3. Tap Add file > Upload files (tick "Desktop site" in Chrome's menu if you don't see it).
 4. Select all the extracted files and tap Commit changes.
 5. Wait about 2 minutes, then open the app link. If the old design still shows, close the app fully and open it again.
-Note: WhatsApp remembers old link previews for a while. To see the new picture at once, share the link with ?v=30 at the end once.
 
-WHAT IS NEW IN VERSION 30 (since version 27)
+WHAT IS NEW IN VERSION 32 (since version 30)
+- v32 New tab "License & Achievements" (before Contact): Verified seal, Haj 2027 quota 74 pilgrims, HGO ID MH01759627,
+  Category I, Registration No., IATA code 14330982, Munazim No. 1089, Federation membership 20190019;
+  "Verify it yourself" buttons (official Ministry list PDF page 21 S.No. 627, IATA code check);
+  7 certificates and mementos (Govt of India, Saudi Arabia, IATA, Federation) - tap to open full screen, swipe, zoom.
+  The 3 gold badges on Home also open this page.
+- v31 Home: the Hajj 2027 packages now come right after the Arafah countdown (prayer times, Share, Qibla and Invite below).
+
+EARLIER - VERSION 30
 - v30 WhatsApp / Facebook link preview: gold "Meezab E Rahemat - Hajj 2027 Packages" card with the Kaaba photo.
 - v30 Faster first open on slow mobile data: home photo ready in about 3.6 s instead of 8.5 s (slow 4G test);
   pictures lower on the page wait until the home photo is in; the offline copy downloads after the app has opened.
