@@ -1,5 +1,5 @@
-MEEZAB E RAHEMAT APP - UPLOAD PACKAGE (version 33, 3 November 2026)
-Version 32 is live on GitHub. This package has only the changed files.
+MEEZAB E RAHEMAT APP - UPLOAD PACKAGE (version 34, 3 November 2026)
+Version 32 or 33 is live on GitHub. This package has only the changed files.
 
 WHAT TO UPLOAD
 3 files: index.html, sw.js and README.txt. Put them in the main folder of your GitHub repository (they replace the old ones).
@@ -11,7 +11,9 @@ HOW TO UPLOAD FROM A PHONE
 4. Select all the extracted files and tap Commit changes.
 5. Wait about 2 minutes, then open the app link. If the old design still shows, close the app fully and open it again.
 
-WHAT IS NEW IN VERSION 33 (since version 32)
+WHAT IS NEW IN VERSION 34 (since version 32)
+- v34 License & Achievements: the 3 portrait certificates now sit together in one row, then the 4 landscape ones full width;
+  each tile has a small flag badge; heading "Certificates & awards".
 - v33 Talbiyah (labbaik Allahumma labbaik) on the splash screen and the Home banner: the small marks above the letters
   are no longer cut at the top on phones. Same font, colour and animation.
 
