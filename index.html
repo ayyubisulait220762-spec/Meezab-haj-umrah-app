@@ -604,6 +604,11 @@ textarea.in{padding:14px 16px;min-height:104px;resize:vertical}
 .mfq[open] summary svg{transform:rotate(-90deg)}
 .mfq p{margin:0;padding:0 16px 16px;font-size:14px;line-height:1.65}
 .mfqa{display:flex;flex-direction:column;gap:10px}
+/* v33: Talbiyah – harakat no longer cut at the top */
+@keyframes wr33{from{opacity:0;clip-path:inset(-60% -14% -45% 100%)}to{opacity:1;clip-path:inset(-60% -14% -45% 0)}}
+#spl .sc .ar,#home .hc .ar{line-height:1.75;padding-top:.12em;clip-path:inset(-60% -14% -45% 100%);animation-name:wr33}
+@media (prefers-reduced-motion:reduce){#spl .sc .ar,#home .hc .ar{animation:none;opacity:1;clip-path:none}}
+
 /* v32: License & Achievements tab */
 .nav button{font-size:11px}
 .nav button[data-go=trust]{flex:1.42}

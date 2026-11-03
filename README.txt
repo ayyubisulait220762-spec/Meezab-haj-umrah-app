@@ -1,9 +1,8 @@
-MEEZAB E RAHEMAT APP - UPLOAD PACKAGE (version 32, 3 November 2026)
-Version 30 is live on GitHub. This package has only the changed files.
+MEEZAB E RAHEMAT APP - UPLOAD PACKAGE (version 33, 3 November 2026)
+Version 32 is live on GitHub. This package has only the changed files.
 
 WHAT TO UPLOAD
-17 files: index.html, sw.js, README.txt and 14 NEW pictures (trust-....webp - the 7 certificates and their 7 small previews).
-Put them in the main folder of your GitHub repository (not inside a sub-folder). They replace the old index.html, sw.js and README.txt.
+3 files: index.html, sw.js and README.txt. Put them in the main folder of your GitHub repository (they replace the old ones).
 
 HOW TO UPLOAD FROM A PHONE
 1. Extract the zip in your phone's Files app (tap the zip, then Extract).
@@ -12,7 +11,11 @@ HOW TO UPLOAD FROM A PHONE
 4. Select all the extracted files and tap Commit changes.
 5. Wait about 2 minutes, then open the app link. If the old design still shows, close the app fully and open it again.
 
-WHAT IS NEW IN VERSION 32 (since version 30)
+WHAT IS NEW IN VERSION 33 (since version 32)
+- v33 Talbiyah (labbaik Allahumma labbaik) on the splash screen and the Home banner: the small marks above the letters
+  are no longer cut at the top on phones. Same font, colour and animation.
+
+EARLIER - VERSION 31-32
 - v32 New tab "License & Achievements" (before Contact): Verified seal, Haj 2027 quota 74 pilgrims, HGO ID MH01759627,
   Category I, Registration No., IATA code 14330982, Munazim No. 1089, Federation membership 20190019;
   "Verify it yourself" buttons (official Ministry list PDF page 21 S.No. 627, IATA code check);
