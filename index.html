@@ -244,6 +244,29 @@ textarea.in{padding:14px 16px;min-height:104px;resize:vertical}
 .sc .mu{animation:fi .8s 1.2s both}
 @keyframes fi{from{opacity:0;transform:translateY(8px)}}
 
+
+/* v37: floating Install pill (every page) */
+#fib{position:absolute;z-index:22;bottom:calc(var(--nh) + 12px);inset-inline-end:12px;display:flex;align-items:center;gap:6px;transition:bottom .35s,opacity .3s,transform .3s}
+#fib[hidden]{display:none}
+#fib.fzu{bottom:calc(var(--nh) + 88px)}
+#fib.fzo{opacity:0;transform:translateY(12px);pointer-events:none}
+#fib .fb1{position:relative;overflow:hidden;display:flex;align-items:center;gap:7px;height:44px;padding:0 16px 0 13px;border-radius:22px;border:0;font:inherit;font-weight:800;font-size:14px;color:#1b160b;background:var(--gg);box-shadow:0 8px 26px #000a,0 0 0 1px #FFF0B855 inset;cursor:pointer;transition:filter .4s,opacity .4s}
+#fib .fb1 svg{width:19px;height:19px;flex:none}
+#fib .fb1::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,#FFFFFF90 48%,transparent 66%);transform:translateX(-120%);animation:spsh 3.2s 1s ease-in-out infinite}
+#fib.fzw .fb1{filter:grayscale(.75) brightness(.6);}
+#fib.fzw .fb1::after{animation:none}
+#fib .fbr{display:none;width:17px;height:17px;border-radius:50%;border:2px solid #1b160b55;border-top-color:#1b160b;animation:fbsp .9s linear infinite;flex:none}
+#fib.fzw .fbr{display:block}#fib.fzw .fb1 svg{display:none}
+@keyframes fbsp{to{transform:rotate(360deg)}}
+#fib.fzr .fb1{animation:fbgl 2.4s ease-in-out infinite}
+@keyframes fbgl{50%{box-shadow:0 8px 26px #000a,0 0 0 1px #FFF0B8 inset,0 0 26px #E6C36Acc}}
+#fib .fbx{width:28px;height:28px;border-radius:50%;border:1px solid #E6C36A55;background:#08070Acc;color:var(--mu);display:grid;place-items:center;font-size:15px;line-height:1;cursor:pointer;padding:0}
+#fibt{position:absolute;z-index:23;inset-inline:16px;bottom:calc(var(--nh) + 66px);max-width:340px;margin-inline-start:auto;padding:10px 13px;border-radius:14px;background:#13110Cf2;border:1px solid #E6C36A66;color:var(--tx);font-size:12.5px;line-height:1.55;box-shadow:0 10px 30px #000b;opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s;pointer-events:none}
+#fibt.on{opacity:1;transform:none}
+#fibt.fzu{bottom:calc(var(--nh) + 142px)}
+[lang=ur] #fibt{line-height:2;font-size:12px}
+[lang=ur] #fib .fb1{line-height:1.6}
+
 /* v36: splash – Install + Enter buttons */
 .spa{position:absolute;left:0;right:0;bottom:calc(26px + env(safe-area-inset-bottom,0px));z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;padding:0 24px;animation:fi .8s 1s both}
 .spa button{display:flex;align-items:center;justify-content:center;gap:10px;width:min(300px,100%);border-radius:28px;font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .15s}
@@ -2488,6 +2511,33 @@ function renderTrust(){const b=$('#tl');if(!b)return;const it=trl('it');let h=''
  const card=(x,i)=>{const t=it[i]||['',''];return '<button type="button" class="tc rv" data-ti="'+i+'" style="transition-delay:'+((i%3)*80)+'ms"><span class="tzi '+x[2]+'"><img src="'+x[1]+'-t.webp" alt="'+esc(t[0])+'" loading="lazy" decoding="async"></span><span class="tzfl" aria-hidden="true">'+TFLAG[x[0]]+'</span><span class="zi">'+TIC.zoom+'</span><span class="tt"><b>'+esc(t[0])+'</b><small>'+esc((trl('sec')[x[0]]||'')+' · '+t[1])+'</small></span></button>'};
  h+='<div class="tzg3">'+TRI.map((x,i)=>i<3?card(x,i):'').join('')+'</div><div class="tzgl">'+TRI.map((x,i)=>i>=3?card(x,i):'').join('')+'</div>';
  b.innerHTML=h;if(cur==='trust')enter($('#trust'))}
+
+/* v37: floating Install pill on every page */
+const FIB={en:{b:'Install',wait:'Install will be ready in a few seconds. Then tap the glowing Install button.',x:'Hide'},
+ ur:{b:'انسٹال کریں',wait:'انسٹال چند سیکنڈ میں تیار ہو جائے گا۔ پھر چمکتے ہوئے انسٹال بٹن کو دبائیں۔',x:'چھپائیں'},
+ hi:{b:'इंस्टॉल करें',wait:'इंस्टॉल कुछ ही सेकंड में तैयार होगा। फिर चमकते हुए इंस्टॉल बटन को दबाएँ।',x:'छिपाएँ'},
+ gu:{b:'ઇન્સ્ટોલ કરો',wait:'ઇન્સ્ટોલ થોડી સેકંડમાં તૈયાર થશે. પછી ચમકતું ઇન્સ્ટોલ બટન દબાવો.',x:'છુપાવો'}};
+const fibT=k=>(FIB[lang]||FIB.en)[k];let fibHide=false,fibT0=Date.now(),fibTt=0;
+try{fibHide=sessionStorage.getItem('fibHide')==='1'}catch(e){}
+function fibTip(k,ms){const t=$('#fibt');if(!t)return;t.textContent=k==='wait'?fibT('wait'):mzi(k);t.classList.add('on');clearTimeout(fibTt);fibTt=setTimeout(()=>t.classList.remove('on'),ms||6000)}
+(function(){const app=$('#app');if(!app)return;
+ const f=document.createElement('div');f.id='fib';f.hidden=true;
+ f.innerHTML='<button type="button" class="fb1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M5 19h14"/></svg><i class="fbr" aria-hidden="true"></i><span></span></button><button type="button" class="fbx" aria-label="Hide">×</button>';
+ const tip=document.createElement('p');tip.id='fibt';tip.setAttribute('role','status');tip.setAttribute('aria-live','polite');
+ app.appendChild(f);app.appendChild(tip);
+ const special=()=>mzIAB()||mzIOS();
+ const upd=()=>{const gone=fibHide||mzStandalone()||mzInstalled;f.hidden=gone;if(gone){tip.classList.remove('on');return}
+  const ready=!!mzInstEv||special();f.classList.toggle('fzr',!!mzInstEv);f.classList.toggle('fzw',!ready&&Date.now()-fibT0<45000);
+  const up=cur==='pd';f.classList.toggle('fzu',up);tip.classList.toggle('fzu',up);
+  const ov=!!document.querySelector('.ov.on')||cur==='reg';f.classList.toggle('fzo',ov);
+  const sp=f.querySelector('span'),bt=fibT('b');if(sp.textContent!==bt)sp.textContent=bt;f.querySelector('.fbx').setAttribute('aria-label',fibT('x'))};
+ f.querySelector('.fb1').addEventListener('click',()=>{
+  if(mzInstEv){const ev=mzInstEv;mzInstEv=null;ev.prompt();ev.userChoice.then(c=>{if(c&&c.outcome==='accepted'){mzInstalled=true;sfx('ok');renderMzi()}upd()}).catch(upd);upd();return}
+  if(mzIAB())return fibTip('iap',9000);if(mzIOS())return fibTip('ios',9000);
+  fibTip(Date.now()-fibT0<45000?'wait':'oth',7000)});
+ f.querySelector('.fbx').addEventListener('click',()=>{fibHide=true;try{sessionStorage.setItem('fibHide','1')}catch(e){}upd()});
+ addEventListener('beforeinstallprompt',()=>setTimeout(upd,0));addEventListener('appinstalled',()=>setTimeout(upd,0));
+ upd();setInterval(upd,400)})();
 const zKey=(ic,k)=>ic==='food'?(k==='long'?'buffet':'meal'):ic==='bus'?(k==='long'?'lux':'local'):ic==='mosque'?'mosque':SC[ic]?ic:null;
 function zPos(m,e){const L=m.L,p=m.Pth.getPointAtLength(L*e);let tf='translate('+p.x.toFixed(1)+' '+p.y.toFixed(1)+')';
 if(m.rot){const a=m.Pth.getPointAtLength(Math.max(0,L*e-1)),b=m.Pth.getPointAtLength(Math.min(L,L*e+1));tf+=' rotate('+(Math.atan2(b.y-a.y,b.x-a.x)*180/Math.PI).toFixed(1)+')'}
@@ -2829,7 +2879,7 @@ if(spCanInst){const sp=$('#spl');sp.classList.add('spx');const a=document.create
  const go2=()=>{playTalbiyah();setTimeout(hideSplash,TALBIYAH&&sndOn?700:0)};
  const ask=()=>{const ev=mzInstEv;mzInstEv=null;ev.prompt();ev.userChoice.then(c=>{if(c&&c.outcome==='accepted'){mzInstalled=true;sfx('ok');renderMzi()}go2()}).catch(go2)};
  a.querySelector('.spi').addEventListener('click',()=>{if(mzInstEv)return ask();if(mzIAB()||mzIOS())return help();
-  let n=0;const w=setInterval(()=>{if(mzInstEv){clearInterval(w);ask()}else if(++n>15){clearInterval(w);help()}},100)});
+  let n=0;const w=setInterval(()=>{if(mzInstEv){clearInterval(w);ask()}else if(++n>6){clearInterval(w);go2();setTimeout(()=>fibTip('wait',5000),1200)}},100)});
  addEventListener('appinstalled',()=>{a.querySelector('.spi').hidden=true;a.querySelector('.sph').classList.remove('on')});
 }else setTimeout(hideSplash,RM?400:(TALBIYAH?8000:3400));
 
@@ -2899,7 +2949,7 @@ const pin=()=>{if(app.scrollLeft||app.scrollTop){app.scrollLeft=0;app.scrollTop=
 setLang(store.get('lang')||'en');
 {const h=location.hash.slice(1);if(PKM[h]){renderPd(h);$('#home').classList.remove('on');$('#pd').classList.add('on');cur='pd'}else if(ids.includes(h)&&h!=='home'&&h!=='pd'){$('#home').classList.remove('on');$('#'+h).classList.add('on');cur=h;if(h==='reg')resetForm()}}
 setTab();
-(function(){if(!('serviceWorker' in navigator)||!location.protocol.startsWith('http'))return;const reg=()=>setTimeout(()=>navigator.serviceWorker.register('sw.js').catch(()=>{}),2500);if(document.readyState==='complete')reg();else addEventListener('load',reg,{once:true})})();
+(function(){if(!('serviceWorker' in navigator)||!location.protocol.startsWith('http'))return;const reg=()=>setTimeout(()=>navigator.serviceWorker.register('sw.js').catch(()=>{}),0);if(document.readyState==='complete')reg();else addEventListener('load',reg,{once:true})})();
 </script>
 </body>
 </html>

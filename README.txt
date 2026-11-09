@@ -1,12 +1,21 @@
-MEEZAB E RAHEMAT APP - VERSION 36 (9 November 2026)
+MEEZAB E RAHEMAT APP - VERSION 37 (9 November 2026)
 Uploaded to GitHub directly by Claude (Agent R). This zip is for your reference only - no need to upload it.
 
 FILES IN THIS VERSION
-index.html, sw.js (cache meezab-v38), README.txt,
-font-noto-nastaliq-urdu-500.woff2 and font-noto-nastaliq-urdu-700.woff2 (new Urdu fonts).
+index.html, sw.js (cache meezab-v39), README.txt.
 After about 2 minutes, open the app. If the old design still shows, close the app fully and open it again.
 
-WHAT IS NEW IN VERSION 35-36
+WHAT IS NEW IN VERSION 37
+- One-tap install. Chrome allows its install pop-up only after a visitor has been on the page a short while.
+  Opening screen: if Chrome is ready, Install opens the pop-up at once; if not, the visitor enters the app
+  and sees "Install will be ready in a few seconds".
+- New floating gold "Install" button on every page: dim with a turning ring while Chrome is not ready,
+  glows when ready, one tap = install pop-up. x hides it until the app is opened again; gone once installed.
+  Sits above the "Register interest" bar on package pages; hidden on the enquiry form.
+- iPhone and Instagram/Facebook still show the step-by-step help (no install pop-up possible there).
+- The offline part starts right after the page loads (was 2.5 s later).
+
+EARLIER - VERSION 35-36
 - v35 Urdu letters fixed: on Android phones, bold Urdu lost the top line of the letter kaf
   (Package read wrong, Makkah read wrong, "Dekhein" read wrong). New fixed-weight Urdu fonts draw the letter in one piece.
 - v35 Bottom tab "Feedback" is now "Videos & Feedback" (Urdu, Hindi, Gujarati too); the page heading matches.
