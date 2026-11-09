@@ -248,6 +248,55 @@ textarea.in{padding:14px 16px;min-height:104px;resize:vertical}
 
 
 
+
+/* v44: slim Home rows */
+.hsl1{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.tile.hslim{flex-direction:row;justify-content:flex-start;gap:12px;min-height:58px;padding:10px 14px;text-align:start}
+.tile.hslim .ti{flex:none}
+.tile.hslim::after{content:"›";margin-inline-start:auto;color:var(--gold);font-size:22px;line-height:1}
+[dir=rtl] .tile.hslim::after{content:"‹"}
+.mztl .mztw{grid-column:1/-1;order:3;flex-direction:row!important;align-items:center;gap:12px!important}
+.mztl .mztw svg{flex:none}
+.mztl .mztw span{display:flex;flex-direction:column;gap:3px}
+/* v44: Tawaf & Sa'i counter page */
+#tw{padding:calc(14px + env(safe-area-inset-top,0px)) 16px 24px}
+#tw.on .twin{animation:twz .45s cubic-bezier(.2,.8,.2,1) both}
+@keyframes twz{from{opacity:0;transform:scale(.94)}}
+.twin{display:flex;flex-direction:column;gap:14px;max-width:460px;margin:0 auto}
+.twh{display:flex;align-items:center;gap:10px}
+.twh h1{margin:0;font-size:22px;line-height:1.2}
+.twb{width:40px;height:40px;border-radius:50%;border:1px solid var(--ln);background:var(--card);color:var(--g2);display:grid;place-items:center;flex:none;font-size:22px;cursor:pointer}
+[dir=rtl] .twb{transform:scaleX(-1)}
+.twt{display:flex;background:var(--card);border:1px solid var(--ln);border-radius:16px;padding:4px;gap:4px}
+.twt button{flex:1;min-height:44px;border:0;border-radius:12px;background:none;color:var(--mu);font:inherit;font-weight:700;font-size:15px;cursor:pointer}
+.twt button.on{background:var(--gg);color:#1b160b}
+.twc{position:relative;width:min(300px,78vw);aspect-ratio:1;margin:6px auto 0;border-radius:50%;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;cursor:pointer}
+.twc svg{position:absolute;inset:0;width:100%;height:100%;transform:scaleX(-1) rotate(-90deg);overflow:visible}
+.twc .sg{fill:none;stroke:#4a3d1c;stroke-width:9;stroke-linecap:round;opacity:.7}
+.twc .sg.on{stroke:url(#twg);opacity:1;filter:drop-shadow(0 0 5px #E6C36A88)}
+.twc .hp{fill:none;stroke:#F8E4A6;stroke-width:3;stroke-dasharray:1;stroke-dashoffset:1;opacity:0}
+.twc.hold .hp{transition:stroke-dashoffset .8s linear;stroke-dashoffset:0;opacity:.9}
+.twm{position:absolute;inset:16%;border-radius:50%;background:radial-gradient(circle at 50% 35%,#2a2312,#0d0b07 75%);border:1px solid #E6C36A44;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;box-shadow:inset 0 0 30px #000,0 0 40px #E6C36A1a;transition:transform .2s}
+.twc.hold .twm{transform:scale(.96)}
+.twc.pop .twm{animation:twp .5s ease}
+@keyframes twp{40%{transform:scale(1.06);box-shadow:inset 0 0 30px #000,0 0 60px #E6C36A88}}
+.twm b{font-family:var(--fd);font-size:68px;line-height:1;color:var(--g2)}
+.twm small{font-size:13px;color:var(--mu)}
+.twm i{font-style:normal;font-size:11.5px;color:var(--gold);margin-top:6px;text-align:center;padding:0 12px;line-height:1.35}
+.twd{text-align:center;font-weight:800;font-size:16px;color:var(--g2);min-height:24px}
+.twk{display:flex;gap:10px}
+.twk button{flex:1;min-height:46px;border-radius:14px;border:1px solid var(--ln);background:var(--card);color:var(--mu);font:inherit;font-weight:700;font-size:13.5px;position:relative;overflow:hidden;cursor:pointer;touch-action:none;user-select:none;-webkit-user-select:none}
+.twk button::before{content:"";position:absolute;inset:0;background:#E6C36A33;transform:scaleX(0);transform-origin:left}
+.twk button.hold::before{transition:transform 1s linear;transform:scaleX(1)}
+.twdone{display:none;text-align:center;padding:12px 14px;border-radius:14px;border:1px solid #E6C36A88;background:radial-gradient(120% 90% at 50% 0%,#2a2210,var(--card) 70%);color:var(--g2);font-weight:700;line-height:1.5}
+.twdone.on{display:block;animation:fi .5s both}
+.twdua{display:flex;flex-direction:column;gap:6px;text-align:center}
+.twdua small{color:var(--gold);font-weight:700;font-size:12px}
+.twdua .ar{font-size:21px;line-height:1.9}
+.twdua p{margin:0;color:var(--mu);font-size:13px;line-height:1.55}
+.twn{margin:0;font-size:12px;color:var(--mu);text-align:center;line-height:1.5}
+[lang=ur] .twm small,[lang=ur] .twm i,[lang=ur] .twdua p,[lang=ur] .twn{line-height:1.9}
+
 /* v42: SAR->INR tile + Share this app card */
 .mztl .mzfx{font:inherit;color:var(--tx);text-align:start;display:flex;flex-direction:column;gap:5px;padding:14px;margin:0}
 .mztl .mzfx svg{width:30px;height:30px;color:var(--gold)}
@@ -1206,15 +1255,7 @@ html.sva .svb:not(.go){opacity:0;transform:scale(.5)}
 <div id="mzc" class="rv"></div><h2 class="h sh rv" data-t="pk">Hajj 2027 packages</h2>
 <div class="deck rv" id="hdeck" data-i="0"></div>
 <div id="mzh" class="rv"></div><div id="mzi" class="rv"></div>
-<section class="team rv" aria-labelledby="tmha">
-<h2 class="h sh" id="tmha" data-t="tmh">The family behind your journey</h2>
-<div class="tst">
-<figure class="tm"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-ds="team-ismail.webp" alt="Ismail Ayyubi, Founder, in a dark suit and cap" width="450" height="600" loading="lazy" fetchpriority="low"><figcaption class="tb"><b>ISMAIL AYYUBI</b><span data-t="r1">Founder</span></figcaption></figure>
-<figure class="tm"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-ds="team-sulait.webp" alt="Sulait Ayyubi, Managing Director, in a dark suit" width="450" height="600" loading="lazy" fetchpriority="low"><figcaption class="tb"><b>SULAIT AYYUBI</b><span data-t="r2">Managing Director</span></figcaption></figure>
-<figure class="tm"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-ds="team-basil.webp" alt="Basil Ayyubi, Tour Manager, in a dark suit" width="450" height="600" loading="lazy" fetchpriority="low"><figcaption class="tb"><b>BASIL AYYUBI</b><span data-t="r3">Tour Manager</span></figcaption></figure>
-</div>
-<div class="tq"><p data-t="slg">Bharosa banaye rakhen, hum tasviro me hi nahi, taklifo me bhi khade milenge</p><small data-t="slg2">Keep your trust in us. We stand with you not only in photographs, but in every hardship too.</small><em data-t="since">Serving pilgrims since 2001 · Founded by Ismail Ayyubi</em></div>
-</section>
+
 <h2 class="h sh rv" data-t="stories">Pilgrim stories · Hajj 2026</h2>
 </div>
 <div class="car rv">
@@ -1223,16 +1264,13 @@ html.sva .svb:not(.go){opacity:0;transform:scale(.5)}
 <button class="vc" data-v="faisal" aria-label="Faisal Ahmed, Hajj 2026"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-ds="poster-faisal.jpg" alt="Faisal Ahmed speaking about his Hajj 2026 journey" loading="lazy" fetchpriority="low" width="405" height="720"><span class="pl"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span><span class="vt"><b>Faisal Ahmed</b><small data-t="v3">Malegaon · Hajj 2026</small></span></button>
 </div>
 <div class="pad" style="margin-top:16px">
-<div class="grid4 rv">
-<button class="tile" data-go="reg" data-sel="umrah"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></span><span data-t="umr">Umrah packages</span></button>
-<button class="tile" data-go="reg"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg></span><span data-t="reg">Register interest</span></button>
-<button class="tile" data-go="news"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h13v14H6a2 2 0 0 1-2-2z"/><path d="M17 9h3v8a2 2 0 0 1-2 2M8 9h5M8 13h5"/></svg></span><span data-t="news">Hajj news</span></button>
-<button class="tile" data-go="contact"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span><span data-t="n5">Contact</span></button>
-</div>
-<h2 class="h sh rv" data-t="faqh">Questions pilgrims ask</h2><div id="hfaq" class="rv"></div>
+<div class="hsl1 rv"><button class="tile hslim" data-go="reg" data-sel="umrah"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></span><span data-t="umr">Umrah packages</span></button><button class="tile hslim" data-faqgo><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5V14M12 17h.01"/></svg></span><span data-t="faqh">Questions pilgrims ask</span></button></div>
 <p class="foot"><bdi dir="ltr">461/B, Khayaban Nishat Chowk, Motipura, Malegaon</bdi></p><p class="foot"><a class="prv" href="privacy.html" target="_blank" rel="noopener" data-t="priv">Privacy policy</a></p>
 </div>
 </section>
+
+<!-- TAWAF & SA'I COUNTER -->
+<section class="scr" id="tw" aria-label="Tawaf and Sa'i counter"></section>
 
 <!-- PACKAGES -->
 <section class="scr" id="pkgs" aria-label="Hajj 2027 packages">
@@ -1560,7 +1598,7 @@ function mzIco(k){return{share:'<svg viewBox="0 0 24 24" fill="none" stroke="cur
 function renderMz(){const b=$('#mzh');if(!b)return;if(!mzInit){mzInit=1;mzTab=store.get('mzTab')||'mk';try{mzCity=JSON.parse(store.get('mzCity')||'null')}catch(e){}}
  {const c=$('#mzc')||b;c.innerHTML='<div class="card mzcd"><p class="t1">'+esc(mz('cdT'))+'</p><div class="mzu" dir="ltr">'+mz('u').map((u,i)=>'<span><b data-mzu="'+i+'">–</b><small>'+esc(u)+'</small></span>').join('')+'</div><p class="t2">'+esc(mz('cdS'))+'</p><p class="t3">'+esc(mz('moon'))+'</p></div>'}
  b.innerHTML=(b===$('#mzc')?b.innerHTML:'')+'<div class="card mzpt"><h3><span>'+esc(mz('ptT'))+'</span><small data-mzz></small></h3><div class="mztb" role="tablist">'+['mk','md','my'].map(k=>'<button type="button" role="tab" data-mzt="'+k+'" class="'+(k===mzTab?'on':'')+'" aria-selected="'+(k===mzTab)+'">'+esc(mz(k))+'</button>').join('')+'</div><div data-mzb></div><p class="mzn">'+esc(mz('ptN'))+'</p></div>'+
- '<div class="mztl"><div class="card mzfx" data-fx></div><button type="button" class="card" data-mzo="qibla">'+mzIco('qibla')+'<b>'+esc(mz('qbT'))+'</b><small>'+esc(mz('qbS'))+'</small></button></div>';
+ '<div class="mztl"><div class="card mzfx" data-fx></div><button type="button" class="card mztw" data-twgo>'+TWIC+'<span><b>'+esc(twt('t'))+'</b><small>'+esc(twt('tile'))+'</small></span></button><button type="button" class="card" data-mzo="qibla">'+mzIco('qibla')+'<b>'+esc(mz('qbT'))+'</b><small>'+esc(mz('qbS'))+'</small></button></div>';
  mzPrayers();mzTick();fxPaint()}
 function mzCityPicker(){return '<div class="mzcity"><div class="rw"><select class="mzsel" data-mzsel aria-label="'+esc(mz('pick'))+'"><option value="">'+esc(mz('pick'))+'</option>'+MZCITIES.map((c,i)=>'<option value="'+i+'"'+(mzCity&&mzCity.n===c[0]?' selected':'')+'>'+c[0]+'</option>').join('')+'</select></div><button type="button" class="btn d s" data-mzgps>'+esc(mz('gps'))+'</button>'+(mzErr?'<p class="mzer">'+esc(mz('locErr'))+'</p>':'')+'</div>'}
 function mzPrayers(){const b=$('#mzh [data-mzb]');if(!b)return;const P=mzPlace(),z=$('#mzh [data-mzz]');
@@ -2596,6 +2634,77 @@ function fxGet(){fxBusy=true;const save=(r,t)=>{if(!(r>5&&r<100))throw 0;FX={r,t
  fetch('https://open.er-api.com/v6/latest/SAR').then(x=>x.json()).then(j=>save(j.rates.INR,j.time_last_update_unix*1000))
  .catch(()=>fetch('https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/sar.min.json').then(x=>x.json()).then(j=>save(j.sar.inr,Date.parse(j.date))))
  .catch(()=>{fxBusy=false})}
+
+/* v44: Tawaf & Sa'i counter (hold to count – no accidental counts) */
+ids.push('tw');ord.tw=0.5;
+const TWIC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 9 9"/><path d="M21 12l-2.2-1.6M21 12l1.4-2.3"/><rect x="10" y="10" width="4" height="4" rx=".6"/></svg>';
+const TWT={en:{t:"Tawaf & Sa'i counter",tile:'Count your 7 rounds – made for the Haram, works offline',tw:'Tawaf',sa:"Sa'i",hold:'Press & hold to count a round',rd:'Round',of:'of 7',undo:'Hold: undo last',reset:'Hold: start again',
+  twS:'Begin each round at the Hajr-e-Aswad (Black Stone) corner.',twDone:'Tawaf complete – Alhamdulillah! Pray 2 rakat (near Maqam-e-Ibrahim if possible) and drink Zamzam.',saDone:"Sa'i complete – Alhamdulillah!",
+  s2m:'Next: Safa → Marwah',m2s:'Next: Marwah → Safa',duaH:'Between Rukn-e-Yamani and Hajr-e-Aswad',mean:'Our Lord, give us good in this world and good in the Hereafter, and save us from the punishment of the Fire.',
+  note:'Screen stays on. Your count is saved even if the app closes. Ask your group scholar for the full method.'},
+ ur:{t:'طواف و سعی کاؤنٹر',tile:'اپنے 7 چکر گنیں – حرم کے لیے، بغیر انٹرنیٹ',tw:'طواف',sa:'سعی',hold:'ایک چکر گننے کے لیے دبا کر رکھیں',rd:'چکر',of:'میں سے 7',undo:'دبائیں: آخری واپس',reset:'دبائیں: دوبارہ شروع',
+  twS:'ہر چکر حجرِ اسود کے کونے سے شروع کریں۔',twDone:'طواف مکمل – الحمدللہ! دو رکعت (ممکن ہو تو مقامِ ابراہیم کے پاس) پڑھیں اور زمزم پئیں۔',saDone:'سعی مکمل – الحمدللہ!',
+  s2m:'اگلا: صفا سے مروہ',m2s:'اگلا: مروہ سے صفا',duaH:'رکنِ یمانی اور حجرِ اسود کے درمیان',mean:'اے ہمارے رب! ہمیں دنیا میں بھلائی عطا فرما اور آخرت میں بھلائی عطا فرما اور ہمیں آگ کے عذاب سے بچا۔',
+  note:'اسکرین روشن رہے گی۔ ایپ بند ہونے پر بھی گنتی محفوظ رہے گی۔ مکمل طریقہ اپنے گروپ کے عالم سے معلوم کریں۔'},
+ hi:{t:'तवाफ़ और सई काउंटर',tile:'अपने 7 चक्कर गिनें – हरम के लिए, बिना इंटरनेट',tw:'तवाफ़',sa:'सई',hold:'एक चक्कर गिनने के लिए दबाकर रखें',rd:'चक्कर',of:'7 में से',undo:'दबाएँ: पिछला हटाएँ',reset:'दबाएँ: फिर से शुरू',
+  twS:'हर चक्कर हजरे-अस्वद (काला पत्थर) वाले कोने से शुरू करें।',twDone:'तवाफ़ पूरा – अल्हम्दुलिल्लाह! दो रकात (हो सके तो मक़ामे-इब्राहीम के पास) पढ़ें और ज़मज़म पिएँ।',saDone:'सई पूरी – अल्हम्दुलिल्लाह!',
+  s2m:'अगला: सफ़ा से मरवा',m2s:'अगला: मरवा से सफ़ा',duaH:'रुक्ने-यमानी और हजरे-अस्वद के बीच',mean:'ऐ हमारे रब! हमें दुनिया में भलाई दे और आख़िरत में भलाई दे और हमें आग के अज़ाब से बचा।',
+  note:'स्क्रीन चालू रहेगी। ऐप बंद होने पर भी गिनती सुरक्षित रहेगी। पूरा तरीका अपने ग्रुप के आलिम से पूछें।'},
+ gu:{t:'તવાફ અને સઈ કાઉન્ટર',tile:'તમારા 7 ચક્કર ગણો – હરમ માટે, ઇન્ટરનેટ વગર',tw:'તવાફ',sa:'સઈ',hold:'એક ચક્કર ગણવા દબાવીને રાખો',rd:'ચક્કર',of:'7 માંથી',undo:'દબાવો: છેલ્લું પાછું',reset:'દબાવો: ફરી શરૂ',
+  twS:'દરેક ચક્કર હજરે અસવદ (કાળા પથ્થર) ના ખૂણેથી શરૂ કરો.',twDone:'તવાફ પૂરો – અલ્હમ્દુલિલ્લાહ! બે રકાત (શક્ય હોય તો મકામે ઇબ્રાહીમ પાસે) પઢો અને ઝમઝમ પીઓ.',saDone:'સઈ પૂરી – અલ્હમ્દુલિલ્લાહ!',
+  s2m:'આગળ: સફાથી મરવા',m2s:'આગળ: મરવાથી સફા',duaH:'રુક્ને યમાની અને હજરે અસવદ વચ્ચે',mean:'હે અમારા રબ! અમને દુનિયામાં ભલાઈ આપ અને આખિરતમાં ભલાઈ આપ અને અમને આગના અઝાબથી બચાવ.',
+  note:'સ્ક્રીન ચાલુ રહેશે. ઍપ બંધ થાય તો પણ ગણતરી સચવાશે. પૂરી રીત તમારા ગ્રુપના આલિમને પૂછો.'}};
+const twt=k=>(TWT[lang]||TWT.en)[k];
+let TW={m:'tw',tw:0,sa:0};try{Object.assign(TW,JSON.parse(store.get('twCount')||'{}'))}catch(e){}
+const twSave=()=>store.set('twCount',JSON.stringify(TW));
+function renderTw(){const b=$('#tw');if(!b)return;const n=TW[TW.m],seg=[];
+ for(let i=0;i<7;i++){const a0=i/7*2*Math.PI+0.11,a1=(i+1)/7*2*Math.PI-0.11,r=46,x0=50+r*Math.cos(a0),y0=50+r*Math.sin(a0),x1=50+r*Math.cos(a1),y1=50+r*Math.sin(a1);
+  seg.push('<path class="sg'+(i<n?' on':'')+'" d="M'+x0.toFixed(2)+' '+y0.toFixed(2)+' A'+r+' '+r+' 0 0 1 '+x1.toFixed(2)+' '+y1.toFixed(2)+'"/>')}
+ const dir=TW.m==='sa'&&n<7?(n%2===0?twt('s2m'):twt('m2s')):'';
+ b.innerHTML='<div class="twin"><div class="twh"><button type="button" class="twb" data-twback aria-label="Back">‹</button><h1 class="h shine">'+esc(twt('t'))+'</h1></div>'+
+  '<div class="twt" role="tablist"><button type="button" role="tab" data-twm="tw" class="'+(TW.m==='tw'?'on':'')+'">'+esc(twt('tw'))+'</button><button type="button" role="tab" data-twm="sa" class="'+(TW.m==='sa'?'on':'')+'">'+esc(twt('sa'))+'</button></div>'+
+  '<div class="twc" data-twc role="button" aria-label="'+esc(twt('hold'))+'"><svg viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="twg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FBEBB5"/><stop offset=".5" stop-color="#D9B44A"/><stop offset="1" stop-color="#A87B28"/></linearGradient></defs>'+seg.join('')+'<circle class="hp" cx="50" cy="50" r="38" pathLength="1"/></svg>'+
+  '<div class="twm"><small>'+esc(twt('rd'))+'</small><b>'+n+'</b><small>'+esc(twt('of'))+'</small><i>'+esc(n<7?twt('hold'):'✓')+'</i></div></div>'+
+  '<p class="twd">'+esc(dir)+'</p>'+
+  '<p class="twdone'+(n>=7?' on':'')+'">'+esc(TW.m==='tw'?twt('twDone'):twt('saDone'))+'</p>'+
+  '<div class="twk"><button type="button" data-twh="undo">'+esc(twt('undo'))+'</button><button type="button" data-twh="reset">'+esc(twt('reset'))+'</button></div>'+
+  (TW.m==='tw'?'<div class="card twdua"><small>'+esc(twt('twS'))+'</small><small style="color:var(--mu);font-weight:600">'+esc(twt('duaH'))+'</small><p class="ar" lang="ar" dir="rtl">رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ</p><p>'+esc(twt('mean'))+'</p></div>':'')+
+  '<p class="twn">'+esc(twt('note'))+'</p></div>'}
+let twLock=0,twWake=null;
+const twWakeOn=()=>{try{if(navigator.wakeLock&&!twWake)navigator.wakeLock.request('screen').then(l=>{twWake=l;l.addEventListener('release',()=>{twWake=null})}).catch(()=>{})}catch(e){}};
+const twWakeOff=()=>{try{if(twWake)twWake.release()}catch(e){}twWake=null};
+function twAdd(d){const n=TW[TW.m];if(d>0&&n>=7)return;if(d<0&&n<=0)return;TW[TW.m]=n+d;twSave();renderTw();
+ const c=$('[data-twc]');if(c&&d>0){c.classList.add('pop');setTimeout(()=>c&&c.classList.remove('pop'),520)}
+ try{if(navigator.vibrate)navigator.vibrate(d>0?(TW[TW.m]>=7?[60,80,60,80,120]:70):[30,40,30])}catch(e){}
+ try{sfx(d>0?'ok':'pop')}catch(e){}}
+/* press & hold engine: only one finger, must stay on the element, 0.8 s (count) / 1 s (undo, reset) */
+(function(){let t=null,el=null,pid=null,x0=0,y0=0;const pts=new Set();
+ const stop=()=>{clearTimeout(t);t=null;if(el)el.classList.remove('hold');el=null;pid=null};
+ document.addEventListener('pointerdown',e=>{pts.add(e.pointerId);if(cur!=='tw')return;const c=e.target.closest('[data-twc],[data-twh]');if(!c)return;
+  if(pts.size>1){stop();return}if(c.matches('[data-twc]')&&(Date.now()<twLock||TW[TW.m]>=7))return;
+  e.preventDefault();el=c;pid=e.pointerId;x0=e.clientX;y0=e.clientY;c.classList.add('hold');
+  t=setTimeout(()=>{const k=el;stop();if(!k)return;if(k.matches('[data-twc]')){twLock=Date.now()+2500;twAdd(1)}else if(k.dataset.twh==='undo')twAdd(-1);else{TW[TW.m]=0;twSave();renderTw();try{if(navigator.vibrate)navigator.vibrate([30,40,30])}catch(x){}}},c.matches('[data-twc]')?800:1000)});
+ document.addEventListener('pointermove',e=>{if(e.pointerId===pid&&Math.hypot(e.clientX-x0,e.clientY-y0)>18)stop()});
+ ['pointerup','pointercancel','pointerleave'].forEach(n=>document.addEventListener(n,e=>{pts.delete(e.pointerId);if(e.pointerId===pid)stop()},true));
+ document.addEventListener('contextmenu',e=>{if(e.target.closest('#tw'))e.preventDefault()});
+ document.addEventListener('visibilitychange',()=>{stop();if(!document.hidden&&cur==='tw')twWakeOn()})})();
+document.addEventListener('click',e=>{
+ if(e.target.closest('[data-twgo]')){hap();renderTw();go('tw');twWakeOn();return}
+ if(e.target.closest('[data-twback]')){twWakeOff();if(history.state&&history.state.app)history.back();else go('home');return}
+ const m=e.target.closest('[data-twm]');if(m&&cur==='tw'){TW.m=m.dataset.twm;twSave();renderTw();hap();return}
+ if(e.target.closest('[data-faqgo]')){hap();go('pkgs');setTimeout(()=>{const f=$('#mfaq');if(f)f.scrollIntoView({behavior:RM?'auto':'smooth',block:'start'})},650)}});
+setInterval(()=>{if(cur!=='tw'&&twWake)twWakeOff()},2000);
+/* v44: swipe between bottom-tab pages */
+(function(){const TABS=['home','pkgs','news','fb','trust','contact'];let sx=0,sy=0,st=0,ok=false;
+ const app=$('#app');if(!app)return;
+ app.addEventListener('touchstart',e=>{ok=false;if(e.touches.length!==1||!TABS.includes(cur))return;const t=e.touches[0],w=innerWidth;
+  if(t.clientX<24||t.clientX>w-24)return;
+  if(e.target.closest('.deck,.dk,.car,.igc,.hfs,.mztb,.tzg3,.tabs,.xgtb,input,select,textarea,.ov,[data-twc],.nav,#fib,.spa,#spl'))return;
+  if(document.querySelector('.ov.on'))return;sx=t.clientX;sy=t.clientY;st=Date.now();ok=true},{passive:true});
+ app.addEventListener('touchend',e=>{if(!ok)return;ok=false;const t=e.changedTouches[0],dx=t.clientX-sx,dy=t.clientY-sy;
+  if(Date.now()-st>650||Math.abs(dx)<80||Math.abs(dy)>Math.abs(dx)*0.45)return;
+  const rtl=document.documentElement.dir==='rtl',step=(dx<0?1:-1)*(rtl?-1:1),i=TABS.indexOf(cur)+step;
+  if(i<0||i>=TABS.length)return;hap();go(TABS[i])},{passive:true})})();
 const zKey=(ic,k)=>ic==='food'?(k==='long'?'buffet':'meal'):ic==='bus'?(k==='long'?'lux':'local'):ic==='mosque'?'mosque':SC[ic]?ic:null;
 function zPos(m,e){const L=m.L,p=m.Pth.getPointAtLength(L*e);let tf='translate('+p.x.toFixed(1)+' '+p.y.toFixed(1)+')';
 if(m.rot){const a=m.Pth.getPointAtLength(Math.max(0,L*e-1)),b=m.Pth.getPointAtLength(Math.min(L,L*e+1));tf+=' rotate('+(Math.atan2(b.y-a.y,b.x-a.x)*180/Math.PI).toFixed(1)+')'}
@@ -3004,7 +3113,7 @@ keep({type:'Feedback',rating:s,notes:x.slice(0,2000),source:srcName(),website:hp
 function renderNews(){const nl=$('#nl'),ph=$('#nph');if(!nl||!ph)return;$$('.mnw',nl).forEach(e=>e.remove());const on=$('#news').classList.contains('on');
 NEWS.forEach((x,i)=>{const L=x[lang]||x.en,a=document.createElement('article');a.className='card nw rv mnw'+(i===0?' glowb':'')+(on?' vis':'');a.innerHTML='<small><bdi dir="ltr">'+esc(x.d)+' · '+esc(x.src)+'</bdi></small><b>'+esc(L[0])+'</b><p class="mu" style="margin:0">'+esc(L[1])+'</p>'+(x.url?'<a class="mnl" href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(t('nsrc'))+' ↗</a>':'');ph.before(a)});if(typeof renderSheetNews==='function')renderSheetNews()}
 /* FAQ accordion (FAQ list at the top of the script) */
-function renderFaq(){renderGrt();renderMzi();renderIg();renderMz();renderHomeFaq();const b=$('#mfaq');if(!b)return;const L=FAQ[lang]||FAQ.en;b.innerHTML=L.map(q=>'<details class="card mfq"><summary><span>'+esc(q[0])+'</span>'+ic('chev',2.2)+'</summary><p class="mu">'+esc(q[1])+'</p></details>').join('')+'<div class="card note mfqa"><span>'+esc(t('faqq'))+'</span><a class="btn d s" href="https://wa.me/'+OFFICE_WA+'?text='+encodeURIComponent('Assalamu Alaikum. I have a question about Hajj 2027.')+'" target="_blank" rel="noopener">'+esc(t('faqa'))+'</a></div>'}
+function renderFaq(){if(typeof renderTw==='function')renderTw();renderGrt();renderMzi();renderIg();renderMz();renderHomeFaq();const b=$('#mfaq');if(!b)return;const L=FAQ[lang]||FAQ.en;b.innerHTML=L.map(q=>'<details class="card mfq"><summary><span>'+esc(q[0])+'</span>'+ic('chev',2.2)+'</summary><p class="mu">'+esc(q[1])+'</p></details>').join('')+'<div class="card note mfqa"><span>'+esc(t('faqq'))+'</span><a class="btn d s" href="https://wa.me/'+OFFICE_WA+'?text='+encodeURIComponent('Assalamu Alaikum. I have a question about Hajj 2027.')+'" target="_blank" rel="noopener">'+esc(t('faqa'))+'</a></div>'}
 /* v43: news from the Google Sheet (automatic + manual), in the reader's language, newest on top */
 let SHN=[];
 function renderSheetNews(){const nl=$('#nl');if(!nl)return;$$('.shn',nl).forEach(e=>e.remove());

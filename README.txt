@@ -1,10 +1,20 @@
-MEEZAB E RAHEMAT APP - VERSION 43 (9 November 2026)
+MEEZAB E RAHEMAT APP - VERSION 44 (10 November 2026)
 Uploaded to GitHub directly by Claude (Agent R). This zip is for your reference only - no need to upload it.
 
 FILES IN THIS VERSION
-index.html, sw.js (cache meezab-v45), README.txt.
+index.html, sw.js (cache meezab-v46), README.txt.
 
-WHAT IS NEW IN VERSION 43
+WHAT IS NEW IN VERSION 44
+- Shorter Home (about 18% less scrolling): removed the duplicate family section (still on Contact), the
+  Register / News / Contact shortcut tiles and the long FAQ cards. Umrah and "Questions pilgrims ask" are
+  now two slim rows (Questions opens the full FAQ on Packages). Install buttons unchanged.
+- Swipe left/right on a tab page to move between tabs (reversed in Urdu).
+- New Tawaf & Sa'i counter page (tile on Home): a round counts only with a 1-second press-and-hold; taps,
+  short presses, sliding fingers and a second hold within 2.5 s are ignored. Undo / Start again also need a
+  hold. Count saved on the phone, screen stays on, ring fills anti-clockwise. Sa'i shows the next direction
+  (Safa -> Marwah); Tawaf shows the start corner and the Rabbana atina dua with its meaning.
+
+EARLIER - VERSION 43
 - News page: news from the Google Sheet now shows in the reader's language (Urdu / Hindi / Gujarati / English)
   with "date - source" and a "Source" link, newest on top. Ready for the fully automatic daily news
   (Sheet script v5 - see SHEET-UPDATE-STEPS-v5.txt in the Project). Works with the old Sheet script too.
