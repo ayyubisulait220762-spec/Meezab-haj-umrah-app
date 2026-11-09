@@ -3002,11 +3002,18 @@ keep({type:'Feedback',rating:s,notes:x.slice(0,2000),source:srcName(),website:hp
 /* ---------- news from Google Sheet ---------- */
 /* built-in news (NEWS list at the top of the script) */
 function renderNews(){const nl=$('#nl'),ph=$('#nph');if(!nl||!ph)return;$$('.mnw',nl).forEach(e=>e.remove());const on=$('#news').classList.contains('on');
-NEWS.forEach((x,i)=>{const L=x[lang]||x.en,a=document.createElement('article');a.className='card nw rv mnw'+(i===0?' glowb':'')+(on?' vis':'');a.innerHTML='<small><bdi dir="ltr">'+esc(x.d)+' · '+esc(x.src)+'</bdi></small><b>'+esc(L[0])+'</b><p class="mu" style="margin:0">'+esc(L[1])+'</p>'+(x.url?'<a class="mnl" href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(t('nsrc'))+' ↗</a>':'');ph.before(a)})}
+NEWS.forEach((x,i)=>{const L=x[lang]||x.en,a=document.createElement('article');a.className='card nw rv mnw'+(i===0?' glowb':'')+(on?' vis':'');a.innerHTML='<small><bdi dir="ltr">'+esc(x.d)+' · '+esc(x.src)+'</bdi></small><b>'+esc(L[0])+'</b><p class="mu" style="margin:0">'+esc(L[1])+'</p>'+(x.url?'<a class="mnl" href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(t('nsrc'))+' ↗</a>':'');ph.before(a)});if(typeof renderSheetNews==='function')renderSheetNews()}
 /* FAQ accordion (FAQ list at the top of the script) */
 function renderFaq(){renderGrt();renderMzi();renderIg();renderMz();renderHomeFaq();const b=$('#mfaq');if(!b)return;const L=FAQ[lang]||FAQ.en;b.innerHTML=L.map(q=>'<details class="card mfq"><summary><span>'+esc(q[0])+'</span>'+ic('chev',2.2)+'</summary><p class="mu">'+esc(q[1])+'</p></details>').join('')+'<div class="card note mfqa"><span>'+esc(t('faqq'))+'</span><a class="btn d s" href="https://wa.me/'+OFFICE_WA+'?text='+encodeURIComponent('Assalamu Alaikum. I have a question about Hajj 2027.')+'" target="_blank" rel="noopener">'+esc(t('faqa'))+'</a></div>'}
-/* extra news from the Google Sheet (optional, English only), shown on top */
-if(LEAD_URL)fetch(LEAD_URL+'?action=news').then(r=>r.json()).then(a=>{if(!Array.isArray(a))return;const nl=$('#nl');a.slice().reverse().forEach(x=>{const c=document.createElement('article');c.className='card nw rv vis';const s=document.createElement('small'),b=document.createElement('b'),p=document.createElement('p');s.textContent=x.date||'';b.textContent=x.title||'';p.className='mu';p.style.margin='0';p.textContent=x.text||'';c.append(s,b,p);nl.prepend(c)})}).catch(()=>{});
+/* v43: news from the Google Sheet (automatic + manual), in the reader's language, newest on top */
+let SHN=[];
+function renderSheetNews(){const nl=$('#nl');if(!nl)return;$$('.shn',nl).forEach(e=>e.remove());
+ SHN.slice().reverse().forEach(x=>{const tr=(x.tr&&x.tr[lang])||{},ti=tr.t||x.title||'',tx=tr.x||x.text||'';const c=document.createElement('article');c.className='card nw rv vis shn';
+  const sm=document.createElement('small'),b=document.createElement('b');sm.innerHTML='<bdi dir="ltr"></bdi>';sm.firstChild.textContent=(x.date||'')+(x.source?' · '+x.source:'');b.textContent=ti;c.append(sm,b);
+  if(tx){const p=document.createElement('p');p.className='mu';p.style.margin='0';p.textContent=tx;c.append(p)}
+  if(x.link&&/^https:\/\//.test(x.link)){const a=document.createElement('a');a.className='mnl';a.href=x.link;a.target='_blank';a.rel='noopener';a.textContent=t('nsrc')+' ↗';c.append(a)}
+  nl.prepend(c)})}
+if(LEAD_URL)fetch(LEAD_URL+'?action=news').then(r=>r.json()).then(a=>{if(!Array.isArray(a))return;SHN=a;renderSheetNews()}).catch(()=>{});
 
 /* ---------- start ---------- */
 try{history.scrollRestoration='manual'}catch(e){}

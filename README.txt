@@ -1,12 +1,15 @@
-MEEZAB E RAHEMAT APP - VERSION 42 (9 November 2026)
+MEEZAB E RAHEMAT APP - VERSION 43 (9 November 2026)
 Uploaded to GitHub directly by Claude (Agent R). This zip is for your reference only - no need to upload it.
 
 FILES IN THIS VERSION
-index.html, sw.js (cache meezab-v44), README.txt, and 11 photos in the lighter .webp format:
-kaaba, kaaba-arch, umbrellas, makkah-street, nabawi-dusk, makkah, green-dome, madeenah, nabawi-plaza,
-jabal-omar, heart-dome (.webp). The old .jpg files stay on GitHub (not used any more).
+index.html, sw.js (cache meezab-v45), README.txt.
 
-WHAT IS NEW IN VERSION 41-42
+WHAT IS NEW IN VERSION 43
+- News page: news from the Google Sheet now shows in the reader's language (Urdu / Hindi / Gujarati / English)
+  with "date - source" and a "Source" link, newest on top. Ready for the fully automatic daily news
+  (Sheet script v5 - see SHEET-UPDATE-STEPS-v5.txt in the Project). Works with the old Sheet script too.
+
+EARLIER - VERSION 41-42
 - v42 Home: "Share your Hajj 2027 card" and "Invite your family" removed. New tile next to Qibla:
   1 SAR = Rs xx.xx (Saudi Riyal to Rupee market rate, updated daily, for reference; banks/exchangers may differ;
   credit "Rates By Exchange Rate API" as its free terms require). New slim "Share this app" card: Share button
