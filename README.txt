@@ -1,12 +1,22 @@
-MEEZAB E RAHEMAT APP - VERSION 40 (9 November 2026)
+MEEZAB E RAHEMAT APP - VERSION 42 (9 November 2026)
 Uploaded to GitHub directly by Claude (Agent R). This zip is for your reference only - no need to upload it.
 
 FILES IN THIS VERSION
-index.html, sw.js (cache meezab-v42), README.txt.
-Phones that already have the app: close it fully and open it again TWICE (or wait about 10 minutes) to get v40.
-After that, every future update shows on the first reopen.
+index.html, sw.js (cache meezab-v44), README.txt, and 11 photos in the lighter .webp format:
+kaaba, kaaba-arch, umbrellas, makkah-street, nabawi-dusk, makkah, green-dome, madeenah, nabawi-plaza,
+jabal-omar, heart-dome (.webp). The old .jpg files stay on GitHub (not used any more).
 
-WHAT IS NEW IN VERSION 40
+WHAT IS NEW IN VERSION 41-42
+- v42 Home: "Share your Hajj 2027 card" and "Invite your family" removed. New tile next to Qibla:
+  1 SAR = Rs xx.xx (Saudi Riyal to Rupee market rate, updated daily, for reference; banks/exchangers may differ;
+  credit "Rates By Exchange Rate API" as its free terms require). New slim "Share this app" card: Share button
+  opens the phone's share menu (WhatsApp, SMS, any app); small Install button beside it until installed.
+- v41 Speed: first open downloads only the essentials; other offline files are saved quietly 30 s later
+  (not on Data Saver / slow internet). 11 older photos 40% lighter, same look. Data Saver / 2G / 3G: still picture
+  instead of the opening video (all 16 Home photos kept). Gold sparkles start after the opening screen;
+  fewer on older phones. All other animations and effects unchanged.
+
+EARLIER - VERSION 40
 - Fix: phones kept showing the old version (still picture, Home photos not changing). The app now always checks
   GitHub for the newest version, fills its offline copy straight from GitHub, and reloads itself once if a newer
   version arrives within 15 seconds of opening.
