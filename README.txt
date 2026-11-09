@@ -1,17 +1,23 @@
-MEEZAB E RAHEMAT APP - UPLOAD PACKAGE (version 34, 3 November 2026)
-Version 32 or 33 is live on GitHub. This package has only the changed files.
+MEEZAB E RAHEMAT APP - VERSION 36 (9 November 2026)
+Uploaded to GitHub directly by Claude (Agent R). This zip is for your reference only - no need to upload it.
 
-WHAT TO UPLOAD
-3 files: index.html, sw.js and README.txt. Put them in the main folder of your GitHub repository (they replace the old ones).
+FILES IN THIS VERSION
+index.html, sw.js (cache meezab-v38), README.txt,
+font-noto-nastaliq-urdu-500.woff2 and font-noto-nastaliq-urdu-700.woff2 (new Urdu fonts).
+After about 2 minutes, open the app. If the old design still shows, close the app fully and open it again.
 
-HOW TO UPLOAD FROM A PHONE
-1. Extract the zip in your phone's Files app (tap the zip, then Extract).
-2. In Chrome, open github.com/ayyubisulait220762-spec/Meezab-haj-umrah-app
-3. Tap Add file > Upload files (tick "Desktop site" in Chrome's menu if you don't see it).
-4. Select all the extracted files and tap Commit changes.
-5. Wait about 2 minutes, then open the app link. If the old design still shows, close the app fully and open it again.
+WHAT IS NEW IN VERSION 35-36
+- v35 Urdu letters fixed: on Android phones, bold Urdu lost the top line of the letter kaf
+  (Package read wrong, Makkah read wrong, "Dekhein" read wrong). New fixed-weight Urdu fonts draw the letter in one piece.
+- v35 Bottom tab "Feedback" is now "Videos & Feedback" (Urdu, Hindi, Gujarati too); the page heading matches.
+- v35 Two-line tab names in Urdu no longer overlap.
+- v36 Opening screen: big gold "Install the app" button and an outlined "Tap to enter" button.
+  Android: opens the install pop-up, then enters the app. iPhone: shows the Add to Home Screen steps.
+  Instagram/Facebook: shows "Open in browser" help. Already installed: only "Tap to enter" shows.
+  While the Install button shows, the opening screen waits for a tap (no automatic close).
+  The Home "Install the app" card stays as a second chance.
 
-WHAT IS NEW IN VERSION 34 (since version 32)
+EARLIER - VERSION 33-34
 - v34 License & Achievements: the 3 portrait certificates now sit together in one row, then the 4 landscape ones full width;
   each tile has a small flag badge; heading "Certificates & awards".
 - v33 Talbiyah (labbaik Allahumma labbaik) on the splash screen and the Home banner: the small marks above the letters
