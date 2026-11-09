@@ -245,6 +245,20 @@ textarea.in{padding:14px 16px;min-height:104px;resize:vertical}
 @keyframes fi{from{opacity:0;transform:translateY(8px)}}
 
 
+
+
+/* v39: splash video (brighter, not too bright) */
+#spl>img.spv0{opacity:.68;filter:none;animation:none;object-position:0% 50%}
+#spvid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:0% 50%;opacity:0;transition:opacity 1.2s ease;pointer-events:none}
+#spvid.on{opacity:.68}
+#spl::after{background:radial-gradient(ellipse 75% 42% at 50% 44%,#000000a6 0%,#00000066 55%,transparent 100%),linear-gradient(180deg,#00000073 0%,transparent 22%,transparent 58%,#000000d9 88%,#000 100%)}
+
+/* v38: Home banner slideshow */
+.par .hsl{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.5s ease-in-out;transform:scale(1.04);transform-origin:50% 45%;backface-visibility:hidden}
+.par .hsl.on{opacity:1}
+.par .hsl.zm{animation:hzm 7.5s linear forwards}
+@keyframes hzm{from{transform:scale(1.04)}to{transform:scale(1.14)}}
+
 /* v37: floating Install pill (every page) */
 #fib{position:absolute;z-index:22;bottom:calc(var(--nh) + 12px);inset-inline-end:12px;display:flex;align-items:center;gap:6px;transition:bottom .35s,opacity .3s,transform .3s}
 #fib[hidden]{display:none}
@@ -1137,7 +1151,7 @@ html.sva .svb:not(.go){opacity:0;transform:scale(.5)}
 <div id="app">
 
 <div id="spl" role="button" aria-label="Enter the app">
-<img src="kaaba-arch.jpg" alt="The Kaaba seen through a marble arch of Masjid al-Haram" style="object-position:50% 62%" fetchpriority="high">
+<img src="splash-meezab.webp" alt="Rain pouring from the golden Meezab-e-Rahmat of the Kaaba" fetchpriority="high" class="spv0"><video id="spvid" muted playsinline loop preload="auto" poster="splash-meezab.webp" aria-hidden="true" tabindex="-1" disablepictureinpicture></video>
 <div class="sc"><img class="slogo" src="logo.webp" alt="Meezab E Rahemat" width="156" height="156"><p class="ar" lang="ar" dir="rtl">لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ</p><p class="brand shine" style="margin:0">MEEZAB E RAHEMAT</p><p class="mu" style="margin:0" data-t="tag">Haj · Umrah · Ziyarat Tours</p></div>
 <span class="tap"><i></i><span data-t="tapen">Tap to enter</span></span>
 </div>
@@ -2869,6 +2883,13 @@ addEventListener('resize',()=>{setTab();if(run)sizeC()});
 let spDone=false;
 function hideSplash(){if(spDone)return;spDone=true;$('#spl').classList.add('x');enter($('#'+cur));setTab();setTimeout(()=>{const s=$('#spl');if(s)s.remove()},1000)}
 $('#spl').addEventListener('click',e=>{if(e.target.closest('.spi,.sph'))return;playTalbiyah();setTimeout(hideSplash,TALBIYAH&&sndOn?700:0)}); playTalbiyah();
+
+/* v39: start the splash video (muted loop); keep the still frame if it can't play */
+(function(){const v=$('#spvid');if(!v)return;if(RM){v.remove();return}
+ v.src='splash-meezab.mp4';v.muted=true;v.defaultMuted=true;
+ const show=()=>v.classList.add('on');v.addEventListener('playing',show,{once:true});
+ const p=v.play();if(p)p.catch(()=>{});
+ const sp=$('#spl');if(sp)new MutationObserver(()=>{if(sp.classList.contains('x'))setTimeout(()=>{try{v.pause()}catch(e){}},1000)}).observe(sp,{attributes:true,attributeFilter:['class']})})();
 /* v36: Install + Enter buttons on the opening screen (hidden when the app is already installed) */
 ['en','ur','hi','gu'].forEach(l=>{if(T[l])T[l].spib=(MZI[l]||MZI.en).ib});
 const spCanInst=!mzStandalone()&&!mzInstalled;
@@ -2946,6 +2967,20 @@ if(LEAD_URL)fetch(LEAD_URL+'?action=news').then(r=>r.json()).then(a=>{if(!Array.
 try{history.scrollRestoration='manual'}catch(e){}
 const pin=()=>{if(app.scrollLeft||app.scrollTop){app.scrollLeft=0;app.scrollTop=0}};app.addEventListener('scroll',pin);addEventListener('load',pin);
 {const h=pick(HOME_HERO),im=$('#hhi');im.src=h[0];im.alt=IMGALT[h[0]]||'';im.style.objectPosition=h[1]}
+/* v38: Home banner slideshow – 16 photos, random, ~4 s + 1.5 s fade, slow zoom */
+Object.assign(IMGALT,{'hero-nabawi-rain.webp':'Dome and minaret of Masjid an-Nabawi after rain, Madinah','hero-green-dome.webp':'The Green Dome and minarets of Masjid an-Nabawi at sunset','hero-kaaba-tower.webp':'The Kaaba with the Makkah Clock Tower behind it','hero-kaaba-door.webp':'Pilgrims at the door of the Kaaba','hero-tower-night.webp':'Makkah Clock Tower lit green at night above Masjid al-Haram'});
+const HSL=[['kaaba.jpg','50% 30%'],['umbrellas.jpg','50% 30%'],['makkah-street.jpg','50% 30%'],['kaaba-arch.jpg','50% 62%'],['nabawi-dusk.jpg','50% 30%'],['makkah.jpg','50% 35%'],['green-dome.jpg','50% 55%'],['madeenah.jpg','40% 52%'],['nabawi-plaza.jpg','50% 40%'],['jabal-omar.jpg','50% 50%'],['heart-dome.jpg','50% 45%'],
+ ['hero-nabawi-rain.webp','52% 50%'],['hero-green-dome.webp','56% 50%'],['hero-kaaba-tower.webp','50% 50%'],['hero-kaaba-door.webp','52% 40%'],['hero-tower-night.webp','84% 30%']];
+(function(){const a=$('#hhi');if(!a)return;const par=a.parentNode;a.classList.remove('kb');a.classList.add('hsl','on');if(!RM)a.classList.add('zm');
+ const b=document.createElement('img');b.className='hsl';b.alt='';b.decoding='async';b.setAttribute('aria-hidden','true');par.appendChild(b);
+ const L=[a,b];let top=0,shown=a.getAttribute('src'),bag=[];
+ const next=()=>{if(!bag.length){bag=HSL.filter(x=>x[0]!==shown);for(let i=bag.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[bag[i],bag[j]]=[bag[j],bag[i]]}}return bag.pop()};
+ const step=()=>{if(document.hidden||cur!=='home'){setTimeout(step,1200);return}
+  const h=next(),im=new Image();im.src=h[0];
+  const swap=()=>{const nx=L[1-top],ol=L[top];nx.src=h[0];nx.alt=IMGALT[h[0]]||'';nx.style.objectPosition=h[1];nx.classList.remove('zm');void nx.offsetWidth;if(!RM)nx.classList.add('zm');
+   nx.classList.add('on');nx.removeAttribute('aria-hidden');ol.classList.remove('on');ol.setAttribute('aria-hidden','true');top=1-top;shown=h[0];setTimeout(step,5500)};
+  (im.decode?im.decode():Promise.resolve()).then(swap,()=>setTimeout(step,800))};
+ const start=()=>setTimeout(step,4000);if(document.readyState==='complete')start();else addEventListener('load',start,{once:true})})();
 setLang(store.get('lang')||'en');
 {const h=location.hash.slice(1);if(PKM[h]){renderPd(h);$('#home').classList.remove('on');$('#pd').classList.add('on');cur='pd'}else if(ids.includes(h)&&h!=='home'&&h!=='pd'){$('#home').classList.remove('on');$('#'+h).classList.add('on');cur=h;if(h==='reg')resetForm()}}
 setTab();
