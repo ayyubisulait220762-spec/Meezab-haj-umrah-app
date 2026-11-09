@@ -249,6 +249,38 @@ textarea.in{padding:14px 16px;min-height:104px;resize:vertical}
 
 
 
+
+/* v45: Sa'i track */
+.sai{position:relative;margin:4px auto 0;width:100%;max-width:420px}
+.sai svg{display:block;width:100%;height:auto;overflow:visible}
+.sai .tr{stroke:#4a3d1c;stroke-width:10;stroke-linecap:round}
+.sai .gz{stroke:#2FBF6A;stroke-width:10;stroke-linecap:butt;filter:drop-shadow(0 0 6px #2FBF6Aaa)}
+.sai .gl{fill:#7CF0A4;filter:drop-shadow(0 0 5px #2FBF6A)}
+.sai .gzl{fill:#7CD49A;font:700 9.5px Outfit,'Noto Nastaliq Urdu','Noto Sans Devanagari','Noto Sans Gujarati',sans-serif}
+.sai .ar2{fill:#E6C36A;opacity:.85}
+.sai .hill{fill:url(#sag);filter:drop-shadow(0 0 6px #E6C36A66)}
+.sai .hl{fill:#F8E4A6;font:800 13px Cinzel,'Noto Nastaliq Urdu','Noto Sans Devanagari','Noto Sans Gujarati',serif;letter-spacing:1px}
+.sai .dot{transition:transform 1.3s cubic-bezier(.45,.05,.3,1)}
+.sai .dot circle:first-child{fill:#F8E4A6;filter:drop-shadow(0 0 8px #E6C36A)}
+.sai .dot circle:last-child{fill:none;stroke:#F8E4A6;stroke-width:1.5;opacity:.6;animation:sap 1.6s ease-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes sap{from{transform:scale(1);opacity:.7}to{transform:scale(2.4);opacity:0}}
+.sach{display:flex;justify-content:center;gap:8px;margin-top:2px}
+.sach i{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:13px;border:1.5px solid #4a3d1c;color:var(--mu)}
+.sach i.on{background:var(--gg);border-color:transparent;color:#1b160b}
+.sach i.cu{border-color:#F8E4A6;color:var(--g2);box-shadow:0 0 12px #E6C36A66}
+.twbtn{position:relative;overflow:hidden;margin:6px auto 0;width:min(320px,86vw);height:104px;border-radius:26px;border:1.5px solid #E6C36A88;
+ background:radial-gradient(circle at 50% 30%,#2a2312,#0d0b07 80%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+ touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;cursor:pointer;box-shadow:0 0 30px #E6C36A1a}
+.twbtn::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#E6C36A55,#E6C36A22);transform:scaleX(0);transform-origin:left}
+[dir=rtl] .twbtn::before{transform-origin:right}
+.twbtn.hold::before{transition:transform .8s linear;transform:scaleX(1)}
+.twbtn.pop{animation:twp2 .5s ease}
+@keyframes twp2{40%{transform:scale(1.04);box-shadow:0 0 50px #E6C36A88}}
+.twbtn b{position:relative;font-family:var(--fd);font-size:40px;line-height:1;color:var(--g2)}
+.twbtn small{position:relative;font-size:12.5px;color:var(--gold);text-align:center;padding:0 10px}
+.twbtn.dn{opacity:.6}
+[lang=ur] .twbtn small{line-height:1.9}
+
 /* v44: slim Home rows */
 .hsl1{display:flex;flex-direction:column;gap:10px;margin-top:4px}
 .tile.hslim{flex-direction:row;justify-content:flex-start;gap:12px;min-height:58px;padding:10px 14px;text-align:start}
@@ -2654,6 +2686,10 @@ const TWT={en:{t:"Tawaf & Sa'i counter",tile:'Count your 7 rounds – made for t
   twS:'દરેક ચક્કર હજરે અસવદ (કાળા પથ્થર) ના ખૂણેથી શરૂ કરો.',twDone:'તવાફ પૂરો – અલ્હમ્દુલિલ્લાહ! બે રકાત (શક્ય હોય તો મકામે ઇબ્રાહીમ પાસે) પઢો અને ઝમઝમ પીઓ.',saDone:'સઈ પૂરી – અલ્હમ્દુલિલ્લાહ!',
   s2m:'આગળ: સફાથી મરવા',m2s:'આગળ: મરવાથી સફા',duaH:'રુક્ને યમાની અને હજરે અસવદ વચ્ચે',mean:'હે અમારા રબ! અમને દુનિયામાં ભલાઈ આપ અને આખિરતમાં ભલાઈ આપ અને અમને આગના અઝાબથી બચાવ.',
   note:'સ્ક્રીન ચાલુ રહેશે. ઍપ બંધ થાય તો પણ ગણતરી સચવાશે. પૂરી રીત તમારા ગ્રુપના આલિમને પૂછો.'}};
+Object.assign(TWT.en,{sf:'Safa',mr:'Marwah',gz:'Green lights – men walk faster',saDone:"Sa'i complete at Marwah – Alhamdulillah!"});
+Object.assign(TWT.ur,{sf:'صفا',mr:'مروہ',gz:'سبز روشنیاں – مرد تیز چلیں',saDone:'سعی مروہ پر مکمل – الحمدللہ!'});
+Object.assign(TWT.hi,{sf:'सफ़ा',mr:'मरवा',gz:'हरी बत्तियाँ – मर्द तेज़ चलें',saDone:'सई मरवा पर पूरी – अल्हम्दुलिल्लाह!'});
+Object.assign(TWT.gu,{sf:'સફા',mr:'મરવા',gz:'લીલી લાઇટ – પુરુષો ઝડપથી ચાલે',saDone:'સઈ મરવા પર પૂરી – અલ્હમ્દુલિલ્લાહ!'});
 const twt=k=>(TWT[lang]||TWT.en)[k];
 let TW={m:'tw',tw:0,sa:0};try{Object.assign(TW,JSON.parse(store.get('twCount')||'{}'))}catch(e){}
 const twSave=()=>store.set('twCount',JSON.stringify(TW));
@@ -2669,11 +2705,28 @@ function renderTw(){const b=$('#tw');if(!b)return;const n=TW[TW.m],seg=[];
   '<p class="twdone'+(n>=7?' on':'')+'">'+esc(TW.m==='tw'?twt('twDone'):twt('saDone'))+'</p>'+
   '<div class="twk"><button type="button" data-twh="undo">'+esc(twt('undo'))+'</button><button type="button" data-twh="reset">'+esc(twt('reset'))+'</button></div>'+
   (TW.m==='tw'?'<div class="card twdua"><small>'+esc(twt('twS'))+'</small><small style="color:var(--mu);font-weight:600">'+esc(twt('duaH'))+'</small><p class="ar" lang="ar" dir="rtl">رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ</p><p>'+esc(twt('mean'))+'</p></div>':'')+
-  '<p class="twn">'+esc(twt('note'))+'</p></div>'}
+  '<p class="twn">'+esc(twt('note'))+'</p></div>';if(TW.m==='sa')twSa(n)}
+
+/* v45: Sa'i track – Safa <-> Marwah */
+let twPrev=null;
+function twSa(n){const c=$('[data-twc]');if(!c)return;const rtl=document.documentElement.dir==='rtl',SX=rtl?290:30,MX=rtl?30:290,Y=58;
+ const at=k=>(k%2===0?SX:MX),from=(twPrev!==null&&twPrev!==n)?twPrev:n;twPrev=null;
+ const nextDir=n<7?(n%2===0?1:-1):0,arrows=[];
+ if(nextDir){const d=(MX>SX?1:-1)*nextDir;for(let i=1;i<=4;i++){const x=SX+(MX-SX)*i/5;arrows.push('<path class="ar2" d="M'+(x-5*d)+' '+(Y-5)+' L'+(x+5*d)+' '+Y+' L'+(x-5*d)+' '+(Y+5)+'z"/>')}}
+ const gx1=SX+(MX-SX)*0.4,gx2=SX+(MX-SX)*0.6,gl=Math.min(gx1,gx2);
+ const svg='<svg viewBox="0 0 320 112" aria-hidden="true"><defs><linearGradient id="sag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FBEBB5"/><stop offset=".55" stop-color="#D9B44A"/><stop offset="1" stop-color="#A87B28"/></linearGradient></defs>'+
+  '<line class="tr" x1="'+SX+'" y1="'+Y+'" x2="'+MX+'" y2="'+Y+'"/><line class="gz" x1="'+gx1+'" y1="'+Y+'" x2="'+gx2+'" y2="'+Y+'"/><circle class="gl" cx="'+gx1+'" cy="'+(Y-13)+'" r="3.5"/><circle class="gl" cx="'+gx2+'" cy="'+(Y-13)+'" r="3.5"/>'+arrows.join('')+
+  '<text class="gzl" x="160" y="'+(Y+30)+'" text-anchor="middle">'+esc(twt('gz'))+'</text>'+
+  [[SX,'sf'],[MX,'mr']].map(([x,k])=>'<path class="hill" d="M'+(x-26)+' '+(Y+12)+' Q'+x+' '+(Y-40)+' '+(x+26)+' '+(Y+12)+'z"/><text class="hl" x="'+x+'" y="'+(Y-34)+'" text-anchor="middle">'+esc(twt(k))+'</text>').join('')+
+  '<g class="dot" style="transform:translateX('+(at(from)-160)+'px)"><circle cx="160" cy="'+Y+'" r="8.5"/><circle cx="160" cy="'+Y+'" r="8.5"/></g></svg>';
+ const chips='<div class="sach">'+[1,2,3,4,5,6,7].map(i=>'<i class="'+(i<=n?'on':(i===n+1?'cu':''))+'">'+i+'</i>').join('')+'</div>';
+ const btn='<div class="twbtn'+(n>=7?' dn':'')+'" data-twc role="button" aria-label="'+esc(twt('hold'))+'"><small>'+esc(twt('rd'))+'</small><b><bdi dir="ltr">'+n+' / 7</bdi></b><small>'+esc(n<7?twt('hold'):'✓')+'</small></div>';
+ c.outerHTML='<div class="sai">'+svg+chips+'</div>'+btn;
+ if(from!==n)requestAnimationFrame(()=>requestAnimationFrame(()=>{const g=$('.sai .dot');if(g)g.style.transform='translateX('+(at(n)-160)+'px)'}))}
 let twLock=0,twWake=null;
 const twWakeOn=()=>{try{if(navigator.wakeLock&&!twWake)navigator.wakeLock.request('screen').then(l=>{twWake=l;l.addEventListener('release',()=>{twWake=null})}).catch(()=>{})}catch(e){}};
 const twWakeOff=()=>{try{if(twWake)twWake.release()}catch(e){}twWake=null};
-function twAdd(d){const n=TW[TW.m];if(d>0&&n>=7)return;if(d<0&&n<=0)return;TW[TW.m]=n+d;twSave();renderTw();
+function twAdd(d){const n=TW[TW.m];twPrev=n;if(d>0&&n>=7)return;if(d<0&&n<=0)return;TW[TW.m]=n+d;twSave();renderTw();
  const c=$('[data-twc]');if(c&&d>0){c.classList.add('pop');setTimeout(()=>c&&c.classList.remove('pop'),520)}
  try{if(navigator.vibrate)navigator.vibrate(d>0?(TW[TW.m]>=7?[60,80,60,80,120]:70):[30,40,30])}catch(e){}
  try{sfx(d>0?'ok':'pop')}catch(e){}}

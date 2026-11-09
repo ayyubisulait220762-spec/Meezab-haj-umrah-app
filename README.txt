@@ -1,10 +1,16 @@
-MEEZAB E RAHEMAT APP - VERSION 44 (10 November 2026)
+MEEZAB E RAHEMAT APP - VERSION 45 (10 November 2026)
 Uploaded to GitHub directly by Claude (Agent R). This zip is for your reference only - no need to upload it.
 
 FILES IN THIS VERSION
-index.html, sw.js (cache meezab-v46), README.txt.
+index.html, sw.js (cache meezab-v47), README.txt.
 
-WHAT IS NEW IN VERSION 44
+WHAT IS NEW IN VERSION 45
+- Sa'i counter now shows a straight path between SAFA and MARWAH (instead of the ring): a gold dot stands where
+  the pilgrim is and walks to the other hill after each counted round; arrows show the next direction; green-light
+  section ("men walk faster"); 7 small circles fill as rounds finish; round 7 ends at Marwah. Urdu: Safa on the right.
+  Same protection: only a 1-second press-and-hold counts. Tawaf keeps its anti-clockwise ring.
+
+EARLIER - VERSION 44
 - Shorter Home (about 18% less scrolling): removed the duplicate family section (still on Contact), the
   Register / News / Contact shortcut tiles and the long FAQ cards. Umrah and "Questions pilgrims ask" are
   now two slim rows (Questions opens the full FAQ on Packages). Install buttons unchanged.
