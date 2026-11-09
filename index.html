@@ -247,6 +247,8 @@ textarea.in{padding:14px 16px;min-height:104px;resize:vertical}
 
 
 
+/* v40: reduced-motion phones still get the soft banner fade */
+@media (prefers-reduced-motion:reduce){.par .hsl{transition:opacity 1.5s ease-in-out!important}#spvid{transition:opacity 1.2s ease!important}}
 /* v39: splash video (brighter, not too bright) */
 #spl>img.spv0{opacity:.68;filter:none;animation:none;object-position:0% 50%}
 #spvid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:0% 50%;opacity:0;transition:opacity 1.2s ease;pointer-events:none}
@@ -2885,7 +2887,7 @@ function hideSplash(){if(spDone)return;spDone=true;$('#spl').classList.add('x');
 $('#spl').addEventListener('click',e=>{if(e.target.closest('.spi,.sph'))return;playTalbiyah();setTimeout(hideSplash,TALBIYAH&&sndOn?700:0)}); playTalbiyah();
 
 /* v39: start the splash video (muted loop); keep the still frame if it can't play */
-(function(){const v=$('#spvid');if(!v)return;if(RM){v.remove();return}
+(function(){const v=$('#spvid');if(!v)return;
  v.src='splash-meezab.mp4';v.muted=true;v.defaultMuted=true;
  const show=()=>v.classList.add('on');v.addEventListener('playing',show,{once:true});
  const p=v.play();if(p)p.catch(()=>{});
@@ -2984,7 +2986,7 @@ const HSL=[['kaaba.jpg','50% 30%'],['umbrellas.jpg','50% 30%'],['makkah-street.j
 setLang(store.get('lang')||'en');
 {const h=location.hash.slice(1);if(PKM[h]){renderPd(h);$('#home').classList.remove('on');$('#pd').classList.add('on');cur='pd'}else if(ids.includes(h)&&h!=='home'&&h!=='pd'){$('#home').classList.remove('on');$('#'+h).classList.add('on');cur=h;if(h==='reg')resetForm()}}
 setTab();
-(function(){if(!('serviceWorker' in navigator)||!location.protocol.startsWith('http'))return;const reg=()=>setTimeout(()=>navigator.serviceWorker.register('sw.js').catch(()=>{}),0);if(document.readyState==='complete')reg();else addEventListener('load',reg,{once:true})})();
+(function(){if(!('serviceWorker' in navigator)||!location.protocol.startsWith('http'))return;const reg=()=>setTimeout(()=>navigator.serviceWorker.register('sw.js',{updateViaCache:'none'}).then(g=>{try{g.update()}catch(e){}}).catch(()=>{}),0);const had=!!navigator.serviceWorker.controller,t0=Date.now();let rl=false;navigator.serviceWorker.addEventListener('controllerchange',()=>{if(!had||rl||Date.now()-t0>15000)return;rl=true;location.reload()});if(document.readyState==='complete')reg();else addEventListener('load',reg,{once:true})})();
 </script>
 </body>
 </html>

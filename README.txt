@@ -1,13 +1,18 @@
-MEEZAB E RAHEMAT APP - VERSION 39 (9 November 2026)
+MEEZAB E RAHEMAT APP - VERSION 40 (9 November 2026)
 Uploaded to GitHub directly by Claude (Agent R). This zip is for your reference only - no need to upload it.
 
 FILES IN THIS VERSION
-index.html, sw.js (cache meezab-v41), README.txt,
-splash-meezab.mp4 + splash-meezab.webp (opening-screen video and its still frame),
-hero-nabawi-rain.webp, hero-green-dome.webp, hero-kaaba-tower.webp, hero-kaaba-door.webp, hero-tower-night.webp.
-After about 2 minutes, open the app. If the old design still shows, close the app fully and open it again.
+index.html, sw.js (cache meezab-v42), README.txt.
+Phones that already have the app: close it fully and open it again TWICE (or wait about 10 minutes) to get v40.
+After that, every future update shows on the first reopen.
 
-WHAT IS NEW IN VERSION 38-39
+WHAT IS NEW IN VERSION 40
+- Fix: phones kept showing the old version (still picture, Home photos not changing). The app now always checks
+  GitHub for the newest version, fills its offline copy straight from GitHub, and reloads itself once if a newer
+  version arrives within 15 seconds of opening.
+- Phones with "Remove animations" switched on now also get the Meezab video and the soft Home photo fade.
+
+EARLIER - VERSION 38-39
 - v39 Opening screen: silent looping video of the Meezab-e-Rahmat (golden spout of the Kaaba in rain) behind
   the logo, every time the app opens. Improved: corners removed, deeper black, richer gold, cleaner picture,
   seamless loop, 7.8 MB -> 0.7 MB. Brighter than the old photo, not too bright. Talbiyah sound unchanged.
