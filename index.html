@@ -1247,6 +1247,44 @@ html.sva .svb:not(.go){opacity:0;transform:scale(.5)}
 .jss i{position:absolute;top:8px;inset-inline-end:8px;z-index:1;display:flex;gap:4px}
 .jss i b{width:6px;height:6px;border-radius:3px;background:#ffffff66;transition:width .3s,background-color .3s}
 .jss i b.on{width:16px;background:#E6C36A}
+/* ---------- MY HAJJ (v46) ---------- */
+#mh.on .mhin{animation:twz .45s cubic-bezier(.2,.8,.2,1) both}
+.mhin{display:flex;flex-direction:column;gap:14px;max-width:460px;margin:0 auto;padding:calc(14px + env(safe-area-inset-top)) 16px 24px}
+.mhcard{display:flex;align-items:center;gap:14px;cursor:pointer;text-align:start;width:100%;color:var(--tx);font:inherit;border-color:#E6C36A88;box-shadow:0 0 0 1px #E6C36A22,0 10px 30px #d4af3722}
+.mhcard .ti{width:46px;height:46px;flex:none}
+.mhcard .ti svg{width:24px;height:24px}
+.mhcard b{display:block;font-family:var(--fd);color:var(--gold);font-size:17px}
+.mhcard small{display:block;color:var(--mu);font-size:13px;margin-top:2px}
+.mhcard .ar2{margin-inline-start:auto;color:var(--gold);font-size:24px}
+[dir=rtl] .mhcard .ar2{transform:scaleX(-1)}
+.mhin input.mhcode{width:100%;min-height:56px;border-radius:16px;border:1px solid var(--ln);background:var(--card2);color:var(--g2);font:700 22px/1 ui-monospace,Menlo,monospace;letter-spacing:3px;text-align:center;text-transform:uppercase;direction:ltr}
+.mhin input.mhcode:focus{outline:none;border-color:var(--gold)}
+.mherr{color:#F09A8A;font-size:14px;min-height:20px;text-align:center}
+.mhwel{text-align:center}
+.mhwel small{color:var(--mu)}
+.mhwel .nm{font-family:var(--fd);font-size:22px;color:var(--g2);margin:4px 0}
+.mhchip{display:inline-block;font:700 13px ui-monospace,Menlo,monospace;letter-spacing:1.5px;color:var(--gold);border:1px solid var(--ln);border-radius:20px;padding:4px 10px;margin-top:6px;direction:ltr}
+.mhcd{text-align:center;background:var(--gg);color:#15110A;border:0}
+.mhcd b{display:block;font:900 40px/1.1 'Cinzel',serif}
+.mhcd span{font-weight:700}
+.mhsec{font-size:11px;letter-spacing:2px;font-weight:700;color:var(--gold);margin:6px 2px -6px;text-transform:uppercase}
+.mhrow{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #5E4B1D55;font-size:14.5px}
+.mhrow:last-child{border-bottom:0}
+.mhrow span{color:var(--mu)}
+.mhrow bdi,.mhrow b{text-align:end;font-weight:600}
+.mhck{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mhck div{display:flex;align-items:center;gap:8px;font-size:13.5px;padding:9px 10px;border-radius:12px;background:var(--card2);border:1px solid #5E4B1D66}
+.mhck i{font-style:normal;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;flex:none;font-size:13px;background:#5E4B1D55;color:var(--mu)}
+.mhck .ok i{background:var(--gg);color:#15110A}
+.mhck .ok{color:var(--g2)}
+.mhal{border-inline-start:3px solid var(--gold)}
+.mhal small{color:var(--mu);font-size:12px}
+.mhal b{display:block;margin:2px 0;color:var(--g2)}
+.mhal p{margin:0;color:var(--tx);font-size:14.5px;white-space:pre-wrap}
+.mhnote{white-space:pre-wrap;font-size:14.5px}
+.mhmu{color:var(--mu);font-size:13px;text-align:center}
+.mhlink{background:none;border:0;color:var(--gold);font:inherit;font-size:14px;text-decoration:underline;cursor:pointer;padding:6px}
+.mhtools{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 </style>
 </head>
 <body>
@@ -1279,6 +1317,7 @@ html.sva .svb:not(.go){opacity:0;transform:scale(.5)}
 </header>
 
 <div class="pad">
+<div id="mhc" class="rv"></div>
 <div class="badges rv">
 <div class="bd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5" stroke-linecap="round"/></svg><span data-t="b1">Govt of India approved</span></div>
 <div class="bd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M4 8l8-4 8 4v10l-8 3-8-3z"/><path d="M4 8l8 3 8-3M12 11v10"/></svg><span data-t="b2">Ministry of Hajj, Saudi Arabia</span></div>
@@ -1303,6 +1342,9 @@ html.sva .svb:not(.go){opacity:0;transform:scale(.5)}
 
 <!-- TAWAF & SA'I COUNTER -->
 <section class="scr" id="tw" aria-label="Tawaf and Sa'i counter"></section>
+
+<!-- MY HAJJ -->
+<section class="scr" id="mh" aria-label="My Hajj"></section>
 
 <!-- PACKAGES -->
 <section class="scr" id="pkgs" aria-label="Hajj 2027 packages">
@@ -3195,9 +3237,86 @@ const HSL=[['kaaba.webp','50% 30%'],['umbrellas.webp','50% 30%'],['makkah-street
    nx.classList.add('on');nx.removeAttribute('aria-hidden');ol.classList.remove('on');ol.setAttribute('aria-hidden','true');top=1-top;shown=h[0];setTimeout(step,5500)};
   (im.decode?im.decode():Promise.resolve()).then(swap,()=>setTimeout(step,800))};
  const start=()=>setTimeout(step,4000);if(document.readyState==='complete')start();else addEventListener('load',start,{once:true})})();
+/* ---------- MY HAJJ (v46): booked pilgrim opens his own details with the code from Meezab ---------- */
+ids.push('mh');ord.mh=0.6;
+const MHIC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 3v4h8V3"/><path d="M8.5 13l2.5 2.5 4.5-5"/></svg>';
+const QBIC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 6.5l2.6 7.5L12 12.6 9.4 14z"/></svg>';
+const MHT={
+en:{t:'My Hajj',tile:'For booked pilgrims – your flights, hotel, room and messages',tap:'Tap to open your Hajj details',enter:'Enter your My Hajj code',hint:'You received this code from Meezab on WhatsApp',open:'Open My Hajj',bad:'This code is not correct. Please check it, or call the office.',net:'No internet. Please try again.',busy:'Server is busy. Please try again in a minute.',hi:'Assalamu Alaikum',dleft:'{n} days to your flight',hleft:'{n} hours to your flight',today:'Your flight is today',going:'Going flight',back:'Return flight',report:'Airport reporting',hotels:'Hotels & rooms',makkah:'Makkah',madinah:'Madinah',shifting:'Shifting hotel',room:'Room',leader:'Your group leader',call:'Call',wa:'WhatsApp',office:'Meezab office',docs:'Your checklist',note:'Note from Meezab',alerts:'Messages from Meezab',none:'No messages yet.',tools:'Hajj tools',qb:'Qibla',upd:'Updated {t}',offl:'Saved details – no internet',refresh:'Refresh',change:'Not you? Use another code',soon:'Your flight and hotel details will appear here when Meezab adds them.',pkg:'Package',grp:'Group',
+ ck:{'Passport':'Passport','Visa':'Visa','Vaccination':'Vaccination','Photos':'Photos','Ihram & kit':'Ihram & kit','Advance paid':'Advance paid','2nd instalment':'2nd instalment','Balance paid':'Balance paid'}},
+ur:{t:'میرا حج',tile:'بکنگ والے حجاج کے لیے – آپ کی فلائٹ، ہوٹل، کمرہ اور پیغامات',tap:'اپنی حج کی تفصیل دیکھنے کے لیے ٹیپ کریں',enter:'اپنا "میرا حج" کوڈ لکھیں',hint:'یہ کوڈ آپ کو میزاب کی طرف سے واٹس ایپ پر ملا ہے',open:'میرا حج کھولیں',bad:'یہ کوڈ درست نہیں ہے۔ براہِ کرم چیک کریں یا آفس کو فون کریں۔',net:'انٹرنیٹ نہیں ہے۔ دوبارہ کوشش کریں۔',busy:'سرور مصروف ہے۔ ایک منٹ بعد دوبارہ کوشش کریں۔',hi:'السلام علیکم',dleft:'آپ کی فلائٹ میں {n} دن باقی',hleft:'آپ کی فلائٹ میں {n} گھنٹے باقی',today:'آپ کی فلائٹ آج ہے',going:'جانے کی فلائٹ',back:'واپسی کی فلائٹ',report:'ایئرپورٹ رپورٹنگ',hotels:'ہوٹل اور کمرے',makkah:'مکہ',madinah:'مدینہ',shifting:'شفٹنگ ہوٹل',room:'کمرہ',leader:'آپ کے گروپ لیڈر',call:'کال',wa:'واٹس ایپ',office:'میزاب آفس',docs:'آپ کی چیک لسٹ',note:'میزاب کی طرف سے نوٹ',alerts:'میزاب کے پیغامات',none:'ابھی کوئی پیغام نہیں۔',tools:'حج کے ٹولز',qb:'قبلہ',upd:'اپڈیٹ: {t}',offl:'محفوظ تفصیلات – انٹرنیٹ نہیں',refresh:'ریفریش',change:'یہ آپ نہیں؟ دوسرا کوڈ لکھیں',soon:'جب میزاب آپ کی فلائٹ اور ہوٹل کی تفصیل شامل کرے گا تو یہاں نظر آئے گی۔',pkg:'پیکیج',grp:'گروپ',
+ ck:{'Passport':'پاسپورٹ','Visa':'ویزا','Vaccination':'ویکسین','Photos':'تصاویر','Ihram & kit':'احرام اور کٹ','Advance paid':'ایڈوانس ادا','2nd instalment':'دوسری قسط','Balance paid':'بقیہ رقم ادا'}},
+hi:{t:'मेरा हज',tile:'बुकिंग वाले हाजियों के लिए – आपकी फ़्लाइट, होटल, कमरा और संदेश',tap:'अपनी हज की जानकारी देखने के लिए टैप करें',enter:'अपना "मेरा हज" कोड लिखें',hint:'यह कोड आपको मीज़ाब की ओर से WhatsApp पर मिला है',open:'मेरा हज खोलें',bad:'यह कोड सही नहीं है। कृपया जाँचें या ऑफ़िस को कॉल करें।',net:'इंटरनेट नहीं है। फिर से कोशिश करें।',busy:'सर्वर व्यस्त है। एक मिनट बाद फिर से कोशिश करें।',hi:'अस्सलामु अलैकुम',dleft:'आपकी फ़्लाइट में {n} दिन बाकी',hleft:'आपकी फ़्लाइट में {n} घंटे बाकी',today:'आपकी फ़्लाइट आज है',going:'जाने की फ़्लाइट',back:'वापसी की फ़्लाइट',report:'एयरपोर्ट रिपोर्टिंग',hotels:'होटल और कमरे',makkah:'मक्का',madinah:'मदीना',shifting:'शिफ़्टिंग होटल',room:'कमरा',leader:'आपके ग्रुप लीडर',call:'कॉल',wa:'WhatsApp',office:'मीज़ाब ऑफ़िस',docs:'आपकी चेकलिस्ट',note:'मीज़ाब की ओर से नोट',alerts:'मीज़ाब के संदेश',none:'अभी कोई संदेश नहीं।',tools:'हज टूल्स',qb:'क़िबला',upd:'अपडेट: {t}',offl:'सहेजी गई जानकारी – इंटरनेट नहीं',refresh:'रिफ़्रेश',change:'आप नहीं हैं? दूसरा कोड लिखें',soon:'जब मीज़ाब आपकी फ़्लाइट और होटल की जानकारी जोड़ेगा, तो यहाँ दिखेगी।',pkg:'पैकेज',grp:'ग्रुप',
+ ck:{'Passport':'पासपोर्ट','Visa':'वीज़ा','Vaccination':'वैक्सीन','Photos':'फ़ोटो','Ihram & kit':'इहराम और किट','Advance paid':'एडवांस जमा','2nd instalment':'दूसरी किस्त','Balance paid':'बाकी रकम जमा'}},
+gu:{t:'મારું હજ',tile:'બુકિંગ વાળા હાજીઓ માટે – તમારી ફ્લાઇટ, હોટેલ, રૂમ અને સંદેશા',tap:'તમારી હજની વિગતો જોવા ટેપ કરો',enter:'તમારો "મારું હજ" કોડ લખો',hint:'આ કોડ તમને મીઝાબ તરફથી WhatsApp પર મળ્યો છે',open:'મારું હજ ખોલો',bad:'આ કોડ સાચો નથી. કૃપા કરીને તપાસો અથવા ઓફિસને કૉલ કરો.',net:'ઇન્ટરનેટ નથી. ફરી પ્રયાસ કરો.',busy:'સર્વર વ્યસ્ત છે. એક મિનિટ પછી ફરી પ્રયાસ કરો.',hi:'અસ્સલામુ અલૈકુમ',dleft:'તમારી ફ્લાઇટને {n} દિવસ બાકી',hleft:'તમારી ફ્લાઇટને {n} કલાક બાકી',today:'તમારી ફ્લાઇટ આજે છે',going:'જવાની ફ્લાઇટ',back:'પરત ફ્લાઇટ',report:'એરપોર્ટ રિપોર્ટિંગ',hotels:'હોટેલ અને રૂમ',makkah:'મક્કા',madinah:'મદીના',shifting:'શિફ્ટિંગ હોટેલ',room:'રૂમ',leader:'તમારા ગ્રુપ લીડર',call:'કૉલ',wa:'WhatsApp',office:'મીઝાબ ઓફિસ',docs:'તમારી ચેકલિસ્ટ',note:'મીઝાબ તરફથી નોંધ',alerts:'મીઝાબના સંદેશા',none:'હજુ કોઈ સંદેશ નથી.',tools:'હજ ટૂલ્સ',qb:'કિબલા',upd:'અપડેટ: {t}',offl:'સાચવેલી વિગતો – ઇન્ટરનેટ નથી',refresh:'રિફ્રેશ',change:'તમે નથી? બીજો કોડ લખો',soon:'મીઝાબ તમારી ફ્લાઇટ અને હોટેલની વિગતો ઉમેરશે ત્યારે અહીં દેખાશે.',pkg:'પેકેજ',grp:'ગ્રુપ',
+ ck:{'Passport':'પાસપોર્ટ','Visa':'વિઝા','Vaccination':'રસી','Photos':'ફોટા','Ihram & kit':'એહરામ અને કિટ','Advance paid':'એડવાન્સ ચૂકવ્યું','2nd instalment':'બીજો હપ્તો','Balance paid':'બાકી રકમ ચૂકવી'}}
+};
+function mht(k){const L=MHT[lang]||MHT.en;return k in L?L[k]:MHT.en[k]}
+function mhCk(k){return (MHT[lang]||MHT.en).ck[k]||k}
+function mhClean(c){c=String(c||'').toUpperCase().replace(/[^A-Z0-9]/g,'');if(c.indexOf('MZB')===0)c=c.slice(3);return c.length===6?'MZB-'+c.slice(0,4)+'-'+c.slice(4):''}
+let mhD=null,mhErr='',mhBusy=false,mhOff=false,mhT=null;
+try{mhD=JSON.parse(store.get('mhData')||'null')}catch(e){mhD=null}
+function mhCode(){return store.get('mhCode')||''}
+function mhLeft(){if(!mhD||!mhD.going||!mhD.going.at)return '';const ms=mhD.going.at-Date.now();if(ms<=-864e5)return '';if(ms<=0)return mht('today');
+ const d=Math.floor(ms/864e5);return d>=1?mht('dleft').replace('{n}',d):mht('hleft').replace('{n}',Math.max(1,Math.ceil(ms/36e5)))}
+function renderMhCard(){const b=$('#mhc');if(!b)return;const has=mhD&&mhCode(),left=has?mhLeft():'';
+ b.innerHTML='<button type="button" class="card mhcard" data-mhgo><span class="ti">'+MHIC+'</span><span><b>'+esc(mht('t'))+'</b><small>'+esc(has?mht('hi')+', '+mhD.name+(left?' · '+left:''):mht('tile'))+'</small></span><span class="ar2" aria-hidden="true">›</span></button>'}
+function mhFetch(code){
+ mhBusy=true;mhErr='';renderMh();
+ return fetch(LEAD_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({type:'myhajj',code:code})})
+  .then(r=>r.json()).then(j=>{
+   if(j&&j.ok){mhD=Object.assign(j,{got:Date.now()});mhOff=false;store.set('mhCode',code);store.set('mhData',JSON.stringify(mhD))}
+   else if(j&&j.err==='code'){if(mhD&&mhCode()===code){mhD=null;store.set('mhData','null');store.set('mhCode','')}mhErr=mht('bad')}
+   else mhErr=mht('busy')})
+  .catch(()=>{if(mhD&&mhCode()===code)mhOff=true;else mhErr=mht('net')})
+  .finally(()=>{mhBusy=false;renderMh();renderMhCard()})}
+function mhRow(k,v){return v?'<div class="mhrow"><span>'+esc(k)+'</span><bdi dir="ltr">'+esc(v)+'</bdi></div>':''}
+function renderMh(){const b=$('#mh');if(!b)return;const code=mhCode(),D=code?mhD:null;
+ let h='<div class="mhin"><div class="twh"><button type="button" class="twb" data-mhback aria-label="Back">‹</button><h1 class="h shine">'+esc(mht('t'))+'</h1></div>';
+ if(!D){
+  h+='<div class="card" style="display:flex;flex-direction:column;gap:12px"><b style="font-size:16px">'+esc(mht('enter'))+'</b><small class="mhmu" style="text-align:start">'+esc(mht('hint'))+'</small>'+
+   '<input class="mhcode" id="mhin" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="14" placeholder="MZB-XXXX-XX" value="'+esc(b.dataset.pre||'')+'">'+
+   '<div class="mherr" role="alert">'+esc(mhErr)+'</div><button type="button" class="btn g" data-mhopen'+(mhBusy?' disabled':'')+'>'+esc(mhBusy?'…':mht('open'))+'</button></div>';
+ }else{
+  const G=D.going||{},R=D.back||{},H=D.hotels||{},left=mhLeft(),C=D.checks||{},ck=Object.keys(C);
+  h+='<div class="mhwel"><small>'+esc(mht('hi'))+'</small><div class="nm">'+esc(D.name)+'</div><small>'+esc([D.pkg,D.group?mht('grp')+' '+D.group:''].filter(Boolean).join(' · '))+'</small><br><span class="mhchip">'+esc(D.code||code)+'</span></div>';
+  if(left)h+='<div class="card mhcd"><b>'+esc(left.match(/\d+/)?left.match(/\d+/)[0]:'✈')+'</b><span>'+esc(left)+'</span></div>';
+  const fl=mhRow(mht('going'),G.flight)+mhRow('',G.when)+mhRow(mht('report'),G.report)+mhRow(mht('back'),R.flight)+mhRow('',R.when);
+  const ho=[['makkah','roomMakkah'],['madinah','roomMadinah'],['shifting','roomShifting']].map(p=>H[p[0]]?mhRow(mht(p[0]),H[p[0]])+mhRow(mht('room'),H[p[1]]):'').join('');
+  if(fl||ho){if(fl)h+='<div class="mhsec">'+esc(mht('going'))+'</div><div class="card">'+fl+'</div>';if(ho)h+='<div class="mhsec">'+esc(mht('hotels'))+'</div><div class="card">'+ho+'</div>'}
+  else h+='<div class="card mhmu">'+esc(mht('soon'))+'</div>';
+  if(D.note)h+='<div class="mhsec">'+esc(mht('note'))+'</div><div class="card mhnote">'+esc(D.note)+'</div>';
+  const A=D.alerts||[];h+='<div class="mhsec">'+esc(mht('alerts'))+'</div>'+(A.length?A.map(a=>{const x=(a.tr&&a.tr[lang])||{};const tt=lang!=='en'&&x.t?x.t:a.title,tx=lang!=='en'&&x.x?x.x:a.text;
+   return '<div class="card mhal"><small><bdi dir="ltr">'+esc(a.time)+'</bdi></small>'+(tt?'<b>'+esc(tt)+'</b>':'')+'<p>'+esc(tx)+'</p></div>'}).join(''):'<div class="card mhmu">'+esc(mht('none'))+'</div>');
+  if(ck.length)h+='<div class="mhsec">'+esc(mht('docs'))+'</div><div class="mhck">'+ck.map(k=>'<div class="'+(C[k]?'ok':'')+'"><i>'+(C[k]?'✓':'…')+'</i>'+esc(mhCk(k))+'</div>').join('')+'</div>';
+  const L=D.leader||{},lp=String(L.phone||D.office||'').replace(/\D/g,'');
+  if(lp)h+='<div class="mhsec">'+esc(mht('leader'))+'</div><div class="card"><b style="display:block;margin-bottom:10px">'+esc(L.name||mht('office'))+'</b><div class="two"><a class="btn g s" href="tel:+'+lp+'">'+esc(mht('call'))+'</a><a class="btn d s" href="https://wa.me/'+lp+'" target="_blank" rel="noopener">'+esc(mht('wa'))+'</a></div></div>';
+  h+='<div class="mhsec">'+esc(mht('tools'))+'</div><div class="mhtools"><button type="button" class="tile" data-twgo><span class="ti">'+TWIC+'</span><span>'+esc(twt('t'))+'</span></button><button type="button" class="tile" data-mhqb><span class="ti">'+QBIC+'</span><span>'+esc(mht('qb'))+'</span></button></div>';
+  h+='<p class="mhmu">'+esc(mhOff?mht('offl'):D.got?mht('upd').replace('{t}',new Date(D.got).toLocaleString(lang==='ur'?'ur-PK':lang==='en'?'en-IN':lang+'-IN',{day:'numeric',month:'short',hour:'numeric',minute:'2-digit'})):'')+'</p>'+
+   (mhErr?'<div class="mherr">'+esc(mhErr)+'</div>':'')+
+   '<button type="button" class="btn o" data-mhref'+(mhBusy?' disabled':'')+'>'+esc(mhBusy?'…':mht('refresh'))+'</button><div style="text-align:center"><button type="button" class="mhlink" data-mhout>'+esc(mht('change'))+'</button></div>';
+ }
+ b.innerHTML=h+'</div>';
+ const inp=$('#mhin');if(inp)inp.addEventListener('keydown',e=>{if(e.key==='Enter')mhTry()});
+}
+function mhTry(){const inp=$('#mhin');if(!inp||mhBusy)return;const c=mhClean(inp.value);$('#mh').dataset.pre=inp.value;if(!c){mhErr=mht('bad');renderMh();return}mhD=null;mhFetch(c)}
+function mhShow(){mhErr='';renderMh();if(mhCode()&&!mhBusy&&(!mhD||!mhD.got||Date.now()-mhD.got>6e4))mhFetch(mhCode())}
+document.addEventListener('click',e=>{
+ if(e.target.closest('[data-mhgo]')){hap();mhShow();go('mh');return}
+ if(e.target.closest('[data-mhback]')){if(history.state&&history.state.app)history.back();else go('home');return}
+ if(e.target.closest('[data-mhqb]')){hap();if(typeof mzOpenSheet==='function')mzOpenSheet('qibla');return}
+ if(e.target.closest('[data-mhopen]')){hap();mhTry();return}
+ if(e.target.closest('[data-mhref]')){hap();if(mhCode())mhFetch(mhCode());return}
+ if(e.target.closest('[data-mhout]')){hap();store.set('mhCode','');store.set('mhData','null');mhD=null;mhErr='';$('#mh').dataset.pre='';renderMh();renderMhCard();return}
+});
+/* link from WhatsApp: ...#mh=MZB-XXXX-XX fills the code and opens My Hajj */
+{const m=/^#mh=([A-Za-z0-9-]{6,14})$/.exec(location.hash);if(m){const c=mhClean(decodeURIComponent(m[1]));if(c&&c!==mhCode()){store.set('mhCode',c);store.set('mhData','null');mhD=null}try{history.replaceState(null,'','#mh')}catch(e){}}}
+{const _sl=setLang;setLang=function(l){_sl(l);renderMhCard();if(cur==='mh')renderMh()}}
+setInterval(()=>{renderMhCard()},6e4);
+
 setLang(store.get('lang')||'en');
 {const h=location.hash.slice(1);if(PKM[h]){renderPd(h);$('#home').classList.remove('on');$('#pd').classList.add('on');cur='pd'}else if(ids.includes(h)&&h!=='home'&&h!=='pd'){$('#home').classList.remove('on');$('#'+h).classList.add('on');cur=h;if(h==='reg')resetForm()}}
-setTab();
+setTab();if(cur==='mh')mhShow();
 (function(){if(!('serviceWorker' in navigator)||!location.protocol.startsWith('http'))return;const reg=()=>setTimeout(()=>navigator.serviceWorker.register('sw.js',{updateViaCache:'none'}).then(g=>{try{g.update()}catch(e){}}).catch(()=>{}),0);setTimeout(()=>{if(SLOW)return;navigator.serviceWorker.ready.then(g=>{if(g.active)g.active.postMessage('warm')}).catch(()=>{})},30000);const had=!!navigator.serviceWorker.controller,t0=Date.now();let rl=false;navigator.serviceWorker.addEventListener('controllerchange',()=>{if(!had||rl||Date.now()-t0>15000)return;rl=true;location.reload()});if(document.readyState==='complete')reg();else addEventListener('load',reg,{once:true})})();
 </script>
 </body>
