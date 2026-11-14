@@ -3293,11 +3293,11 @@ function renderMh(){const b=$('#mh');if(!b)return;const code=mhCode(),D=code?mhD
  let h='<div class="mhin"><div class="twh"><button type="button" class="twb" data-mhback aria-label="Back">‹</button><h1 class="h shine">'+esc(mht('t'))+'</h1></div>';
  if(!D){
   h+='<div class="card" style="display:flex;flex-direction:column;gap:12px"><b style="font-size:16px">'+esc(mht('enter'))+'</b><small class="mhmu" style="text-align:start">'+esc(mht('hint'))+'</small>'+
-   '<input class="mhcode" id="mhin" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="14" placeholder="MZB-XXXX-XX" value="'+esc(b.dataset.pre||'')+'">'+
+   '<input class="mhcode" id="mhin" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="14" placeholder="7K4Q2P" value="'+esc(b.dataset.pre||'')+'">'+
    '<div class="mherr" role="alert">'+esc(mhErr)+'</div><button type="button" class="btn g" data-mhopen'+(mhBusy?' disabled':'')+'>'+esc(mhBusy?'…':mht('open'))+'</button></div>';
  }else{
   const G=D.going||{},R=D.back||{},H=D.hotels||{},left=mhLeft(),C=D.checks||{},ck=Object.keys(C);
-  h+='<div class="mhwel">'+(D.photo&&/^[A-Za-z0-9+/=]+$/.test(D.photo)?'<img class="mhph" src="data:image/jpeg;base64,'+D.photo+'" alt="">':'')+'<small>'+esc(mht('hi'))+'</small><div class="nm">'+esc(D.name)+'</div><small>'+esc([D.pkg,D.group?mht('grp')+' '+D.group:''].filter(Boolean).join(' · '))+'</small><br><span class="mhchip">'+esc(D.code||code)+'</span></div>';
+  h+='<div class="mhwel">'+(D.photo&&/^[A-Za-z0-9+/=]+$/.test(D.photo)?'<img class="mhph" src="data:image/jpeg;base64,'+D.photo+'" alt="">':'')+'<small>'+esc(mht('hi'))+'</small><div class="nm">'+esc(D.name)+'</div><small>'+esc([D.pkg,D.group?mht('grp')+' '+D.group:''].filter(Boolean).join(' · '))+'</small><br><span class="mhchip">'+esc(String(D.code||code).replace(/^MZB-?/,'').replace(/-/g,''))+'</span></div>';
   if(left)h+='<div class="card mhcd"><b>'+esc(left.match(/\d+/)?left.match(/\d+/)[0]:'✈')+'</b><span>'+esc(left)+'</span></div>';
   const A=D.alerts||[];h+='<div class="mhsec">'+esc(mht('alerts'))+'</div>'+(A.length?A.map(a=>{const m=mhMsg(a);
    return '<div class="card mhal"><small><bdi dir="ltr">'+esc(a.time)+'</bdi></small>'+(m.t?'<b>'+esc(m.t)+'</b>':'')+'<p>'+esc(m.x)+'</p></div>'}).join(''):'<div class="card mhmu">'+esc(mht('none'))+'</div>');
