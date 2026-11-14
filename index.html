@@ -1260,6 +1260,24 @@ html.sva .svb:not(.go){opacity:0;transform:scale(.5)}
 .mhpbox p{margin:0;font-size:16px;line-height:1.55;color:var(--tx);white-space:pre-wrap}
 .mhpbox .btn{margin-top:6px;flex:none}
 .mhdl{flex:none;min-height:40px;padding:0 14px;font-size:14px}
+.mhhelp{border-color:#E26B5B66}
+.mhlost{width:100%;display:flex;align-items:center;gap:12px;text-align:start;border:0;border-radius:16px;padding:14px;background:linear-gradient(135deg,#7a1f17,#b5372a);color:#fff;font:inherit;cursor:pointer;animation:mhlp 2.4s ease-in-out infinite}
+.mhlost b{display:block;font-size:17px}.mhlost small{display:block;font-size:12.5px;opacity:.85;margin-top:2px}
+.mhlic{font-size:28px;flex:none}
+@keyframes mhlp{50%{box-shadow:0 0 0 7px #E26B5B2b}}
+.mhhov{position:fixed;inset:0;z-index:95;background:#08070A;display:grid;place-items:center;padding:24px;opacity:0;transition:opacity .25s;overflow:auto}
+.mhhov.on{opacity:1}
+.mhhin{width:100%;max-width:440px;text-align:center;display:flex;flex-direction:column;gap:10px}
+.mhhtabs{display:flex;gap:6px;justify-content:center}.mhhtabs button{border:1px solid var(--ln);background:var(--card);color:var(--mu);border-radius:20px;padding:6px 14px;font:inherit}.mhhtabs button.on{background:var(--gg);color:#15110A;font-weight:700}
+.mhar{font-family:'Amiri',serif;font-size:30px;color:var(--g2);margin:6px 0;line-height:1.6}
+.mhhn{font-size:30px;font-weight:800;color:#fff;margin:4px 0;line-height:1.25}.mhhr{font-size:22px;color:var(--gold);margin:0}.mhhc{color:var(--mu);margin:0 0 10px}
+.mhtent img{width:100%;max-height:260px;object-fit:cover;border-radius:14px;margin-bottom:10px}
+.mhtn{display:flex;gap:10px}.mhtn div{flex:1;text-align:center;background:var(--card2);border:1px solid #5E4B1D66;border-radius:12px;padding:10px}
+.mhtn small{display:block;color:var(--mu);font-size:12px}.mhtn b{display:block;font:800 28px 'Cinzel',serif;color:var(--g2)}
+.mhbadge{text-align:center}.mhqr{background:#fff;border-radius:14px;padding:10px;width:max-content;max-width:100%;margin:0 auto 10px}.mhqr svg{display:block;width:200px;height:200px}
+.mhmubp img{width:100%;border-radius:14px;display:block;box-shadow:0 10px 30px #0008}
+.mhref{display:flex;flex-direction:column;gap:8px}.mhref input{width:100%;min-height:48px;border-radius:12px;border:1px solid var(--ln);background:var(--card2);color:var(--tx);padding:0 12px;font:inherit}
+.hide{display:none!important}
 /* ---------- MY HAJJ (v46) ---------- */
 #mh.on .mhin{animation:twz .45s cubic-bezier(.2,.8,.2,1) both}
 .mhin{display:flex;flex-direction:column;gap:14px;max-width:460px;margin:0 auto;padding:calc(14px + env(safe-area-inset-top)) 16px 24px}
@@ -3257,16 +3275,16 @@ const MHIC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
 const QBIC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 6.5l2.6 7.5L12 12.6 9.4 14z"/></svg>';
 const MHT={
 en:{t:'My Hajj',tile:'For booked pilgrims – your flights, hotel, room and messages',tap:'Tap to open your Hajj details',enter:'Enter your My Hajj code',hint:'You received this code from Meezab on WhatsApp',open:'Open My Hajj',bad:'This code is not correct. Please check it, or call the office.',net:'No internet. Please try again.',busy:'Server is busy. Please try again in a minute.',hi:'Assalamu Alaikum',dleft:'{n} days to your flight',hleft:'{n} hours to your flight',today:'Your flight is today',going:'Going flight',back:'Return flight',report:'Airport reporting',hotels:'Hotels & rooms',makkah:'Makkah',madinah:'Madinah',shifting:'Shifting hotel',room:'Room',leader:'Your group leader',call:'Call',wa:'WhatsApp',office:'Meezab office',docs:'Your checklist',note:'Note from Meezab',alerts:'Messages from Meezab',none:'No messages yet.',tools:'Hajj tools',qb:'Qibla',upd:'Updated {t}',offl:'Saved details – no internet',refresh:'Refresh',change:'Not you? Use another code',soon:'Your flight and hotel details will appear here when Meezab adds them.',pkg:'Package',grp:'Group',
- mydocs:'My documents',mainonly:"Downloads are available only on the Haji's main phone (the first phone that opened this link).",blk:'This code is already in use on another phone. For your safety, it opens on one phone only. Please contact the Meezab office.',blkt:'Code already in use',p2:'page 2',dl:'Download',saved:'Saved to your phone – see Downloads',dfail:'Download failed. Please check internet.',nodocs:'Your documents will appear here when Meezab uploads them.',pop:'New message from Meezab',okr:'OK, read',newm:'{n} new',dn:{passport:'Passport',visa:'Visa',tkt_go:'Departure ticket',tkt_back:'Return ticket',nusuk:'Nusuk card',medical:'Medical card'},
+ mydocs:'My documents',help:"Need help?",lost:"I am lost",lostSub:"Sends your location to your group leader on WhatsApp",callO:"Office",hotelCard:"Take me to my hotel",locWait:"Getting your location…",locFail:"Location not available – sending without it",tent:"My Mina tent",maktab:"Maktab",tentNo:"Tent",tentOff:"Works without internet",badge:"My QR badge",badgeSub:"Show this to Meezab staff at the bus or airport",mub:"Hajj Mubarak",mubSub:"Your Hajj Mubarak card – share it with your family",share:"Share",ref:"Recommend a relative",refSub:"Someone wants to go for Hajj or Umrah? Meezab will call them.",refName:"Name",refMob:"Mobile number",refCity:"City",refSend:"Send",refThanks:"JazakAllah! Meezab will call them soon.",refBad:"Please enter a name and a 10-digit mobile number.",mainonly:"Downloads are available only on the Haji's main phone (the first phone that opened this link).",blk:'This code is already in use on another phone. For your safety, it opens on one phone only. Please contact the Meezab office.',blkt:'Code already in use',p2:'page 2',dl:'Download',saved:'Saved to your phone – see Downloads',dfail:'Download failed. Please check internet.',nodocs:'Your documents will appear here when Meezab uploads them.',pop:'New message from Meezab',okr:'OK, read',newm:'{n} new',dn:{passport:'Passport',visa:'Visa',tkt_go:'Departure ticket',tkt_back:'Return ticket',nusuk:'Nusuk card',medical:'Medical card'},
  ck:{'Passport':'Passport','Visa':'Visa','Vaccination':'Vaccination','Photos':'Photos','Ihram & kit':'Ihram & kit','Advance paid':'Advance paid','2nd instalment':'2nd instalment','Balance paid':'Balance paid','Vaccine & Medical card':'Vaccine & Medical card','Nusuk card':'Nusuk card'}},
 ur:{t:'میرا حج',tile:'بکنگ والے حجاج کے لیے – آپ کی فلائٹ، ہوٹل، کمرہ اور پیغامات',tap:'اپنی حج کی تفصیل دیکھنے کے لیے ٹیپ کریں',enter:'اپنا "میرا حج" کوڈ لکھیں',hint:'یہ کوڈ آپ کو میزاب کی طرف سے واٹس ایپ پر ملا ہے',open:'میرا حج کھولیں',bad:'یہ کوڈ درست نہیں ہے۔ براہِ کرم چیک کریں یا آفس کو فون کریں۔',net:'انٹرنیٹ نہیں ہے۔ دوبارہ کوشش کریں۔',busy:'سرور مصروف ہے۔ ایک منٹ بعد دوبارہ کوشش کریں۔',hi:'السلام علیکم',dleft:'آپ کی فلائٹ میں {n} دن باقی',hleft:'آپ کی فلائٹ میں {n} گھنٹے باقی',today:'آپ کی فلائٹ آج ہے',going:'جانے کی فلائٹ',back:'واپسی کی فلائٹ',report:'ایئرپورٹ رپورٹنگ',hotels:'ہوٹل اور کمرے',makkah:'مکہ',madinah:'مدینہ',shifting:'شفٹنگ ہوٹل',room:'کمرہ',leader:'آپ کے گروپ لیڈر',call:'کال',wa:'واٹس ایپ',office:'میزاب آفس',docs:'آپ کی چیک لسٹ',note:'میزاب کی طرف سے نوٹ',alerts:'میزاب کے پیغامات',none:'ابھی کوئی پیغام نہیں۔',tools:'حج کے ٹولز',qb:'قبلہ',upd:'اپڈیٹ: {t}',offl:'محفوظ تفصیلات – انٹرنیٹ نہیں',refresh:'ریفریش',change:'یہ آپ نہیں؟ دوسرا کوڈ لکھیں',soon:'جب میزاب آپ کی فلائٹ اور ہوٹل کی تفصیل شامل کرے گا تو یہاں نظر آئے گی۔',pkg:'پیکیج',grp:'گروپ',
- mydocs:'میرے دستاویزات',mainonly:"ڈاؤن لوڈ صرف حاجی کے مین فون پر ہو سکتا ہے (وہ فون جس پر یہ لنک پہلی بار کھولا گیا)۔",blk:'یہ کوڈ پہلے ہی کسی دوسرے فون پر استعمال ہو رہا ہے۔ آپ کی حفاظت کے لیے یہ صرف ایک فون پر کھلتا ہے۔ براہِ کرم میزاب آفس سے رابطہ کریں۔',blkt:'کوڈ پہلے سے استعمال میں',p2:'صفحہ 2',dl:'ڈاؤن لوڈ',saved:'آپ کے فون میں محفوظ ہو گیا – Downloads دیکھیں',dfail:'ڈاؤن لوڈ نہیں ہوا۔ انٹرنیٹ چیک کریں۔',nodocs:'جب میزاب آپ کے دستاویزات اپلوڈ کرے گا تو یہاں نظر آئیں گے۔',pop:'میزاب کی طرف سے نیا پیغام',okr:'ٹھیک ہے، پڑھ لیا',newm:'{n} نئے',dn:{passport:'پاسپورٹ',visa:'ویزا',tkt_go:'جانے کا ٹکٹ',tkt_back:'واپسی کا ٹکٹ',nusuk:'نسک کارڈ',medical:'میڈیکل کارڈ'},
+ mydocs:'میرے دستاویزات',help:"مدد چاہیے؟",lost:"مجھے راستہ نہیں مل رہا",lostSub:"آپ کی لوکیشن واٹس ایپ پر گروپ لیڈر کو بھیجی جائے گی",callO:"آفس",hotelCard:"مجھے میرے ہوٹل لے چلیں",locWait:"آپ کی لوکیشن لی جا رہی ہے…",locFail:"لوکیشن نہیں ملی – بغیر لوکیشن کے بھیجا جا رہا ہے",tent:"میرا منیٰ کا خیمہ",maktab:"مکتب",tentNo:"خیمہ",tentOff:"انٹرنیٹ کے بغیر بھی کام کرتا ہے",badge:"میرا QR بیج",badgeSub:"بس یا ایئرپورٹ پر میزاب کے عملے کو یہ دکھائیں",mub:"حج مبارک",mubSub:"آپ کا حج مبارک کارڈ – اپنے گھر والوں کو بھیجیں",share:"شیئر کریں",ref:"کسی رشتہ دار کی سفارش کریں",refSub:"کوئی حج یا عمرہ پر جانا چاہتا ہے؟ میزاب انہیں فون کرے گا۔",refName:"نام",refMob:"موبائل نمبر",refCity:"شہر",refSend:"بھیجیں",refThanks:"جزاک اللہ! میزاب جلد ہی انہیں فون کرے گا۔",refBad:"براہِ کرم نام اور 10 ہندسوں کا موبائل نمبر لکھیں۔",mainonly:"ڈاؤن لوڈ صرف حاجی کے مین فون پر ہو سکتا ہے (وہ فون جس پر یہ لنک پہلی بار کھولا گیا)۔",blk:'یہ کوڈ پہلے ہی کسی دوسرے فون پر استعمال ہو رہا ہے۔ آپ کی حفاظت کے لیے یہ صرف ایک فون پر کھلتا ہے۔ براہِ کرم میزاب آفس سے رابطہ کریں۔',blkt:'کوڈ پہلے سے استعمال میں',p2:'صفحہ 2',dl:'ڈاؤن لوڈ',saved:'آپ کے فون میں محفوظ ہو گیا – Downloads دیکھیں',dfail:'ڈاؤن لوڈ نہیں ہوا۔ انٹرنیٹ چیک کریں۔',nodocs:'جب میزاب آپ کے دستاویزات اپلوڈ کرے گا تو یہاں نظر آئیں گے۔',pop:'میزاب کی طرف سے نیا پیغام',okr:'ٹھیک ہے، پڑھ لیا',newm:'{n} نئے',dn:{passport:'پاسپورٹ',visa:'ویزا',tkt_go:'جانے کا ٹکٹ',tkt_back:'واپسی کا ٹکٹ',nusuk:'نسک کارڈ',medical:'میڈیکل کارڈ'},
  ck:{'Passport':'پاسپورٹ','Visa':'ویزا','Vaccination':'ویکسین','Photos':'تصاویر','Ihram & kit':'احرام اور کٹ','Advance paid':'ایڈوانس ادا','2nd instalment':'دوسری قسط','Balance paid':'بقیہ رقم ادا','Vaccine & Medical card':'ویکسین اور میڈیکل کارڈ','Nusuk card':'نسک کارڈ'}},
 hi:{t:'मेरा हज',tile:'बुकिंग वाले हाजियों के लिए – आपकी फ़्लाइट, होटल, कमरा और संदेश',tap:'अपनी हज की जानकारी देखने के लिए टैप करें',enter:'अपना "मेरा हज" कोड लिखें',hint:'यह कोड आपको मीज़ाब की ओर से WhatsApp पर मिला है',open:'मेरा हज खोलें',bad:'यह कोड सही नहीं है। कृपया जाँचें या ऑफ़िस को कॉल करें।',net:'इंटरनेट नहीं है। फिर से कोशिश करें।',busy:'सर्वर व्यस्त है। एक मिनट बाद फिर से कोशिश करें।',hi:'अस्सलामु अलैकुम',dleft:'आपकी फ़्लाइट में {n} दिन बाकी',hleft:'आपकी फ़्लाइट में {n} घंटे बाकी',today:'आपकी फ़्लाइट आज है',going:'जाने की फ़्लाइट',back:'वापसी की फ़्लाइट',report:'एयरपोर्ट रिपोर्टिंग',hotels:'होटल और कमरे',makkah:'मक्का',madinah:'मदीना',shifting:'शिफ़्टिंग होटल',room:'कमरा',leader:'आपके ग्रुप लीडर',call:'कॉल',wa:'WhatsApp',office:'मीज़ाब ऑफ़िस',docs:'आपकी चेकलिस्ट',note:'मीज़ाब की ओर से नोट',alerts:'मीज़ाब के संदेश',none:'अभी कोई संदेश नहीं।',tools:'हज टूल्स',qb:'क़िबला',upd:'अपडेट: {t}',offl:'सहेजी गई जानकारी – इंटरनेट नहीं',refresh:'रिफ़्रेश',change:'आप नहीं हैं? दूसरा कोड लिखें',soon:'जब मीज़ाब आपकी फ़्लाइट और होटल की जानकारी जोड़ेगा, तो यहाँ दिखेगी।',pkg:'पैकेज',grp:'ग्रुप',
- mydocs:'मेरे दस्तावेज़',mainonly:"डाउनलोड केवल हाजी के मुख्य फ़ोन पर हो सकता है (वह फ़ोन जिस पर यह लिंक पहली बार खोला गया)।",blk:'यह कोड पहले से किसी दूसरे फ़ोन पर इस्तेमाल हो रहा है। आपकी सुरक्षा के लिए यह केवल एक फ़ोन पर खुलता है। कृपया मीज़ाब ऑफ़िस से संपर्क करें।',blkt:'कोड पहले से इस्तेमाल में',p2:'पेज 2',dl:'डाउनलोड',saved:'आपके फ़ोन में सेव हो गया – Downloads देखें',dfail:'डाउनलोड नहीं हुआ। इंटरनेट जाँचें।',nodocs:'जब मीज़ाब आपके दस्तावेज़ अपलोड करेगा, तो यहाँ दिखेंगे।',pop:'मीज़ाब की ओर से नया संदेश',okr:'ठीक है, पढ़ लिया',newm:'{n} नए',dn:{passport:'पासपोर्ट',visa:'वीज़ा',tkt_go:'जाने का टिकट',tkt_back:'वापसी का टिकट',nusuk:'नुसुक कार्ड',medical:'मेडिकल कार्ड'},
+ mydocs:'मेरे दस्तावेज़',help:"मदद चाहिए?",lost:"मुझे रास्ता नहीं मिल रहा",lostSub:"आपकी लोकेशन WhatsApp पर ग्रुप लीडर को भेजी जाएगी",callO:"ऑफ़िस",hotelCard:"मुझे मेरे होटल ले चलें",locWait:"आपकी लोकेशन ली जा रही है…",locFail:"लोकेशन नहीं मिली – बिना लोकेशन के भेजा जा रहा है",tent:"मेरा मिना का टेंट",maktab:"मकतब",tentNo:"टेंट",tentOff:"बिना इंटरनेट भी काम करता है",badge:"मेरा QR बैज",badgeSub:"बस या एयरपोर्ट पर मीज़ाब स्टाफ़ को यह दिखाएँ",mub:"हज मुबारक",mubSub:"आपका हज मुबारक कार्ड – अपने परिवार को भेजें",share:"शेयर करें",ref:"किसी रिश्तेदार की सिफ़ारिश करें",refSub:"कोई हज या उमराह पर जाना चाहता है? मीज़ाब उन्हें कॉल करेगा।",refName:"नाम",refMob:"मोबाइल नंबर",refCity:"शहर",refSend:"भेजें",refThanks:"जज़ाकल्लाह! मीज़ाब जल्द ही उन्हें कॉल करेगा।",refBad:"कृपया नाम और 10 अंकों का मोबाइल नंबर लिखें।",mainonly:"डाउनलोड केवल हाजी के मुख्य फ़ोन पर हो सकता है (वह फ़ोन जिस पर यह लिंक पहली बार खोला गया)।",blk:'यह कोड पहले से किसी दूसरे फ़ोन पर इस्तेमाल हो रहा है। आपकी सुरक्षा के लिए यह केवल एक फ़ोन पर खुलता है। कृपया मीज़ाब ऑफ़िस से संपर्क करें।',blkt:'कोड पहले से इस्तेमाल में',p2:'पेज 2',dl:'डाउनलोड',saved:'आपके फ़ोन में सेव हो गया – Downloads देखें',dfail:'डाउनलोड नहीं हुआ। इंटरनेट जाँचें।',nodocs:'जब मीज़ाब आपके दस्तावेज़ अपलोड करेगा, तो यहाँ दिखेंगे।',pop:'मीज़ाब की ओर से नया संदेश',okr:'ठीक है, पढ़ लिया',newm:'{n} नए',dn:{passport:'पासपोर्ट',visa:'वीज़ा',tkt_go:'जाने का टिकट',tkt_back:'वापसी का टिकट',nusuk:'नुसुक कार्ड',medical:'मेडिकल कार्ड'},
  ck:{'Passport':'पासपोर्ट','Visa':'वीज़ा','Vaccination':'वैक्सीन','Photos':'फ़ोटो','Ihram & kit':'इहराम और किट','Advance paid':'एडवांस जमा','2nd instalment':'दूसरी किस्त','Balance paid':'बाकी रकम जमा','Vaccine & Medical card':'वैक्सीन और मेडिकल कार्ड','Nusuk card':'नुसुक कार्ड'}},
 gu:{t:'મારું હજ',tile:'બુકિંગ વાળા હાજીઓ માટે – તમારી ફ્લાઇટ, હોટેલ, રૂમ અને સંદેશા',tap:'તમારી હજની વિગતો જોવા ટેપ કરો',enter:'તમારો "મારું હજ" કોડ લખો',hint:'આ કોડ તમને મીઝાબ તરફથી WhatsApp પર મળ્યો છે',open:'મારું હજ ખોલો',bad:'આ કોડ સાચો નથી. કૃપા કરીને તપાસો અથવા ઓફિસને કૉલ કરો.',net:'ઇન્ટરનેટ નથી. ફરી પ્રયાસ કરો.',busy:'સર્વર વ્યસ્ત છે. એક મિનિટ પછી ફરી પ્રયાસ કરો.',hi:'અસ્સલામુ અલૈકુમ',dleft:'તમારી ફ્લાઇટને {n} દિવસ બાકી',hleft:'તમારી ફ્લાઇટને {n} કલાક બાકી',today:'તમારી ફ્લાઇટ આજે છે',going:'જવાની ફ્લાઇટ',back:'પરત ફ્લાઇટ',report:'એરપોર્ટ રિપોર્ટિંગ',hotels:'હોટેલ અને રૂમ',makkah:'મક્કા',madinah:'મદીના',shifting:'શિફ્ટિંગ હોટેલ',room:'રૂમ',leader:'તમારા ગ્રુપ લીડર',call:'કૉલ',wa:'WhatsApp',office:'મીઝાબ ઓફિસ',docs:'તમારી ચેકલિસ્ટ',note:'મીઝાબ તરફથી નોંધ',alerts:'મીઝાબના સંદેશા',none:'હજુ કોઈ સંદેશ નથી.',tools:'હજ ટૂલ્સ',qb:'કિબલા',upd:'અપડેટ: {t}',offl:'સાચવેલી વિગતો – ઇન્ટરનેટ નથી',refresh:'રિફ્રેશ',change:'તમે નથી? બીજો કોડ લખો',soon:'મીઝાબ તમારી ફ્લાઇટ અને હોટેલની વિગતો ઉમેરશે ત્યારે અહીં દેખાશે.',pkg:'પેકેજ',grp:'ગ્રુપ',
- mydocs:'મારા દસ્તાવેજો',mainonly:"ડાઉનલોડ ફક્ત હાજીના મુખ્ય ફોન પર થઈ શકે છે (જે ફોન પર આ લિંક પહેલી વાર ખોલવામાં આવી).",blk:'આ કોડ પહેલેથી બીજા ફોન પર વપરાઈ રહ્યો છે. તમારી સુરક્ષા માટે તે ફક્ત એક જ ફોન પર ખુલે છે. કૃપા કરીને મીઝાબ ઓફિસનો સંપર્ક કરો.',blkt:'કોડ પહેલેથી વપરાશમાં',p2:'પાનું 2',dl:'ડાઉનલોડ',saved:'તમારા ફોનમાં સેવ થયું – Downloads જુઓ',dfail:'ડાઉનલોડ થયું નથી. ઇન્ટરનેટ તપાસો.',nodocs:'મીઝાબ તમારા દસ્તાવેજો અપલોડ કરશે ત્યારે અહીં દેખાશે.',pop:'મીઝાબ તરફથી નવો સંદેશ',okr:'બરાબર, વાંચી લીધું',newm:'{n} નવા',dn:{passport:'પાસપોર્ટ',visa:'વિઝા',tkt_go:'જવાની ટિકિટ',tkt_back:'પરત ટિકિટ',nusuk:'નુસુક કાર્ડ',medical:'મેડિકલ કાર્ડ'},
+ mydocs:'મારા દસ્તાવેજો',help:"મદદ જોઈએ છે?",lost:"મને રસ્તો મળતો નથી",lostSub:"તમારું લોકેશન WhatsApp પર ગ્રુપ લીડરને મોકલાશે",callO:"ઓફિસ",hotelCard:"મને મારી હોટેલ પર લઈ જાઓ",locWait:"તમારું લોકેશન લેવાઈ રહ્યું છે…",locFail:"લોકેશન મળ્યું નથી – લોકેશન વગર મોકલાઈ રહ્યું છે",tent:"મારો મિનાનો તંબુ",maktab:"મકતબ",tentNo:"તંબુ",tentOff:"ઇન્ટરનેટ વગર પણ ચાલે છે",badge:"મારો QR બેજ",badgeSub:"બસ અથવા એરપોર્ટ પર મીઝાબ સ્ટાફને આ બતાવો",mub:"હજ મુબારક",mubSub:"તમારું હજ મુબારક કાર્ડ – તમારા પરિવારને મોકલો",share:"શેર કરો",ref:"કોઈ સંબંધીની ભલામણ કરો",refSub:"કોઈ હજ અથવા ઉમરાહ પર જવા માંગે છે? મીઝાબ તેમને કૉલ કરશે.",refName:"નામ",refMob:"મોબાઇલ નંબર",refCity:"શહેર",refSend:"મોકલો",refThanks:"જઝાકલ્લાહ! મીઝાબ ટૂંક સમયમાં તેમને કૉલ કરશે.",refBad:"કૃપા કરીને નામ અને 10 અંકનો મોબાઇલ નંબર લખો.",mainonly:"ડાઉનલોડ ફક્ત હાજીના મુખ્ય ફોન પર થઈ શકે છે (જે ફોન પર આ લિંક પહેલી વાર ખોલવામાં આવી).",blk:'આ કોડ પહેલેથી બીજા ફોન પર વપરાઈ રહ્યો છે. તમારી સુરક્ષા માટે તે ફક્ત એક જ ફોન પર ખુલે છે. કૃપા કરીને મીઝાબ ઓફિસનો સંપર્ક કરો.',blkt:'કોડ પહેલેથી વપરાશમાં',p2:'પાનું 2',dl:'ડાઉનલોડ',saved:'તમારા ફોનમાં સેવ થયું – Downloads જુઓ',dfail:'ડાઉનલોડ થયું નથી. ઇન્ટરનેટ તપાસો.',nodocs:'મીઝાબ તમારા દસ્તાવેજો અપલોડ કરશે ત્યારે અહીં દેખાશે.',pop:'મીઝાબ તરફથી નવો સંદેશ',okr:'બરાબર, વાંચી લીધું',newm:'{n} નવા',dn:{passport:'પાસપોર્ટ',visa:'વિઝા',tkt_go:'જવાની ટિકિટ',tkt_back:'પરત ટિકિટ',nusuk:'નુસુક કાર્ડ',medical:'મેડિકલ કાર્ડ'},
  ck:{'Passport':'પાસપોર્ટ','Visa':'વિઝા','Vaccination':'રસી','Photos':'ફોટા','Ihram & kit':'એહરામ અને કિટ','Advance paid':'એડવાન્સ ચૂકવ્યું','2nd instalment':'બીજો હપ્તો','Balance paid':'બાકી રકમ ચૂકવી','Vaccine & Medical card':'રસી અને મેડિકલ કાર્ડ','Nusuk card':'નુસુક કાર્ડ'}}
 };
 function mht(k){const L=MHT[lang]||MHT.en;return k in L?L[k]:MHT.en[k]}
@@ -3309,9 +3327,11 @@ function renderMh(){const b=$('#mh');if(!b)return;const code=mhCode(),D=code?mhD
   const G=D.going||{},R=D.back||{},H=D.hotels||{},left=mhLeft(),C=D.checks||{},ck=Object.keys(C);
   h+='<div class="mhwel">'+(D.photo&&/^[A-Za-z0-9+/=]+$/.test(D.photo)?'<img class="mhph" src="data:image/jpeg;base64,'+D.photo+'" alt="">':'')+'<small>'+esc(mht('hi'))+'</small><div class="nm">'+esc(D.name)+'</div><small>'+esc([D.pkg,D.group?mht('grp')+' '+D.group:''].filter(Boolean).join(' · '))+'</small><br><span class="mhchip">'+esc(String(D.code||code).replace(/^MZB-?/,'').replace(/-/g,''))+'</span></div>';
   if(left)h+='<div class="card mhcd"><b>'+esc(left.match(/\d+/)?left.match(/\d+/)[0]:'✈')+'</b><span>'+esc(left)+'</span></div>';
+  h+=mhHelpHtml(D);
   const A=D.alerts||[];h+='<div class="mhsec">'+esc(mht('alerts'))+'</div>'+(A.length?A.map(a=>{const m=mhMsg(a);
    return '<div class="card mhal"><small><bdi dir="ltr">'+esc(a.time)+'</bdi></small>'+(m.t?'<b>'+esc(m.t)+'</b>':'')+'<p>'+esc(m.x)+'</p></div>'}).join(''):'<div class="card mhmu">'+esc(mht('none'))+'</div>');
   mhMarkSeen(A);
+  h+=mhMubHtml(D)+mhTentHtml(D);
   const fl=mhRow(mht('going'),G.flight)+mhRow('',G.when)+mhRow(mht('report'),G.report)+mhRow(mht('back'),R.flight)+mhRow('',R.when);
   const ho=[['makkah','roomMakkah'],['madinah','roomMadinah'],['shifting','roomShifting']].map(p=>H[p[0]]?mhRow(mht(p[0]),H[p[0]])+mhRow(mht('room'),H[p[1]]):'').join('');
   if(fl||ho){if(fl)h+='<div class="mhsec">'+esc(mht('going'))+'</div><div class="card">'+fl+'</div>';if(ho)h+='<div class="mhsec">'+esc(mht('hotels'))+'</div><div class="card">'+ho+'</div>'}
@@ -3322,6 +3342,7 @@ function renderMh(){const b=$('#mh');if(!b)return;const code=mhCode(),D=code?mhD
    (VO?'<div class="mhmu" style="margin-top:8px">🔒 '+esc(mht('mainonly'))+'</div>':'<div class="mhmu mhdm" role="status" style="margin-top:8px"></div>'):'<span class="mhmu" style="display:block">'+esc(mht('nodocs'))+'</span>')+'</div>';
   if(D.note)h+='<div class="mhsec">'+esc(mht('note'))+'</div><div class="card mhnote">'+esc(D.note)+'</div>';
   if(ck.length)h+='<div class="mhsec">'+esc(mht('docs'))+'</div><div class="mhck">'+ck.map(k=>'<div class="'+(C[k]?'ok':'')+'"><i>'+(C[k]?'✓':'…')+'</i>'+esc(mhCk(k))+'</div>').join('')+'</div>';
+  h+=mhBadgeHtml(D)+mhRefHtml();
   const L=D.leader||{},lp=String(L.phone||D.office||'').replace(/\D/g,'');
   if(lp)h+='<div class="mhsec">'+esc(mht('leader'))+'</div><div class="card"><b style="display:block;margin-bottom:10px">'+esc(L.name||mht('office'))+'</b><div class="two"><a class="btn g s" href="tel:+'+lp+'">'+esc(mht('call'))+'</a><a class="btn d s" href="https://wa.me/'+lp+'" target="_blank" rel="noopener">'+esc(mht('wa'))+'</a></div></div>';
   h+='<div class="mhsec">'+esc(mht('tools'))+'</div><div class="mhtools"><button type="button" class="tile" data-twgo><span class="ti">'+TWIC+'</span><span>'+esc(twt('t'))+'</span></button><button type="button" class="tile" data-mhqb><span class="ti">'+QBIC+'</span><span>'+esc(mht('qb'))+'</span></button></div>';
@@ -3330,15 +3351,24 @@ function renderMh(){const b=$('#mh');if(!b)return;const code=mhCode(),D=code?mhD
    '<button type="button" class="btn o" data-mhref'+(mhBusy?' disabled':'')+'>'+esc(mhBusy?'…':mht('refresh'))+'</button><div style="text-align:center"><button type="button" class="mhlink" data-mhout>'+esc(mht('change'))+'</button></div>';
  }
  b.innerHTML=h+'</div>';
+ if(D){mhBadgeDraw();if(mhAfterHajj())mhMubPreview()}
+ if(mhAnimNext&&D){mhAnimNext=false;mhEntrance()}
  const inp=$('#mhin');if(inp)inp.addEventListener('keydown',e=>{if(e.key==='Enter')mhTry()});
 }
 function mhTry(){const inp=$('#mhin');if(!inp||mhBusy)return;const c=mhClean(inp.value);$('#mh').dataset.pre=inp.value;if(!c){mhErr=mht('bad');renderMh();return}mhD=null;mhFetch(c)}
-function mhShow(){mhErr='';renderMh();if(mhCode()&&!mhBusy&&(!mhD||!mhD.got||Date.now()-mhD.got>6e4))mhFetch(mhCode())}
+function mhShow(){mhErr='';mhAnimNext=true;renderMh();if(mhCode()&&!mhBusy&&(!mhD||!mhD.got||Date.now()-mhD.got>6e4))mhFetch(mhCode())}
 document.addEventListener('click',e=>{
  if(e.target.closest('[data-mhgo]')){hap();mhShow();go('mh');return}
  if(e.target.closest('[data-mhback]')){if(history.state&&history.state.app)history.back();else go('home');return}
  {const dl=e.target.closest('[data-mhdl]');if(dl){hap();mhDownload(dl);return}}
  if(e.target.closest('[data-mhpok]')){hap();mhPopOk();return}
+ {const lb=e.target.closest('[data-mhlost]');if(lb){hap();mhLost(lb);return}}
+ if(e.target.closest('[data-mhhotel]')){hap();mhHotel();return}
+ {const ht=e.target.closest('[data-mhht]');if(ht){hap();mhHotel(ht.dataset.mhht);return}}
+ if(e.target.closest('[data-mhhx]')){const o=$('#mhhov');o.classList.remove('on');setTimeout(()=>{o.hidden=true},250);return}
+ if(e.target.closest('[data-mhmub]')){hap();mhShareCard();return}
+ if(e.target.closest('[data-mhrefo]')){hap();const f=$('#mhref');if(f){f.classList.remove('hide');e.target.closest('[data-mhrefo]').remove();mhRefT=Date.now();mhAnim(a=>a({targets:'#mhref > *',opacity:[0,1],translateY:[10,0],delay:a.stagger(60),duration:400,easing:'easeOutQuad'}))}return}
+ if(e.target.closest('[data-mhrefs]')){hap();mhRefSend();return}
  if(e.target.closest('[data-mhqb]')){hap();if(typeof mzOpenSheet==='function')mzOpenSheet('qibla');return}
  if(e.target.closest('[data-mhopen]')){hap();mhTry();return}
  if(e.target.closest('[data-mhref]')){hap();if(mhCode())mhFetch(mhCode());return}
@@ -3358,7 +3388,8 @@ function mhPopCheck(){if(mhPopA||cur==='mh')return;const U=mhUnseen();if(!U.leng
  o.innerHTML='<div class="mhpbox" role="alertdialog" aria-modal="true" aria-labelledby="mhpt"><div class="mhpic">'+MHIC+'</div><small class="kick">'+esc(mht('pop'))+'</small>'+
   (m.t?'<h2 class="h" id="mhpt">'+esc(m.t)+'</h2>':'<h2 class="h" id="mhpt">'+esc(mht('t'))+'</h2>')+'<p>'+esc(m.x)+'</p><small class="mhmu"><bdi dir="ltr">'+esc(mhPopA.time)+'</bdi></small>'+
   '<button type="button" class="btn g" data-mhpok>'+esc(mht('okr'))+'</button></div>';
- o.hidden=false;requestAnimationFrame(()=>o.classList.add('on'));try{sfx('pop')}catch(e){}try{if(navigator.vibrate)navigator.vibrate([60,40,60])}catch(e){}}
+ o.hidden=false;requestAnimationFrame(()=>o.classList.add('on'));try{sfx('pop')}catch(e){}
+ mhAnim(a=>{a({targets:'.mhpbox',scale:[.7,1],opacity:[0,1],duration:800,easing:'easeOutElastic(1,.65)'});a({targets:'.mhpic',rotate:['-25deg','0deg'],scale:[.4,1],duration:900,delay:120,easing:'easeOutElastic(1,.5)'})});try{if(navigator.vibrate)navigator.vibrate([60,40,60])}catch(e){}}
 function mhPopOk(){const o=$('#mhpop');if(mhPopA)mhMarkSeen([mhPopA]);mhPopA=null;o.classList.remove('on');setTimeout(()=>{o.hidden=true;o.innerHTML='';mhPopCheck()},280);renderMhCard()}
 function mhBg(){if(!mhCode()||mhBusy||document.hidden)return;if(Date.now()-mhLast<12e4)return;mhFetch(mhCode())}
 setInterval(mhBg,3e5);document.addEventListener('visibilitychange',()=>{if(!document.hidden)setTimeout(mhBg,800)});
@@ -3371,9 +3402,85 @@ function mhDownload(btn){const key=btn.dataset.mhdl,pg=+btn.dataset.mhpg||1,msg=
    const ext=(String(j.name||'').split('.').pop()||'pdf').toLowerCase(),nm=('Meezab-'+String(mhD&&mhD.name||'Haji').replace(/[^A-Za-z0-9]+/g,'-')+'-'+String((MHT.en.dn||{})[key]||key).replace(/[^A-Za-z0-9]+/g,'-')+(pg===2?'-page-2':'')+'.'+ext).replace(/-+/g,'-');
    const blob=new Blob([u],{type:j.mime||'application/octet-stream'}),url=URL.createObjectURL(blob),a=document.createElement('a');
    a.href=url;a.download=nm;a.rel='noopener';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),6e4);
-   if(msg)msg.textContent=mht('saved')})
+   if(msg)msg.textContent=mht('saved');mhAnim(a=>a({targets:btn,scale:[1,1.15,1],duration:500,easing:'easeOutQuad'}))})
   .catch(e=>{if(msg)msg.textContent=e&&e.message==='mainonly'?mht('mainonly'):mht('dfail')})
   .finally(()=>{btn.disabled=false;btn.innerHTML=lbl})}
+
+/* ---- v50: help card (I am lost, hotel card in Arabic), Mina tent, QR badge, Hajj Mubarak card, referral, animations ---- */
+function mhLeaderPh(){const D=mhD||{},L=D.leader||{};return String(L.phone||D.office||'917038422399').replace(/\D/g,'')}
+function mhHelpHtml(D){const L=D.leader||{},lp=mhLeaderPh(),off=String(D.office||'917038422399').replace(/\D/g,''),H=D.hotels||{},hasH=H.makkah||H.madinah||H.shifting;
+ return '<div class="card mhhelp"><div class="mhsec" style="margin:0 0 10px">'+esc(mht('help'))+'</div>'+
+  '<button type="button" class="mhlost" data-mhlost><span class="mhlic">📍</span><span><b>'+esc(mht('lost'))+'</b><small>'+esc(mht('lostSub'))+'</small></span></button>'+
+  '<div class="two" style="margin-top:10px"><a class="btn g s" href="tel:+'+lp+'">📞 '+esc(L.name||mht('leader'))+'</a><a class="btn d s" href="tel:+'+off+'">📞 '+esc(mht('callO'))+'</a></div>'+
+  (hasH?'<button type="button" class="btn o" data-mhhotel style="margin-top:10px;width:100%">🚕 '+esc(mht('hotelCard'))+'</button>':'')+
+  '<div class="mhmu mhlm" role="status" style="margin-top:6px"></div></div>'}
+function mhLost(btn){const D=mhD;if(!D)return;const msg=$('.mhlm'),H=D.hotels||{},code=String(D.code||mhCode()).replace(/^MZB-?/,'').replace(/-/g,'');
+ const hotel=H.makkah?H.makkah+(H.roomMakkah?' room '+H.roomMakkah:''):H.madinah?H.madinah+(H.roomMadinah?' room '+H.roomMadinah:''):'';
+ const send=loc=>{const t='🆘 I am lost – '+D.name+' (Meezab code '+code+')'+(hotel?'\nHotel: '+hotel:'')+(D.tent?'\nMina tent: '+(D.maktab?'Maktab '+D.maktab+' · ':'')+D.tent:'')+'\n'+(loc?'My location: https://maps.google.com/?q='+loc:'(location not available)');
+  location.href='https://wa.me/'+mhLeaderPh()+'?text='+encodeURIComponent(t)};
+ if(!navigator.geolocation){if(msg)msg.textContent=mht('locFail');send('');return}
+ if(msg)msg.textContent=mht('locWait');btn.disabled=true;
+ navigator.geolocation.getCurrentPosition(p=>{btn.disabled=false;if(msg)msg.textContent='';send(p.coords.latitude.toFixed(6)+','+p.coords.longitude.toFixed(6))},
+  ()=>{btn.disabled=false;if(msg)msg.textContent=mht('locFail');send('')},{enableHighAccuracy:true,timeout:12000,maximumAge:60000})}
+function mhHotel(which){const D=mhD||{},H=D.hotels||{},list=[['makkah','roomMakkah','Makkah','مكة المكرمة'],['madinah','roomMadinah','Madinah','المدينة المنورة'],['shifting','roomShifting','Makkah','مكة المكرمة']].filter(x=>H[x[0]]);
+ if(!list.length)return;const cur=list.find(x=>x[0]===which)||list[0];let o=$('#mhhov');if(!o){o=document.createElement('div');o.id='mhhov';o.className='mhhov';document.body.appendChild(o)}
+ o.innerHTML='<div class="mhhin">'+(list.length>1?'<div class="mhhtabs">'+list.map(x=>'<button type="button" data-mhht="'+x[0]+'" class="'+(x===cur?'on':'')+'">'+esc(mht(x[0]))+'</button>').join('')+'</div>':'')+
+  '<p class="mhar" lang="ar" dir="rtl">من فضلك، خذني إلى هذا الفندق</p><p class="mhhn">'+esc(H[cur[0]])+'</p>'+(H[cur[1]]?'<p class="mhhr">Room '+esc(H[cur[1]])+'</p>':'')+
+  '<p class="mhar" lang="ar" dir="rtl" style="font-size:22px">'+cur[3]+'</p><p class="mhhc">'+cur[2]+', Saudi Arabia</p>'+
+  '<a class="btn g" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(H[cur[0]]+' '+cur[2])+'">🗺 Google Maps</a>'+
+  '<button type="button" class="btn d" data-mhhx style="margin-top:10px">✕</button></div>';
+ o.hidden=false;requestAnimationFrame(()=>o.classList.add('on'));mhAnim(a=>a({targets:'#mhhov .mhhin > *',opacity:[0,1],translateY:[16,0],delay:a.stagger(50),duration:450,easing:'easeOutQuad'}))}
+function mhTentHtml(D){if(!D.tent&&!D.maktab)return '';
+ return '<div class="mhsec">'+esc(mht('tent'))+'</div><div class="card mhtent">'+(D.tentPhoto&&/^[A-Za-z0-9+/=]+$/.test(D.tentPhoto)?'<img src="data:image/jpeg;base64,'+D.tentPhoto+'" alt="">':'')+
+  '<div class="mhtn">'+(D.maktab?'<div><small>'+esc(mht('maktab'))+'</small><b>'+esc(D.maktab)+'</b></div>':'')+(D.tent?'<div><small>'+esc(mht('tentNo'))+'</small><b>'+esc(D.tent)+'</b></div>':'')+'</div>'+
+  '<div class="mhmu" style="margin-top:6px">✓ '+esc(mht('tentOff'))+'</div></div>'}
+function mhBadgeHtml(D){if(!D.badge)return '';return '<div class="mhsec">'+esc(mht('badge'))+'</div><div class="card mhbadge"><div class="mhqr" id="mhqr"></div><div class="mhmu">'+esc(mht('badgeSub'))+'</div></div>'}
+function mhBadgeDraw(){const D=mhD,el=$('#mhqr');if(!D||!D.badge||!el)return;mhLib('qrcode.min.js').then(()=>{const q=qrcode(0,'M');q.addData('MZBB:'+D.badge);q.make();el.innerHTML=q.createSvgTag({cellSize:6,margin:3});
+ mhAnim(a=>a({targets:'#mhqr svg',scale:[.6,1],opacity:[0,1],rotate:['-8deg','0deg'],duration:700,easing:'easeOutBack'}))}).catch(()=>{})}
+function mhAfterHajj(){return (typeof ARAFAH==='number'&&Date.now()>=ARAFAH+864e5)||/[?&]mubarak\b/.test(location.search)}
+function mhMubHtml(D){if(!mhAfterHajj())return '';return '<div class="mhsec">'+esc(mht('mub'))+' 🎉</div><div class="card mhmub"><div class="mhmu" style="margin-bottom:10px">'+esc(mht('mubSub'))+'</div><div class="mhmubp" id="mhmubp"></div><button type="button" class="btn g" data-mhmub style="margin-top:10px;width:100%">📤 '+esc(mht('share'))+'</button></div>'}
+let mhCardBlob=null;
+function mhMakeCard(){const D=mhD;if(!D)return Promise.reject();const W=1080,Hh=1350,c=document.createElement('canvas');c.width=W;c.height=Hh;const x=c.getContext('2d');
+ const img=src=>new Promise(r=>{if(!src)return r(null);const i=new Image();i.onload=()=>r(i);i.onerror=()=>r(null);i.src=src});
+ return Promise.all([document.fonts&&document.fonts.load?document.fonts.load('700 80px Cinzel').catch(()=>{}):0,img(LOGO),img(D.photo?'data:image/jpeg;base64,'+D.photo:'')]).then(([_,logo,ph])=>{
+  const g=x.createLinearGradient(0,0,W,Hh);g.addColorStop(0,'#0b0a0e');g.addColorStop(1,'#1d170c');x.fillStyle=g;x.fillRect(0,0,W,Hh);
+  const gold=x.createLinearGradient(0,0,W,0);gold.addColorStop(0,'#FBEBB5');gold.addColorStop(.5,'#D9B44A');gold.addColorStop(1,'#A87B28');
+  x.strokeStyle=gold;x.lineWidth=6;x.strokeRect(36,36,W-72,Hh-72);x.lineWidth=2;x.strokeRect(54,54,W-108,Hh-108);
+  for(let i=0;i<60;i++){x.fillStyle='rgba(230,195,106,'+(Math.random()*.5)+')';x.beginPath();x.arc(80+Math.random()*(W-160),80+Math.random()*500,Math.random()*2.4,0,7);x.fill()}
+  if(logo)x.drawImage(logo,W/2-70,110,140,140);
+  x.textAlign='center';x.fillStyle='#E6C36A';x.font='600 34px Cinzel,serif';x.fillText('MEEZAB E RAHEMAT',W/2,300);
+  const cy=560,r=170;x.save();x.beginPath();x.arc(W/2,cy,r,0,7);x.closePath();x.clip();
+  if(ph){const s=Math.min(ph.width,ph.height);x.drawImage(ph,(ph.width-s)/2,(ph.height-s)/2,s,s,W/2-r,cy-r,2*r,2*r)}else{x.fillStyle='#2a2316';x.fillRect(W/2-r,cy-r,2*r,2*r);x.fillStyle='#E6C36A';x.font='700 150px Cinzel,serif';x.fillText(String(D.name||'?').charAt(0).toUpperCase(),W/2,cy+52)}
+  x.restore();x.strokeStyle=gold;x.lineWidth=8;x.beginPath();x.arc(W/2,cy,r+6,0,7);x.stroke();
+  x.fillStyle=gold;x.font='700 104px Cinzel,serif';x.fillText('Hajj Mubarak',W/2,880);
+  x.fillStyle='#F4ECD6';x.font='600 56px Outfit,sans-serif';const nm=String(D.name||'');x.fillText(nm.length>26?nm.slice(0,25)+'…':nm,W/2,975);
+  x.fillStyle='#C2B696';x.font='400 40px Outfit,sans-serif';x.fillText('Hajj 1448 · 2027',W/2,1045);
+  x.font='400 34px Outfit,sans-serif';x.fillText('with Meezab E Rahemat Haj Tours · since 2001',W/2,1150);x.fillStyle='#E6C36A';x.fillText('meezabhajtours.com',W/2,1205);
+  x.font='400 46px "Amiri",serif';x.fillStyle='#E6C36A';x.fillText('حج مبرور',W/2,1275);
+  return new Promise(res=>c.toBlob(b=>{mhCardBlob=b;res(b)},'image/jpeg',.9))})}
+function mhMubPreview(){const el=$('#mhmubp');if(!el)return;mhMakeCard().then(b=>{const u=URL.createObjectURL(b);el.innerHTML='<img src="'+u+'" alt="Hajj Mubarak">';
+ mhAnim(a=>a({targets:'#mhmubp img',opacity:[0,1],scale:[.85,1],duration:900,easing:'easeOutElastic(1,.8)'}))}).catch(()=>{})}
+function mhShareCard(){const go=b=>{const f=new File([b],'Hajj-Mubarak-'+String(mhD.name||'').replace(/[^A-Za-z0-9]+/g,'-')+'.jpg',{type:'image/jpeg'});
+  if(navigator.canShare&&navigator.canShare({files:[f]}))navigator.share({files:[f],text:'Hajj Mubarak! 🤲 – Meezab E Rahemat Haj Tours'}).catch(()=>{});
+  else{const u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download=f.name;document.body.appendChild(a);a.click();a.remove()}};
+ mhCardBlob?go(mhCardBlob):mhMakeCard().then(go)}
+function mhRefHtml(){return '<div class="mhsec">'+esc(mht('ref'))+'</div><div class="card"><div class="mhmu" style="text-align:start;margin-bottom:8px">'+esc(mht('refSub'))+'</div>'+
+ '<div class="mhref hide" id="mhref"><input id="rfn" maxlength="80" placeholder="'+esc(mht('refName'))+'"><input id="rfm" inputmode="tel" maxlength="14" placeholder="'+esc(mht('refMob'))+'" dir="ltr"><input id="rfc" maxlength="60" placeholder="'+esc(mht('refCity'))+'"><div class="mherr" id="rferr"></div><button type="button" class="btn g" data-mhrefs>'+esc(mht('refSend'))+'</button></div>'+
+ '<button type="button" class="btn o" data-mhrefo style="width:100%">➕ '+esc(mht('ref'))+'</button></div>'}
+let mhRefT=0;
+function mhRefSend(){const n=$('#rfn').value.trim(),m=$('#rfm').value.replace(/\D/g,'').replace(/^91(?=\d{10}$)/,''),c=$('#rfc').value.trim(),e=$('#rferr');
+ if(n.replace(/[\d\s.]/g,'').length<2||!/^[6-9]\d{9}$/.test(m)){e.textContent=mht('refBad');return}
+ const D=mhD||{},code=String(D.code||'').replace(/^MZB-?/,'').replace(/-/g,'');
+ keep({type:'Registration',name:n,mobile:m,city:c,interest:'Not sure yet',travelers:1,callTime:'',website:'',ft:Math.max(3500,Date.now()-mhRefT),source:'Referral by '+(D.name||'pilgrim')+' ('+code+')'});
+ $('#mhref').outerHTML='<div class="mhmu" style="color:var(--g2);font-size:15px;padding:8px 0">🤲 '+esc(mht('refThanks'))+'</div>';
+ mhAnim(a=>a({targets:'#mh [data-mhrefo]',scale:[1,1.06,1],duration:500}))}
+// Anime.js (bundled with the app, works offline). Skipped when the phone asks for less motion.
+function mhLib(src){mhLib.p=mhLib.p||{};return mhLib.p[src]||(mhLib.p[src]=new Promise((ok,no)=>{const s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=()=>{delete mhLib.p[src];no()};document.head.appendChild(s)}))}
+function mhAnim(fn){if(RM)return;mhLib('anime.min.js').then(()=>{try{fn(window.anime)}catch(e){}}).catch(()=>{})}
+let mhAnimNext=false;
+function mhEntrance(){mhAnim(a=>{a({targets:'#mh .mhin > *',opacity:[0,1],translateY:[22,0],delay:a.stagger(40,{start:40}),duration:620,easing:'easeOutQuart'});
+ const el=$('#mh .mhcd b'),n=el?parseInt(el.textContent,10):0;if(el&&n>0){const o={v:0};a({targets:o,v:n,round:1,duration:1500,easing:'easeOutExpo',update:()=>{el.textContent=o.v}})}
+ a({targets:'#mh .mhph',scale:[.6,1],duration:900,easing:'easeOutElastic(1,.6)'})})}
 
 /* link from WhatsApp: ...#mh=MZB-XXXX-XX fills the code and opens My Hajj */
 {const m=/^#mh=([A-Za-z0-9-]{6,14})$/.exec(location.hash);if(m){const c=mhClean(decodeURIComponent(m[1]));if(c&&c!==mhCode()){store.set('mhCode',c);store.set('mhData','null');mhD=null}try{history.replaceState(null,'','#mh')}catch(e){}}}
