@@ -3331,7 +3331,7 @@ function mhLeft(){if(!mhD||!mhD.going||!mhD.going.at)return '';const ms=mhD.goin
 function renderMhCard(){const b=$('#mhc');if(!b)return;const has=mhD&&mhCode(),left=has?mhLeft():'',nu=has?mhUnseen().length:0;
  b.innerHTML='<button type="button" class="card mhcard" data-mhgo><span class="ti">'+MHIC+'</span><span><b>'+esc(mht('t'))+'</b><small>'+esc(has?mht('hi')+', '+mhD.name+(left?' · '+left:''):mht('tile'))+'</small></span>'+(nu?'<span class="mhnb">'+esc(mht('newm').replace('{n}',nu))+'</span>':'')+'<span class="ar2" aria-hidden="true">›</span></button>'}
 function mhFetch(code){
- mhBusy=true;mhErr='';if(cur==='mh'||!$('#mh .mhin'))renderMh();
+ mhBusy=true;mhErr='';if(cur==='mh'||!mhD||!$('#mh .mhin'))renderMh();
  return fetch(LEAD_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({type:'myhajj',code:code,dev:mhDev(),fp:mhFp(),ua:mhUa()})})
   .then(r=>r.json()).then(j=>{
    if(j&&j.ok){mhBlk=false;mhD=Object.assign(j,{got:Date.now()});mhOff=false;store.set('mhCode',code);store.set('mhData',JSON.stringify(mhD))}
@@ -3425,7 +3425,7 @@ function mhBg(){if(!mhCode()||mhBusy||document.hidden)return;if(Date.now()-mhLas
 setInterval(mhBg,3e5);document.addEventListener('visibilitychange',()=>{if(!document.hidden)setTimeout(mhBg,800)});
 setTimeout(()=>{if(mhD&&mhCode())mhPopCheck();mhBg()},2500);
 function mhDownload(btn){const key=btn.dataset.mhdl,pg=+btn.dataset.mhpg||1,msg=$('.mhdm'),code=mhCode();if(!code||btn.disabled)return;
- const lbl=btn.innerHTML;let ok=false;btn.disabled=true;btn.innerHTML='<span class="mhspin"></span>';if(msg)msg.textContent='';
+ if(!btn.dataset.lbl)btn.dataset.lbl=btn.innerHTML;const lbl=btn.dataset.lbl;let ok=false;btn.disabled=true;btn.innerHTML='<span class="mhspin"></span>';if(msg)msg.textContent='';
  fetch(LEAD_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({type:'myhajjdoc',code:code,key:key,page:pg,dev:mhDev(),fp:mhFp(),ua:mhUa()})})
   .then(r=>r.json()).then(j=>{if(j&&j.err==='device'){mhBlk=true;mhD=null;store.set('mhData','null');store.set('mhCode','');renderMh();renderMhCard();throw new Error('device')}if(!j||!j.ok||!j.data)throw new Error(j&&j.err||'x');
    const bin=atob(j.data),u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);
@@ -3434,7 +3434,7 @@ function mhDownload(btn){const key=btn.dataset.mhdl,pg=+btn.dataset.mhpg||1,msg=
    a.href=url;a.download=nm;a.rel='noopener';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),6e4);
    ok=true;if(msg)msg.textContent=mht('saved')})
   .catch(e=>{if(msg)msg.textContent=e&&e.message==='mainonly'?mht('mainonly'):mht('dfail')})
-  .finally(()=>{if(!btn.isConnected)return;btn.disabled=false;if(!ok){btn.innerHTML=lbl;return}btn.innerHTML='✓';btn.classList.add('ok');mhAnim(a=>a({targets:btn,scale:[.7,1],duration:600,easing:'easeOutElastic(1,.55)'}));setTimeout(()=>{if(btn.isConnected){btn.innerHTML=lbl;btn.classList.remove('ok')}},1700)})}
+  .finally(()=>{if(!btn.isConnected)return;if(!ok){btn.disabled=false;btn.innerHTML=lbl;return}btn.innerHTML='✓';btn.classList.add('ok');mhAnim(a=>a({targets:btn,scale:[.7,1],duration:600,easing:'easeOutElastic(1,.55)'}));setTimeout(()=>{if(btn.isConnected){btn.innerHTML=lbl;btn.classList.remove('ok');btn.disabled=false}},1700)})}
 
 /* ---- v50: help card (I am lost, hotel card in Arabic), Mina tent, QR badge, Hajj Mubarak card, referral, animations ---- */
 function mhLeaderPh(){const D=mhD||{},L=D.leader||{};return String(L.phone||D.office||'917038422399').replace(/\D/g,'')}
@@ -3509,7 +3509,7 @@ function mhAnim(fn){if(RM)return;if(window.anime){try{fn(window.anime)}catch(e){
 let mhAnimNext=false;
 /* ---- v51: one calm animation system for My Hajj (Anime.js, bundled; all skipped when the phone asks for less motion) ---- */
 let mhSig='',mhIO=null,mhConf=false;
-function mhSigNow(){const D=mhCode()?mhD:null;if(!D)return 'x|'+lang+mhBlk+mhErr+mhBusy+mhCode();const c=Object.assign({},D);delete c.got;return lang+'|'+mhOff+'|'+mhErr+'|'+mhAfterHajj()+'|'+JSON.stringify(c)}
+function mhSigNow(){const D=mhCode()?mhD:null;if(!D)return 'x|'+lang+mhBlk+mhErr+mhBusy+mhCode();const c=Object.assign({},D);delete c.got;return lang+'|'+mhOff+'|'+mhErr+'|'+mhAfterHajj()+'|'+mhLeft()+'|'+JSON.stringify(c)}
 function mhUpdTxt(){const D=mhD||{};return mhOff?mht('offl'):D.got?mht('upd').replace('{t}',new Date(D.got).toLocaleString(lang==='ur'?'ur-PK':lang==='en'?'en-IN':lang+'-IN',{day:'numeric',month:'short',hour:'numeric',minute:'2-digit'})):''}
 /* nothing changed since the last draw: only refresh the small "updated" line and the Refresh button (no flicker, animations keep playing) */
 function mhPatch(){const u=$('#mh .mhupd');if(u)u.textContent=mhUpdTxt();const r=$('#mh [data-mhref]');if(r){r.disabled=mhBusy;r.innerHTML=mhBusy?'<span class="mhspin"></span>':esc(mht('refresh'))}}
@@ -3526,15 +3526,15 @@ function mhLabbaik(done){const a=window.anime,day=new Date().toDateString();
  const o=document.createElement('div');o.className='mhlab';o.setAttribute('role','button');o.setAttribute('aria-label',mht('t'));
  o.innerHTML='<div class="mhlg"></div>'+MHKAABA+'<p class="mhlt" lang="ar" dir="rtl">لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ</p><p class="mhln">'+esc(mht('hi'))+'</p><b class="mhlnn">'+esc(mhD.name||'')+'</b>';
  app.appendChild(o);
- let fin=false,tl=null;const end=()=>{if(fin)return;fin=true;if(tl)tl.pause();a({targets:o,opacity:0,duration:520,easing:'easeInOutQuad',complete:()=>o.remove()});done()};
+ let fin=false,tl=null;const end=()=>{if(fin)return;fin=true;done();try{if(tl)tl.pause();a({targets:o,opacity:0,duration:520,easing:'easeInOutQuad',complete:()=>o.remove()})}catch(e){}setTimeout(()=>o.remove(),800)};
  o.addEventListener('click',end);setTimeout(end,6000);
- tl=a.timeline({easing:'easeOutCubic',complete:end});
+ try{tl=a.timeline({easing:'easeOutCubic',complete:end});
  tl.add({targets:o.querySelectorAll('path'),strokeDashoffset:[a.setDashoffset,0],duration:950,delay:a.stagger(110),easing:'easeInOutSine'})
    .add({targets:o.querySelector('.kf'),opacity:[0,1],duration:600},'-=350')
    .add({targets:o.querySelector('.mhlg'),opacity:[0,1],scale:[.5,1],duration:1100},'-=700')
    .add({targets:o.querySelector('.mhlt'),opacity:[0,1],translateY:[16,0],duration:800},'-=750')
    .add({targets:[o.querySelector('.mhln'),o.querySelector('.mhlnn')],opacity:[0,1],translateY:[10,0],duration:520,delay:a.stagger(130)},'-=300')
-   .add({targets:o,duration:700,opacity:1})}
+   .add({targets:o,duration:700,opacity:1})}catch(e){end()}}
 function mhConfetti(card){if(mhConf||RM)return;mhConf=true;const c=document.createElement('canvas'),r=card.getBoundingClientRect(),dpr=Math.min(2,window.devicePixelRatio||1);
  c.width=r.width*dpr;c.height=r.height*dpr;c.style.cssText='position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2';card.style.position='relative';card.appendChild(c);
  const x=c.getContext('2d'),cols=['#FBEBB5','#E6C36A','#D9B44A','#A87B28','#fff6d6'],n=(navigator.hardwareConcurrency||8)<=4?40:70,
