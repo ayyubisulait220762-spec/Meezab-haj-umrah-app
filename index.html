@@ -1278,6 +1278,27 @@ html.sva .svb:not(.go){opacity:0;transform:scale(.5)}
 .mhmubp img{width:100%;border-radius:14px;display:block;box-shadow:0 10px 30px #0008}
 .mhref{display:flex;flex-direction:column;gap:8px}.mhref input{width:100%;min-height:48px;border-radius:12px;border:1px solid var(--ln);background:var(--card2);color:var(--tx);padding:0 12px;font:inherit}
 .hide{display:none!important}
+.mhlab{position:absolute;inset:0;z-index:45;background:radial-gradient(ellipse 70% 50% at 50% 42%,#1c1608 0%,#08070A 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:24px;cursor:pointer}
+.mhlg{position:absolute;left:50%;top:38%;width:300px;height:300px;margin:-150px 0 0 -150px;border-radius:50%;background:radial-gradient(circle,#E6C36A33 0%,#E6C36A11 40%,transparent 70%);opacity:0;pointer-events:none}
+.mhkb{position:relative;width:min(56vw,230px);height:auto;margin-bottom:14px;filter:drop-shadow(0 0 18px #E6C36A44)}
+.mhlt{position:relative;font-family:'Amiri',serif;font-weight:700;font-size:34px;line-height:1.7;margin:0;color:var(--g2);opacity:0}
+.mhln{position:relative;margin:8px 0 0;color:var(--mu);font-size:14px;opacity:0}
+.mhlnn{position:relative;font-family:var(--fd);font-size:24px;color:var(--g2);opacity:0}
+.mhspin{display:inline-block;width:18px;height:18px;border-radius:50%;border:2.5px solid currentColor;border-top-color:transparent;animation:mhsp .7s linear infinite;vertical-align:-3px}
+@keyframes mhsp{to{transform:rotate(360deg)}}
+.mhdl.ok{background:#5FCB8A;color:#08210f}
+.mhcd,.mhcard{position:relative;overflow:hidden}
+.mhcd::after,.mhcard::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 42%,#ffffff66 50%,transparent 58%);transform:translateX(-130%);animation:mhsheen 6s ease-in-out infinite;pointer-events:none}
+.mhcard::after{background:linear-gradient(105deg,transparent 42%,#E6C36A2e 50%,transparent 58%);animation-delay:1.5s}
+@keyframes mhsheen{0%,72%{transform:translateX(-130%)}100%{transform:translateX(130%)}}
+.mhal.new{animation:mhnew 2.2s ease-in-out 3}
+@keyframes mhnew{50%{box-shadow:0 0 0 2px #E6C36A99,0 0 26px #E6C36A55}}
+.mhlost.wait .mhlic{animation:mhradar 1.1s ease-out infinite;border-radius:50%}
+@keyframes mhradar{0%{box-shadow:0 0 0 0 #ffffffaa}100%{box-shadow:0 0 0 18px #ffffff00}}
+.mhpg{display:flex;align-items:center;gap:10px;margin:2px 2px -4px}
+.mhpg span{flex:1;height:8px;border-radius:6px;background:var(--card2);border:1px solid #5E4B1D66;overflow:hidden}
+.mhpg i{display:block;height:100%;border-radius:6px;background:var(--gg)}
+.mhpg b{font-size:13px;color:var(--g2);font-weight:700}
 /* ---------- MY HAJJ (v46) ---------- */
 #mh.on .mhin{animation:twz .45s cubic-bezier(.2,.8,.2,1) both}
 .mhin{display:flex;flex-direction:column;gap:14px;max-width:460px;margin:0 auto;padding:calc(14px + env(safe-area-inset-top)) 16px 24px}
@@ -3303,7 +3324,7 @@ function mhLeft(){if(!mhD||!mhD.going||!mhD.going.at)return '';const ms=mhD.goin
 function renderMhCard(){const b=$('#mhc');if(!b)return;const has=mhD&&mhCode(),left=has?mhLeft():'',nu=has?mhUnseen().length:0;
  b.innerHTML='<button type="button" class="card mhcard" data-mhgo><span class="ti">'+MHIC+'</span><span><b>'+esc(mht('t'))+'</b><small>'+esc(has?mht('hi')+', '+mhD.name+(left?' · '+left:''):mht('tile'))+'</small></span>'+(nu?'<span class="mhnb">'+esc(mht('newm').replace('{n}',nu))+'</span>':'')+'<span class="ar2" aria-hidden="true">›</span></button>'}
 function mhFetch(code){
- mhBusy=true;mhErr='';renderMh();
+ mhBusy=true;mhErr='';if(cur==='mh'||!$('#mh .mhin'))renderMh();
  return fetch(LEAD_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({type:'myhajj',code:code,dev:mhDev(),fp:mhFp(),ua:mhUa()})})
   .then(r=>r.json()).then(j=>{
    if(j&&j.ok){mhBlk=false;mhD=Object.assign(j,{got:Date.now()});mhOff=false;store.set('mhCode',code);store.set('mhData',JSON.stringify(mhD))}
@@ -3314,6 +3335,7 @@ function mhFetch(code){
   .finally(()=>{mhBusy=false;mhLast=Date.now();if(cur==='mh')renderMh();renderMhCard();mhPopCheck()})}
 function mhRow(k,v){return v?'<div class="mhrow"><span>'+esc(k)+'</span><bdi dir="ltr">'+esc(v)+'</bdi></div>':''}
 function renderMh(){const b=$('#mh');if(!b)return;const code=mhCode(),D=code?mhD:null;
+ {const sig=mhSigNow();if(D&&sig===mhSig&&!mhAnimNext&&$('#mh .mhin')){mhPatch();return}mhSig=sig}
  let h='<div class="mhin"><div class="twh"><button type="button" class="twb" data-mhback aria-label="Back">‹</button><h1 class="h shine">'+esc(mht('t'))+'</h1></div>';
  if(!D&&mhBlk){
   h+='<div class="card" style="display:flex;flex-direction:column;gap:12px;text-align:center"><div style="font-size:40px">🔒</div><b style="font-size:17px;color:var(--g2)">'+esc(mht('blkt'))+'</b><p style="margin:0;line-height:1.6">'+esc(mht('blk'))+'</p>'+
@@ -3328,8 +3350,8 @@ function renderMh(){const b=$('#mh');if(!b)return;const code=mhCode(),D=code?mhD
   h+='<div class="mhwel">'+(D.photo&&/^[A-Za-z0-9+/=]+$/.test(D.photo)?'<img class="mhph" src="data:image/jpeg;base64,'+D.photo+'" alt="">':'')+'<small>'+esc(mht('hi'))+'</small><div class="nm">'+esc(D.name)+'</div><small>'+esc([D.pkg,D.group?mht('grp')+' '+D.group:''].filter(Boolean).join(' · '))+'</small><br><span class="mhchip">'+esc(String(D.code||code).replace(/^MZB-?/,'').replace(/-/g,''))+'</span></div>';
   if(left)h+='<div class="card mhcd"><b>'+esc(left.match(/\d+/)?left.match(/\d+/)[0]:'✈')+'</b><span>'+esc(left)+'</span></div>';
   h+=mhHelpHtml(D);
-  const A=D.alerts||[];h+='<div class="mhsec">'+esc(mht('alerts'))+'</div>'+(A.length?A.map(a=>{const m=mhMsg(a);
-   return '<div class="card mhal"><small><bdi dir="ltr">'+esc(a.time)+'</bdi></small>'+(m.t?'<b>'+esc(m.t)+'</b>':'')+'<p>'+esc(m.x)+'</p></div>'}).join(''):'<div class="card mhmu">'+esc(mht('none'))+'</div>');
+  const A=D.alerts||[];const S0=mhSeen();h+='<div class="mhsec">'+esc(mht('alerts'))+'</div>'+(A.length?A.map(a=>{const m=mhMsg(a);
+   return '<div class="card mhal'+(S0.includes(mhKey(a))?'':' new')+'"><small><bdi dir="ltr">'+esc(a.time)+'</bdi></small>'+(m.t?'<b>'+esc(m.t)+'</b>':'')+'<p>'+esc(m.x)+'</p></div>'}).join(''):'<div class="card mhmu">'+esc(mht('none'))+'</div>');
   mhMarkSeen(A);
   h+=mhMubHtml(D)+mhTentHtml(D);
   const fl=mhRow(mht('going'),G.flight)+mhRow('',G.when)+mhRow(mht('report'),G.report)+mhRow(mht('back'),R.flight)+mhRow('',R.when);
@@ -3341,14 +3363,15 @@ function renderMh(){const b=$('#mh');if(!b)return;const code=mhCode(),D=code?mhD
   h+='<div class="mhsec">'+esc(mht('mydocs'))+'</div><div class="card">'+(DC.length?DC.map(d=>'<div class="mhrow" style="align-items:center"><b style="text-align:start">'+esc((DN[d.key]||d.key)+(d.page===2?' – '+mht('p2'):''))+'</b>'+(VO?'<span style="font-size:20px" aria-hidden="true">🔒</span>':'<button type="button" class="btn g s mhdl" data-mhdl="'+esc(d.key)+'" data-mhpg="'+(d.page===2?2:1)+'">⬇ '+esc(mht('dl'))+'</button>')+'</div>').join('')+
    (VO?'<div class="mhmu" style="margin-top:8px">🔒 '+esc(mht('mainonly'))+'</div>':'<div class="mhmu mhdm" role="status" style="margin-top:8px"></div>'):'<span class="mhmu" style="display:block">'+esc(mht('nodocs'))+'</span>')+'</div>';
   if(D.note)h+='<div class="mhsec">'+esc(mht('note'))+'</div><div class="card mhnote">'+esc(D.note)+'</div>';
-  if(ck.length)h+='<div class="mhsec">'+esc(mht('docs'))+'</div><div class="mhck">'+ck.map(k=>'<div class="'+(C[k]?'ok':'')+'"><i>'+(C[k]?'✓':'…')+'</i>'+esc(mhCk(k))+'</div>').join('')+'</div>';
+  if(ck.length){const dn=ck.filter(k=>C[k]).length,pw=Math.round(dn/ck.length*100);h+='<div class="mhsec">'+esc(mht('docs'))+'</div><div class="mhpg"><span><i data-w="'+pw+'" style="width:'+pw+'%"></i></span><b><bdi dir="ltr">'+dn+' / '+ck.length+'</bdi></b></div>'}
+  if(ck.length)h+='<div class="mhck">'+ck.map(k=>'<div class="'+(C[k]?'ok':'')+'"><i>'+(C[k]?'✓':'…')+'</i>'+esc(mhCk(k))+'</div>').join('')+'</div>';
   h+=mhBadgeHtml(D)+mhRefHtml();
   const L=D.leader||{},lp=String(L.phone||D.office||'').replace(/\D/g,'');
   if(lp)h+='<div class="mhsec">'+esc(mht('leader'))+'</div><div class="card"><b style="display:block;margin-bottom:10px">'+esc(L.name||mht('office'))+'</b><div class="two"><a class="btn g s" href="tel:+'+lp+'">'+esc(mht('call'))+'</a><a class="btn d s" href="https://wa.me/'+lp+'" target="_blank" rel="noopener">'+esc(mht('wa'))+'</a></div></div>';
   h+='<div class="mhsec">'+esc(mht('tools'))+'</div><div class="mhtools"><button type="button" class="tile" data-twgo><span class="ti">'+TWIC+'</span><span>'+esc(twt('t'))+'</span></button><button type="button" class="tile" data-mhqb><span class="ti">'+QBIC+'</span><span>'+esc(mht('qb'))+'</span></button></div>';
-  h+='<p class="mhmu">'+esc(mhOff?mht('offl'):D.got?mht('upd').replace('{t}',new Date(D.got).toLocaleString(lang==='ur'?'ur-PK':lang==='en'?'en-IN':lang+'-IN',{day:'numeric',month:'short',hour:'numeric',minute:'2-digit'})):'')+'</p>'+
+  h+='<p class="mhmu mhupd">'+esc(mhUpdTxt())+'</p>'+
    (mhErr?'<div class="mherr">'+esc(mhErr)+'</div>':'')+
-   '<button type="button" class="btn o" data-mhref'+(mhBusy?' disabled':'')+'>'+esc(mhBusy?'…':mht('refresh'))+'</button><div style="text-align:center"><button type="button" class="mhlink" data-mhout>'+esc(mht('change'))+'</button></div>';
+   '<button type="button" class="btn o" data-mhref'+(mhBusy?' disabled':'')+'>'+(mhBusy?'<span class="mhspin"></span>':esc(mht('refresh')))+'</button><div style="text-align:center"><button type="button" class="mhlink" data-mhout>'+esc(mht('change'))+'</button></div>';
  }
  b.innerHTML=h+'</div>';
  if(D){mhBadgeDraw();if(mhAfterHajj())mhMubPreview()}
@@ -3395,16 +3418,16 @@ function mhBg(){if(!mhCode()||mhBusy||document.hidden)return;if(Date.now()-mhLas
 setInterval(mhBg,3e5);document.addEventListener('visibilitychange',()=>{if(!document.hidden)setTimeout(mhBg,800)});
 setTimeout(()=>{if(mhD&&mhCode())mhPopCheck();mhBg()},2500);
 function mhDownload(btn){const key=btn.dataset.mhdl,pg=+btn.dataset.mhpg||1,msg=$('.mhdm'),code=mhCode();if(!code||btn.disabled)return;
- const lbl=btn.innerHTML;btn.disabled=true;btn.textContent='…';if(msg)msg.textContent='';
+ const lbl=btn.innerHTML;let ok=false;btn.disabled=true;btn.innerHTML='<span class="mhspin"></span>';if(msg)msg.textContent='';
  fetch(LEAD_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({type:'myhajjdoc',code:code,key:key,page:pg,dev:mhDev(),fp:mhFp(),ua:mhUa()})})
   .then(r=>r.json()).then(j=>{if(j&&j.err==='device'){mhBlk=true;mhD=null;store.set('mhData','null');store.set('mhCode','');renderMh();renderMhCard();throw new Error('device')}if(!j||!j.ok||!j.data)throw new Error(j&&j.err||'x');
    const bin=atob(j.data),u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);
    const ext=(String(j.name||'').split('.').pop()||'pdf').toLowerCase(),nm=('Meezab-'+String(mhD&&mhD.name||'Haji').replace(/[^A-Za-z0-9]+/g,'-')+'-'+String((MHT.en.dn||{})[key]||key).replace(/[^A-Za-z0-9]+/g,'-')+(pg===2?'-page-2':'')+'.'+ext).replace(/-+/g,'-');
    const blob=new Blob([u],{type:j.mime||'application/octet-stream'}),url=URL.createObjectURL(blob),a=document.createElement('a');
    a.href=url;a.download=nm;a.rel='noopener';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),6e4);
-   if(msg)msg.textContent=mht('saved');mhAnim(a=>a({targets:btn,scale:[1,1.15,1],duration:500,easing:'easeOutQuad'}))})
+   ok=true;if(msg)msg.textContent=mht('saved')})
   .catch(e=>{if(msg)msg.textContent=e&&e.message==='mainonly'?mht('mainonly'):mht('dfail')})
-  .finally(()=>{btn.disabled=false;btn.innerHTML=lbl})}
+  .finally(()=>{if(!btn.isConnected)return;btn.disabled=false;if(!ok){btn.innerHTML=lbl;return}btn.innerHTML='✓';btn.classList.add('ok');mhAnim(a=>a({targets:btn,scale:[.7,1],duration:600,easing:'easeOutElastic(1,.55)'}));setTimeout(()=>{if(btn.isConnected){btn.innerHTML=lbl;btn.classList.remove('ok')}},1700)})}
 
 /* ---- v50: help card (I am lost, hotel card in Arabic), Mina tent, QR badge, Hajj Mubarak card, referral, animations ---- */
 function mhLeaderPh(){const D=mhD||{},L=D.leader||{};return String(L.phone||D.office||'917038422399').replace(/\D/g,'')}
@@ -3419,9 +3442,9 @@ function mhLost(btn){const D=mhD;if(!D)return;const msg=$('.mhlm'),H=D.hotels||{
  const send=loc=>{const t='🆘 I am lost – '+D.name+' (Meezab code '+code+')'+(hotel?'\nHotel: '+hotel:'')+(D.tent?'\nMina tent: '+(D.maktab?'Maktab '+D.maktab+' · ':'')+D.tent:'')+'\n'+(loc?'My location: https://maps.google.com/?q='+loc:'(location not available)');
   location.href='https://wa.me/'+mhLeaderPh()+'?text='+encodeURIComponent(t)};
  if(!navigator.geolocation){if(msg)msg.textContent=mht('locFail');send('');return}
- if(msg)msg.textContent=mht('locWait');btn.disabled=true;
- navigator.geolocation.getCurrentPosition(p=>{btn.disabled=false;if(msg)msg.textContent='';send(p.coords.latitude.toFixed(6)+','+p.coords.longitude.toFixed(6))},
-  ()=>{btn.disabled=false;if(msg)msg.textContent=mht('locFail');send('')},{enableHighAccuracy:true,timeout:12000,maximumAge:60000})}
+ if(msg)msg.textContent=mht('locWait');btn.disabled=true;btn.classList.add('wait');
+ navigator.geolocation.getCurrentPosition(p=>{btn.disabled=false;btn.classList.remove('wait');if(msg)msg.textContent='';send(p.coords.latitude.toFixed(6)+','+p.coords.longitude.toFixed(6))},
+  ()=>{btn.disabled=false;btn.classList.remove('wait');if(msg)msg.textContent=mht('locFail');send('')},{enableHighAccuracy:true,timeout:12000,maximumAge:60000})}
 function mhHotel(which){const D=mhD||{},H=D.hotels||{},list=[['makkah','roomMakkah','Makkah','مكة المكرمة'],['madinah','roomMadinah','Madinah','المدينة المنورة'],['shifting','roomShifting','Makkah','مكة المكرمة']].filter(x=>H[x[0]]);
  if(!list.length)return;const cur=list.find(x=>x[0]===which)||list[0];let o=$('#mhhov');if(!o){o=document.createElement('div');o.id='mhhov';o.className='mhhov';document.body.appendChild(o)}
  o.innerHTML='<div class="mhhin">'+(list.length>1?'<div class="mhhtabs">'+list.map(x=>'<button type="button" data-mhht="'+x[0]+'" class="'+(x===cur?'on':'')+'">'+esc(mht(x[0]))+'</button>').join('')+'</div>':'')+
@@ -3435,8 +3458,7 @@ function mhTentHtml(D){if(!D.tent&&!D.maktab)return '';
   '<div class="mhtn">'+(D.maktab?'<div><small>'+esc(mht('maktab'))+'</small><b>'+esc(D.maktab)+'</b></div>':'')+(D.tent?'<div><small>'+esc(mht('tentNo'))+'</small><b>'+esc(D.tent)+'</b></div>':'')+'</div>'+
   '<div class="mhmu" style="margin-top:6px">✓ '+esc(mht('tentOff'))+'</div></div>'}
 function mhBadgeHtml(D){if(!D.badge)return '';return '<div class="mhsec">'+esc(mht('badge'))+'</div><div class="card mhbadge"><div class="mhqr" id="mhqr"></div><div class="mhmu">'+esc(mht('badgeSub'))+'</div></div>'}
-function mhBadgeDraw(){const D=mhD,el=$('#mhqr');if(!D||!D.badge||!el)return;mhLib('qrcode.min.js').then(()=>{const q=qrcode(0,'M');q.addData('MZBB:'+D.badge);q.make();el.innerHTML=q.createSvgTag({cellSize:6,margin:3});
- mhAnim(a=>a({targets:'#mhqr svg',scale:[.6,1],opacity:[0,1],rotate:['-8deg','0deg'],duration:700,easing:'easeOutBack'}))}).catch(()=>{})}
+function mhBadgeDraw(){const D=mhD,el=$('#mhqr');if(!D||!D.badge||!el)return;mhLib('qrcode.min.js').then(()=>{const q=qrcode(0,'M');q.addData('MZBB:'+D.badge);q.make();el.innerHTML=q.createSvgTag({cellSize:6,margin:3})}).catch(()=>{})}
 function mhAfterHajj(){return (typeof ARAFAH==='number'&&Date.now()>=ARAFAH+864e5)||/[?&]mubarak\b/.test(location.search)}
 function mhMubHtml(D){if(!mhAfterHajj())return '';return '<div class="mhsec">'+esc(mht('mub'))+' 🎉</div><div class="card mhmub"><div class="mhmu" style="margin-bottom:10px">'+esc(mht('mubSub'))+'</div><div class="mhmubp" id="mhmubp"></div><button type="button" class="btn g" data-mhmub style="margin-top:10px;width:100%">📤 '+esc(mht('share'))+'</button></div>'}
 let mhCardBlob=null;
@@ -3476,11 +3498,60 @@ function mhRefSend(){const n=$('#rfn').value.trim(),m=$('#rfm').value.replace(/\
  mhAnim(a=>a({targets:'#mh [data-mhrefo]',scale:[1,1.06,1],duration:500}))}
 // Anime.js (bundled with the app, works offline). Skipped when the phone asks for less motion.
 function mhLib(src){mhLib.p=mhLib.p||{};return mhLib.p[src]||(mhLib.p[src]=new Promise((ok,no)=>{const s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=()=>{delete mhLib.p[src];no()};document.head.appendChild(s)}))}
-function mhAnim(fn){if(RM)return;mhLib('anime.min.js').then(()=>{try{fn(window.anime)}catch(e){}}).catch(()=>{})}
+function mhAnim(fn){if(RM)return;if(window.anime){try{fn(window.anime)}catch(e){}return}mhLib('anime.min.js').then(()=>{try{fn(window.anime)}catch(e){}}).catch(()=>{})}
 let mhAnimNext=false;
-function mhEntrance(){mhAnim(a=>{a({targets:'#mh .mhin > *',opacity:[0,1],translateY:[22,0],delay:a.stagger(40,{start:40}),duration:620,easing:'easeOutQuart'});
- const el=$('#mh .mhcd b'),n=el?parseInt(el.textContent,10):0;if(el&&n>0){const o={v:0};a({targets:o,v:n,round:1,duration:1500,easing:'easeOutExpo',update:()=>{el.textContent=o.v}})}
- a({targets:'#mh .mhph',scale:[.6,1],duration:900,easing:'easeOutElastic(1,.6)'})})}
+/* ---- v51: one calm animation system for My Hajj (Anime.js, bundled; all skipped when the phone asks for less motion) ---- */
+let mhSig='',mhIO=null,mhConf=false;
+function mhSigNow(){const D=mhCode()?mhD:null;if(!D)return 'x|'+lang+mhBlk+mhErr+mhBusy+mhCode();const c=Object.assign({},D);delete c.got;return lang+'|'+mhOff+'|'+mhErr+'|'+mhAfterHajj()+'|'+JSON.stringify(c)}
+function mhUpdTxt(){const D=mhD||{};return mhOff?mht('offl'):D.got?mht('upd').replace('{t}',new Date(D.got).toLocaleString(lang==='ur'?'ur-PK':lang==='en'?'en-IN':lang+'-IN',{day:'numeric',month:'short',hour:'numeric',minute:'2-digit'})):''}
+/* nothing changed since the last draw: only refresh the small "updated" line and the Refresh button (no flicker, animations keep playing) */
+function mhPatch(){const u=$('#mh .mhupd');if(u)u.textContent=mhUpdTxt();const r=$('#mh [data-mhref]');if(r){r.disabled=mhBusy;r.innerHTML=mhBusy?'<span class="mhspin"></span>':esc(mht('refresh'))}}
+function mhWhenReady(fn){const w=()=>{if(mhSplashOn())setTimeout(w,250);else fn()};w()}
+const MHKAABA='<svg viewBox="0 0 200 190" class="mhkb" aria-hidden="true"><defs><linearGradient id="mhg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FBEBB5"/><stop offset=".5" stop-color="#D9B44A"/><stop offset="1" stop-color="#A87B28"/></linearGradient></defs>'+
+ '<g class="kf" opacity="0"><polygon points="38,62 118,80 118,170 38,148" fill="#0d0c10"/><polygon points="118,80 166,62 166,148 118,170" fill="#17151b"/><polygon points="38,62 88,46 166,62 118,80" fill="#221f27"/>'+
+ '<polygon points="38,84 118,103 118,115 38,95" fill="url(#mhg)"/><polygon points="118,103 166,84 166,95 118,115" fill="url(#mhg)" opacity=".8"/><polygon points="134,163 134,128 150,122 150,156" fill="url(#mhg)" opacity=".9"/></g>'+
+ '<g fill="none" stroke="#E6C36A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M38 62 L118 80 L118 170 L38 148 Z"/><path d="M118 80 L166 62 L166 148 L118 170"/><path d="M38 62 L88 46 L166 62"/>'+
+ '<path d="M38 84 L118 103 L166 84"/><path d="M38 95 L118 115 L166 95"/><path d="M134 163 L134 128 L150 122 L150 156"/></g></svg>';
+/* "Labbaik" moment: once a day, about 3 seconds, tap to skip */
+function mhLabbaik(done){const a=window.anime,day=new Date().toDateString();
+ if(RM||!a||!mhD||store.get('mhLab')===day){done();return}
+ store.set('mhLab',day);
+ const o=document.createElement('div');o.className='mhlab';o.setAttribute('role','button');o.setAttribute('aria-label',mht('t'));
+ o.innerHTML='<div class="mhlg"></div>'+MHKAABA+'<p class="mhlt" lang="ar" dir="rtl">لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ</p><p class="mhln">'+esc(mht('hi'))+'</p><b class="mhlnn">'+esc(mhD.name||'')+'</b>';
+ app.appendChild(o);
+ let fin=false,tl=null;const end=()=>{if(fin)return;fin=true;if(tl)tl.pause();a({targets:o,opacity:0,duration:520,easing:'easeInOutQuad',complete:()=>o.remove()});done()};
+ o.addEventListener('click',end);setTimeout(end,6000);
+ tl=a.timeline({easing:'easeOutCubic',complete:end});
+ tl.add({targets:o.querySelectorAll('path'),strokeDashoffset:[a.setDashoffset,0],duration:950,delay:a.stagger(110),easing:'easeInOutSine'})
+   .add({targets:o.querySelector('.kf'),opacity:[0,1],duration:600},'-=350')
+   .add({targets:o.querySelector('.mhlg'),opacity:[0,1],scale:[.5,1],duration:1100},'-=700')
+   .add({targets:o.querySelector('.mhlt'),opacity:[0,1],translateY:[16,0],duration:800},'-=750')
+   .add({targets:[o.querySelector('.mhln'),o.querySelector('.mhlnn')],opacity:[0,1],translateY:[10,0],duration:520,delay:a.stagger(130)},'-=300')
+   .add({targets:o,duration:700,opacity:1})}
+function mhConfetti(card){if(mhConf||RM)return;mhConf=true;const c=document.createElement('canvas'),r=card.getBoundingClientRect(),dpr=Math.min(2,window.devicePixelRatio||1);
+ c.width=r.width*dpr;c.height=r.height*dpr;c.style.cssText='position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2';card.style.position='relative';card.appendChild(c);
+ const x=c.getContext('2d'),cols=['#FBEBB5','#E6C36A','#D9B44A','#A87B28','#fff6d6'],n=(navigator.hardwareConcurrency||8)<=4?40:70,
+  P=Array.from({length:n},()=>({x:r.width/2,y:r.height*.32,vx:(Math.random()-.5)*9,vy:-Math.random()*9-2,s:Math.random()*5+3,r:Math.random()*6,vr:(Math.random()-.5)*.4,c:cols[Math.random()*5|0]}));
+ const t0=performance.now();(function f(t){const k=(t-t0)/2600;x.clearRect(0,0,c.width,c.height);if(k>=1||!c.isConnected){c.remove();return}
+  x.save();x.scale(dpr,dpr);P.forEach(p=>{p.vy+=.22;p.vx*=.99;p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.globalAlpha=Math.max(0,1-k*k);x.fillStyle=p.c;x.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);x.restore()});x.restore();requestAnimationFrame(f)})(t0)}
+/* each card rises into place as it comes on screen; a few cards have their own small moment */
+function mhReveal(e,k){const a=window.anime,d=k*70;
+ a({targets:e,opacity:[0,1],translateY:[26,0],duration:720,delay:d,easing:'easeOutCubic',complete:()=>{e.style.transform='';e.style.opacity=''}});
+ const C=e.classList;
+ if(C.contains('mhwel')){const p=e.querySelector('.mhph');if(p)a({targets:p,scale:[.5,1],duration:1000,delay:d,easing:'easeOutElastic(1,.6)'})}
+ if(C.contains('mhcd')){const el=e.querySelector('b'),n=el?parseInt(el.textContent,10):0;if(n>0){const o={v:0};el.textContent='0';a({targets:o,v:n,round:1,duration:1600,delay:d+150,easing:'easeOutExpo',update:()=>{el.textContent=o.v},complete:()=>{el.textContent=n}})}}
+ if(C.contains('mhck'))a({targets:e.children,opacity:[0,1],scale:[.85,1],delay:a.stagger(55,{start:d+120}),duration:420,easing:'easeOutBack'});
+ if(C.contains('mhpg')){const f=e.querySelector('i');if(f)a({targets:f,width:['0%',f.dataset.w+'%'],duration:1100,delay:d+200,easing:'easeOutQuart'})}
+ if(C.contains('mhtent')){const i=e.querySelector('img');if(i)a({targets:i,scale:[1.12,1],duration:1600,delay:d,easing:'easeOutQuad'})}
+ if(C.contains('mhbadge')){const q=e.querySelector('svg');if(q)a({targets:q,scale:[.6,1],rotate:['-8deg','0deg'],duration:700,delay:d+150,easing:'easeOutBack'})}
+ if(C.contains('mhmub'))setTimeout(()=>mhConfetti(e),d+350)}
+function mhEntrance(){const box=$('#mh .mhin');if(RM||!box||!('IntersectionObserver' in window))return;
+ if(!window.anime){mhLib('anime.min.js').then(()=>{if(box.isConnected&&mhSplashOn())mhEntrance()}).catch(()=>{});return}
+ const kids=[...box.children].slice(1);kids.forEach(e=>{e.style.opacity=0});
+ if(mhIO)mhIO.disconnect();
+ mhIO=new IntersectionObserver(es=>{let k=0;es.forEach(en=>{if(en.isIntersecting){mhIO.unobserve(en.target);mhReveal(en.target,k++)}})},{root:$('#mh'),threshold:.05,rootMargin:'0px 0px -4% 0px'});
+ mhWhenReady(()=>mhLabbaik(()=>{if(box.isConnected)kids.forEach(e=>mhIO.observe(e))}))}
+setTimeout(()=>{if(!RM)mhLib('anime.min.js').catch(()=>{})},location.hash.indexOf('#mh')===0?0:1800);
 
 /* link from WhatsApp: ...#mh=MZB-XXXX-XX fills the code and opens My Hajj */
 {const m=/^#mh=([A-Za-z0-9-]{6,14})$/.exec(location.hash);if(m){const c=mhClean(decodeURIComponent(m[1]));if(c&&c!==mhCode()){store.set('mhCode',c);store.set('mhData','null');mhD=null}try{history.replaceState(null,'','#mh')}catch(e){}}}
