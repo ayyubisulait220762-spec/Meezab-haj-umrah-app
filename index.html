@@ -30,8 +30,8 @@
 @font-face{font-family:'Outfit';font-weight:400 800;font-display:swap;src:url(font-rupee-var.woff2) format('woff2');unicode-range:U+20B9}
 @font-face{font-family:'Amiri';font-weight:700;font-display:swap;src:url(font-amiri-bold-arabic.woff2) format('woff2');unicode-range:U+0600-06FF,U+FDF2}
 @font-face{font-family:'Noto Sans Devanagari';font-weight:400 800;font-display:swap;src:url(font-noto-sans-devanagari-var.woff2) format('woff2');unicode-range:U+0900-097F,U+1CD0-1CF9,U+200B-200D,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF}
-@font-face{font-family:'Noto Sans Gujarati';font-weight:400 800;font-display:swap;src:url(font-noto-sans-gujarati-var.woff2) format('woff2');unicode-range:U+0A80-0AFF,U+200B-200D,U+20B9,U+25CC,U+A830-A839,U+0964-0965}
-@font-face{font-family:'Noto Nastaliq Urdu';font-weight:300 600;font-display:swap;src:url(font-noto-nastaliq-urdu-500.woff2) format('woff2');unicode-range:U+0600-06FF,U+200B-200F,U+25CC}@font-face{font-family:'Noto Nastaliq Urdu';font-weight:700 900;font-display:swap;src:url(font-noto-nastaliq-urdu-700.woff2) format('woff2');unicode-range:U+0600-06FF,U+200B-200F,U+25CC}
+@font-face{font-family:'Noto Sans Gujarati';font-weight:400 800;size-adjust:120%;font-display:swap;src:url(font-noto-sans-gujarati-var.woff2) format('woff2');unicode-range:U+0A80-0AFF,U+200B-200D,U+20B9,U+25CC,U+A830-A839,U+0964-0965}
+@font-face{font-family:'Noto Nastaliq Urdu';font-weight:300 550;size-adjust:112%;font-display:swap;src:url(font-noto-nastaliq-urdu-500.woff2) format('woff2');unicode-range:U+0600-06FF,U+200B-200F,U+25CC}@font-face{font-family:'Noto Nastaliq Urdu';font-weight:551 900;size-adjust:112%;font-display:swap;src:url(font-noto-nastaliq-urdu-700.woff2) format('woff2');unicode-range:U+0600-06FF,U+200B-200F,U+25CC}
 </style>
 <style>
 @property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
@@ -40,7 +40,16 @@
 [hidden]{display:none!important}
 html,body{height:100%;margin:0;background:#030304}
 body{display:flex;justify-content:center;align-items:center;color:var(--tx);font-family:var(--fb);font-size:15px;line-height:1.45;-webkit-tap-highlight-color:transparent;-webkit-font-smoothing:antialiased}
-[lang=ur] body{font-family:'Noto Nastaliq Urdu',var(--fb);line-height:1.95}
+[lang=ur] body{font-family:'Noto Nastaliq Urdu',var(--fb);line-height:2.05;-webkit-text-stroke:.25px currentColor}
+[lang=ur] body :where(p,small,span,b,strong,i,em,a,li,label,button,h1,h2,h3,h4,div):not([dir=ltr]):not(bdi):not(input){line-height:2}
+[lang=ur] body :where(.h,h1,h2){line-height:1.75;padding-top:.15em}
+[lang=ur] .kick{display:inline-block;margin-bottom:.35em}
+[lang=ur] .phc .kick,[lang=ur] .dcb .kick{display:block;margin-bottom:.55em;line-height:1.6}
+[lang=ur] .phc h1,[lang=ur] .dcb h3{line-height:1.95;padding-top:.2em}
+[lang=ur] .phc h1.shine{margin-top:0}
+[lang=gu] body{line-height:1.6;-webkit-text-stroke:.15px currentColor}
+[lang=gu] .kick{letter-spacing:.4px}
+[lang=gu] body :where(p,small,li,label){line-height:1.65}
 #app{position:relative;width:100%;max-width:440px;height:100%;background:var(--bg);overflow:hidden;isolation:isolate}
 @media(min-width:500px){#app{height:min(100%,900px);border-radius:38px;border:1px solid var(--ln);box-shadow:0 0 90px #d4af3726}}
 button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;padding:0}
@@ -1265,6 +1274,48 @@ html.sva .svb:not(.go){opacity:0;transform:scale(.5)}
 .mhlost b{display:block;font-size:17px}.mhlost small{display:block;font-size:12.5px;opacity:.85;margin-top:2px}
 .mhlic{font-size:28px;flex:none}
 @keyframes mhlp{50%{box-shadow:0 0 0 7px #E26B5B2b}}
+/* v55 Live from Makkah */
+#lvm{margin:4px 0 6px}
+.lvc{border:1px solid #C9A24A77;border-radius:22px;overflow:hidden;background:var(--card);box-shadow:0 10px 30px #0007}
+.lvv{position:relative;aspect-ratio:4/5;background:#000;transition:aspect-ratio .45s cubic-bezier(.2,.8,.2,1)}
+.lvv.on{aspect-ratio:16/9}
+.lvv iframe{position:absolute;inset:0;width:100%;height:100%;border:0;animation:lvin .5s ease both}
+@keyframes lvin{from{opacity:0}to{opacity:1}}
+.lvp{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;background:#000;cursor:pointer;color:#fff;font:inherit;text-align:start;-webkit-tap-highlight-color:transparent;overflow:hidden}
+.lvp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;animation:lvkb 18s ease-in-out infinite alternate}
+@keyframes lvkb{from{transform:scale(1.02)}to{transform:scale(1.12) translate(-1.5%,-1%)}}
+.lvsh{position:absolute;inset:0;background:linear-gradient(180deg,#0006 0%,transparent 35%,transparent 45%,#000d 100%)}
+.lvlive{position:absolute;top:12px;left:12px;display:inline-flex;align-items:center;gap:8px;padding:7px 15px 7px 13px;border-radius:24px;background:linear-gradient(135deg,#ff3b2f,#c4170c);color:#fff;font:900 16px/1.1 system-ui,sans-serif;letter-spacing:2px;z-index:2;pointer-events:none;box-shadow:0 4px 14px #d42a1e88;animation:lvglow 2s ease-in-out infinite}
+@keyframes lvglow{50%{box-shadow:0 4px 22px #ff3b2fcc,0 0 0 4px #ff3b2f33}}
+.lvlive.pz{animation:none;box-shadow:none}
+.lvlive i{width:10px;height:10px;border-radius:50%;background:#fff;animation:lvdot 1.3s ease-in-out infinite}
+@keyframes lvdot{50%{opacity:.25}}
+.lvlive.pz{background:#000b;border:1px solid #ffffff55}
+.lvtap{position:absolute;inset:0 0 52px;z-index:1;border:0;background:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.lvv.paused iframe{filter:brightness(.45) blur(1px);transition:filter .3s}
+.lvbar{position:absolute;left:0;right:0;bottom:0;z-index:3;display:flex;gap:8px;align-items:center;padding:8px 10px;background:linear-gradient(180deg,transparent,#000c)}
+.lvb{width:40px;height:40px;border-radius:50%;border:1px solid #ffffff44;background:#000a;color:#fff;display:grid;place-items:center;font-size:17px;cursor:pointer;transition:transform .15s}
+.lvb:active{transform:scale(.9)}
+.lvpl2{top:50%}
+.lvb svg{width:20px;height:20px}
+.lvbp{background:var(--gg);color:#15110A;border:0}
+.lvv.paused .lvbp{animation:lvring 2.2s ease-out infinite}
+.lvv:fullscreen{aspect-ratio:auto;width:100%;height:100%}
+.lvclk{position:absolute;top:14px;right:12px;padding:4px 10px;border-radius:20px;background:#0009;border:1px solid #ffffff33;font-size:11.5px;z-index:2}
+.lvclk b{font-weight:700;color:var(--g2)}
+.lvpl{position:absolute;left:50%;top:58%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;display:grid;place-items:center;background:var(--gg);color:#15110A;box-shadow:0 0 0 0 #E6C36A88;animation:lvring 2.2s ease-out infinite;transition:transform .2s}
+.lvpl svg{width:26px;height:26px;margin-left:3px}
+.lvp:active .lvpl{transform:scale(.9)}
+@keyframes lvring{0%{box-shadow:0 0 0 0 #E6C36A88}100%{box-shadow:0 0 0 18px #E6C36A00}}
+.lvtx{position:absolute;inset-inline:14px;bottom:10px;z-index:2}
+.lvtx b{display:block;font-family:var(--fd);font-size:22px;color:var(--g2);line-height:1.2}
+.lvtx small{display:block;font-size:12px;opacity:.9;margin-top:2px}
+.lvoff{position:absolute;inset-inline:10px;bottom:62px;z-index:3;padding:8px 10px;border-radius:12px;background:#000c;color:#fff;font-size:13px;text-align:center}
+.lvx{position:absolute;top:8px;right:8px;z-index:3;width:32px;height:32px;border-radius:50%;border:1px solid #ffffff55;background:#000a;color:#fff;font-size:14px;cursor:pointer}
+.lvft{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 14px;font-size:12px}
+.lvft small{color:var(--mu)}
+.lvft a{color:var(--g2);font-weight:700;text-decoration:none;white-space:nowrap}
+@media (prefers-reduced-motion:reduce){.lvp img,.lvpl,.lvlive,.lvlive i{animation:none}}
 /* v54 My Hajj layout */
 .mhpass{position:relative;overflow:hidden;text-align:center;padding:18px 16px 14px;border-color:#C9A24A88;background:radial-gradient(120% 70% at 50% 0%,#3a2c0f55,transparent 70%),var(--card)}
 .mhpass::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:var(--gg)}
@@ -1445,6 +1496,7 @@ html.sva .svb:not(.go){opacity:0;transform:scale(.5)}
 </div>
 <div id="mzc" class="rv"></div><h2 class="h sh rv" data-t="pk">Hajj 2027 packages</h2>
 <div class="deck rv" id="hdeck" data-i="0"></div>
+<div id="lvm" class="rv"></div>
 <div id="mzh" class="rv"></div><div id="mzi" class="rv"></div>
 
 <h2 class="h sh rv" data-t="stories">Pilgrim stories · Hajj 2026</h2>
@@ -3640,6 +3692,59 @@ function mhEntrance(){const box=$('#mh .mhin');if(RM||!box||!('IntersectionObser
  mhIO=new IntersectionObserver(es=>{let k=0;es.forEach(en=>{if(en.isIntersecting){mhIO.unobserve(en.target);mhReveal(en.target,k++)}})},{root:$('#mh'),threshold:.05,rootMargin:'0px 0px -4% 0px'});
  mhWhenReady(()=>mhLabbaik(()=>{if(box.isConnected)kids.forEach(e=>mhIO.observe(e))}))}
 if(!RM)mhLib('anime.min.js').catch(()=>{});
+
+/* v55: Live from Makkah (official KSA Qur'an TV). Loads only on tap. */
+const LVCH='UCos52azQNBgW63_9uDJoPDA',LVYT='https://www.youtube.com/@saudiqurantv/live';
+const LVT={en:{t:'Live from Makkah',s:'Masjid al-Haram · 24 hours',tap:'Tap to watch live',mt:'Makkah time',off:'Needs internet to watch live',yt:'Open in YouTube',cl:'Close',pz:'Pause',go:'Play live',pzd:'Paused',mu:'Sound off',un:'Sound on',src:'Official Saudi Qur\'an TV'},
+ ur:{t:'مکہ مکرمہ سے براہِ راست',s:'مسجد الحرام · 24 گھنٹے',tap:'براہِ راست دیکھنے کے لیے ٹیپ کریں',mt:'مکہ کا وقت',off:'براہِ راست دیکھنے کے لیے انٹرنیٹ ضروری ہے',yt:'یوٹیوب میں کھولیں',cl:'بند کریں',pz:'روکیں',go:'براہِ راست چلائیں',pzd:'رکا ہوا',mu:'آواز بند',un:'آواز چالو',src:'سعودی قرآن ٹی وی (سرکاری)'},
+ hi:{t:'मक्का से लाइव',s:'मस्जिद अल-हराम · 24 घंटे',tap:'लाइव देखने के लिए टैप करें',mt:'मक्का का समय',off:'लाइव देखने के लिए इंटरनेट ज़रूरी है',yt:'YouTube में खोलें',cl:'बंद करें',pz:'रोकें',go:'लाइव चलाएँ',pzd:'रुका हुआ',mu:'आवाज़ बंद',un:'आवाज़ चालू',src:'सऊदी क़ुरआन टीवी (आधिकारिक)'},
+ gu:{t:'મક્કાથી લાઇવ',s:'મસ્જિદ અલ-હરામ · 24 કલાક',tap:'લાઇવ જોવા ટેપ કરો',mt:'મક્કાનો સમય',off:'લાઇવ જોવા ઇન્ટરનેટ જરૂરી છે',yt:'YouTube માં ખોલો',cl:'બંધ કરો',pz:'રોકો',go:'લાઇવ ચલાવો',pzd:'થોભાવેલું',mu:'અવાજ બંધ',un:'અવાજ ચાલુ',src:'સાઉદી કુરઆન ટીવી (સત્તાવાર)'}};
+function lvt(k){return (LVT[lang]||LVT.en)[k]}
+let lvOn=false;
+function lvTime(){try{return new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Riyadh',hour:'numeric',minute:'2-digit',hour12:true}).format(new Date()).toUpperCase()}catch(e){return ''}}
+function renderLv(){const b=$('#lvm');if(!b)return;lvOn=false;
+ b.innerHTML='<div class="lvc"><div class="lvv" id="lvv"><button type="button" class="lvp" data-lvgo aria-label="'+esc(lvt('t')+' – '+lvt('tap'))+'"><img src="live-kaaba.webp" alt="" loading="lazy" decoding="async" width="736" height="920"><span class="lvsh"></span>'+
+  '<span class="lvlive"><i></i>LIVE</span><span class="lvclk" dir="ltr">🕋 <b id="lvclk">'+esc(lvTime())+'</b></span><span class="lvpl" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>'+
+  '<span class="lvtx"><b>'+esc(lvt('t'))+'</b><small>'+esc(lvt('s'))+' · '+esc(lvt('tap'))+'</small></span></button></div>'+
+  '<div class="lvft"><small>✓ '+esc(lvt('src'))+'</small><a href="'+LVYT+'" target="_blank" rel="noopener">'+esc(lvt('yt'))+' ↗</a></div></div>'}
+function lvCmd(f,args){const fr=$('#lvv iframe');if(fr&&fr.contentWindow)try{fr.contentWindow.postMessage(JSON.stringify({event:'command',func:f,args:args||[]}),'*')}catch(e){}}
+let lvPaused=false,lvSnd=false;
+function lvBar(){const v=$('#lvv');if(!v)return;v.classList.toggle('paused',lvPaused);
+ const tp=v.querySelector('.lvtap');if(tp)tp.innerHTML=lvPaused?'<span class="lvpl lvpl2"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>':'';
+ const pb=v.querySelector('.lvbar [data-lvpp]'),sb=v.querySelector('[data-lvsnd]'),bd=v.querySelector('.lvlive');
+ if(pb){pb.innerHTML=lvPaused?'<svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>':'<svg viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor"/></svg>';pb.setAttribute('aria-label',lvt(lvPaused?'go':'pz'))}
+ if(sb){sb.textContent=lvSnd?'🔊':'🔇';sb.setAttribute('aria-label',lvt(lvSnd?'mu':'un'))}
+ if(bd){bd.innerHTML=lvPaused?'⏸ '+esc(lvt('pzd')):'<i></i>LIVE';bd.classList.toggle('pz',lvPaused)}}
+function lvPlay(){const v=$('#lvv');if(!v)return;
+ if(navigator.onLine===false){let m=v.querySelector('.lvoff');if(!m){m=document.createElement('span');m.className='lvoff';v.appendChild(m)}m.textContent='📶 '+lvt('off');return}
+ lvOn=true;lvPaused=false;lvSnd=!lvMuteNext;lvState=-9;v.classList.add('on');
+ v.innerHTML='<iframe onload="lvListen(this)" src="https://www.youtube.com/embed/live_stream?channel='+LVCH+'&autoplay=1&mute='+(lvSnd?0:1)+'&playsinline=1&controls=0&disablekb=1&rel=0&modestbranding=1&enablejsapi=1&origin='+encodeURIComponent(location.origin)+'" title="'+esc(lvt('t'))+'" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>'+
+  '<button type="button" class="lvtap" data-lvpp tabindex="-1" aria-hidden="true"></button>'+
+  '<span class="lvlive"><i></i>LIVE</span><button type="button" class="lvx" data-lvx aria-label="'+esc(lvt('cl'))+'">✕</button>'+
+  '<div class="lvbar"><button type="button" class="lvb lvbp" data-lvpp></button><button type="button" class="lvb" data-lvsnd></button>'+
+  ((document.fullscreenEnabled||document.webkitFullscreenEnabled)?'<button type="button" class="lvb" data-lvfs aria-label="Full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>':'')+'</div>';
+ lvBar();
+ /* plays with sound; if the phone blocks sound autoplay, start again muted so the video still plays */
+ clearTimeout(lvChk);if(lvSnd)lvChk=setTimeout(()=>{if(lvOn&&!lvPaused&&lvState!==1&&lvState!==3){lvMuteNext=true;lvPlay();lvMuteNext=false;const b=$('#lvv .lvbar [data-lvsnd]');if(b)mhAnim(a=>a({targets:b,scale:[1,1.3,1],duration:700,loop:3}))}},4500)}
+let lvState=-9,lvChk=0,lvMuteNext=false;
+function lvListen(fr){try{fr.contentWindow.postMessage(JSON.stringify({event:'listening',id:'lv',channel:'widget'}),'*')}catch(e){}if(lvSnd){lvCmd('unMute');lvCmd('setVolume',[100])}}
+addEventListener('message',e=>{if(!/youtube\.com$/.test(String(e.origin).replace(/^https?:\/\/(www\.)?/,'').split('/')[0]))return;let d;try{d=typeof e.data==='string'?JSON.parse(e.data):e.data}catch(x){return}
+ const i=d&&d.info;if(!i||typeof i!=='object')return;if(typeof i.playerState==='number')lvState=i.playerState;if(typeof i.muted==='boolean'&&lvOn&&!lvPaused&&lvSnd!==!i.muted){lvSnd=!i.muted;lvBar()}});
+/* pause = stop; play again = always jump back to the live moment (never continue from where it stopped) */
+function lvToggle(){if(!lvOn)return;lvPaused=!lvPaused;
+ if(lvPaused)lvCmd('pauseVideo');
+ else{lvCmd('playVideo');lvCmd('seekTo',[1e9,true]);setTimeout(()=>lvCmd('seekTo',[1e9,true]),900);if(lvSnd)lvCmd('unMute')}
+ lvBar()}
+function lvSound(){lvSnd=!lvSnd;lvCmd(lvSnd?'unMute':'mute');if(lvSnd)lvCmd('setVolume',[100]);lvBar()}
+function lvFull(){const v=$('#lvv');if(!v)return;const fs=document.fullscreenElement||document.webkitFullscreenElement;
+ if(fs){(document.exitFullscreen||document.webkitExitFullscreen).call(document)}else{(v.requestFullscreen||v.webkitRequestFullscreen).call(v)}}
+function lvStop(){if(lvOn)renderLv()}
+document.addEventListener('click',e=>{if(e.target.closest('[data-lvgo]')){hap();lvPlay();return}if(e.target.closest('[data-lvx]')){hap();if(document.fullscreenElement)document.exitFullscreen();renderLv();return}if(e.target.closest('[data-lvpp]')){hap();lvToggle();return}if(e.target.closest('[data-lvsnd]')){hap();lvSound();return}if(e.target.closest('[data-lvfs]')){hap();lvFull()}});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)lvStop()});
+setInterval(()=>{const c=$('#lvclk');if(c)c.textContent=lvTime()},3e4);
+{const _g=go;go=function(id){if(id!=='home')lvStop();return _g.apply(this,arguments)}}
+{const _sl=setLang;setLang=function(l){_sl(l);if(!lvOn)renderLv()}}
+renderLv();
 
 /* link from WhatsApp: ...#mh=MZB-XXXX-XX fills the code and opens My Hajj */
 {const m=/^#mh=([A-Za-z0-9-]{6,14})$/.exec(location.hash);if(m){const c=mhClean(decodeURIComponent(m[1]));if(c&&c!==mhCode()){store.set('mhCode',c);store.set('mhData','null');mhD=null}try{history.replaceState(null,'','#mh')}catch(e){}}}

@@ -1,10 +1,22 @@
-MEEZAB E RAHEMAT APP - VERSION 54 (19 November 2026)
-Upload these 3 files to GitHub (Add file -> Upload files -> Commit). Replace the old ones.
+MEEZAB E RAHEMAT APP - VERSIONS 55 + 56 (19 November 2026)
+Uploaded to GitHub directly by Claude (Agent R). This zip is for your reference only - no need to upload it.
 
 FILES IN THIS VERSION
-index.html, sw.js (cache meezab-v56), README.txt.
+index.html, sw.js (cache meezab-v57), live-kaaba.webp (new), README.txt.
 
-WHAT IS NEW IN VERSION 54 - MY HAJJ PAGE REDESIGN (about half the length)
+WHAT IS NEW IN VERSION 55 - LIVE FROM MAKKAH
+- New tile on Home just below the Hajj 2027 packages: official Saudi Qur'an TV live stream from Masjid al-Haram.
+- Your Kaaba photo as the tile picture, big glowing LIVE badge, Makkah time, gold play button.
+- Plays with sound on tap (falls back to muted if the phone blocks sound). Own controls: Pause, Sound, Full screen.
+- Pause then Play always jumps back to the live moment. Video stops when leaving Home or locking the phone.
+- Nothing loads until tapped, so Home stays as fast as before.
+
+WHAT IS NEW IN VERSION 56 - URDU & GUJARATI READABILITY
+- Urdu letters about 12% bigger and slightly bolder; more space between lines so words no longer overlap.
+- Package titles no longer overlap the small line above them.
+- Gujarati letters about 20% bigger and slightly bolder.
+
+EARLIER - VERSION 54 - MY HAJJ PAGE REDESIGN (about half the length)
 - QR badge moved to the top inside a boarding-pass style card (name, package, code, QR). Tap the QR to enlarge it.
 - Flight countdown removed from My Hajj (still on the Home tile).
 - "I am lost" is now a slim red bar with a pulsing pin; Call leader / Office / Take me to my hotel as 3 small buttons.
@@ -13,7 +25,6 @@ WHAT IS NEW IN VERSION 54 - MY HAJJ PAGE REDESIGN (about half the length)
 - Tools row: Tawaf counter, Qibla, Recommend a relative. Duplicate group-leader card removed.
 - Fixed "Group Group A" showing twice.
 
-EARLIER VERSIONS
 index.html, sw.js (cache meezab-v47), README.txt.
 
 WHAT IS NEW IN VERSION 45
