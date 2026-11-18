@@ -1,7 +1,19 @@
-MEEZAB E RAHEMAT APP - VERSION 45 (10 November 2026)
-Uploaded to GitHub directly by Claude (Agent R). This zip is for your reference only - no need to upload it.
+MEEZAB E RAHEMAT APP - VERSION 54 (19 November 2026)
+Upload these 3 files to GitHub (Add file -> Upload files -> Commit). Replace the old ones.
 
 FILES IN THIS VERSION
+index.html, sw.js (cache meezab-v56), README.txt.
+
+WHAT IS NEW IN VERSION 54 - MY HAJJ PAGE REDESIGN (about half the length)
+- QR badge moved to the top inside a boarding-pass style card (name, package, code, QR). Tap the QR to enlarge it.
+- Flight countdown removed from My Hajj (still on the Home tile).
+- "I am lost" is now a slim red bar with a pulsing pin; Call leader / Office / Take me to my hotel as 3 small buttons.
+- Messages: newest 2 shown, "Show all" for the rest (opens by itself if an older one is unread).
+- My trip (flights + hotels), My documents and Checklist now fold open/closed with smooth transitions.
+- Tools row: Tawaf counter, Qibla, Recommend a relative. Duplicate group-leader card removed.
+- Fixed "Group Group A" showing twice.
+
+EARLIER VERSIONS
 index.html, sw.js (cache meezab-v47), README.txt.
 
 WHAT IS NEW IN VERSION 45
