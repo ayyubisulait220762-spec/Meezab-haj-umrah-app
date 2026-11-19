@@ -1,3 +1,5 @@
+VERSION 65 (19 Nov 2026) - Hujjaj reviews: play button on own videos moved to bottom-right like the Instagram tiles. Cache meezab-v66.
+
 VERSION 64 (19 Nov 2026) - Videos & Feedback: Hujjaj reviews tiles all the same size (no big first tile); odd last tile centred. Cache meezab-v65.
 
 VERSION 63 (19 Nov 2026) - Basic security setting (Content-Security-Policy) in index.html: the app may only load from / talk to listed sites
