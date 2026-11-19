@@ -1,3 +1,6 @@
+VERSION 63 (19 Nov 2026) - Basic security setting (Content-Security-Policy) in index.html: the app may only load from / talk to listed sites
+(Google Sheet, YouTube, currency rates, jsDelivr, own files). RULE: a feature that uses a NEW website must add it to that list (see the note above it in index.html). Cache meezab-v64.
+
 VERSION 62 (19 Nov 2026) - Live from Makkah finds the current live video by itself (Sheet 6.10 checks YouTube every 20 min). Built-in video stays as backup. Cache meezab-v63.
 
 VERSION 61 (19 Nov 2026) - Live tile backup card: removed the duplicate "Open in YouTube" link at the bottom (gold button stays). Cache meezab-v62.

@@ -2,6 +2,12 @@
 <html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
+<!-- SECURITY LIST (Content-Security-Policy) - READ BEFORE ADDING A FEATURE:
+     The app may only load from / talk to the websites listed below. If a new feature loads or fetches
+     anything from a NEW website (data, video, script, image, font), add that site to the right part
+     (connect-src = data/API, frame-src = embedded video/page, img-src = pictures, script-src = code),
+     then test that feature. Plain links that open outside the app (wa.me, Instagram, maps) need nothing. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; media-src 'self' data: blob:; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://open.er-api.com https://cdn.jsdelivr.net; frame-src https://www.youtube.com https://www.youtube-nocookie.com; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#08070A">
