@@ -3796,6 +3796,14 @@ setInterval(()=>{renderMhCard()},6e4);
 setLang(store.get('lang')||'en');
 {const h=location.hash.slice(1);if(PKM[h]){renderPd(h);$('#home').classList.remove('on');$('#pd').classList.add('on');cur='pd'}else if(ids.includes(h)&&h!=='home'&&h!=='pd'){$('#home').classList.remove('on');$('#'+h).classList.add('on');cur=h;if(h==='reg')resetForm()}}
 setTab();if(cur==='mh')mhShow();
+/* v60: app stats for the admin app (Online now / Installed / Visitors today). Sends only a random phone id, no personal data. */
+(function(){if(!LEAD_URL)return;let id=store.get('mzDev');if(!/^[A-Za-z0-9]{12,24}$/.test(id||'')){id=((self.crypto&&crypto.randomUUID)?crypto.randomUUID():Math.random().toString(36)+Date.now().toString(36)+Math.random().toString(36)).replace(/[^A-Za-z0-9]/g,'').slice(0,20);store.set('mzDev',id)}
+const os=mzIOS()?'iphone':/android/i.test(navigator.userAgent)?'android':'other';
+const send=(ev,how)=>navigator.onLine===false?Promise.reject():lqSend({type:'stat',ev,dev:id,os,how:how||'',app:mzStandalone()?1:0});
+const inst=how=>{if(store.get('mzInstSent'))return;send('install',how).then(()=>store.set('mzInstSent','1')).catch(()=>{})};
+addEventListener('appinstalled',()=>inst('installed'));if(mzStandalone())inst('opened');
+let last=0;const ping=()=>{if(document.hidden)return;const n=Date.now();if(n-last<100000)return;last=n;send('ping').catch(()=>{last=0})};
+setTimeout(ping,3000);setInterval(ping,120000);document.addEventListener('visibilitychange',ping);addEventListener('online',ping)})();
 (function(){if(!('serviceWorker' in navigator)||!location.protocol.startsWith('http'))return;const reg=()=>setTimeout(()=>navigator.serviceWorker.register('sw.js',{updateViaCache:'none'}).then(g=>{try{g.update()}catch(e){}}).catch(()=>{}),0);setTimeout(()=>{if(SLOW)return;navigator.serviceWorker.ready.then(g=>{if(g.active)g.active.postMessage('warm')}).catch(()=>{})},30000);const had=!!navigator.serviceWorker.controller,t0=Date.now();let rl=false;navigator.serviceWorker.addEventListener('controllerchange',()=>{if(!had||rl||Date.now()-t0>15000)return;rl=true;location.reload()});if(document.readyState==='complete')reg();else addEventListener('load',reg,{once:true})})();
 </script>
 </body>
