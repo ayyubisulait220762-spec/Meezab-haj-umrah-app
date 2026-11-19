@@ -3706,7 +3706,16 @@ function mhEntrance(){const box=$('#mh .mhin');if(RM||!box||!('IntersectionObser
 if(!RM)mhLib('anime.min.js').catch(()=>{});
 
 /* v55: Live from Makkah (official KSA Qur'an TV). Loads only on tap. */
-const LVCH='UCos52azQNBgW63_9uDJoPDA',LVID='IsJTAdC3-Jw',LVYT='https://www.youtube.com/watch?v='+LVID;let lvTry=0;
+const LVCH='UCos52azQNBgW63_9uDJoPDA';let LVID='IsJTAdC3-Jw',LVYT='https://www.youtube.com/watch?v='+LVID,lvTry=0;
+function lvSetId(id){if(!/^[A-Za-z0-9_-]{11}$/.test(id||''))return;LVID=id;LVYT='https://www.youtube.com/watch?v='+id;const a=$('#lvm .lvft a');if(a)a.href=LVYT}
+try{const c=JSON.parse(localStorage.getItem('mz_lvid')||'null');if(c&&c.id)lvSetId(c.id)}catch(e){}
+/* ask the Sheet for the current live video (it checks YouTube itself); at most every 15 min */
+function lvRefresh(){let c=null;try{c=JSON.parse(localStorage.getItem('mz_lvid')||'null')}catch(e){}
+ if(c&&Date.now()-c.at<9e5)return;if(navigator.onLine===false||typeof LEAD_URL!=='string')return;
+ const ac=window.AbortController?new AbortController():null;const tm=setTimeout(()=>{try{ac&&ac.abort()}catch(e){}},8000);
+ fetch(LEAD_URL+'?action=live',ac?{signal:ac.signal}:{}).then(r=>r.json()).then(d=>{clearTimeout(tm);const id=d&&d.id;
+  try{localStorage.setItem('mz_lvid',JSON.stringify({id:/^[A-Za-z0-9_-]{11}$/.test(id||'')?id:(c&&c.id)||'',at:Date.now()}))}catch(e){}
+  if(id)lvSetId(id)}).catch(()=>clearTimeout(tm))}
 const LVT={en:{t:'Live from Makkah',s:'Masjid al-Haram · 24 hours',tap:'Tap to watch live',mt:'Makkah time',off:'Needs internet to watch live',yt:'Open in YouTube',cl:'Close',pz:'Pause',go:'Play live',pzd:'Paused',mu:'Sound off',un:'Sound on',src:'Official Saudi Qur\'an TV',fx:'The live player can\'t open inside the app right now',fb:'Watch live on YouTube',ag:'Try again'},
  ur:{t:'مکہ مکرمہ سے براہِ راست',s:'مسجد الحرام · 24 گھنٹے',tap:'براہِ راست دیکھنے کے لیے ٹیپ کریں',mt:'مکہ کا وقت',off:'براہِ راست دیکھنے کے لیے انٹرنیٹ ضروری ہے',yt:'یوٹیوب میں کھولیں',cl:'بند کریں',pz:'روکیں',go:'براہِ راست چلائیں',pzd:'رکا ہوا',mu:'آواز بند',un:'آواز چالو',src:'سعودی قرآن ٹی وی (سرکاری)',fx:'براہِ راست پلیئر ابھی ایپ میں نہیں کھل رہا',fb:'یوٹیوب پر براہِ راست دیکھیں',ag:'دوبارہ کوشش کریں'},
  hi:{t:'मक्का से लाइव',s:'मस्जिद अल-हराम · 24 घंटे',tap:'लाइव देखने के लिए टैप करें',mt:'मक्का का समय',off:'लाइव देखने के लिए इंटरनेट ज़रूरी है',yt:'YouTube में खोलें',cl:'बंद करें',pz:'रोकें',go:'लाइव चलाएँ',pzd:'रुका हुआ',mu:'आवाज़ बंद',un:'आवाज़ चालू',src:'सऊदी क़ुरआन टीवी (आधिकारिक)',fx:'लाइव प्लेयर अभी ऐप में नहीं खुल रहा',fb:'YouTube पर लाइव देखें',ag:'फिर से कोशिश करें'},
@@ -3714,7 +3723,7 @@ const LVT={en:{t:'Live from Makkah',s:'Masjid al-Haram · 24 hours',tap:'Tap to 
 function lvt(k){return (LVT[lang]||LVT.en)[k]}
 let lvOn=false;
 function lvTime(){try{return new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Riyadh',hour:'numeric',minute:'2-digit',hour12:true}).format(new Date()).toUpperCase()}catch(e){return ''}}
-function renderLv(){const b=$('#lvm');if(!b)return;lvTry=0;lvOn=false;
+function renderLv(){const b=$('#lvm');if(!b)return;lvTry=0;setTimeout(lvRefresh,1500);lvOn=false;
  b.innerHTML='<div class="lvc"><div class="lvv" id="lvv"><button type="button" class="lvp" data-lvgo aria-label="'+esc(lvt('t')+' – '+lvt('tap'))+'"><img src="live-kaaba.webp" alt="" loading="lazy" decoding="async" width="736" height="920"><span class="lvsh"></span>'+
   '<span class="lvlive"><i></i>LIVE</span><span class="lvclk" dir="ltr">🕋 <b id="lvclk">'+esc(lvTime())+'</b></span><span class="lvpl" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>'+
   '<span class="lvtx"><b>'+esc(lvt('t'))+'</b><small>'+esc(lvt('s'))+' · '+esc(lvt('tap'))+'</small></span></button></div>'+

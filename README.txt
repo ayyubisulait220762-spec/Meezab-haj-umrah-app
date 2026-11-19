@@ -1,3 +1,5 @@
+VERSION 62 (19 Nov 2026) - Live from Makkah finds the current live video by itself (Sheet 6.10 checks YouTube every 20 min). Built-in video stays as backup. Cache meezab-v63.
+
 VERSION 61 (19 Nov 2026) - Live tile backup card: removed the duplicate "Open in YouTube" link at the bottom (gold button stays). Cache meezab-v62.
 
 VERSION 59 (19 Nov 2026) - Live tile: "Skip ad" now works (taps reach YouTube), the player is never restarted while an ad plays. Cache meezab-v60.
