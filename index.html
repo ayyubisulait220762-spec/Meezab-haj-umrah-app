@@ -42,6 +42,7 @@
 #lvv .lvfbg{margin-top:6px;display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 20px;border-radius:999px;background:linear-gradient(135deg,#f5e3a3,#c99a3b 55%,#e8c96c);color:#1a1205;font-weight:800;text-decoration:none;box-shadow:0 6px 18px rgba(201,154,59,.35)}
 #lvv .lvfbg svg{width:18px;height:18px}
 #lvv .lvfbr{min-height:40px;padding:0 4px;background:none;border:0;color:#e8c96c;font:inherit;font-weight:700;text-decoration:underline;cursor:pointer}
+#lvv .lvbar>*,#lvv .lvx{pointer-events:auto}
 </style>
 <style>
 @property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
@@ -1301,9 +1302,9 @@ html.sva .svb:not(.go){opacity:0;transform:scale(.5)}
 .lvlive i{width:10px;height:10px;border-radius:50%;background:#fff;animation:lvdot 1.3s ease-in-out infinite}
 @keyframes lvdot{50%{opacity:.25}}
 .lvlive.pz{background:#000b;border:1px solid #ffffff55}
-.lvtap{position:absolute;inset:0 0 52px;z-index:1;border:0;background:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.lvtap{position:absolute;inset:0 0 52px;z-index:1;pointer-events:none;border:0;background:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .lvv.paused iframe{filter:brightness(.45) blur(1px);transition:filter .3s}
-.lvbar{position:absolute;left:0;right:0;bottom:0;z-index:3;display:flex;gap:8px;align-items:center;padding:8px 10px;background:linear-gradient(180deg,transparent,#000c)}
+.lvbar{position:absolute;left:0;right:0;bottom:0;z-index:3;pointer-events:none;display:flex;gap:8px;align-items:center;padding:8px 10px;background:linear-gradient(180deg,transparent,#000c)}
 .lvb{width:40px;height:40px;border-radius:50%;border:1px solid #ffffff44;background:#000a;color:#fff;display:grid;place-items:center;font-size:17px;cursor:pointer;transition:transform .15s}
 .lvb:active{transform:scale(.9)}
 .lvpl2{top:50%}
@@ -3727,7 +3728,7 @@ function lvBar(){const v=$('#lvv');if(!v)return;v.classList.toggle('paused',lvPa
  if(bd){bd.innerHTML=lvPaused?'⏸ '+esc(lvt('pzd')):'<i></i>LIVE';bd.classList.toggle('pz',lvPaused)}}
 function lvPlay(){const v=$('#lvv');if(!v)return;
  if(navigator.onLine===false){let m=v.querySelector('.lvoff');if(!m){m=document.createElement('span');m.className='lvoff';v.appendChild(m)}m.textContent='📶 '+lvt('off');return}
- lvOn=true;lvPaused=false;lvSnd=!lvMuteNext;lvState=-9;v.classList.add('on');clearTimeout(lvDog);lvDog=setTimeout(()=>{if(lvOn&&!lvPaused&&lvState!==1&&lvState!==3&&lvState!==2)lvFail()},lvTry?6000:(lvSnd?12000:8000));
+ lvOn=true;lvPaused=false;lvSnd=!lvMuteNext;lvState=-9;v.classList.add('on');clearTimeout(lvDog);lvAlive=false;lvDogX=0;lvDog=setTimeout(lvDogF,lvTry?6000:(lvSnd?12000:8000));
  v.innerHTML='<iframe onload="lvListen(this)" src="https://www.youtube.com/embed/'+(lvTry?'live_stream?channel='+LVCH+'&':LVID+'?')+'autoplay=1&mute='+(lvSnd?0:1)+'&playsinline=1&controls=0&disablekb=1&rel=0&modestbranding=1&enablejsapi=1&origin='+encodeURIComponent(location.origin)+'" title="'+esc(lvt('t'))+'" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>'+
   '<button type="button" class="lvtap" data-lvpp tabindex="-1" aria-hidden="true"></button>'+
   '<span class="lvlive"><i></i>LIVE</span><button type="button" class="lvx" data-lvx aria-label="'+esc(lvt('cl'))+'">✕</button>'+
@@ -3735,8 +3736,9 @@ function lvPlay(){const v=$('#lvv');if(!v)return;
   ((document.fullscreenEnabled||document.webkitFullscreenEnabled)?'<button type="button" class="lvb" data-lvfs aria-label="Full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>':'')+'</div>';
  lvBar();
  /* plays with sound; if the phone blocks sound autoplay, start again muted so the video still plays */
- clearTimeout(lvChk);if(lvSnd)lvChk=setTimeout(()=>{if(lvOn&&!lvPaused&&lvState!==1&&lvState!==3){lvMuteNext=true;lvPlay();lvMuteNext=false;const b=$('#lvv .lvbar [data-lvsnd]');if(b)mhAnim(a=>a({targets:b,scale:[1,1.3,1],duration:700,loop:3}))}},4500)}
-let lvState=-9,lvChk=0,lvMuteNext=false,lvDog=0;
+ clearTimeout(lvChk);if(lvSnd)lvChk=setTimeout(()=>{if(lvOn&&!lvPaused&&lvState!==1&&lvState!==3){if(lvAlive){lvSnd=false;lvCmd('mute');lvCmd('playVideo');lvBar()}else{lvMuteNext=true;lvPlay();lvMuteNext=false}const b=$('#lvv .lvbar [data-lvsnd]');if(b)mhAnim(a=>a({targets:b,scale:[1,1.3,1],duration:700,loop:3}))}},4500)}
+let lvState=-9,lvChk=0,lvMuteNext=false,lvDog=0,lvAlive=false,lvDogX=0,lvTgl=0;
+function lvDogF(){if(!lvOn||lvPaused||lvState===1||lvState===2||lvState===3)return;if(lvAlive&&!lvDogX){lvDogX=1;lvDog=setTimeout(lvDogF,45000);return}lvFail()}
 function lvFail(){const v=$('#lvv');if(!v)return;if(!lvTry){lvTry=1;clearTimeout(lvChk);clearTimeout(lvDog);lvMuteNext=!lvSnd;lvPlay();lvMuteNext=false;return}lvTry=0;clearTimeout(lvChk);clearTimeout(lvDog);lvOn=false;lvPaused=false;
  if(document.fullscreenElement)try{document.exitFullscreen()}catch(e){}
  v.classList.remove('on','paused');
@@ -3747,10 +3749,11 @@ function lvFail(){const v=$('#lvv');if(!v)return;if(!lvTry){lvTry=1;clearTimeout
   '<button type="button" class="lvfbr" data-lvgo>↻ '+esc(lvt('ag'))+'</button></div></div>'}
 function lvListen(fr){try{fr.contentWindow.postMessage(JSON.stringify({event:'listening',id:'lv',channel:'widget'}),'*')}catch(e){}if(lvSnd){lvCmd('unMute');lvCmd('setVolume',[100])}}
 addEventListener('message',e=>{if(!/youtube\.com$/.test(String(e.origin).replace(/^https?:\/\/(www\.)?/,'').split('/')[0]))return;let d;try{d=typeof e.data==='string'?JSON.parse(e.data):e.data}catch(x){return}
+ if(d&&d.event&&lvOn)lvAlive=true;
  if(d&&d.event==='onError'){if(lvOn)lvFail();return}
- const i=d&&d.info;if(!i||typeof i!=='object')return;if(typeof i.playerState==='number')lvState=i.playerState;if(typeof i.muted==='boolean'&&lvOn&&!lvPaused&&lvSnd!==!i.muted){lvSnd=!i.muted;lvBar()}});
+ const i=d&&d.info;if(!i||typeof i!=='object')return;if(typeof i.playerState==='number'){lvState=i.playerState;if(lvOn&&Date.now()-lvTgl>1500&&lvState===2&&!lvPaused){lvPaused=true;lvBar()}else if(lvOn&&Date.now()-lvTgl>1500&&lvState===1&&lvPaused){lvPaused=false;lvBar()}}if(typeof i.muted==='boolean'&&lvOn&&!lvPaused&&lvSnd!==!i.muted){lvSnd=!i.muted;lvBar()}});
 /* pause = stop; play again = always jump back to the live moment (never continue from where it stopped) */
-function lvToggle(){if(!lvOn)return;lvPaused=!lvPaused;
+function lvToggle(){if(!lvOn)return;lvTgl=Date.now();lvPaused=!lvPaused;
  if(lvPaused)lvCmd('pauseVideo');
  else{lvCmd('playVideo');lvCmd('seekTo',[1e9,true]);setTimeout(()=>lvCmd('seekTo',[1e9,true]),900);if(lvSnd)lvCmd('unMute')}
  lvBar()}
