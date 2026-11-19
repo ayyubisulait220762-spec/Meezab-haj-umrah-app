@@ -1,3 +1,5 @@
+VERSION 61 (19 Nov 2026) - Live tile backup card: removed the duplicate "Open in YouTube" link at the bottom (gold button stays). Cache meezab-v62.
+
 VERSION 59 (19 Nov 2026) - Live tile: "Skip ad" now works (taps reach YouTube), the player is never restarted while an ad plays. Cache meezab-v60.
 
 VERSION 58 (19 Nov 2026) - Live from Makkah now plays the exact live video IsJTAdC3-Jw (Saudi Qur'an TV "Makkah Live") first,

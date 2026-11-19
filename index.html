@@ -43,6 +43,7 @@
 #lvv .lvfbg svg{width:18px;height:18px}
 #lvv .lvfbr{min-height:40px;padding:0 4px;background:none;border:0;color:#e8c96c;font:inherit;font-weight:700;text-decoration:underline;cursor:pointer}
 #lvv .lvbar>*,#lvv .lvx{pointer-events:auto}
+.lvc.fbk .lvft a{display:none}
 </style>
 <style>
 @property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
@@ -3728,7 +3729,7 @@ function lvBar(){const v=$('#lvv');if(!v)return;v.classList.toggle('paused',lvPa
  if(bd){bd.innerHTML=lvPaused?'⏸ '+esc(lvt('pzd')):'<i></i>LIVE';bd.classList.toggle('pz',lvPaused)}}
 function lvPlay(){const v=$('#lvv');if(!v)return;
  if(navigator.onLine===false){let m=v.querySelector('.lvoff');if(!m){m=document.createElement('span');m.className='lvoff';v.appendChild(m)}m.textContent='📶 '+lvt('off');return}
- lvOn=true;lvPaused=false;lvSnd=!lvMuteNext;lvState=-9;v.classList.add('on');clearTimeout(lvDog);lvAlive=false;lvDogX=0;lvDog=setTimeout(lvDogF,lvTry?6000:(lvSnd?12000:8000));
+ lvOn=true;lvPaused=false;{const lc=v.closest('.lvc');if(lc)lc.classList.remove('fbk')}lvSnd=!lvMuteNext;lvState=-9;v.classList.add('on');clearTimeout(lvDog);lvAlive=false;lvDogX=0;lvDog=setTimeout(lvDogF,lvTry?6000:(lvSnd?12000:8000));
  v.innerHTML='<iframe onload="lvListen(this)" src="https://www.youtube.com/embed/'+(lvTry?'live_stream?channel='+LVCH+'&':LVID+'?')+'autoplay=1&mute='+(lvSnd?0:1)+'&playsinline=1&controls=0&disablekb=1&rel=0&modestbranding=1&enablejsapi=1&origin='+encodeURIComponent(location.origin)+'" title="'+esc(lvt('t'))+'" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>'+
   '<button type="button" class="lvtap" data-lvpp tabindex="-1" aria-hidden="true"></button>'+
   '<span class="lvlive"><i></i>LIVE</span><button type="button" class="lvx" data-lvx aria-label="'+esc(lvt('cl'))+'">✕</button>'+
@@ -3741,7 +3742,7 @@ let lvState=-9,lvChk=0,lvMuteNext=false,lvDog=0,lvAlive=false,lvDogX=0,lvTgl=0;
 function lvDogF(){if(!lvOn||lvPaused||lvState===1||lvState===2||lvState===3)return;if(lvAlive&&!lvDogX){lvDogX=1;lvDog=setTimeout(lvDogF,45000);return}lvFail()}
 function lvFail(){const v=$('#lvv');if(!v)return;if(!lvTry){lvTry=1;clearTimeout(lvChk);clearTimeout(lvDog);lvMuteNext=!lvSnd;lvPlay();lvMuteNext=false;return}lvTry=0;clearTimeout(lvChk);clearTimeout(lvDog);lvOn=false;lvPaused=false;
  if(document.fullscreenElement)try{document.exitFullscreen()}catch(e){}
- v.classList.remove('on','paused');
+ v.classList.remove('on','paused');const lc=v.closest('.lvc');if(lc)lc.classList.add('fbk');
  v.innerHTML='<div class="lvfb"><img src="live-kaaba.webp" alt="" decoding="async" width="736" height="920"><span class="lvsh"></span>'+
   '<span class="lvlive"><i></i>LIVE</span><button type="button" class="lvx" data-lvx aria-label="'+esc(lvt('cl'))+'">✕</button>'+
   '<div class="lvfbx"><b>'+esc(lvt('t'))+'</b><small>'+esc(lvt('fx'))+'</small>'+
