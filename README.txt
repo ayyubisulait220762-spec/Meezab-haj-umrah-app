@@ -1,3 +1,6 @@
+VERSION 58 (19 Nov 2026) - Live from Makkah now plays the exact live video IsJTAdC3-Jw (Saudi Qur'an TV "Makkah Live") first,
+then the channel live, then the "Watch live on YouTube" card. YouTube buttons open that video. Cache meezab-v59.
+
 VERSION 57 (19 Nov 2026) - Live from Makkah: if YouTube refuses the in-app player ("This video is unavailable"),
 the tile shows the Kaaba photo with "Watch live on YouTube" + "Try again". Cache meezab-v58.
 

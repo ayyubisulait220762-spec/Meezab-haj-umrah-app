@@ -3704,7 +3704,7 @@ function mhEntrance(){const box=$('#mh .mhin');if(RM||!box||!('IntersectionObser
 if(!RM)mhLib('anime.min.js').catch(()=>{});
 
 /* v55: Live from Makkah (official KSA Qur'an TV). Loads only on tap. */
-const LVCH='UCos52azQNBgW63_9uDJoPDA',LVYT='https://www.youtube.com/@saudiqurantv/live';
+const LVCH='UCos52azQNBgW63_9uDJoPDA',LVID='IsJTAdC3-Jw',LVYT='https://www.youtube.com/watch?v='+LVID;let lvTry=0;
 const LVT={en:{t:'Live from Makkah',s:'Masjid al-Haram · 24 hours',tap:'Tap to watch live',mt:'Makkah time',off:'Needs internet to watch live',yt:'Open in YouTube',cl:'Close',pz:'Pause',go:'Play live',pzd:'Paused',mu:'Sound off',un:'Sound on',src:'Official Saudi Qur\'an TV',fx:'The live player can\'t open inside the app right now',fb:'Watch live on YouTube',ag:'Try again'},
  ur:{t:'مکہ مکرمہ سے براہِ راست',s:'مسجد الحرام · 24 گھنٹے',tap:'براہِ راست دیکھنے کے لیے ٹیپ کریں',mt:'مکہ کا وقت',off:'براہِ راست دیکھنے کے لیے انٹرنیٹ ضروری ہے',yt:'یوٹیوب میں کھولیں',cl:'بند کریں',pz:'روکیں',go:'براہِ راست چلائیں',pzd:'رکا ہوا',mu:'آواز بند',un:'آواز چالو',src:'سعودی قرآن ٹی وی (سرکاری)',fx:'براہِ راست پلیئر ابھی ایپ میں نہیں کھل رہا',fb:'یوٹیوب پر براہِ راست دیکھیں',ag:'دوبارہ کوشش کریں'},
  hi:{t:'मक्का से लाइव',s:'मस्जिद अल-हराम · 24 घंटे',tap:'लाइव देखने के लिए टैप करें',mt:'मक्का का समय',off:'लाइव देखने के लिए इंटरनेट ज़रूरी है',yt:'YouTube में खोलें',cl:'बंद करें',pz:'रोकें',go:'लाइव चलाएँ',pzd:'रुका हुआ',mu:'आवाज़ बंद',un:'आवाज़ चालू',src:'सऊदी क़ुरआन टीवी (आधिकारिक)',fx:'लाइव प्लेयर अभी ऐप में नहीं खुल रहा',fb:'YouTube पर लाइव देखें',ag:'फिर से कोशिश करें'},
@@ -3712,7 +3712,7 @@ const LVT={en:{t:'Live from Makkah',s:'Masjid al-Haram · 24 hours',tap:'Tap to 
 function lvt(k){return (LVT[lang]||LVT.en)[k]}
 let lvOn=false;
 function lvTime(){try{return new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Riyadh',hour:'numeric',minute:'2-digit',hour12:true}).format(new Date()).toUpperCase()}catch(e){return ''}}
-function renderLv(){const b=$('#lvm');if(!b)return;lvOn=false;
+function renderLv(){const b=$('#lvm');if(!b)return;lvTry=0;lvOn=false;
  b.innerHTML='<div class="lvc"><div class="lvv" id="lvv"><button type="button" class="lvp" data-lvgo aria-label="'+esc(lvt('t')+' – '+lvt('tap'))+'"><img src="live-kaaba.webp" alt="" loading="lazy" decoding="async" width="736" height="920"><span class="lvsh"></span>'+
   '<span class="lvlive"><i></i>LIVE</span><span class="lvclk" dir="ltr">🕋 <b id="lvclk">'+esc(lvTime())+'</b></span><span class="lvpl" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>'+
   '<span class="lvtx"><b>'+esc(lvt('t'))+'</b><small>'+esc(lvt('s'))+' · '+esc(lvt('tap'))+'</small></span></button></div>'+
@@ -3727,8 +3727,8 @@ function lvBar(){const v=$('#lvv');if(!v)return;v.classList.toggle('paused',lvPa
  if(bd){bd.innerHTML=lvPaused?'⏸ '+esc(lvt('pzd')):'<i></i>LIVE';bd.classList.toggle('pz',lvPaused)}}
 function lvPlay(){const v=$('#lvv');if(!v)return;
  if(navigator.onLine===false){let m=v.querySelector('.lvoff');if(!m){m=document.createElement('span');m.className='lvoff';v.appendChild(m)}m.textContent='📶 '+lvt('off');return}
- lvOn=true;lvPaused=false;lvSnd=!lvMuteNext;lvState=-9;v.classList.add('on');clearTimeout(lvDog);lvDog=setTimeout(()=>{if(lvOn&&!lvPaused&&lvState!==1&&lvState!==3&&lvState!==2)lvFail()},lvSnd?12000:8000);
- v.innerHTML='<iframe onload="lvListen(this)" src="https://www.youtube.com/embed/live_stream?channel='+LVCH+'&autoplay=1&mute='+(lvSnd?0:1)+'&playsinline=1&controls=0&disablekb=1&rel=0&modestbranding=1&enablejsapi=1&origin='+encodeURIComponent(location.origin)+'" title="'+esc(lvt('t'))+'" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>'+
+ lvOn=true;lvPaused=false;lvSnd=!lvMuteNext;lvState=-9;v.classList.add('on');clearTimeout(lvDog);lvDog=setTimeout(()=>{if(lvOn&&!lvPaused&&lvState!==1&&lvState!==3&&lvState!==2)lvFail()},lvTry?6000:(lvSnd?12000:8000));
+ v.innerHTML='<iframe onload="lvListen(this)" src="https://www.youtube.com/embed/'+(lvTry?'live_stream?channel='+LVCH+'&':LVID+'?')+'autoplay=1&mute='+(lvSnd?0:1)+'&playsinline=1&controls=0&disablekb=1&rel=0&modestbranding=1&enablejsapi=1&origin='+encodeURIComponent(location.origin)+'" title="'+esc(lvt('t'))+'" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>'+
   '<button type="button" class="lvtap" data-lvpp tabindex="-1" aria-hidden="true"></button>'+
   '<span class="lvlive"><i></i>LIVE</span><button type="button" class="lvx" data-lvx aria-label="'+esc(lvt('cl'))+'">✕</button>'+
   '<div class="lvbar"><button type="button" class="lvb lvbp" data-lvpp></button><button type="button" class="lvb" data-lvsnd></button>'+
@@ -3737,7 +3737,7 @@ function lvPlay(){const v=$('#lvv');if(!v)return;
  /* plays with sound; if the phone blocks sound autoplay, start again muted so the video still plays */
  clearTimeout(lvChk);if(lvSnd)lvChk=setTimeout(()=>{if(lvOn&&!lvPaused&&lvState!==1&&lvState!==3){lvMuteNext=true;lvPlay();lvMuteNext=false;const b=$('#lvv .lvbar [data-lvsnd]');if(b)mhAnim(a=>a({targets:b,scale:[1,1.3,1],duration:700,loop:3}))}},4500)}
 let lvState=-9,lvChk=0,lvMuteNext=false,lvDog=0;
-function lvFail(){const v=$('#lvv');if(!v)return;clearTimeout(lvChk);clearTimeout(lvDog);lvOn=false;lvPaused=false;
+function lvFail(){const v=$('#lvv');if(!v)return;if(!lvTry){lvTry=1;clearTimeout(lvChk);clearTimeout(lvDog);lvMuteNext=!lvSnd;lvPlay();lvMuteNext=false;return}lvTry=0;clearTimeout(lvChk);clearTimeout(lvDog);lvOn=false;lvPaused=false;
  if(document.fullscreenElement)try{document.exitFullscreen()}catch(e){}
  v.classList.remove('on','paused');
  v.innerHTML='<div class="lvfb"><img src="live-kaaba.webp" alt="" decoding="async" width="736" height="920"><span class="lvsh"></span>'+
