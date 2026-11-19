@@ -1,3 +1,5 @@
+VERSION 64 (19 Nov 2026) - Videos & Feedback: Hujjaj reviews tiles all the same size (no big first tile); odd last tile centred. Cache meezab-v65.
+
 VERSION 63 (19 Nov 2026) - Basic security setting (Content-Security-Policy) in index.html: the app may only load from / talk to listed sites
 (Google Sheet, YouTube, currency rates, jsDelivr, own files). RULE: a feature that uses a NEW website must add it to that list (see the note above it in index.html). Cache meezab-v64.
 

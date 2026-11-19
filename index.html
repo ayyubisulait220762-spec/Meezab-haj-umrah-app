@@ -161,8 +161,9 @@ img{display:block;max-width:100%}
 .vt small{font-size:12px;color:var(--g2)}
 .vgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .vgrid .vc{width:auto}
-.vgrid .vc:first-child{grid-column:span 2;aspect-ratio:4/5}
-.vgrid .vc:first-child .pl{width:52px;height:52px;top:14px;inset-inline-end:14px}
+.igall>#fbvg,.igall>#igg{display:contents}
+.igall>#fbvg[hidden]{display:none}
+.igall .ig1{grid-column:1/-1;justify-self:center;width:calc(50% - 6px)}
 /* tiles */
 .grid4{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .tile{position:relative;overflow:hidden;min-height:92px;border:1px solid var(--ln);border-radius:20px;background:linear-gradient(160deg,var(--card2),var(--card));padding:14px;display:flex;flex-direction:column;justify-content:space-between;gap:10px;text-align:start;font-weight:700;font-size:14.5px;transition:transform .15s}
@@ -1593,12 +1594,14 @@ html.sva .svb:not(.go){opacity:0;transform:scale(.5)}
 </header>
 <div class="pad">
 <h2 class="h sh rv" data-igh>Videos from our journeys</h2><div class="igc rv" id="igc" role="tablist"></div>
-<div class="vgrid rv" id="fbvg">
+<div class="vgrid igall rv">
+<div class="vgrid" id="fbvg">
 <button class="vc" data-v="burhan" aria-label="Mohd Burhan, Hajj 2026"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-ds="poster-burhan.jpg" alt="Mohd Burhan speaking about his Hajj 2026 journey" loading="lazy" fetchpriority="low" width="405" height="720" style="object-position:50% 30%"><span class="pl"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span><span class="vt"><b>Mohd Burhan</b><small data-t="v1">Delhi · Hajj 2026</small></span></button>
 <button class="vc" data-v="mubashshira" aria-label="Mubashshira Shafi Ahmed, Hajj 2026"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-ds="poster-mubashshira.jpg" alt="Mubashshira speaking about her Hajj 2026 journey" loading="lazy" fetchpriority="low" width="405" height="720"><span class="pl"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span><span class="vt"><b>Mubashshira Shafi Ahmed</b><small data-t="v2">Mumbai · Hajj 2026</small></span></button>
 <button class="vc" data-v="faisal" aria-label="Faisal Ahmed, Hajj 2026"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-ds="poster-faisal.jpg" alt="Faisal Ahmed speaking about his Hajj 2026 journey" loading="lazy" fetchpriority="low" width="405" height="720"><span class="pl"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span><span class="vt"><b>Faisal Ahmed</b><small data-t="v3">Malegaon · Hajj 2026</small></span></button>
 </div>
 <div class="vgrid igg" id="igg"></div>
+</div>
 <h2 class="h sh rv" data-t="share">Share your experience</h2>
 <div class="card rv">
 <div class="mu" style="font-size:14px" data-t="how">How was your journey with us?</div>
@@ -1962,7 +1965,8 @@ const IGLOGO='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-
 function renderIg(){const c=$('#igc'),g=$('#igg');if(!c||!g)return;const h=$('[data-igh]');if(h)h.textContent=igt('h');
  c.innerHTML=IGK.map(k=>'<button type="button" role="tab" data-igk="'+k+'" class="'+(k===igTab?'on':'')+'" aria-selected="'+(k===igTab)+'">'+igSvg(IGI[k],1.9)+'<span>'+esc(igt(k))+'</span><small>'+(IGV[k].length+(k==='rv'?3:0))+'</small></button>').join('');
  $('#fbvg').hidden=igTab!=='rv';
- g.innerHTML=IGV[igTab].map((id,i)=>'<a class="igr'+(igTh(i)?' ph':'')+'" style="animation-delay:'+(i*60)+'ms'+(igTh(i)?';background-image:url('+igTh(i)+')':'')+'" href="https://www.instagram.com/reel/'+id+'/" target="_blank" rel="noopener" aria-label="'+esc(igt(igTab)+' '+(i+1)+' – '+igt('w'))+'"><span class="no">'+(i+1+(igTab==='rv'?3:0))+'</span>'+(igTh(i)?'':'<span class="ci"><svg viewBox="0 0 180 200" aria-hidden="true">'+IGA[igTab][i%IGA[igTab].length]+'</svg></span>')+'<span class="pp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg></span><span class="bt"><b>'+esc(igTh(i)?igSt(igTab):igt(igTab))+(igTh(i)?' · '+(i+1+(igTab==='rv'?3:0)):'')+'</b><small>'+IGLOGO+esc(igt('w'))+'</small></span></a>').join('')}
+ g.innerHTML=IGV[igTab].map((id,i)=>'<a class="igr'+(igTh(i)?' ph':'')+'" style="animation-delay:'+(i*60)+'ms'+(igTh(i)?';background-image:url('+igTh(i)+')':'')+'" href="https://www.instagram.com/reel/'+id+'/" target="_blank" rel="noopener" aria-label="'+esc(igt(igTab)+' '+(i+1)+' – '+igt('w'))+'"><span class="no">'+(i+1+(igTab==='rv'?3:0))+'</span>'+(igTh(i)?'':'<span class="ci"><svg viewBox="0 0 180 200" aria-hidden="true">'+IGA[igTab][i%IGA[igTab].length]+'</svg></span>')+'<span class="pp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg></span><span class="bt"><b>'+esc(igTh(i)?igSt(igTab):igt(igTab))+(igTh(i)?' · '+(i+1+(igTab==='rv'?3:0)):'')+'</b><small>'+IGLOGO+esc(igt('w'))+'</small></span></a>').join('');
+ {const t=[...($('#fbvg').hidden?[]:$('#fbvg').children),...g.children];t.forEach(x=>x.classList.remove('ig1'));if(t.length%2)t[t.length-1].classList.add('ig1')}}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-igk]');if(b){hap();sfx('tick');igTab=b.dataset.igk;renderIg();b.scrollIntoView&&$('[data-igk="'+igTab+'"]').scrollIntoView({block:'nearest',inline:'nearest',behavior:RM?'auto':'smooth'});return}
  if(e.target.closest('.igr'))hap()});
 
